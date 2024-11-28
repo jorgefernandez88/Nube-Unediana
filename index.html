@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enlaces de Grupos de WhatsApp</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1><i class="fab fa-whatsapp"></i> Grupos</h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="calculadoranotas.html"> <i class="fas fa-arrow-left"></i> Ir a la calculadora <i class="fas fa-calculator"> </i></a> </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!--Buscador de grupos -->
+        <div class="buscador-container">
+            <input type="text" id="buscador" placeholder="Busca grupos aquí">
+        </div>
+
+        <div class="container-encabezado-grupos">
+            <h2>Grupos Generales:</h2>
+            <p><i class="fas fa-users"></i> Estudiantes UNED General: <a href="https://chat.whatsapp.com/EXMun71PK1kC9dd7x451La" class="grupo-link"> Unirse</a></p>
+            <p><i class="fas fa-users"></i> Becados UNED: <a href="https://chat.whatsapp.com/CFlcV7vamsT226aPxnt93p" class="grupo-link"> Unirse</a></p>
+            <p><i class="fas fa-graduation-cap"></i> Graduandos UNED: <a href="https://chat.whatsapp.com/H2E6yt7pOoOJi7NxPzQWxh" class="grupo-link"> Unirse</a></p>
+            <p><i class="fab fa-telegram"></i> Telegram: <a href="https://t.me/EstudiantesUnedCR" class="grupo-link"> Unirse</a></p>
+            <p><i class="fab fa-whatsapp"></i> Canal de difusión WhatsApp: <a href="https://whatsapp.com/channel/0029Va7wk0DA89Mpn88JDh40" class="grupo-link"> Unirse al canal</a></p>
+            <p><i class="fas fa-grin"></i> Sigue a Educación a Distancia CR en <a href="https://www.facebook.com/educadcr"><i class="fab fa-facebook"></i></a></p>
+        </div>
+
+        <div class="grupo">
+            <h2><p><i class="fa fa-leaf"></i> Humanidades (Generales)</h2>
+            <button class="boton-expansion" onclick="toggle(this)">Ver grupos</button>
+            <div class="contenido-grupo">
+                <p> <i class="fas fa-users"></i> Grupo General Humanidades: <a href="https://chat.whatsapp.com/DXSEuG9AVoS67TNbCe1gJA" class="grupo-link"> Unirse</a></p>
+                <p><h5>Humanidades Diplomado</h5></p>
+                <p><i class="fas fa-book"></i> Módulo Historia:</p>
+                <p><i class="fab fa-whatsapp"></i> Historia de Costa Rica (00069): <a href="https://chat.whatsapp.com/EXMun71PK1kC9dd7x451La" class="grupo-link" > Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Historia de la Cultura (00023): <a href="https://chat.whatsapp.com/EXMun71PK1kC9dd7x451La" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Historia Latinoamericana con Perspectiva Centroamericana (05427): <a href="https://chat.whatsapp.com/EXMun71PK1kC9dd7x451La" class="grupo-link"> Unirse</a></p>
+                <p><i class="fas fa-book"></i> Módulo de Autorregulacion y Aprendizaje:</p>
+                <p><i class="fab fa-whatsapp"></i> Procesos y Estrategias para el Aprendizaje a Distancia (05442): <a href="https://chat.whatsapp.com/JxETKaBjLyLFZfFc1pu9CO"class="grupo-link"> Unirse</a></p>
+                <p><i class="fas fa-book"></i> Módulo de Literatura:</p>
+                <p><i class="fab fa-whatsapp"></i> Literatura Costarricense e Identidad Nacional (00060): <a href="https://chat.whatsapp.com/KXmd7wrOUzpI6i6zVanyq8" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Novela Hispanoamericana del Siglo XX (05413): <a href="https://chat.whatsapp.com/EysfqH9QMS27NeWeVMtRnD" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Lenguaje y Realidad Social (00061): <a href="https://chat.whatsapp.com/IsQAFs9lBxkJsnAgO01zhP" class="grupo-link"> Unirse</a></p>
+                <p><i class="fas fa-book"></i> Módulo de Filosofía y Pensamiento Científico:</p>
+                <p><i class="fab fa-whatsapp"></i> Perspectivas Filosóficas de la Ciencia (05440): <a href="https://chat.whatsapp.com/HrFV292Om29Frg8b6TDee2" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Ética y Política (05441): <a href="https://chat.whatsapp.com/HohODeDUjap147xLN0RIJF" class="grupo-link"> Unirse</a></p>
+                <p><h5>Humanidades Bachillerato</h5></p>
+                <p><i class="fas fa-book"></i> Módulo Estudios Culturales:</p>
+                <p><i class="fab fa-whatsapp"></i> Género y multiculturalismo en el arte contemporáneo (05437): <a href="https://chat.whatsapp.com/Kx5FeElBsCwLnkrJWIXr3X" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Género y derechos humanos (05436): <a href="https://chat.whatsapp.com/DzSFO82D9Ek4L1Df8eiDJg" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Arte y Realidad Latinoamericana (05438): <a href="https://chat.whatsapp.com/CE0RLsSmI5uGefnYeFRmLI" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Arte y Cultura Popular Costarricense (05439): <a href="https://chat.whatsapp.com/B7zltloYn4bK8XpFBpU5q3" class="grupo-link"> Unirse</a></p>
+                <p><i class="fas fa-book"></i> Módulo de Investigación Social y Ambiente:</p>
+                <p><i class="fab fa-whatsapp"></i> Globalizacion y ambiente (00076): <a href="https://chat.whatsapp.com/GV7bjsK2TSL3hbvAHSFXLV" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Introducción a la Metodología de la investigación (05435): <a href="https://chat.whatsapp.com/BoebwwIAtZF68louKxtolg" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Perspectivas Sociologicas de la realidad costarricense (05414): <a href="https://chat.whatsapp.com/F6LX1nTiKErCrGqLyOcv9p" class="grupo-link"> Unirse</a></p>
+            </div>
+        </div>
+
+        <div class="grupo">
+            <h2><i class="fas fa-building"></i> Grupos de Sedes</h2>
+            <button class="boton-expansion" onclick="toggle(this)">Ver grupos</button>
+            <div class="contenido-grupo">
+                <p><i class="fab fa-whatsapp"></i> Acosta: <a href="https://chat.whatsapp.com/EmaVEMCyloC5b9bRgtzvfr" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Alajuela: <a href="https://chat.whatsapp.com/K8ELexdS3gd4XouZf278Ti" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Atenas: <a href="https://chat.whatsapp.com/K5g6Mdjzv4uJjkWJPGVtCz" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Buenos Aires: <a href="https://chat.whatsapp.com/HpFyIYqOjAoHp4V1YJlQuF" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Cañas: <a href="https://chat.whatsapp.com/LV4qf0NChYgJ8vPPqPsrdS" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Cartago: <a href="https://chat.whatsapp.com/Eta8JWo9LnaFY6tXT8XzBI" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Ciudad Neily: <a href="https://chat.whatsapp.com/ByFAk03PuGI0YKLFUuTLt1" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Desamparados: <a href="https://chat.whatsapp.com/ImxgRW4dl6t4GiBkjdfvFo" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Guápiles: <a href="https://chat.whatsapp.com/HL9XbQAEvEE1lFbh4cYEgl" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Heredia: <a href="https://chat.whatsapp.com/Ganmuvv8kf69t0SJzGV6y0" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Jicaral: <a href="https://chat.whatsapp.com/KBJDcb3g84n965jIhTzsOC" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Limón: <a href="https://chat.whatsapp.com/F3caRclsIriAOnicVLEs28" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Nicoya: <a href="https://chat.whatsapp.com/FTiy9bKPo8e3PpsNsOZ3ab" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Osa: <a href="https://chat.whatsapp.com/FfwsySRsnOC5U3IELhKLv8" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Palmares: <a href="https://chat.whatsapp.com/IDk7V1hnbr88JFVfBpIomZ" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Perez Zeledón: <a href="https://chat.whatsapp.com/JHMN0Ho6yjLJmfWfUBlh1Q" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Puerto Jiménez: <a href="https://chat.whatsapp.com/G11414DDHRZBGgdoBLJe88" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Puriscal: <a href="https://chat.whatsapp.com/BncjRbKPs5QJGDbWrkTqdG" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Puntarenas: <a href="https://chat.whatsapp.com/E0Rsv1DhonTJ1YCS8q51iL" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> San Carlos: <a href="https://chat.whatsapp.com/I6wNblBKmkQ9ulsbGRlQNi" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> San José: <a href="https://chat.whatsapp.com/GYbVz69UZ2NJIOLrzMd4n0" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> San Marcos: <a href="https://chat.whatsapp.com/DL5vNjW29E42ZgkBzCWf29" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> San Vito: <a href="https://chat.whatsapp.com/ImXc2jAkriQLWHikeAMPKZ" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Santa Cruz: <a href="https://chat.whatsapp.com/EDiOCuKDA6e0NHcUaZ4lmg" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Sarapiquí: <a href="https://chat.whatsapp.com/DnzwG2wbVCrHAmauBURKIW" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Siquirres: <a href="https://chat.whatsapp.com/Fwge5wEiEpJKRZiPjoF1iV" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Turrialba: <a href="https://chat.whatsapp.com/EvlX4K8aAG1EmxDYwThIVR" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Upala: <a href="https://chat.whatsapp.com/BMvCG6QkBnXGpjoIk5Bn1V" class="grupo-link">Unirse</a></p>
+            </div>
+        </div>
+
+        <div class="grupo">
+            <h2><i class="far fa-comments"></i> Inglés CONARE</h2>
+            <button class="boton-expansion" onclick="toggle(this)">Ver grupos</button>
+            <div class="contenido-grupo">
+                <p><i class="fas fa-users"></i> Gupo General: <a href="https://chat.whatsapp.com/BI3HZbZjiag1JN3BMJS0hV" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Inglés Conare Principiante: <a href="https://chat.whatsapp.com/Lmeqq6yEsKp7n80XUPTv58" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Inglés Conare Preintermedio: <a href="https://chat.whatsapp.com/Cl4l4vo82W9Ga2q4Kd97fZ" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Inglés Conare Intermedio: <a href="https://chat.whatsapp.com/DHgB9FeUUBnIL1oejY5lFR" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Inglés Conare Intermedio Alto: <a href="https://chat.whatsapp.com/CpRw61uCPqY2cFVVSFwRQn" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Inglés Conare Avanzado: <a href="https://chat.whatsapp.com/FDC6XwjoQeWAUdPq68OXnm" class="grupo-link">Unirse</a></p>
+            </div>
+        </div>
+
+        <div class="grupo">
+            <h2><i class="fas fa-business-time"></i> Administración de Empresas Diplomado</h2>
+            <button class="boton-expansion" onclick="toggle(this)">Ver grupos</button>
+            <div class="contenido-grupo">
+                <p><i class="fas fa-users"></i> Gupo General: <a href="https://chat.whatsapp.com/Cghri4h7Ab2KGswhCudyXE" class="grupo-link"> Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque A:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Administración General (00203): <a href="https://chat.whatsapp.com/KXg6N2QZol57XrlNXzJ4aY" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Contabilidad 1 (00226): <a href="https://chat.whatsapp.com/JvU6IC1yFNiK8gZAcGt0QE" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Matemática para Administradores 1 (00491): <a href="https://chat.whatsapp.com/E4BIVxcxhke7tZCrbM5pDc" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque B:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Estadística I (00104): <a href="https://chat.whatsapp.com/Ji0ZC0vDFGD4rYZ7OXulge" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Contabilidad 2 (00227): <a href="https://chat.whatsapp.com/JNm2kTfMm0V2CIo71Mxl79" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Matemática para Administradores 2 (00492): <a href="https://chat.whatsapp.com/HQOQxx4Ow7L7c8YmZKsUoD" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Administración de Recursos Humanos (00208): <a href="https://chat.whatsapp.com/D7P6AQcrQlw2swF1SsuwaJ" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque C:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Estadística II (00250): <a href="https://chat.whatsapp.com/JU4TOE4iVZU5JLeeiCYXnS" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Mercadeo 1 (04120): <a href="https://chat.whatsapp.com/IWDflJFmNiy0EXqIqsVkoV" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Economía General (1026): <a href="https://chat.whatsapp.com/KtmsLnB78aE92D1hFaMkaG" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Matemática Financiera (00413): <a href="https://chat.whatsapp.com/KyZKx7cnciN5YSJZGZFNSK" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque D:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Empresarialidad (04121): <a href="https://chat.whatsapp.com/IrFt4UbszVOEtPSY97IZSM" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Derecho Empresarial 1 (5309): <a href="https://chat.whatsapp.com/Itrep6oQ9WAFr8KpiwC8xe" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Finanzas de Corto Plazo (04099): <a href="https://chat.whatsapp.com/J4vlQieHJI5G8cnLODel1p" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Inglés Empresarial 1 (05481): <a href="https://chat.whatsapp.com/Eu20ZllOTQG8wIwVdf0zpH" class="grupo-link">Unirse</a></p> 
+            </div>
+        </div>
+
+        <div class="grupo">
+            <h2><i class="fas fa-glasses"></i> Recursos Humanos Bachillerato</h2>
+            <button class="boton-expansion" onclick="toggle(this)">Ver grupos</button>
+            <div class="contenido-grupo">
+                <p><i class="fas fa-users"></i> Gupo General: <a href="https://chat.whatsapp.com/G1nMGcqrsQQD6PFLJk8Xz8" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Planificación de Recursos Humanos: <a href="https://chat.whatsapp.com/KGwkmsqEarn0IKXlvRvwL4" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Comportamiento Organizacional (00925): <a href="https://chat.whatsapp.com/BOhH0WTcTfyEEYV5FxPEOu" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Derecho del Trabajo: <a href="https://chat.whatsapp.com/Jp3VrZ5k5LyIhe7JL7fwN7" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Análisis y Diseño de Puestos: <a href="https://chat.whatsapp.com/HE9xVwDP2kyA2FwtkPcTBP" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Derecho Empresarial II (05112): <a href="https://chat.whatsapp.com/IYhe9vlbG416xWzsmbjrXn" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Seguridad y salud ocupacional: <a href="https://chat.whatsapp.com/HNmMYGepVVoLJ85QdLcGKI" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Métodos de Investigación Científica: <a href="https://chat.whatsapp.com/KtMgz0prkCfDqlSeDl0iZt" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Reclutamiento y Selección (04003): <a href="https://chat.whatsapp.com/2ewYgZ9Y6B2JrEfnCfjaRA" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Capacitación y Desarrollo de Recursos Humanos (04070): <a href="https://chat.whatsapp.com/HbTuvl4iCPZHG8fVAFwtws" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Métodos de Investigación Cuantitativa (04058): <a href="https://chat.whatsapp.com/FTtHziPe38y3Odpsk7jSMj" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Administración de Salarios (04078): <a href="https://chat.whatsapp.com/G9eW7rpAFUPH5fRFqBW6yN" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Evaluación del Desempeño (04126): <a href="https://chat.whatsapp.com/Fwq6aKK4tirAiHpvHG4H7R" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Preparación y evaluación de proyectos: <a href="https://chat.whatsapp.com/KYwTeLyCLG869nBA8mDGn2" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Métodos de Investigación Cualitativa (04056): <a href="https://chat.whatsapp.com/BhLUd0ruQHK3hkAJvtc5aN" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Evaluación de la Gestión de los Recursos Humanos (04072): <a href="https://chat.whatsapp.com/B68ZjlYFJAQ9aKeLTTzqxb" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Estrategia Empresarial 1: <a href="https://chat.whatsapp.com/JsV2YIFKFQOC72r5T4yeas" class="grupo-link">Unirse</a></p>
+            </div>
+        </div>
+
+        <div class="grupo">
+            <h2><i class="fas fa-coins"></i> Contaduría Bachillerato</h2>
+            <button class="boton-expansion" onclick="toggle(this)">Ver grupos</button>
+            <div class="contenido-grupo">
+                <p><i class="fas fa-users"></i> Gupo General: <a href="https://chat.whatsapp.com/FlFPgzLNm7JHrSKHPpGW1q" class="grupo-link"> Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque E:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Introducción a las NIC-NIIF (04134): <a href="https://chat.whatsapp.com/IuI9668eM2uFJm2hV1BBKE" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Finanzas de Mediano y Largo Plazo (04100): <a href="https://chat.whatsapp.com/EOTmqRTCHxG8PhMItMYqD9" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Microeconomía (00245): <a href="https://chat.whatsapp.com/GIa1vfuS2vf6uhwLZSkdDy" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Derecho Empresarial I (05112): <a href="https://chat.whatsapp.com/CpwhAgEX61F3I74PqBFWFF" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque F:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Macroeconomía (00544): <a href="https://chat.whatsapp.com/DivXSXGhqbL7V2LQEDgAwu" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Contabilidad III (00230): <a href="https://chat.whatsapp.com/LfHntFeB8cfDrRKHud6bcC" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Valuación de Activos Financieros (04101): <a href="https://chat.whatsapp.com/CBBMw6WI2RH2Pg4pwmqFDo" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Contabilidad Aplicada en Tributario (04138): <a href="https://chat.whatsapp.com/DwfTySTCXhP5nxNchcD3e5" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque G:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Contabilidad IV (00488): <a href="https://chat.whatsapp.com/HQeymd57Q4XFPRhuYiXCR6" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Métodos de Investigación Científica (04057): <a href="https://chat.whatsapp.com/KtMgz0prkCfDqlSeDl0iZt" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Estrategia Empresarial (00453): <a href="https://chat.whatsapp.com/KDAE2yxpOGzDAJVDkV1BI1" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque H:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Contabilidad V (00481): <a href="https://chat.whatsapp.com/BdAqeewZNaI3InNBCXAbRJ" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Contabilidad de Costos (04135): <a href="https://chat.whatsapp.com/J4LjVlrwovg9wNDC1HyS50" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Métodos de Investigación Cuantitativa (04058): <a href="https://chat.whatsapp.com/GIs6liucWvlCihZ7cBGYQR" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Tópicos Avanzados de Costos de Servicios (04139): <a href="https://chat.whatsapp.com/HJXDGH0oWCmJamI5Azk9sI" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque I:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Contabilidad Gubernamental (04098): <a href="https://chat.whatsapp.com/Kw9UMqEqtnjGkX7DwVRNj2" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Auditoría I (00445): <a href="https://chat.whatsapp.com/FFv5QWu1Mf8BUVZfOB0xV3" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Preparación y Evaluación de Proyecto (00535): <a href="https://chat.whatsapp.com/KYwTeLyCLG869nBA8mDGn2" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Métodos de Investigación Cualitativa (04056): <a href="https://chat.whatsapp.com/JmVKQ9fw4TH2r1a1rWV3aP" class="grupo-link">Unirse</a></p>  
+            </div>
+        </div>
+
+        <div class="grupo">
+            <h2><i class="fas fa-stethoscope"></i> Administración de Servicios de Salud Diplomado</h2>
+            <button class="boton-expansion" onclick="toggle(this)">Ver grupos</button>
+            <div class="contenido-grupo">
+                <p><i class="fas fa-users"></i> Gupo General: <a href="https://chat.whatsapp.com/BRBeScCwFBuJKIqzWiBchK" class="grupo-link"> Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque A:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Comunicación Oral y Escrita (00709): <a href="https://chat.whatsapp.com/GAntL7SsI176dFy8kACUvW" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Principios de Administración (04038): <a href="https://chat.whatsapp.com/CIenVylEJW3394Nq1eM54e" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Matemática para Administradores I (00491): <a href="https://chat.whatsapp.com/E4BIVxcxhke7tZCrbM5pDc" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Educación para la Salud (00111): <a href="https://chat.whatsapp.com/DPQvil7Gyx58Ut3BIz2hXM" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque B:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Contabilidad I (00226): <a href="https://chat.whatsapp.com/JvU6IC1yFNiK8gZAcGt0QE" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Salud y Sociedad (03269): <a href="https://chat.whatsapp.com/H7XY8kQgKN9HSRsRBtesPV" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Estadística en Salud I (03164): <a href="https://chat.whatsapp.com/Ca3wsPXfRnJKtAinwkjnUs" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Inglés Empresarial I (05481): <a href="https://chat.whatsapp.com/Eu20ZllOTQG8wIwVdf0zpH" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> TIC en Administración de Servicios de Salud (03550): <a href="https://chat.whatsapp.com/CfejBoGR3Zm4C2U4Tsb9gs" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque C:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Contabilidad II (00227): <a href="https://chat.whatsapp.com/JNm2kTfMm0V2CIo71Mxl79" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Estadística en Salud II (03165): <a href="https://chat.whatsapp.com/DZ8HYiAwk93Gi5ZMauntMi" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Administración de Recursos Humanos (00208): <a href="https://chat.whatsapp.com/D7P6AQcrQlw2swF1SsuwaJ" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Economía General (01026): <a href="https://chat.whatsapp.com/KtmsLnB78aE92D1hFaMkaG" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque D:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Matemática Financiera (00413): <a href="https://chat.whatsapp.com/KyZKx7cnciN5YSJZGZFNSK" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Derecho de las Organizaciones (05523): <a href="https://chat.whatsapp.com/K9d3QDyi34GGZ99npNlO0Z" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Mercadeo I (04120): <a href="https://chat.whatsapp.com/IWDflJFmNiy0EXqIqsVkoV" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Salud y Ética Profesional (03163): <a href="https://chat.whatsapp.com/CJUYnbpAGRO7qvvrqnvvS3" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque E:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Finanzas de Corto Plazo (04099): <a href="https://chat.whatsapp.com/J4vlQieHJI5G8cnLODel1p" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Epidemiología Básica (00603): <a href="https://chat.whatsapp.com/BScx2hCcSF3BMoDIXYO7LK" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Administración de Servicios de Salud (00749): <a href="https://chat.whatsapp.com/ElVNAuRmncFK3sbsyPjZ5W" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Metodología de la Investigación para Administradores Servicios de Salud I (03547): <a href="https://chat.whatsapp.com/GeL9M24c2wnI58iVkp541d" class="grupo-link">Unirse</a></p>
+            </div>
+        </div>
+
+        <div class="grupo">
+            <h2><i class="fas fa-laptop-code"></i> Informática Diplomado</h2>
+            <button class="boton-expansion" onclick="toggle(this)">Ver grupos</button>
+            <div class="contenido-grupo">
+                <p><i class="fas fa-users"></i> Grupo General: <a href="https://chat.whatsapp.com/Be6LTENUhHIEWpbgGRq9E7" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Lógica Algoritmica (3304): <a href="https://chat.whatsapp.com/IPKszYKVOZdAsRcmRjW9fD" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Matemáticas para Computación 1 (3068): <a href="https://chat.whatsapp.com/FaXHab8cdP2Itpl97VyJnK" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Inglés para Informática (0997): <a href="https://chat.whatsapp.com/BubbvBxCOTS6W3EMtSQdc4" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Principios de Administración (4038): <a href="https://chat.whatsapp.com/CIenVylEJW3394Nq1eM54e" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Lógica para Computación (3071): <a href="https://chat.whatsapp.com/Do0c5asoVHtJAbcEVzsiLW" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Inglés para Informática II (3072): <a href="https://chat.whatsapp.com/CYgUUfYutecFQ2MTRn0gaA" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Introducción a la Programación (0831): <a href="https://chat.whatsapp.com/EwvNrTHCkqMAEsrxuBkyD8" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Organización de Computadoras (0823): <a href="https://chat.whatsapp.com/GIeDKrSixN84gJDTswQbGX" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Contabilidad I (0226): <a href="https://chat.whatsapp.com/JvU6IC1yFNiK8gZAcGt0QE" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Estadística I (0104): <a href="https://chat.whatsapp.com/Ji0ZC0vDFGD4rYZ7OXulge" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Programación Intermedia (0824): <a href="https://chat.whatsapp.com/BS4A9Dg4cCKAN6Hgye0KJw" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Base de Datos (0826): <a href="https://chat.whatsapp.com/ByDzIbeMxm02KYQJlqtPNG" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Arquitectura de Computadores (3306): <a href="https://chat.whatsapp.com/JsYt5fgDpVlCGnuWJgqgHs" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Telematica y Redes (0883): <a href="https://chat.whatsapp.com/FhrI2sQ1JVL6Zq63Q1WKxq" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Ingeniería de Software (3300): <a href="https://chat.whatsapp.com/D0uPmeDVNbw7SXMm6u7WE4" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Programación Avanzada (0830): <a href="https://chat.whatsapp.com/HOOyNMuzZg8CWzLLVUP8kV" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Estructura de Datos (0825): <a href="https://chat.whatsapp.com/EpzBl7DO0V923WDaQuQqn3" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Sistemas Operativos (0881): <a href="https://chat.whatsapp.com/IRdoU56W5iVIxyPIHtMSwq" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Matemática para Computación II (3069): <a href="https://chat.whatsapp.com/KRESBCzCOMd9gimC2WdN5T" class="grupo-link"> Unirse</a></p>
+            </div>
+        </div>
+
+        <div class="grupo">
+            <h2><i class="fas fa-laptop-code"></i> Informática Bachillerato</h2>
+            <button class="boton-expansion" onclick="toggle(this)">Ver grupos</button>
+            <div class="contenido-grupo">
+                <p><i class="fas fa-users"></i> Gupo General: <a href="https://chat.whatsapp.com/Bmy5zulvuZr6dimDwDBFch" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Análisis y Diseño de Sistemas (03301): <a href="https://chat.whatsapp.com/I3mDjkqSoHaABKUyAKSTUv" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Fundamentos de Programación Web (03075): <a href="https://chat.whatsapp.com/BZZQX7ITuZ08bRs5QWKoXm" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Compiladores (03307): <a href="https://chat.whatsapp.com/HZWr31UPgbN7eCKTeMRose" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Ingeniería de Requerimientos (03384): <a href="https://chat.whatsapp.com/Bv3KaRkossXARAGhKSqhOw" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Bases de datos II (03384): <a href="https://chat.whatsapp.com/H2mVK6EAHEwLJCUlejo3uk" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Soporte Técnico (03308): <a href="https://chat.whatsapp.com/EnSnMTKNslNFv1gKE3lc9v" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Seguridad y Auditoria en las TIC (03070): <a href="https://chat.whatsapp.com/IqpdofWDqq6Es1usHcTAoj" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Telematica y Redes II (03076): <a href="https://chat.whatsapp.com/FxtFcXvkpdFIT4qQJNUJhP" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Administración TIC (03305): <a href="https://chat.whatsapp.com/B6Oz6mXE1RqA5wGMqhGEWE" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Investigación Operaciones para Ingeniería (03029): <a href="https://chat.whatsapp.com/KfZqUcJh3nr5yeVvygMj4D" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Autogestion y Desarrollo Empresarial (03029): <a href="https://chat.whatsapp.com/HpfmGLOSTgHBl5YHA2pvMx" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Tendencias en las TIC (03077): <a href="https://chat.whatsapp.com/FuITMZZZM3Z5PXlb1mbOgp" class="grupo-link"> Unirse</a></p>
+            </div>
+        </div>
+
+        <div class="grupo">
+            <h2><p><i class="fa fa-satellite-dish"></i> Ingeniería Telecomunicaciones Bachillerato</h2>
+            <button class="boton-expansion" onclick="toggle(this)">Ver grupos</button>
+            <div class="contenido-grupo">
+                <p><i class="fas fa-users"></i> Gupo General: <a href="https://chat.whatsapp.com/Dh4FUiRhXiXA3pTaYUwRuC" class="grupo-link"> Unirse</a></p>
+                <p><h5>Asignaturas Nivelatorias:</h5></p>
+                <p><h5>Opción 1:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> (03311) Matemática Nivelatoria (Semestral): <a href="https://chat.whatsapp.com/GVfTwAcpqrdD3ST0j4hpz3" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> (03465) Química Nivelatoria (cuatrimestral) - /- (03310) Química nivelatoria (Semestral): <a href="https://chat.whatsapp.com/FzeVv1sSgv7DUpPrT3hgmU" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> (03466) Física Nivelatoria (cuatrimestral) - /- (03312) Física nivelatoria (Semestral): <a href="https://chat.whatsapp.com/HMFOoVciVmvGl7RNqP0EWz" class="grupo-link"> Unirse</a></p>
+                <p><h5>Opción 2:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> (03464) Elementos de Matemática Nivelatoria (cuatrimestral): <a href="https://chat.whatsapp.com/IA2jCgZ7L8h63P9hEFdMdC" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> (03465) Química Nivelatoria (cuatrimestral): <a href="https://chat.whatsapp.com/HVB7U6mEbXS6JAtSRKGJFh" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> (03466) Física Nivelatoria (cuatrimestral): <a href="https://chat.whatsapp.com/IvUcxl298B873w8yB3bUkZ" class="grupo-link"> Unirse</a></p>
+                <p><h5>Opción 3:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> (00491) Matemáticas para Administradores I (cuatrimestral): <a href="https://chat.whatsapp.com/E4BIVxcxhke7tZCrbM5pDc" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> (03465) Química Nivelatoria (cuatrimestral): <a href="https://chat.whatsapp.com/FzeVv1sSgv7DUpPrT3hgmU" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> (03466) Física Nivelatoria (cuatrimestral) : <a href="https://chat.whatsapp.com/HMFOoVciVmvGl7RNqP0EWz" class="grupo-link"> Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Grupos plan de carrera:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Cálculo I y Aplicaciones (03468): <a href="https://chat.whatsapp.com/EI4URIkz9lY7TWNblgS71I" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Lógica para Ingeniería (03467): <a href="https://chat.whatsapp.com/EP95E75Kw6OLJU84eF9WHI" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Cálculo II y Aplicaciones (03469): <a href="https://chat.whatsapp.com/BfN8Zsc9e0n0JfaluTMizU" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Química General I  (03114): <a href="https://chat.whatsapp.com/J5zFlWCh7C51RU7FYCgv4P" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Laboratorio de Química I (03064): <a href="https://chat.whatsapp.com/JEpBho3kz0f4wsxrdVo6hR" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Álgebra Lineal y Aplicaciones  (03470): <a href="https://chat.whatsapp.com/DcMa3DCCFCBC89eVXtfh5Z" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Cálculo III y Aplicaciones (03471): <a href="https://chat.whatsapp.com/CitJuiC5KHk4dqMEchBSxL" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Física I (03475): <a href="https://chat.whatsapp.com/E2BEAt1OZCR9nyEyi0680U" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Laboratorio de Física I (03476): <a href="https://chat.whatsapp.com/JhTZC37yhFfARPjqJDgOzu" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Física II (03482): <a href="https://chat.whatsapp.com/FYxOy3uKtem0RcDm7PzcfD" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Laboratorio de Física II (03477): <a href="https://chat.whatsapp.com/HAdjVdgNQOF2CjFuZVpfNO" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Ecuaciones Diferenciales y aplicaciones (03483): <a href="https://chat.whatsapp.com/DmO4jYHTNlO6QXfkMZ0NtO" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Introducción a la Ingeniería en Telecomunicaciones (03478): <a href="https://chat.whatsapp.com/ETDmCDSxU8g0q7mAO47vXz" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Química General II (03115): <a href="https://chat.whatsapp.com/GRvnXf5MxRrKuwTx3dvGrT" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Física III (03491): <a href="https://chat.whatsapp.com/BZnfLdCDMEV6saRo0yrRtw" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Laboratorio de Física III (03492): <a href="https://chat.whatsapp.com/CB1ZePguBFIBvPjypoujbP" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Análisis de Señales y Sistemas (03486): <a href="https://chat.whatsapp.com/EgC6Xkl0MvbHYJss43FYPr" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Estadística para Ingeniería (03479): <a href="https://chat.whatsapp.com/CRj6ohmJKSA6N85kjT5V1k" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Redes Eléctricas I (03480): <a href="https://chat.whatsapp.com/EfbpjtTMw979JaZ80Ujvqe" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Fibra Óptica (03487): <a href="https://chat.whatsapp.com/IVMZUyw7V4tLavWmPfOBvt" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Electrónica General (03488): <a href="https://chat.whatsapp.com/LvkgdszGrP7JKHoB3ZPHW9" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Diseño gráfico para redes de Telecomunicaciones (03485): <a href="https://chat.whatsapp.com/L2WpWgirJd150WiH2GOrkV" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Laboratorio de Sistemas de Instrumentación I (03489): <a href="https://chat.whatsapp.com/JOmCNgK55pL816cDwKQYn0" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Redes Eléctricas II (03484): <a href="https://chat.whatsapp.com/G68C7ufFTb8K0FA9iaIfOP" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Administración de la Ingeniería (03481): <a href="https://chat.whatsapp.com/CigHoyCQnuLL1FCyWcbvh0" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Cableado Estructurado (03522): <a href="https://chat.whatsapp.com/B7D73YEtqFP6xyVPxgeg3C" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Electrónica Avanzada (03521): <a href="https://chat.whatsapp.com/GnpgkcOGTDt0d31lRJ7jvv" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Arquitectura de ordenadores para Telecomunicaciones (03526): <a href="https://chat.whatsapp.com/JNtUQeYihun7zJVCTvZMHt" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Laboratorio de Sistemas de Instrumentación II (03624): <a href="https://chat.whatsapp.com/HpY4uXl1Fj2482ExY3mwgc" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Teoría Electromagnética I (03523): <a href="https://chat.whatsapp.com/Djj4oPZ51C83SDOfv1MSgt" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Enlaces de radio y móviles (03537): <a href="https://chat.whatsapp.com/F5aYybl140QI8CNGD7wzss" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Sistemas de Comunicaciones Electrónicas I (03539): <a href="https://chat.whatsapp.com/IKJrqOiJ212KNnc7QszgEB" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Infraestructura de Hardware y Software TIC (03538): <a href="https://chat.whatsapp.com/CDsOczqwEby8ZlCeaHkv5d" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Teoría Electromagnética II (03543): <a href="https://chat.whatsapp.com/BrmCuZcJz5nDR6NdPjgCfH" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Sistemas de telefonía fija y móvil (03541): <a href="https://chat.whatsapp.com/Jf2jBYEyW8aHQDYJEjvmu4" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Sistemas de Comunicaciones Electrónicas II (03558): <a href="https://chat.whatsapp.com/IklepSVPPfc4KitAfH4aeI" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Arquitectura de la Red de Internet y Tecnologías IoT (03555): <a href="https://chat.whatsapp.com/Cd6yeCwjnaFEilm9ciKZMq" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Sistemas de Redes de Telecomunicaciones (03542): <a href="https://chat.whatsapp.com/EIN0Y0zp2ceB8pzkRTIVGu" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Sistemas de comunicaciones Unificadas (03540): <a href="https://chat.whatsapp.com/BIP3lFLINsu7xPA799xj7O" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Métodos y técnicas de investigación para Telecomunicaciones (03553): <a href="https://chat.whatsapp.com/EJc3RIJaoLL97kbvyfz1BE" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Sistemas de Televisión (03559): <a href="https://chat.whatsapp.com/IM8rkwmDass2ZajDvrIcG4" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Redes Telemáticas y protocolos de enrutamiento (03554): <a href="https://chat.whatsapp.com/FdZo32gZYTTGbN89X5nz07" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Gestión y monitoreo de Redes de Telecomunicaciones (03556): <a href="https://chat.whatsapp.com/DRXarcFUiJa4DedlnlJaOc" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Sistemas de virtualización (03557): <a href="https://chat.whatsapp.com/GOZmMWC5hle05riMxe8dbb" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Práctica Dirigida en Telecomunicaciones (09014): <a href="https://chat.whatsapp.com/KT0Nq96DzOv9XIJPOf9BcF" class="grupo-link">Unirse</a></p>
+            </div>
+        </div>
+
+        <div class="grupo">
+            <h2><i class="fas fa-apple-alt"></i> Preescolar Diplomado</h2>
+            <button class="boton-expansion" onclick="toggle(this)">Ver grupos</button>
+            <div class="contenido-grupo">
+                <p><i class="fas fa-users"></i> Gupo General: <a href="https://chat.whatsapp.com/HcX2qs5ssPO36TBj1qPbhm" class="grupo-link"> Unirse</a></p> 
+                <p><h5> <i class="fas fa-book"></i>  Bloque A:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Introducción a Educación Preescolar (02047): <a href="https://chat.whatsapp.com/CRotpDmwQmS1ies4Qw4g2v" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Fundamentos y metodología de la investigación en educación I (02095): <a href="https://chat.whatsapp.com/HkKWnaqaOSH0JTlWfH1dn0" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Desarrollo humano en la diversidad de 0 a 3 años (05313): <a href="https://chat.whatsapp.com/Ijai91wGv2F1tvFDtfxwxE" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Inglés Instrumental para Educadores (02223): <a href="https://chat.whatsapp.com/IYre0sry45M5QzpdfPJkzg" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque B:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Actividad lúdica en preescolar (02129): <a href="https://chat.whatsapp.com/KMNE2pL5tdeItyE1hwR4Jo" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Comunicación oral y escrita (00709): <a href="https://chat.whatsapp.com/GAntL7SsI176dFy8kACUvW" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Fundamentos del Currículum (00388): <a href="https://chat.whatsapp.com/Cd3JUq03mvQE5M20k1VCsq" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Desarrollo del pensamiento científico I (02137): <a href="https://chat.whatsapp.com/JXBYGOjXW6CFlyp5iWKt3u" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque C:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Recreación para preescolar 3 (02181): <a href="https://chat.whatsapp.com/DqFPjudBlZT5Uv1qBmXR4y" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Material didáctico para la educación Preescolar (02043): <a href="https://chat.whatsapp.com/LSwcy5J61P15pA0FNEhq1m" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Desarrollo del pensamiento lógico matemático I (02141): <a href="https://chat.whatsapp.com/G3brPmBdsL18simTFPPO79" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Educación costarricense (00101): <a href="https://chat.whatsapp.com/Hmj5EfmxMQD45Inzo25NU7" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque D:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Desarrollo del pensamiento lingüístico I (02139): <a href="https://chat.whatsapp.com/BzYBcmvWmV4GtVlskyLrGa" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Planeamiento didáctico para preescolar (02136): <a href="https://chat.whatsapp.com/IYKGEilWAAXDNrHolcG5JG" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Literatura para el niño preescolar (00731): <a href="https://chat.whatsapp.com/KgW1gbJDSR8HldNJOQZcPW" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Los recursos educativos digitales en el desarrollo integral de la niñez (02225): <a href="https://chat.whatsapp.com/KBMqvtzWDdp8eYjl6FXQUV" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque E:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Salud integral (02143): <a href="https://chat.whatsapp.com/GBqyFbTvNV9JVMYKw0infE" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Desarrollo socio cultural de la niñez I (02150): <a href="https://chat.whatsapp.com/KgMyJO7BIj17fk5G5927St" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Música para el niño preescolar (00730): <a href="https://chat.whatsapp.com/EEm3Dz7C1lQLeAidHg4NLR" class="grupo-link">Unirse</a></p>
+            </div>
+        </div>
+
+        <div class="grupo">
+            <h2><i class="fas fa-apple-alt"></i> Preescolar Bachillerato</h2>
+            <button class="boton-expansion" onclick="toggle(this)">Ver grupos</button>
+            <div class="contenido-grupo">
+                <p><i class="fas fa-users"></i> Gupo General: <a href="https://chat.whatsapp.com/DLIRZbvlAz48XuWaNUlRoP" class="grupo-link"> Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque F:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Mediación pedagógica (02130): <a href="https://chat.whatsapp.com/ImxqdFkN9bS6WreqMB26PI" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Inglés Instrumental para Educadores II (02224): <a href="https://chat.whatsapp.com/CCkMDuAgyh2Cz40zabR31O" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Familia, niñez y adolescencia (05320): <a href="https://chat.whatsapp.com/KDsr2SVL7fRAe9aAAX6vCW" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque G:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Tecnologías de Información, comunicación y educación Preescolar (02086): <a href="https://chat.whatsapp.com/Ivw9HBMgRUQD2kRq2UfkNJ" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Desarrollo humano en la diversidad de 3 a 6 años: <a href="https://chat.whatsapp.com/BEBJcujpPipLXGWoetan5s" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Impostación de la voz (05322): <a href="https://chat.whatsapp.com/Lhat49vGAJGB1tjLs5rCdi" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque H:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Desarrollo del pensamiento lingüístico II (02140): <a href="https://chat.whatsapp.com/HZb6146owHeDk4xrfeKHOh" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Extensión del centro infantil a la comunidad (00726): <a href="https://chat.whatsapp.com/F3TsSr7ASIqH9b6EwIDTCY" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Educación psicomotriz de 0-6 años (02151): <a href="https://chat.whatsapp.com/JqTnrljvs5ZD7F6RHpEX5X" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Familia, género y sociedad (05001): <a href="https://chat.whatsapp.com/Cy8nAcBP9KDCN8zbrPr99w" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque I:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Apoyos para el aprendizaje y la participación estudiantil desde un enfoque inclusivo I (02206): <a href="https://chat.whatsapp.com/Ba4Zh8MiYLH3wnVYZo68k4" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Estrategias para la convivencia escolar en contextos educativos inclusivos (02209): <a href="https://chat.whatsapp.com/GonAIqYDkMsFxwtKkUCgVt" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Teoría del aprendizaje (00999): <a href="https://chat.whatsapp.com/JpI3cGayuFJF2215HAL655" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Diagnóstico familiar y comunal para Educación Preescolar (02083): <a href="https://chat.whatsapp.com/ClxtVGD9cFl279xR8EuJfy" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque J:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Valoración pedagógica del desarrollo evolutivo de la niñez de 0 a 6 años (02227): <a href="https://chat.whatsapp.com/Ce2LYUryeG84kLfSfDkNOS" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Fundamentos y metodología de la investigación en educación II (02096): <a href="https://chat.whatsapp.com/G3GFMaTEpzyGgB7Tg1iocX" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Dinámica familiar en el proceso de desarrollo de la niñez de 0 a 6 años (05308): <a href="https://chat.whatsapp.com/KWGRokgmgiDIkhnOqNTsNL" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Ética profesional docente (00768): <a href="https://chat.whatsapp.com/HY3ZPwmx6fQDWeUgzA2USK" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  ELECTIVA:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Investigación en el aula (03179): <a href="https://chat.whatsapp.com/HcAgzCHzx831GOSngB7SFr" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Elementos generales acerca de la violencia doméstica (05002): <a href="https://chat.whatsapp.com/DmAlx0hcn3xB1y8gYxC2TZ" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Educar en derechos humanos (02238): <a href="https://chat.whatsapp.com/Hscpq9VB5VPIjudMLZPQLI" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque K:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Práctica profesional (02025): <a href="https://chat.whatsapp.com/Jy1OXwEnmC869py0ZakLjM" class="grupo-link">Unirse</a></p>
+            </div>
+        </div>
+
+        <div class="grupo">
+            <h2><i class="fas fa-chalkboard-teacher"></i> Educación General Básica I y II Ciclos Diplomado</h2>
+            <button class="boton-expansion" onclick="toggle(this)">Ver grupos</button>
+            <div class="contenido-grupo">
+                <p><i class="fas fa-users"></i> Gupo General: <a href="https://chat.whatsapp.com/H08C6w91mkaLo8Skx6E1EN" class="grupo-link"> Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque A:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Nivelatoria de Matemática para I y II Ciclos (02235): <a href="https://chat.whatsapp.com/KGNWEcVluxdD64lypNyEUp" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Introducción a la Educación Primaria (02232): <a href="https://chat.whatsapp.com/BArCsNYk4kZI1A01GCGyWH" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Fundamentos del Currículum (0388): <a href="https://chat.whatsapp.com/Cd3JUq03mvQE5M20k1VCsq" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Inglés Instrumental para Educadores I (02223): <a href="https://chat.whatsapp.com/LC4ilRTLiLo32pmk57OhRI" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Introducción a la Pedagogía (0767): <a href="https://chat.whatsapp.com/HFzFRHVypCFL5DKxEhoV1R" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque B:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Educación para la Diversidad (3174): <a href="https://chat.whatsapp.com/Bl349Q4RvQMF017PRgWxj5" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Didáctica General I (0144): <a href="https://chat.whatsapp.com/HkRx3TJxuoA09CYt8Ua6wg" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Psicología del Desarrollo en la Niñez Intermedia I (5216): <a href="https://chat.whatsapp.com/Ie5QRn8NWqr5PvbNvxjrgh" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Educación Costarricense (0101): <a href="https://chat.whatsapp.com/Hmj5EfmxMQD45Inzo25NU7" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque C:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Mediación Pedagógica desde la Primera Infancia hasta la Adolescencia (02234): <a href="https://chat.whatsapp.com/CZkQS35HE7uA134zoEjaeF" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Español I para I y II Ciclos (2134): <a href="https://chat.whatsapp.com/EU50GtOo4c9E3R3ko1KSD4" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Matemática I para I y II Ciclos (0809): <a href="https://chat.whatsapp.com/HkPmZDMq8lHDJIyUuoCZ4i" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Estudios Sociales I para I y II Ciclos (2097): <a href="https://chat.whatsapp.com/Di1qHovYYIkFrG2LpuydmQ" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque D:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Ciencias Naturales I para I y II Ciclos (2088): <a href="https://chat.whatsapp.com/F3gxzW7MUjT0dfbboz9zi1" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Lectoescritura I para I y II Ciclos (2099): <a href="https://chat.whatsapp.com/CGf0MkrDdC1DAjhXzFeV0z" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Principios y Técnicas de Evaluación (0148): <a href="https://chat.whatsapp.com/E1q6iCmLJJ5JhSYWvF8Fpe" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque E:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Aplicaciones informáticas en contextos educativos (2084): <a href="https://chat.whatsapp.com/IsJsRxDHiEFIKbeuTheezf" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Fundamentos y Metodología de la Investigación en Educación I (2095): <a href="https://chat.whatsapp.com/EAH6LWe0sFP3CtvWuUEaUP" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Artes Integradas I (5173): <a href="https://chat.whatsapp.com/HoLEbt37ZhPKEaL6bP4eM8" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque F:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Práctica Docente I (0142): <a href="https://chat.whatsapp.com/ClCW2SvFI626nSkgNNH7JZ" class="grupo-link">Unirse</a></p>
+            </div>
+        </div>
+
+        <div class="grupo">
+            <h2><i class="fas fa-chalkboard-teacher"></i> Enseñanza del Inglés I y II Ciclos Diplomado</h2>
+            <button class="boton-expansion" onclick="toggle(this)">Ver grupos</button>
+            <div class="contenido-grupo">
+                <p><i class="fas fa-users"></i> Gupo General: <a href="https://chat.whatsapp.com/IJUZUw1RZIS2XvMzlk5MDD" class="grupo-link"> Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Nivelatorias:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Inglés Nivelatorio I (05559): <a href="https://chat.whatsapp.com/F8nWCGOxK2vEGPtU67vaIu" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Inglés Nivelatorio II (05560): <a href="https://chat.whatsapp.com/K8WiHsOsrPN5MrjXQaPAXz" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque A:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Conversación Inglesa I (05009): <a href="https://chat.whatsapp.com/CL0ZYx0D2R7BSYkewQTpRo" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Gramática Inglesa I (05011): <a href="https://chat.whatsapp.com/JdLSLcWlDE7BkP6cGyKaO3" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Fonética Inglesa I (05012): <a href="https://chat.whatsapp.com/FHdIqJXRUK2BNi3Gz2KzR3" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Gramática Castellana (00103): <a href="https://chat.whatsapp.com/CH5dzzl2jkn55tHxBXHmL3" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Introducción a la Pedagogía (00767): <a href="https://chat.whatsapp.com/HFzFRHVypCFL5DKxEhoV1R" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque B:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Conversación Inglesa II (05014): <a href="https://chat.whatsapp.com/GA9uZnEPP1zDqC18OhXmYc" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Gramática Inglesa II (05015): <a href="https://chat.whatsapp.com/LCFnWDRbLKQL4KC0535JHI" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Fonética Inglesa II (05016): <a href="https://chat.whatsapp.com/Bn2H7ePM5wq5jOQ6WhJO5f" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Fundamentos del Currículum (0038): <a href="https://chat.whatsapp.com/Cd3JUq03mvQE5M20k1VCsq" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Neuroeducación y el Aprendizaje de una Lengua Extranjera (05538): <a href="https://chat.whatsapp.com/KblGtNRTqY8J6gD6mQW38u" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque C:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Conversación Inglesa III (05177): <a href="https://chat.whatsapp.com/J9aVcc0MLneFMvYHomfRv6" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Técnicas de Comprensión de Lectura en Inglés (05617): <a href="https://chat.whatsapp.com/EI8q2f33s20FGQGgVwKTZO" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Didáctica del Inglés (05326): <a href="https://chat.whatsapp.com/Kf9SzPXS4Ld0CcBHVZydbm" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Estrategias de Apoyo Didáctico para la Diversidad (05528): <a href="https://chat.whatsapp.com/JYmyFIM9Tkn7KvJoaIVFW2" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Psicología del Desarrollo en la Niñez Intermedia I (05216): <a href="https://chat.whatsapp.com/Ie5QRn8NWqr5PvbNvxjrgh" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque D:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Planeamiento Didáctico para la Enseñanza del Inglés (05323): <a href="https://chat.whatsapp.com/EpPs8JQTXpQBYKA74Bas9N" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Recursos Didácticos para la Enseñanza del Inglés (05198): <a href="https://chat.whatsapp.com/FSWACr38GMhIQl50HgA2xW" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Fundamentos de Redacción Inglesa (05195): <a href="https://chat.whatsapp.com/EZbHIrEqIZtJuXz9m1HXYi" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Educación para la Convivencia en la Sociedad del Siglo XXI (05537): <a href="https://chat.whatsapp.com/LqkVWdkHz8S6UVtbIKiHIH" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque E:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Redacción Inglesa I (05194): <a href="https://chat.whatsapp.com/Dyajkv4v4WEJSxg0Dh63g8" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Introducción a las TIC para la Enseñanza del Inglés (05536): <a href="https://chat.whatsapp.com/LMEKJCMgjvCESytFwd6wH1" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Principios de Evaluación para la Enseñanza del Inglés (05325): <a href="https://chat.whatsapp.com/LldaXZJRxQxLKklYe06PQh" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Seminario Enseñanza del Inglés (05199): <a href="https://chat.whatsapp.com/C6faCgOdxjj3eQDr8m1czC" class="grupo-link">Unirse</a></p>
+            </div>
+        </div>
+
+        <div class="grupo">
+            <h2><p><i class="fas fa-frog"></i> Manejo de Recursos Naturales Bachillerato</h2>
+            <button class="boton-expansion" onclick="toggle(this)">Ver grupos</button>
+            <div class="contenido-grupo">
+                <p><i class="fas fa-users"></i> Gupo General: <a href="https://chat.whatsapp.com/FCCovAl96cR8En1Yrka9He" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Anatomía y Fisiología Animal de Especies Silvestres (03231): <a href="https://chat.whatsapp.com/GBmdatGiWwtKTKaVDF78FM" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Biología de la Conservación (00877): <a href="https://chat.whatsapp.com/Gi0JjL4kDqYF6fPucFqRGn" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Biología General (Teoría) (00502): <a href="https://chat.whatsapp.com/IR4J5oPqLrPHqPgFjOfoqH" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Climatología (00864): <a href="https://chat.whatsapp.com/CUSaWAUVMgO3D0voZa7lA0" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Ecología General (00869): <a href="https://chat.whatsapp.com/IBA3wZSS1aB0YjICASwXkE" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Estadística Aplicada a las Ciencias I (03125): <a href="https://chat.whatsapp.com/JhlpGxvJnJMCOYLacnMtZJ" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Estadística Aplicada a las Ciencias II (03126): <a href="https://chat.whatsapp.com/BW8yb2d32lNEzTzQxf3Pb0" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Evaluación Diagnóstica de la Comunidad Rural (00571): <a href="https://chat.whatsapp.com/GPe5pCHoex8LtFJ5Iv3z6M" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Fisiología Vegetal Aplicada (03400): <a href="https://chat.whatsapp.com/FKZNFiytcht50VqszgMKkC" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Fundamentos de Física (03228): <a href="https://chat.whatsapp.com/FtoDAzvM5d1Kemy07pmr1f" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Geografía Física de Costa Rica (00861): <a href="https://chat.whatsapp.com/KSNgRumi9e7GhKbKn7ehri" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Geología (00646): <a href="https://chat.whatsapp.com/BF11huZC0aL0o25i76W8Hw" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Gestión de Áreas Silvestres II (03227): <a href="https://chat.whatsapp.com/D4y5diIYySJED6HlNu469O" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Gestión de Recursos Hídricos (03234): <a href="https://chat.whatsapp.com/IZ2z8Wz2wD3J2F8W15gbdJ" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Introducción al Manejo de Recursos Naturales (03222): <a href="https://chat.whatsapp.com/IlOo6OOVMmg5Zwhck8rdw4" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Laboratorio de Biología General (00581): <a href="https://chat.whatsapp.com/LpEwSOzEXhhEHXvpKRLAoS" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Laboratorio de Fundamentos de Física (03293): <a href="https://chat.whatsapp.com/FXisr96eiOeLydfByHut1x" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Laboratorio de Química I (03064): <a href="https://chat.whatsapp.com/KBas6h1GxQQ9yAcXtmXSW7" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Laboratorio de Zoología General (01027): <a href="https://chat.whatsapp.com/KMRcjaKiSpf4H45cNWnOZB" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Elementos de Matemática Básica (03472): <a href="https://chat.whatsapp.com/BDVfCFaGIFUDrYJ3rGUsg7" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Métodos y Técnicas de Investigación y Redacción (03241): <a href="https://chat.whatsapp.com/LvBMCe2oR2QLxXX9kKkg1Q" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Montañismo y Orientación en el Campo (00863): <a href="https://chat.whatsapp.com/IA19Fy6CCn86AE5o7yWjGk" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Principios de Economía para el MARENA (03149): <a href="https://chat.whatsapp.com/DEQuY5RtASh8VTu5fbeYuR" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Producción Forestal (03233): <a href="https://chat.whatsapp.com/IoCirQxGI0e4RRfhiNVqhM" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Química I (Teoría) (03114): <a href="https://chat.whatsapp.com/Kgtup7g4escGpuy7RFnWak" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Recursos Marinos Costeros (03235): <a href="https://chat.whatsapp.com/F2H7TuwyH5e8Ko0I1jej7j" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Resolución de Conflictos Ambientales (03230): <a href="https://chat.whatsapp.com/KfeGUiqDCF935mwGJh8Hep" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Suelos Tropicales (00860): <a href="https://chat.whatsapp.com/Jfp6h10FWdhF7TmEzYWd1o" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Zoología General (00857): <a href="https://chat.whatsapp.com/E3AwHjubZuO85VqdknWxvQ" class="grupo-link">Unirse</a></p>
+            </div>
+        </div>
+
+        <div class="grupo">
+            <h2><i class="fas fa-user-secret"></i> Ciencias Criminológias Bachillerato </h2>
+            <button class="boton-expansion" onclick="toggle(this)">Ver grupos</button>
+            <div class="contenido-grupo">
+                <p><i class="fas fa-users"></i> Gupo General: <a href="https://chat.whatsapp.com/GKu8YBAnjlMC0pHZEnJ3lo" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Criminalística I (05270): <a href="https://chat.whatsapp.com/Gxg0QiSfgy2H7quYPdOepW" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Fundamentos de Criminología (05333): <a href="https://chat.whatsapp.com/CYxXM5D8Q0VEwLZo407SGv" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Criminalística II (05263): <a href="https://chat.whatsapp.com/Drq7qcPBMrs94qpttjLids" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Violencia Social (05335): <a href="https://chat.whatsapp.com/EUbSIv9otuQ1QAjiz0HQnI" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Sistema Policial Costarricense (05280): <a href="https://chat.whatsapp.com/GMKE72H7BygASKFbzn4JAg" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Elaboración de Informes Técnicos (05336): <a href="https://chat.whatsapp.com/LW94MKod9mlLXRc6lSks15" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Política Criminal (05259): <a href="https://chat.whatsapp.com/DxtPqZUnMOdDZEafDBzKza" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Ética Profesional en la Función Pública (05338): <a href="https://chat.whatsapp.com/BmtLgspsv9J2iit5xW7w2S" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Principios de Derecho Penal (05343): <a href="https://chat.whatsapp.com/B5hYsJdNchAJBi1wfGGl4I" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Biología Forense (05344): <a href="https://chat.whatsapp.com/Ep4X9G4MYLhJyV4s0eYp9P" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Principios del Derecho Administrativo (05339): <a href="https://chat.whatsapp.com/IGuE5OieZUBI4XOApuiJVc" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Administración para Ciencias Criminológicas (05340): <a href="https://chat.whatsapp.com/KhN3jwm17OU4otTWJkEyXB" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Principios de Derecho Penal Especial (05347): <a href="https://chat.whatsapp.com/B5d3nHaTVsA2zTT57ufLJQ" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Principios de Investigación (00499): <a href="https://chat.whatsapp.com/LgWvwt2vQghHHL5IHa7x7T" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Género, Niñez, Juventud y Criminalidad (05345): <a href="https://chat.whatsapp.com/CUIYXuWU5JUDbhWuTDTIUH" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Compulsiones, Parafilias y Criminalidad (05346): <a href="https://chat.whatsapp.com/LVysSUE6vTe1Y5ZFsrWUHg" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Principios del Derecho Procesal Penal (05350): <a href="https://chat.whatsapp.com/G0ydAnEsQscI8IJK2d7BRH" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Investigación en Ciencias Sociales (05477): <a href="https://chat.whatsapp.com/DQlGlwCxracBhZ3YIrWpu0" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Principios de Derecho Constitucional (05337): <a href="https://chat.whatsapp.com/KHSmh2V56MVG2B22K68cBU" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Psicología Criminal para Criminología (05341): <a href="https://chat.whatsapp.com/D8HNdJcqe3N0S4GVE0IF4A" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Comunicación Colectiva y el Fenómeno Criminal (05349): <a href="https://chat.whatsapp.com/ED1s9SaYs9kA41zIr1icAm" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Metodología de Investigación Cuantitativa (05475): <a href="https://chat.whatsapp.com/BgdmK5EPmjT5l5W05F5Bw2" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Psicopatología (05351): <a href="https://chat.whatsapp.com/GEFl7mahjhE3YTsRsdSCax" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Prevención de la Delincuencia (05352): <a href="https://chat.whatsapp.com/CPPcTgO4a352ow8JVZHCLP" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Tendencias Mundiales de la Criminalidad para Criminología (05386): <a href="https://chat.whatsapp.com/G0lzAqyajhJL8GI9hdqn7g" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Metodología de Investigación Cualitativa (05476): <a href="https://chat.whatsapp.com/CYqzxhpZm3TKRHsQkUoOnB" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Principios de Derechos Humanos e Internacional Humanitario (05353): <a href="https://chat.whatsapp.com/DD6W93EQIgcI8YOYOEq3B7" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Criminología (05478): <a href="https://chat.whatsapp.com/H8VIhsyaxIl1ODRbtNtZlJ" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Sociología del Control Social (05356): <a href="https://chat.whatsapp.com/BzhZVpAvZAO2tm5rO6BUpp" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Diseño y Gestión de Proyectos (05091): <a href="https://chat.whatsapp.com/JntVGeTQ054CPehbbSivRr" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Penología del Sistema Costarricense (05355): <a href="https://chat.whatsapp.com/JP4CW5Z7iMh9TeScl34y94" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Mediación y Resolución Adecuada de Conflictos (05357): <a href="https://chat.whatsapp.com/FUpo2mzl2okFbBXj3RoRAz" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Gestión Estratégica (05358): <a href="https://chat.whatsapp.com/JqE1Q9kkUk983oLmlkhrKy" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Taller de prácticas criminológicas (05515): <a href="https://chat.whatsapp.com/HWM6kGGyNXp6rLeWv8irES" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Perfilado Criminal (05517): <a href="https://chat.whatsapp.com/IM8VWkoZcyu4DRj0YTf5QK" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Justicia Restaurativa (05518): <a href="https://chat.whatsapp.com/HilLOlvcDZh45tYcGzkzbK" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Técnicas Forenses de Fijación de Indicios (05516): <a href="https://chat.whatsapp.com/CxAUYUFDaUSIjmc8zSPHzX" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Proyecto de Graduación de Bachillerato (05360): <a href="https://chat.whatsapp.com/EAIqa1mNfo6Lf79PdOGQ3u" class="grupo-link">Unirse</a></p>
+            </div>
+        </div>
+
+        <div class="grupo">
+            <h2><i class="fas fa-book-open"></i> Bibliotecología, Bibliotecas Educativas y Centros de Recursos para el Aprendizaje Diplomado</h2>
+            <button class="boton-expansion" onclick="toggle(this)">Ver grupos</button>
+            <div class="contenido-grupo">
+                <p><i class="fas fa-users"></i> Gupo General: <a href="https://chat.whatsapp.com/Fcov6gXTmGSEM0uhE106t1" class="grupo-link"> Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque A:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Comunicación Oral y Escrita (00709): <a href="https://chat.whatsapp.com/GAntL7SsI176dFy8kACUvW" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Recursos Audiovisuales (00108): <a href="https://chat.whatsapp.com/BQ3lbLYBP2c8OFdOjeUF1T" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Educación Costarricense (00101): <a href="https://chat.whatsapp.com/Hmj5EfmxMQD45Inzo25NU7" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Principios de Bibliotecología (05143): <a href="https://chat.whatsapp.com/HEJOCsVw7cn06IV4ZlmWAf" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Introducción a la Pedagogía (00767): <a href="https://chat.whatsapp.com/HFzFRHVypCFL5DKxEhoV1R" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque B:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Fundamentos del Currículum: <a href="https://chat.whatsapp.com/Cd3JUq03mvQE5M20k1VCsq" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Literatura Infantil: <a href="https://chat.whatsapp.com/ENTrCvKaSr3LZ9qFiFdu5m" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Principios de Administración: <a href="https://chat.whatsapp.com/CIenVylEJW3394Nq1eM54e" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Análisis Documental I: Catalogación Descriptiva: <a href="https://chat.whatsapp.com/Ff9Tjd060tr2eNrZPgmKAB" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Bibliotecas Escolares y Centros de Recursos para el Aprendizaje (05206): <a href="https://chat.whatsapp.com/J7cdIKHiFU7CrwaVy7vlGc" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque C:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Psicología del Niño en Edad Escolar (00704): <a href="https://chat.whatsapp.com/FtjaZilzBnK2yjqRrn2OsB" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Didáctica General I (00144): <a href="https://chat.whatsapp.com/D1u4lhFXiMr3ysO3o7T2at" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Análisis Documental II: Sistemas de Clasificación (05203): <a href="https://chat.whatsapp.com/Ff9Tjd060tr2eNrZPgmKAB" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Desarrollo de los Fondos Documentales (05200): <a href="https://chat.whatsapp.com/FZUjbk2hJcJBoNbH3lNTXq" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Automatización de Bibliotecas y Unidades de Información (05202): <a href="https://chat.whatsapp.com/FOZSDaq19tlIiGSVMCFsCW" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque D:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Inglés Instrumental para Bibliotecólogos I (05005): <a href="https://chat.whatsapp.com/HOYBPCkQtpWLQZAg9U2TG5" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Servicios de Referencia y Fuentes de Información Documental I (05204): <a href="https://chat.whatsapp.com/DFxviJM4P9U1KeMGFNhVUN" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> El Usuario, sus Requerimientos de Información y Evaluación de los Servicios (05207): <a href="https://chat.whatsapp.com/JISG6YJR1Dn0FP6u2M10Kk" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Uso de Recursos Digitales en Bibliotecas y Unidades de Información (05006): <a href="https://chat.whatsapp.com/HX14FwHR1zf87evSBuyfGC" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque E:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Fundamentos de Bibliografía General (05209): <a href="https://chat.whatsapp.com/ElSAZOatPgEACVqUi9H3UE" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Técnicas de Indización Automatizada (05208): <a href="https://chat.whatsapp.com/EMU8q1CKcILESen23jRJdu" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Educación y Formación de Usuarios (05210): <a href="https://chat.whatsapp.com/BTmhF3bAzAtAXRZFNEF9mF" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Promoción y Animación a la Lectura (05211): <a href="https://chat.whatsapp.com/KqwYU1ZH26JJnN5AAPCxdj" class="grupo-link">Unirse</a></p>
+                <p><h5> <i class="fas fa-book"></i>  Bloque F:</h5></p>
+                <p><i class="fab fa-whatsapp"></i> Taller Integración de la Biblioteca Escolar al Currículum (05212): <a href="https://chat.whatsapp.com/LdSLL00eRHC4PvvuM6rUw4" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Práctica Profesional (05213): <a href="https://chat.whatsapp.com/B8gOyTlSpWDCQhhMwneteO" class="grupo-link">Unirse</a></p>
+            </div>
+        </div>
+
+        <div class="grupo">
+            <h2><i class="fas fa-school"></i> Administración Educativa Bachillerato</h2>
+            <button class="boton-expansion" onclick="toggle(this)">Ver grupos</button>
+            <div class="contenido-grupo">
+                <p><i class="fas fa-users"></i> Gupo General: <a href="https://chat.whatsapp.com/EUhtZ6jOu6wBohFZ8A4OTI" class="grupo-link"> Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Administración de la educación (00321): <a href="https://chat.whatsapp.com/LNNlM9T5tSr12a3XoIMfPZ" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Inglés instrumental para educadores I (02223): <a href="https://chat.whatsapp.com/LjlUjoRILoQE1B0oLC8pQg" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Comportamiento organizacional (00925): <a href="https://chat.whatsapp.com/BlOPT3knJe6AX3P7HRwZJo" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Evaluación para administradores educativos (02110): <a href="https://chat.whatsapp.com/INzouzajY703w9vWmXbGhf" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Fundamentos y metodología de la investigación en educación II (02096): <a href="https://chat.whatsapp.com/GXIQ3ESVUJg0HzYd6wyPU3" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Psicología de la administración educativa (00308): <a href="https://chat.whatsapp.com/EtImeOrb4i6B8VkG0XPrfs" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Presupuesto y control de la gestión (04086): <a href="https://chat.whatsapp.com/IL7ZGAuqcP2HqBGVts7dun" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Sociología de la educación (00114): <a href="https://chat.whatsapp.com/JH8ywUwllRcAk2YMrBek9k" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Relaciones institución educativa comunidad (00322): <a href="https://chat.whatsapp.com/KRFdklVm5HL5bZd8yDGXxA" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Líderes digitales en la gestión educativa (02201): <a href="https://chat.whatsapp.com/E0He9oY4Nuo1l44djGZxDA" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Inglés instrumental para educadores II (02224): <a href="https://chat.whatsapp.com/LDttnP3yuTR8PVTDT9hUIi" class="grupo-link">Unirse</a></p>
+                <p><i class="fab fa-whatsapp"></i> Seminario perspectivas de la administración educativa (02202): <a href="https://chat.whatsapp.com/FIGKpO0kus7GrCYt6dEWo7" class="grupo-link">Unirse</a></p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer> 
+        <h5>&copy; 2025 Proyecto de Educación a Distancia CR <br>
+            Elaborado por Jorge Fernández</h5>
+            <h5>
+                <a href="avisolegal.html" class="legal-link">Aviso Legal</a>
+            </h5> 
+    </footer>
+
+</body>
+</html>

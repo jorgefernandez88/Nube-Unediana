@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Notas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1> <i class="fas fa-calculator"></i> Calculadora de Notas</h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html"> <i class="fas fa-arrow-left"></i> Ir a los grupos <i class="fab fa-whatsapp"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+
+        <div class="container-calculadora">
+            <form id="gradeForm" class="form-grades">
+                <!-- Fila inicial (sin botón eliminar) -->
+                <div class="input-group row" id="row1">
+                    <div class="input-group">
+                        <label for="actividad1">Nombre de la actividad:</label>
+                        <input type="text" id="actividad1" name="actividad1" class="full-width">
+                    </div>
+                    <div class="input-group">
+                        <label for="valor1">Porcentaje de la actividad:</label>
+                        <input type="number" id="valor1" name="valor1" class="half-width" step="0.1">
+                    </div>
+                    <div class="input-group">
+                        <label for="nota1">Nota obtenida:</label>
+                        <input type="number" id="nota1" name="nota1" class="half-width" step="0.1">
+                    </div>
+                </div>
+                <!-- Botones -->
+                <div class="button-group">
+                    <button type="button" id="addButton">Añadir otra actividad</button>
+                    <button type="button" onclick="calcularNota()">Calcular</button>
+                </div>
+            </form>
+        
+            <!-- Resultados siempre visibles -->
+            <div id="resultContainer" class="result">
+                <p>Porcentaje total ganado: <span id="totalGanado"></span></p>
+                <p>Para aprobar con el mínimo (7.0) le falta: <span id="faltaMinimo"></span></p>
+                <p>Para aprobar con el máximo (10) le falta: <span id="faltaMaximo"></span></p>
+            </div>
+        </div>
+        
+        <!-- Cálculadora de margen para aprobar materia -->
+        <div class="container-ganar-materia">
+            <button type="button" class="view-button-ganar-materia" onclick="toggleGanarMateria(this)"><i class="fas fa-calculator"></i> Calculadora margen</button>
+            <div class="contenido-ganar-materia oculto">
+                <div class="input-group-ganar-materia">
+                    <label for="porcentajeGanado"><h3><b>Ingrese los siguientes datos:</b></h3></label>
+                    <label for="porcentajeGanado"> <h2> Porcentaje obtenido: </h2> </label>
+                    <input type="number" id="porcentajeGanado" step="0.01" />
+                </div>
+                <div class="input-group-ganar-materia">
+                    <label for="porcentajeRestante"> <h2>Porcentaje total de las actividades restantes:</h2> </label>
+                    <input type="number" id="porcentajeRestante" step="0.01" />
+                </div>
+                <div class="button-group-ganar-materia">
+                    <button type="button" onclick="calcularGanarMateria()">Calcular</button>
+                </div>
+
+                <!-- Contenedor de resultados -->
+            <div class="resultadoMargen">
+                <p id="resultMargen"></p>
+            </div>
+            </div> 
+        </div>
+
+        <!-- Calculora de redondeo de nota-->
+        <div class="container-redondeo-nota">
+            <button type="button" class="view-button-redondeo-nota" onclick="toggleRedondeoNota(this)"><i class="fas fa-calculator"></i> Calculadora redondeo</button>
+            <div class="contenido-redondeo-nota oculto">
+                <div class="input-group-redondeo-nota">
+                    <label for="notaParaRedondear"><h3><b>Ingrese la nota obtenida:</b></h3></label>
+                    <input type="number" id="notaParaRedondear" step="0.01" />
+                </div>
+                <div class="button-group-redondeo-nota">
+                    <button type="button" onclick="calcularRedondeoNota()">Redondear</button>
+                </div>
+
+                <!-- Contenedor de resultados -->
+            <div class="resultadoRedondeo">
+                <p id="resultRedondeo"></p>
+            </div>
+            </div>
+        </div>
+
+    </main>
+    
+    <footer>
+        <nav>
+            <a href="https://www.facebook.com/educadcr"><i class="fab fa-facebook"></i></a>
+        </nav>
+        <h5>&copy; 2025 Proyecto de Educación a Distancia CR <br> Elaborado por Jorge Fernández</h5>
+            <h5>
+                <a href="avisolegal.html" class="legal-link">Aviso Legal</a>
+            </h5> 
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
