@@ -34,172 +34,6 @@ function toggle(button) {
   }
 }
 
-
-// Función para buscar grupos
-function buscarGrupos() {
-    const inputBusqueda = document.getElementById('buscador').value;
-    const gruposContainer = document.querySelectorAll('.grupo');
-  
-    gruposContainer.forEach(function (grupo) {
-        const tituloGrupo = grupo.querySelector('h2');
-        const contenidoGrupo = grupo.querySelector('.contenido-grupo');
-        const botonExpansion = grupo.querySelector('.boton-expansion');
-  
-        // Indicacion para que no haga la busqueda en el container Estudiantes UNED GENERAL
-        if (tituloGrupo.textContent === 'Estudiantes UNED (GENERAL)') {
-            grupo.style.display = 'block';
-            if (contenidoGrupo) {
-                contenidoGrupo.style.display = 'none';
-            }
-            return;
-        }
-  
-        // Remover resaltados previos
-        removerResaltado(grupo);
-
-        let hayCoincidencias = false;
-
-        // Buscar en el título (excluyendo el ícono)
-        const tituloTexto = tituloGrupo.lastChild;
-        if (tituloTexto) {
-            hayCoincidencias = resaltarCoincidencias(tituloTexto, inputBusqueda) || hayCoincidencias;
-        }
-
-        // Buscar en el contenido del grupo
-        if (contenidoGrupo) {
-            // Buscar en cada párrafo, pero solo en el texto del curso
-            contenidoGrupo.querySelectorAll('p').forEach(p => {
-                // Obtener el nodo de texto que contiene el nombre del curso
-                const nodos = Array.from(p.childNodes).filter(node => 
-                    node.nodeType === Node.TEXT_NODE || 
-                    (node.nodeType === Node.ELEMENT_NODE && !node.classList.contains('grupo-link'))
-                );
-                
-                nodos.forEach(nodo => {
-                    if (nodo.nodeType === Node.TEXT_NODE) {
-                        const span = document.createElement('span');
-                        span.textContent = nodo.textContent;
-                        nodo.parentNode.replaceChild(span, nodo);
-                        hayCoincidencias = resaltarCoincidencias(span, inputBusqueda) || hayCoincidencias;
-                    } else if (nodo.nodeType === Node.ELEMENT_NODE) {
-                        hayCoincidencias = resaltarCoincidencias(nodo, inputBusqueda) || hayCoincidencias;
-                    }
-                });
-            });
-        }
-
-        // Mostrar u ocultar el grupo según las coincidencias
-        if (hayCoincidencias) {
-            grupo.style.display = 'block';
-            if (contenidoGrupo) {
-                contenidoGrupo.style.display = 'block';
-            }
-            if (!grupo.classList.contains('expandido')) {
-                toggle(botonExpansion);
-            }
-        } else {
-            grupo.style.display = 'none';
-            if (contenidoGrupo) {
-                contenidoGrupo.style.display = 'none';
-            }
-        }
-    });
-}
-
-// Función para normalizar texto (eliminar acentos)
-function normalizarTexto(texto) {
-    return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-}
-
-// Función para resaltar todas las coincidencias del buscador
-function resaltarCoincidencias(elemento, busqueda) {
-    if (!elemento || !busqueda || !elemento.textContent) return false;
-
-    const textoOriginal = elemento.textContent;
-    const textoNormalizado = normalizarTexto(textoOriginal);
-    const busquedaNormalizada = normalizarTexto(busqueda);
-
-    if (busquedaNormalizada.length === 0) return false;
-
-    // Si no hay coincidencia después de normalizar, retornar false
-    if (!textoNormalizado.includes(busquedaNormalizada)) {
-        return false;
-    }
-
-    const fragment = document.createDocumentFragment();
-    let lastIndex = 0;
-    let encontrado = false;
-
-    while (true) {
-        const indexNormalizado = normalizarTexto(textoOriginal.slice(lastIndex)).indexOf(busquedaNormalizada);
-        if (indexNormalizado === -1) break;
-
-        const startPos = lastIndex + indexNormalizado;
-        const endPos = startPos + busqueda.length;
-
-        // Texto antes de la coincidencia
-        if (startPos > lastIndex) {
-            fragment.appendChild(document.createTextNode(textoOriginal.substring(lastIndex, startPos)));
-        }
-
-        // Crear span para el texto resaltado
-        const span = document.createElement('span');
-        span.className = 'resaltado';
-        span.textContent = textoOriginal.substring(startPos, startPos + busquedaNormalizada.length);
-        fragment.appendChild(span);
-
-        lastIndex = startPos + busquedaNormalizada.length;
-        encontrado = true;
-    }
-
-    // Añadir el texto restante
-    if (lastIndex < textoOriginal.length) {
-        fragment.appendChild(document.createTextNode(textoOriginal.substring(lastIndex)));
-    }
-
-    if (encontrado) {
-        // Reemplazar el contenido solo si se encontraron coincidencias
-        while (elemento.firstChild) {
-            elemento.removeChild(elemento.firstChild);
-        }
-        elemento.appendChild(fragment);
-    }
-
-    return encontrado;
-}
-
-// Función para remover el resaltado previo
-function removerResaltado(container) {
-    const resaltados = container.querySelectorAll('.resaltado');
-    resaltados.forEach(function (elemento) {
-        const parent = elemento.parentNode;
-        parent.replaceChild(document.createTextNode(elemento.textContent), elemento);
-        parent.normalize();
-    });
-}
-
-// Inicializar buscador
-function inicializarBuscador() {
-    const buscador = document.getElementById('buscador');
-    if (buscador) {
-        buscador.addEventListener('input', function () {
-            if (this.value.trim() === '') {
-                const gruposContainer = document.querySelectorAll('.grupo');
-                gruposContainer.forEach(function (grupo) {
-                    const botonExpansion = grupo.querySelector('.boton-expansion');
-                    grupo.style.display = 'block';
-                    if (grupo.classList.contains('expandido')) {
-                        toggle(botonExpansion);
-                    }
-                });
-                gruposContainer.forEach(grupo => removerResaltado(grupo));
-            } else {
-                buscarGrupos();
-            }
-        });
-    }
-}
-
 // Esperar a que el DOM esté cargado
 document.addEventListener('DOMContentLoaded', function () {
     inicializarBuscador();
@@ -209,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
   
 
 //Caluladora principal  
-  // Ocultar el resultText inicialmente
+// Ocultar el resultText inicialmente
   const resultText = document.getElementById('resultText');
   if (resultText) {
       resultText.style.display = 'none';
@@ -233,10 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   updateAddRowButton();
 
-
-
-
-//Calculadora principal
+// Una linea 
 let rowCount = 1;
 
 // Función principal de cálculo
@@ -371,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
     mostrarResultadosVacios();
 });
 
-//Calculadoraa secundarias
+//Calculadoras secundarias
 // Calculadora margen
 function calcularGanarMateria() {
   const porcentajeGanado = parseFloat(document.getElementById('porcentajeGanado').value);

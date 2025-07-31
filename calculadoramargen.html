@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Notas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1> <i class="fas fa-calculator"></i> Calculadora Margen</h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html"> <i class="fas fa-arrow-left"></i> Volver al inicio <i class="fas fa-home"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+
+        <!-- Cálculadora de margen para aprobar materia -->
+        <div class="container-ganar-materia">
+            
+                <div class="input-group-ganar-materia">
+                    <label for="porcentajeGanado"><h3><b>Ingrese los siguientes datos:</b></h3></label>
+                    <label for="porcentajeGanado"> <h2> Porcentaje obtenido: </h2> </label>
+                    <input type="number" id="porcentajeGanado" step="0.01" />
+                </div>
+                <div class="input-group-ganar-materia">
+                    <label for="porcentajeRestante"> <h2>Porcentaje total de las actividades restantes:</h2> </label>
+                    <input type="number" id="porcentajeRestante" step="0.01" />
+                </div>
+                <div class="button-group-ganar-materia">
+                    <button type="button" onclick="calcularGanarMateria()">Calcular</button>
+                </div>
+
+                <!-- Contenedor de resultados -->
+            <div class="resultadoMargen">
+                <p id="resultMargen"></p>
+            </div>
+            </div> 
+        </div>
+
+    </main>
+    
+    <footer>
+        <nav>
+            <a href="https://www.facebook.com/educadcr"><i class="fab fa-facebook"></i></a>
+        </nav>
+        <h5>&copy; 2025 Proyecto de Educación a Distancia CR <br> Elaborado por Jorge Fernández</h5>
+            <h5>
+                <a href="avisolegal.html" class="legal-link">Aviso Legal</a>
+            </h5> 
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
