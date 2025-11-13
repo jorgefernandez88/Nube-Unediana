@@ -22,6 +22,15 @@
                 <li> <a href="index.html"> <i class="fab fa-whatsapp"> </i> </a></li>
                 <li> <a href="calculadoranotas.html"> <i class="fas fa-calculator"></i> </i> </a></li>
             </ul>
+             <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" onchange="toggleTheme()" />
+            <div class="slider">
+                <span class="theme-icon sun">☀️</span>
+                <span class="theme-icon moon">🌙</span>
+            </div>
+        </label>
+    </div>
         </nav>
     </header>
     
@@ -50,6 +59,33 @@
         <h5>&copy; 2025 Proyecto de Educación a Distancia CR <br>
             Elaborado por Jorge Fernández</h5>
     </footer>
+    <script>
+        // ===== MODO OSCURO =====
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    
+    // Actualizar el estado del checkbox
+    const checkbox = document.getElementById('checkbox');
+    if (checkbox) {
+        checkbox.checked = newTheme === 'dark';
+    }
+}
+
+// Cargar tema guardado al iniciar
+function loadTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    
+    const checkbox = document.getElementById('checkbox');
+    if (checkbox) {
+        checkbox.checked = savedTheme === 'dark';
+    }
+}
+    
+    </script>
 </body>
 </html>

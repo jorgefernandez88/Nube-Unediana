@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Aranceles UNED</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1> <i class="fas fa-calculator"></i> Calculadora de Aranceles UNED</h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html"> <i class="fas fa-arrow-left"></i> Volver al inicio <i class="fas fa-home"></i></a></li>
+            </ul>
+             <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" onchange="toggleTheme()" />
+            <div class="slider">
+                <span class="theme-icon sun">☀️</span>
+                <span class="theme-icon moon">🌙</span>
+            </div>
+        </label>
+    </div>
+        </nav>
+    </header>
+    <main>
+        <!-- Contenedor principal de la calculadora de aranceles -->
+        <div class="container-aranceles">
+            <h2>Seleccione su tipo de beca</h2>
+            <!-- Selector de tipo de beca -->
+            <div class="beca-selector">
+                <div class="beca-option">
+                    <input type="radio" id="sin-beca" name="tipo-beca" value="sin-beca" checked>
+                    <label for="sin-beca">Sin beca</label>
+                </div>
+                <div class="beca-option">
+                    <input type="radio" id="beca-A" name="tipo-beca" value="beca-a">
+                    <label for="beca-A">Beca A</label>
+                </div>
+                <div class="beca-option">
+                    <input type="radio" id="beca-B" name="tipo-beca" value="beca-b">
+                    <label for="beca-B">Beca B</label>
+                </div>
+                <div class="beca-option">
+                    <input type="radio" id="beca-C" name="tipo-beca" value="beca-c">
+                    <label for="beca-C">Beca C</label>
+                </div>
+                <div class="beca-option">
+                    <input type="radio" id="beca-D" name="tipo-beca" value="beca-d">
+                    <label for="beca-D">Beca D</label>
+                </div>
+                <div class="beca-option">
+                    <input type="radio" id="beca-E" name="tipo-beca" value="beca-e">
+                    <label for="beca-E">Beca E</label>
+                </div>
+            </div>
+
+            <!-- Selector de programa académico PERSONALIZADO -->
+            <div class="programa-selector">
+                <h3>Seleccione su nivel académico</h3>
+                <div class="custom-select-wrapper">
+                    <!-- Select original (oculto, pero funcional para formularios) -->
+                    <select id="programa-academico">
+                        <option value="tecnico">Técnico/Diplomado</option>
+                        <option value="profesorado">Profesorado/Bachillerato</option>
+                        <option value="licenciatura">Licenciatura</option>
+                    </select>
+                    
+                    <!-- Select personalizado visual -->
+                    <div class="custom-select-trigger">
+                        <span class="custom-select-value">Técnico/Diplomado</span>
+                        <span class="custom-select-arrow">▼</span>
+                    </div>
+                    
+                    <!-- Dropdown de opciones -->
+                    <div class="custom-select-options">
+                        <div class="custom-select-option selected" data-value="tecnico">
+                            Técnico/Diplomado
+                        </div>
+                        <div class="custom-select-option" data-value="profesorado">
+                            Profesorado/Bachillerato
+                        </div>
+                        <div class="custom-select-option" data-value="licenciatura">
+                            Licenciatura
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mensaje especial según beca seleccionada -->
+            <div id="beca-mensaje" class="beca-mensaje"></div>
+            <!-- Tabla de aranceles -->
+            <div class="aranceles-tabla-container">
+                <h3>Aranceles por materias (en colones)</h3>
+                <table class="aranceles-tabla">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Tipo de Materia</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-aranceles-body">
+                        <!-- La tabla se llenará dinámicamente desde script.js -->
+                    </tbody>
+                </table>
+            </div>
+            <!-- Resumen de selección -->
+            <div class="resumen-aranceles">
+                <h3>Resumen de tu selección</h3>
+                <div id="lista-seleccion" class="lista-seleccion"></div>
+                <div class="total-container">
+                    <strong>Total a pagar:</strong>
+                    <span id="total-pagar">₡0</span>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <nav>
+            <a href="https://www.facebook.com/educadcr"><i class="fab fa-facebook"></i></a>
+        </nav>
+        <h5>&copy; 2025 Proyecto de Educación a Distancia CR <br> Elaborado por Jorge Fernández</h5>
+        <h5>
+            <a href="avisolegal.html" class="legal-link">Aviso Legal</a>
+        </h5>
+    </footer>
+
+    <!-- JavaScript para el select personalizado -->
+    <script>
+        // ===== INICIALIZAR SELECT PERSONALIZADO =====
+        document.addEventListener('DOMContentLoaded', function() {
+            const wrapper = document.querySelector('.custom-select-wrapper');
+            if (wrapper) {
+                const trigger = wrapper.querySelector('.custom-select-trigger');
+                const options = wrapper.querySelector('.custom-select-options');
+                const optionElements = wrapper.querySelectorAll('.custom-select-option');
+                const valueDisplay = wrapper.querySelector('.custom-select-value');
+                const hiddenSelect = wrapper.querySelector('select');
+
+                // Abrir/cerrar dropdown
+                trigger.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    trigger.classList.toggle('active');
+                    options.classList.toggle('active');
+                });
+
+                // Seleccionar opción
+                optionElements.forEach(option => {
+                    option.addEventListener('click', function() {
+                        const value = this.getAttribute('data-value');
+                        const text = this.textContent.trim();
+
+                        // Actualizar visual
+                        valueDisplay.textContent = text;
+                        
+                        // Remover selected de todos
+                        optionElements.forEach(opt => opt.classList.remove('selected'));
+                        // Agregar selected al clickeado
+                        this.classList.add('selected');
+
+                        // Actualizar select original (importante para formularios)
+                        hiddenSelect.value = value;
+
+                        // Disparar evento change en el select original
+                        const event = new Event('change', { bubbles: true });
+                        hiddenSelect.dispatchEvent(event);
+
+                        // Cerrar dropdown
+                        trigger.classList.remove('active');
+                        options.classList.remove('active');
+                    });
+                });
+
+                // Cerrar al hacer clic fuera
+                document.addEventListener('click', function(e) {
+                    if (!wrapper.contains(e.target)) {
+                        trigger.classList.remove('active');
+                        options.classList.remove('active');
+                    }
+                });
+
+                // Cerrar con tecla Escape
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape') {
+                        trigger.classList.remove('active');
+                        options.classList.remove('active');
+                    }
+                });
+            }
+
+            // ===== INICIALIZAR CALCULADORA DE ARANCELES =====
+            inicializarCalculadoraAranceles();
+        });
+
+        // Variable para almacenar los datos cargados
+        let arancelesData = null;
+        // Array para mantener los items seleccionados
+        let itemsSeleccionados = [];
+        // Aranceles de matrícula según tipo de beca
+        const arancelesMatricula = {
+            "sin-beca": 17293,
+            "beca-a": 0,
+            "beca-b": 2700,
+            "beca-c": 6348.25,
+            "beca-d": 9996.50,
+            "beca-e": 13644.75
+        };
+
+        // Función para cargar los aranceles desde el archivo .json
+        async function cargarAranceles() {
+            try {
+                const response = await fetch('aranceles.json');
+                if (!response.ok) {
+                    throw new Error(`Error al cargar aranceles.json: ${response.status} ${response.statusText}`);
+                }
+                arancelesData = await response.json();
+                console.log('✅ Aranceles cargados correctamente:', arancelesData);
+            } catch (error) {
+                console.error('❌ Error cargando los aranceles:', error);
+                const mainContent = document.querySelector('main');
+                if (mainContent) {
+                    const errorMessage = document.createElement('div');
+                    errorMessage.style.cssText = `
+                        background-color: #f8d7da;
+                        color: #721c24;
+                        border: 1px solid #f5c6cb;
+                        padding: 15px;
+                        margin: 20px auto;
+                        max-width: 800px;
+                        border-radius: 8px;
+                        text-align: center;
+                        font-family: 'Open Sans', serif;
+                    `;
+                    errorMessage.innerHTML = `
+                        <h3 style="color: #721c24; margin-top: 0;">⚠️ Error Crítico</h3>
+                        <p>${error.message}</p>
+                        <p>Por favor, verifique que el archivo <strong>aranceles.json</strong> exista en la raíz del proyecto y tenga un formato JSON válido.</p>
+                    `;
+                    mainContent.insertBefore(errorMessage, mainContent.firstChild);
+                }
+                alert(`Error al cargar los aranceles: ${error.message}\n\nPor favor, verifique el archivo aranceles.json.`);
+            }
+        }
+
+        // Función para inicializar la calculadora de aranceles
+        async function inicializarCalculadoraAranceles() {
+            await cargarAranceles();
+            if (!arancelesData) return;
+
+            const tablaBody = document.getElementById('tabla-aranceles-body');
+            if (!tablaBody) return;
+
+            const categorias = {
+                "Asignaturas nuevas": [
+                    "asignatura_regular", 
+                    "asignatura_laboratorio", 
+                    "asignatura_gira", 
+                    "asignatura_laboratorio_gira",
+                    "laboratorio_independiente"
+                ],
+                "Asignaturas repetidas": [
+                    "asignatura_repetida", 
+                    "repetida_laboratorio",
+                    "repetida_gira",
+                    "repetida_laboratorio_gira"
+                ],
+                "TFG/Prácticas": [
+                    "practica_tesis"
+                ]
+            };
+
+            for (const [categoriaNombre, ids] of Object.entries(categorias)) {
+                const categoriaRow = document.createElement('tr');
+                categoriaRow.className = 'categoria';
+                categoriaRow.innerHTML = `<td colspan="4">${categoriaNombre}</td>`;
+                tablaBody.appendChild(categoriaRow);
+
+                ids.forEach(id => {
+                    const item = arancelesData.aranceles.find(a => a.id === id);
+                    if (item) {
+                        const row = document.createElement('tr');
+                        row.id = `fila-${id}`;
+                        row.innerHTML = `
+                            <td><input type="checkbox" class="seleccionar-item" data-id="${id}"></td>
+                            <td>${item.nombre}</td>
+                            <td class="precio" data-id="${id}">₡0</td>
+                            <td><input type="number" class="cantidad" data-id="${id}" min="1" value="0" placeholder="0"></td>
+                        `;
+                        tablaBody.appendChild(row);
+                    }
+                });
+            }
+
+            inicializarEventosAranceles();
+            actualizarPrecios();
+            mostrarMensajeBeca();
+            recalcularTotal();
+        }
+
+        // Función para inicializar eventos de la calculadora de aranceles
+        function inicializarEventosAranceles() {
+            const becaOptions = document.querySelectorAll('input[name="tipo-beca"]');
+            const programaSelect = document.getElementById('programa-academico');
+            const checkboxes = document.querySelectorAll('.seleccionar-item');
+            const cantidades = document.querySelectorAll('.cantidad');
+
+            becaOptions.forEach(option => {
+                option.addEventListener('change', function() {
+                    actualizarPrecios();
+                    mostrarMensajeBeca();
+                    recalcularTotal();
+                });
+            });
+
+            programaSelect.addEventListener('change', function() {
+                actualizarPrecios();
+                recalcularTotal();
+            });
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const id = this.getAttribute('data-id');
+                    const cantidadInput = document.querySelector(`.cantidad[data-id="${id}"]`);
+                    
+                    if (this.checked) {
+                        cantidadInput.value = 1;
+                        const cantidad = 1;
+                        const precioUnitario = getPrecioActual(id);
+                        const precioTotal = precioUnitario * cantidad;
+
+                        const itemIndex = itemsSeleccionados.findIndex(item => item.id === id);
+                        if (itemIndex !== -1) {
+                            itemsSeleccionados[itemIndex] = {
+                                id: id,
+                                nombre: this.closest('tr').querySelector('td:nth-child(2)').textContent,
+                                precioUnitario: precioUnitario,
+                                cantidad: cantidad,
+                                total: precioTotal
+                            };
+                        } else {
+                            itemsSeleccionados.push({
+                                id: id,
+                                nombre: this.closest('tr').querySelector('td:nth-child(2)').textContent,
+                                precioUnitario: precioUnitario,
+                                cantidad: cantidad,
+                                total: precioTotal
+                            });
+                        }
+                    } else {
+                        cantidadInput.value = 0;
+                        itemsSeleccionados = itemsSeleccionados.filter(item => item.id !== id);
+                    }
+                    actualizarResumen();
+                    recalcularTotal();
+                });
+            });
+
+            cantidades.forEach(cantidad => {
+                cantidad.addEventListener('change', function() {
+                    const id = this.getAttribute('data-id');
+                    const checkbox = document.querySelector(`.seleccionar-item[data-id="${id}"]`);
+                    const nuevaCantidad = parseInt(this.value) || 0;
+
+                    if (nuevaCantidad > 0) {
+                        const precioUnitario = getPrecioActual(id);
+                        const nuevoTotal = precioUnitario * nuevaCantidad;
+
+                        const itemIndex = itemsSeleccionados.findIndex(item => item.id === id);
+                        if (itemIndex !== -1) {
+                            if (nuevaCantidad > 0) {
+                                itemsSeleccionados[itemIndex] = {
+                                    id: id,
+                                    nombre: checkbox.closest('tr').querySelector('td:nth-child(2)').textContent,
+                                    precioUnitario: precioUnitario,
+                                    cantidad: nuevaCantidad,
+                                    total: nuevoTotal
+                                };
+                            } else {
+                                itemsSeleccionados.splice(itemIndex, 1);
+                                checkbox.checked = false;
+                                this.value = 0;
+                            }
+                        } else if (nuevaCantidad > 0) {
+                            itemsSeleccionados.push({
+                                id: id,
+                                nombre: checkbox.closest('tr').querySelector('td:nth-child(2)').textContent,
+                                precioUnitario: precioUnitario,
+                                cantidad: nuevaCantidad,
+                                total: nuevoTotal
+                            });
+                            checkbox.checked = true;
+                        }
+                    } else {
+                        checkbox.checked = false;
+                        itemsSeleccionados = itemsSeleccionados.filter(item => item.id !== id);
+                    }
+                    actualizarResumen();
+                    recalcularTotal();
+                });
+            });
+
+            cantidades.forEach(cantidad => {
+                cantidad.addEventListener('input', function() {
+                    const id = this.getAttribute('data-id');
+                    const checkbox = document.querySelector(`.seleccionar-item[data-id="${id}"]`);
+                    const nuevaCantidad = parseInt(this.value) || 0;
+
+                    if (nuevaCantidad > 0 && !checkbox.checked) {
+                        checkbox.checked = true;
+                        
+                        const precioUnitario = getPrecioActual(id);
+                        const nuevoTotal = precioUnitario * nuevaCantidad;
+
+                        itemsSeleccionados.push({
+                            id: id,
+                            nombre: checkbox.closest('tr').querySelector('td:nth-child(2)').textContent,
+                            precioUnitario: precioUnitario,
+                            cantidad: nuevaCantidad,
+                            total: nuevoTotal
+                        });
+                        
+                        actualizarResumen();
+                        recalcularTotal();
+                    }
+                });
+            });
+        }
+
+        function getPrecioActual(id) {
+            if (!arancelesData) return 0;
+            const tipoBeca = document.querySelector('input[name="tipo-beca"]:checked').value;
+            const programaAcademico = document.getElementById('programa-academico').value;
+            const item = arancelesData.aranceles.find(a => a.id === id);
+
+            if (!item) return 0;
+
+            if (arancelesData.becas_exentas.includes(tipoBeca)) {
+                return 0;
+            }
+
+            const categoriaPrograma = item.categorias[programaAcademico];
+            if (categoriaPrograma) {
+                const precio = categoriaPrograma[tipoBeca];
+                if (precio !== undefined) {
+                    return precio;
+                }
+                return categoriaPrograma["sin-beca"] || 0;
+            }
+            return 0;
+        }
+
+        function actualizarPrecios() {
+            if (!arancelesData) return;
+            const precios = document.querySelectorAll('.precio');
+            precios.forEach(precioElemento => {
+                const id = precioElemento.getAttribute('data-id');
+                const precioActual = getPrecioActual(id);
+                precioElemento.textContent = `₡${precioActual.toLocaleString('es-CR')}`;
+            });
+            itemsSeleccionados.forEach(item => {
+                const precioUnitario = getPrecioActual(item.id);
+                const nuevaCantidad = item.cantidad;
+                item.precioUnitario = precioUnitario;
+                item.total = precioUnitario * nuevaCantidad;
+            });
+            actualizarResumen();
+            recalcularTotal();
+        }
+
+        function mostrarMensajeBeca() {
+            const tipoBeca = document.querySelector('input[name="tipo-beca"]:checked').value;
+            const becaMensaje = document.getElementById('beca-mensaje');
+            let mensaje = '';
+            let clase = '';
+
+            if (arancelesData && arancelesData.becas_exentas.includes(tipoBeca)) {
+                mensaje = `Los estudiantes con beca ${tipoBeca.toUpperCase()} tienen exención del 100% en todos los aranceles de materias`;
+                clase = 'beca-mensaje-especial';
+            }
+
+            becaMensaje.innerHTML = mensaje ? `<div class="${clase}">${mensaje}</div>` : '';
+        }
+
+        function pluralizarConcepto(concepto, cantidad) {
+            if (cantidad === 1) return concepto;
+            const plurales = {
+                'Asignatura regular': 'Asignaturas regulares',
+                'Asignatura con laboratorio': 'Asignaturas con laboratorio',
+                'Asignatura con gira de campo': 'Asignaturas con gira de campo',
+                'Asignatura con lab. y gira': 'Asignaturas con lab. y gira',
+                'Asignatura repetida': 'Asignaturas repetidas',
+                'Repetida con laboratorio': 'Repetidas con laboratorio',
+                'Repetida con gira de campo': 'Repetidas con gira de campo',
+                'Repetida con laboratorio y gira': 'Repetidas con laboratorio y gira',
+                'Práctica / Proyecto / Tesis / Seminario / Investigacion Dirig/ Taller de Invest Dirigida/Curso Especializado/Ex De Grado y trab Inv': 'Prácticas / Proyectos / Tesis / Seminarios / Investigaciones Dirig/ Talleres de Invest Dirigida/Cursos Especializados/Ex De Grado y trab Inv',
+                'Laboratorios (independientes)': 'Laboratorios (independientes)'
+            };
+            return plurales[concepto] || concepto;
+        }
+
+        function getNombreBeca(tipoBeca) {
+            const nombres = {
+                "sin-beca": "Sin beca",
+                "beca-a": "Beca A",
+                "beca-b": "Beca B", 
+                "beca-c": "Beca C",
+                "beca-d": "Beca D",
+                "beca-e": "Beca E"
+            };
+            return nombres[tipoBeca] || tipoBeca;
+        }
+
+        function actualizarResumen() {
+            const listaSeleccion = document.getElementById('lista-seleccion');
+            if (!listaSeleccion) return;
+
+            listaSeleccion.innerHTML = '';
+            
+            const ul = document.createElement('ul');
+            
+            const tipoBeca = document.querySelector('input[name="tipo-beca"]:checked').value;
+            const matriculaActual = arancelesMatricula[tipoBeca];
+            
+            if (matriculaActual > 0) {
+                const liMatricula = document.createElement('li');
+                liMatricula.textContent = `Arancel matrícula cuatrimestral (${getNombreBeca(tipoBeca)}): ₡${matriculaActual.toLocaleString('es-CR')}`;
+                ul.appendChild(liMatricula);
+            } else if (matriculaActual === 0) {
+                const liMatricula = document.createElement('li');
+                liMatricula.textContent = `Arancel matrícula cuatrimestral (${getNombreBeca(tipoBeca)}): ₡0 (exento)`;
+                ul.appendChild(liMatricula);
+            }
+            
+            if (itemsSeleccionados.length === 0) {
+                const liVacio = document.createElement('li');
+                liVacio.textContent = 'No hay materias seleccionadas';
+                ul.appendChild(liVacio);
+            } else {
+                itemsSeleccionados.forEach(item => {
+                    const li = document.createElement('li');
+                    const conceptoPluralizado = pluralizarConcepto(item.nombre, item.cantidad);
+                    const precioFormateado = item.precioUnitario.toLocaleString('es-CR');
+                    const totalFormateado = item.total.toLocaleString('es-CR');
+
+                    if (item.cantidad > 1) {
+                        li.textContent = `${item.cantidad} ${conceptoPluralizado}: ₡${precioFormateado} × ${item.cantidad} = ₡${totalFormateado}`;
+                    } else {
+                        li.textContent = `${item.cantidad} ${conceptoPluralizado}: ₡${totalFormateado}`;
+                    }
+                    ul.appendChild(li);
+                });
+            }
+            
+            listaSeleccion.appendChild(ul);
+        }
+
+        function recalcularTotal() {
+            const tipoBeca = document.querySelector('input[name="tipo-beca"]:checked').value;
+            const totalPagar = document.getElementById('total-pagar');
+            if (!totalPagar) return;
+
+            let total = 0;
+
+            total += arancelesMatricula[tipoBeca];
+
+            if (!arancelesData || !arancelesData.becas_exentas.includes(tipoBeca)) {
+                itemsSeleccionados.forEach(item => {
+                    total += item.total;
+                });
+            }
+
+            totalPagar.textContent = `₡${total.toLocaleString('es-CR')}`;
+        }
+
+        // ===== MODO OSCURO =====
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    
+    // Actualizar el estado del checkbox
+    const checkbox = document.getElementById('checkbox');
+    if (checkbox) {
+        checkbox.checked = newTheme === 'dark';
+    }
+}
+
+// Cargar tema guardado al iniciar
+function loadTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    
+    const checkbox = document.getElementById('checkbox');
+    if (checkbox) {
+        checkbox.checked = savedTheme === 'dark';
+    }
+}
+
+// Inicializar tema cuando se carga la página
+document.addEventListener('DOMContentLoaded', function() {
+    loadTheme();
+});
+    </script>
+</body>
+</html>

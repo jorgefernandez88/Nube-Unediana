@@ -1,0 +1,95 @@
+{
+  "aranceles": [
+    {
+      "id": "asignatura_regular",
+      "nombre": "Asignatura regular",
+      "categorias": {
+        "tecnico": { "sin-beca": 46900, "beca-c": 11725, "beca-d": 23450, "beca-e": 35175 },
+        "profesorado": { "sin-beca": 51600, "beca-c": 12900, "beca-d": 25800, "beca-e": 38700 },
+        "licenciatura": { "sin-beca": 59900, "beca-c": 14975, "beca-d": 29950, "beca-e": 44925 }
+      }
+    },
+    {
+      "id": "asignatura_laboratorio",
+      "nombre": "Asignatura con laboratorio",
+      "categorias": {
+        "tecnico": { "sin-beca": 67200, "beca-c": 16800, "beca-d": 33600, "beca-e": 50400 },
+        "profesorado": { "sin-beca": 73500, "beca-c": 18375, "beca-d": 36750, "beca-e": 55125 },
+        "licenciatura": { "sin-beca": 86300, "beca-c": 21575, "beca-d": 43150, "beca-e": 64725 }
+      }
+    },
+    {
+      "id": "asignatura_gira",
+      "nombre": "Asignatura con gira de campo",
+      "categorias": {
+        "tecnico": { "sin-beca": 67200, "beca-c": 16800, "beca-d": 33600, "beca-e": 50400 },
+        "profesorado": { "sin-beca": 73500, "beca-c": 18375, "beca-d": 36750, "beca-e": 55125 },
+        "licenciatura": { "sin-beca": 86300, "beca-c": 21575, "beca-d": 43150, "beca-e": 64725 }
+      }
+    },
+    {
+      "id": "asignatura_laboratorio_gira",
+      "nombre": "Asignatura con lab. y gira",
+      "categorias": {
+        "tecnico": { "sin-beca": 89100, "beca-c": 22275, "beca-d": 44550, "beca-e": 66825 },
+        "profesorado": { "sin-beca": 96100, "beca-c": 24025, "beca-d": 48050, "beca-e": 72075 },
+        "licenciatura": { "sin-beca": 114200, "beca-c": 28550, "beca-d": 57100, "beca-e": 85650 }
+      }
+    },
+    {
+      "id": "laboratorio_independiente",
+      "nombre": "Laboratorios (independientes)",
+      "categorias": {
+        "tecnico": { "sin-beca": 21900, "beca-c": 5475, "beca-d": 10950, "beca-e": 16425 },
+        "profesorado": { "sin-beca": 22600, "beca-c": 5650, "beca-d": 11300, "beca-e": 16950 },
+        "licenciatura": { "sin-beca": 27900, "beca-c": 6975, "beca-d": 13950, "beca-e": 20925 }
+      }
+    },
+    {
+      "id": "asignatura_repetida",
+      "nombre": "Asignatura repetida",
+      "categorias": {
+        "tecnico": { "sin-beca": 28300, "beca-c": 7075, "beca-d": 14150, "beca-e": 21225 },
+        "profesorado": { "sin-beca": 31100, "beca-c": 7775, "beca-d": 15550, "beca-e": 23325 },
+        "licenciatura": { "sin-beca": 36500, "beca-c": 9125, "beca-d": 18250, "beca-e": 27375 }
+      }
+    },
+    {
+      "id": "repetida_laboratorio",
+      "nombre": "Repetida con laboratorio",
+      "categorias": {
+        "tecnico": { "sin-beca": 48100, "beca-c": 12025, "beca-d": 24050, "beca-e": 36075 },
+        "profesorado": { "sin-beca": 53000, "beca-c": 13250, "beca-d": 26500, "beca-e": 39750 },
+        "licenciatura": { "sin-beca": 61900, "beca-c": 15475, "beca-d": 30950, "beca-e": 46425 }
+      }
+    },
+    {
+      "id": "repetida_gira",
+      "nombre": "Repetida con gira de campo",
+      "categorias": {
+        "tecnico": { "sin-beca": 48100, "beca-c": 12025, "beca-d": 24050, "beca-e": 36075 },
+        "profesorado": { "sin-beca": 53000, "beca-c": 13250, "beca-d": 26500, "beca-e": 39750 },
+        "licenciatura": { "sin-beca": 61900, "beca-c": 15475, "beca-d": 30950, "beca-e": 46425 }
+      }
+    },
+    {
+      "id": "repetida_laboratorio_gira",
+      "nombre": "Repetida con laboratorio y gira",
+      "categorias": {
+        "tecnico": { "sin-beca": 70000, "beca-c": 17500, "beca-d": 35000, "beca-e": 52500 },
+        "profesorado": { "sin-beca": 75600, "beca-c": 18900, "beca-d": 37800, "beca-e": 56700 },
+        "licenciatura": { "sin-beca": 89800, "beca-c": 22450, "beca-d": 44900, "beca-e": 67350 }
+      }
+    },
+    {
+      "id": "practica_tesis",
+      "nombre": "Práctica / Proyecto / Tesis / Seminario / Investigacion Dirig/ Taller de Invest Dirigida/Curso Especializado/Ex De Grado y trab Inv",
+      "categorias": {
+        "tecnico": { "sin-beca": 52000, "beca-c": 13000, "beca-d": 26000, "beca-e": 39000 },
+        "profesorado": { "sin-beca": 56900, "beca-c": 14225, "beca-d": 28450, "beca-e": 42675 },
+        "licenciatura": { "sin-beca": 72300, "beca-c": 18075, "beca-d": 36150, "beca-e": 54225 }
+      }
+    }
+  ],
+  "becas_exentas": ["beca-a", "beca-b"]
+}

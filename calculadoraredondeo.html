@@ -17,6 +17,15 @@
             <ul class="menu">
                 <li><a href="index.html"> <i class="fas fa-arrow-left"></i> Volver al inicio <i class="fas fa-home"></i></a></li>
             </ul>
+             <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" onchange="toggleTheme()" />
+            <div class="slider">
+                <span class="theme-icon sun">☀️</span>
+                <span class="theme-icon moon">🌙</span>
+            </div>
+        </label>
+    </div>
         </nav>
     </header>
     <main>
@@ -50,6 +59,35 @@
                 <a href="avisolegal.html" class="legal-link">Aviso Legal</a>
             </h5> 
     </footer>
+
+    <script>
+        // ===== MODO OSCURO =====
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    
+    // Actualizar el estado del checkbox
+    const checkbox = document.getElementById('checkbox');
+    if (checkbox) {
+        checkbox.checked = newTheme === 'dark';
+    }
+}
+
+// Cargar tema guardado al iniciar
+function loadTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    
+    const checkbox = document.getElementById('checkbox');
+    if (checkbox) {
+        checkbox.checked = savedTheme === 'dark';
+    }
+}
+    
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

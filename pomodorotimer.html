@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer - UNED</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-clock"></i> Pomodoro Timer</h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html"><i class="fas fa-arrow-left"></i> Volver al inicio <i class="fas fa-home"></i></a></li>
+            </ul>
+             <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" onchange="toggleTheme()" />
+            <div class="slider">
+                <span class="theme-icon sun">☀️</span>
+                <span class="theme-icon moon">🌙</span>
+            </div>
+        </label>
+    </div>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="container-pomodoro">
+            
+            <!-- Timer Digital -->
+            <div class="pomodoro-timer">
+                <h2>Temporizador Pomodoro</h2>
+                <div class="timer-display" id="timerDisplay">25:00</div>
+                <div class="timer-controls">
+                    <button class="timer-btn" id="startBtn" onclick="iniciarTimer()">
+                        <i class="fas fa-play"></i> Iniciar
+                    </button>
+                    <button class="timer-btn" id="pauseBtn" onclick="pausarTimer()" disabled>
+                        <i class="fas fa-pause"></i> Pausar
+                    </button>
+                    <button class="timer-btn" id="resetBtn" onclick="resetearTimer()">
+                        <i class="fas fa-redo"></i> Reiniciar
+                    </button>
+                </div>
+                <div id="timerMessage" class="timer-message oculto">
+                    <p>¡Tiempo! 🎉</p>
+                    <p>Toma un descanso de 5 minutos</p>
+                    <button class="timer-btn" onclick="reiniciarPomodoro()">
+                        <i class="fas fa-sync-alt"></i> Nuevo Pomodoro
+                    </button>
+                </div>
+            </div>
+
+            <!-- Lista de Tareas -->
+            <div class="tareas-container">
+                <div class="tareas-header">
+                    <h2><i class="fas fa-tasks"></i> Mis Tareas</h2>
+                    <button class="agregar-tarea-btn" onclick="agregarTarea()">
+                        <i class="fas fa-plus"></i> Agregar Tarea
+                    </button>
+                </div>
+                
+                <div id="tareasLista" class="tareas-lista"></div>
+
+                <div id="mensajeCompletado" class="mensaje-completado oculto">
+                    <i class="fas fa-check-circle"></i>
+                    <p>¡Muy bien, terminaste todas tus tareas!</p>
+                </div>
+            </div>
+
+            <!-- Reproductor de iVoox DESPLEGABLE -->
+            <div class="spotify-container">
+                <button class="spotify-toggle-btn" onclick="toggleSpotify()">
+                    <i class="fas fa-music"></i>
+                    <span id="spotifyToggleText">Escucha Audio para Concentrarte</span>
+                    <i class="fas fa-chevron-down spotify-toggle-icon"></i>
+                </button>
+                
+                <div id="spotifyContent" class="spotify-content">
+                    <h2><i class="fas fa-volume-up"></i> Audio para Concentrarte</h2>
+                    <div class="playlist-selector">
+                        <button class="playlist-btn active" onclick="cambiarPlaylist('naturaleza')">
+                            <i class="fas fa-leaf"></i> Naturaleza
+                        </button>
+                        <button class="playlist-btn" onclick="cambiarPlaylist('lofi')">
+                            <i class="fas fa-headphones"></i> Lo-Fi
+                        </button>
+                        <button class="playlist-btn" onclick="cambiarPlaylist('clasica')">
+                            <i class="fas fa-music"></i> Clásica
+                        </button>
+                        <button class="playlist-btn" onclick="cambiarPlaylist('relajante')">
+                            <i class="fas fa-spa"></i> Relajante
+                        </button>
+                        <button class="playlist-btn" onclick="cambiarPlaylist('podcast')">
+                            <i class="fas fa-podcast"></i> Podcast
+                        </button>
+                    </div>
+                    <div id="spotifyPlayer" class="spotify-player">
+                        <iframe 
+                                id="spotifyIframe"
+                                style="border-radius:12px" 
+                                src="https://www.ivoox.com/player_es_podcast_149871_zp_1.html?c1=93ce58" 
+                                width="100%" 
+                                height="400" 
+                                frameBorder="0" 
+                                allowfullscreen="" 
+                                scrolling="no"
+                                loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <nav>
+            <a href="https://www.facebook.com/educadcr"><i class="fab fa-facebook"></i></a>
+        </nav>
+        <h5>&copy; 2025 Proyecto de Educación a Distancia CR <br> Elaborado por Jorge Fernández</h5>
+        <h5>
+            <a href="avisolegal.html" class="legal-link">Aviso Legal</a>
+        </h5>
+    </footer>
+
+    <script>
+        // ===== VARIABLES GLOBALES DEL TIMER =====
+        let tiempoRestante = 25 * 60;
+        let timerInterval = null;
+        let timerActivo = false;
+
+        // ===== AUDIOS DE IVOOX =====
+        const audios = {
+            naturaleza: 'https://www.ivoox.com/player_es_podcast_149871_zp_1.html?c1=93ce58',
+            lofi: 'https://www.ivoox.com/player_es_podcast_1154693_zp_1.html?c1=5293b6',
+            clasica: 'https://www.ivoox.com/player_es_podcast_12925_zp_1.html?c1=69b9aa',
+            relajante: 'https://www.ivoox.com/player_es_podcast_2340043_zp_1.html',
+            podcast: 'https://www.ivoox.com/player_es_podcast_1561033_zp_1.html?c1=092151'
+        };
+
+        // ===== CONTADOR DE TAREAS =====
+        let contadorTareas = 0;
+
+        // ===== FUNCIONES DEL TIMER =====
+        function actualizarDisplay() {
+            const minutos = Math.floor(tiempoRestante / 60);
+            const segundos = tiempoRestante % 60;
+            const display = `${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
+            document.getElementById('timerDisplay').textContent = display;
+        }
+
+        function iniciarTimer() {
+            if (timerActivo) return;
+            
+            timerActivo = true;
+            document.getElementById('startBtn').disabled = true;
+            document.getElementById('pauseBtn').disabled = false;
+            document.getElementById('timerMessage').classList.add('oculto');
+
+            timerInterval = setInterval(() => {
+                tiempoRestante--;
+                actualizarDisplay();
+
+                if (tiempoRestante <= 0) {
+                    clearInterval(timerInterval);
+                    timerActivo = false;
+                    mostrarMensajeCompletado();
+                    reproducirSonido();
+                }
+            }, 1000);
+        }
+
+        function pausarTimer() {
+            if (!timerActivo) return;
+            
+            clearInterval(timerInterval);
+            timerActivo = false;
+            document.getElementById('startBtn').disabled = false;
+            document.getElementById('pauseBtn').disabled = true;
+        }
+
+        function resetearTimer() {
+            clearInterval(timerInterval);
+            timerActivo = false;
+            tiempoRestante = 25 * 60;
+            actualizarDisplay();
+            document.getElementById('startBtn').disabled = false;
+            document.getElementById('pauseBtn').disabled = true;
+            document.getElementById('timerMessage').classList.add('oculto');
+        }
+
+        function reiniciarPomodoro() {
+            resetearTimer();
+            document.getElementById('timerMessage').classList.add('oculto');
+        }
+
+        function mostrarMensajeCompletado() {
+            document.getElementById('timerMessage').classList.remove('oculto');
+            document.getElementById('startBtn').disabled = false;
+            document.getElementById('pauseBtn').disabled = true;
+        }
+
+        function reproducirSonido() {
+            if (navigator.vibrate) {
+                navigator.vibrate([200, 100, 200]);
+            }
+        }
+
+        // ===== FUNCIONES DE TAREAS =====
+        function crearTarea(texto = '') {
+            contadorTareas++;
+            const tareaId = `tarea-${contadorTareas}`;
+            
+            const tareaDiv = document.createElement('div');
+            tareaDiv.className = 'tarea-nota';
+            tareaDiv.id = tareaId;
+            tareaDiv.innerHTML = `
+                <div class="tarea-header">
+                    <span class="tarea-numero">#${contadorTareas}</span>
+                    <button class="tarea-eliminar" onclick="eliminarTarea('${tareaId}')">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <textarea class="tarea-textarea" placeholder="Escribe tu tarea aquí...">${texto}</textarea>
+                <div class="tarea-footer">
+                    <select class="tarea-estado" onchange="cambiarEstado('${tareaId}', this.value)">
+                        <option value="pendiente">📝 Pendiente</option>
+                        <option value="proceso">⚡ En Proceso</option>
+                        <option value="terminado">✅ Terminado</option>
+                    </select>
+                </div>
+            `;
+            
+            return tareaDiv;
+        }
+
+        function agregarTarea() {
+            const tareasLista = document.getElementById('tareasLista');
+            const nuevaTarea = crearTarea();
+            tareasLista.appendChild(nuevaTarea);
+            verificarTareasCompletadas();
+        }
+
+        function eliminarTarea(tareaId) {
+            const tarea = document.getElementById(tareaId);
+            if (tarea) {
+                tarea.remove();
+                verificarTareasCompletadas();
+            }
+        }
+
+        function cambiarEstado(tareaId, estado) {
+            const tarea = document.getElementById(tareaId);
+            if (!tarea) return;
+
+            tarea.classList.remove('estado-pendiente', 'estado-proceso', 'estado-terminado');
+            tarea.classList.add(`estado-${estado}`);
+            
+            verificarTareasCompletadas();
+        }
+
+        function verificarTareasCompletadas() {
+            const todasLasTareas = document.querySelectorAll('.tarea-nota');
+            const tareasTerminadas = document.querySelectorAll('.estado-terminado');
+            const mensajeCompletado = document.getElementById('mensajeCompletado');
+
+            if (todasLasTareas.length > 0 && todasLasTareas.length === tareasTerminadas.length) {
+                mensajeCompletado.classList.remove('oculto');
+            } else {
+                mensajeCompletado.classList.add('oculto');
+            }
+        }
+
+        // ===== FUNCIÓN PARA CAMBIAR AUDIO =====
+        function cambiarPlaylist(tipo) {
+            const iframe = document.getElementById('spotifyIframe');
+            
+            // Cambiar la fuente del iframe
+            iframe.src = audios[tipo];
+            
+            // Actualizar botones activos
+            document.querySelectorAll('.playlist-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            const buttons = document.querySelectorAll('.playlist-btn');
+            buttons.forEach(btn => {
+                const onclickAttr = btn.getAttribute('onclick');
+                if (onclickAttr && onclickAttr.includes(`'${tipo}'`)) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // ===== FUNCIÓN PARA TOGGLE DE SPOTIFY =====
+        function toggleSpotify() {
+            const content = document.getElementById('spotifyContent');
+            const btn = document.querySelector('.spotify-toggle-btn');
+            const text = document.getElementById('spotifyToggleText');
+            
+            content.classList.toggle('active');
+            btn.classList.toggle('active');
+            
+            if (content.classList.contains('active')) {
+                text.textContent = 'Ocultar Reproductor';
+            } else {
+                text.textContent = 'Escucha Audio para Concentrarte';
+            }
+        }
+
+        // ===== INICIALIZACIÓN =====
+        document.addEventListener('DOMContentLoaded', function() {
+            const tareasLista = document.getElementById('tareasLista');
+            tareasLista.appendChild(crearTarea());
+            tareasLista.appendChild(crearTarea());
+            
+            actualizarDisplay();
+        });
+        // ===== MODO OSCURO =====
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    
+    // Actualizar el estado del checkbox
+    const checkbox = document.getElementById('checkbox');
+    if (checkbox) {
+        checkbox.checked = newTheme === 'dark';
+    }
+}
+
+// Cargar tema guardado al iniciar
+function loadTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    
+    const checkbox = document.getElementById('checkbox');
+    if (checkbox) {
+        checkbox.checked = savedTheme === 'dark';
+    }
+}
+
+// Inicializar tema cuando se carga la página
+document.addEventListener('DOMContentLoaded', function() {
+    loadTheme();
+});
+    </script>
+</body>
+</html>
