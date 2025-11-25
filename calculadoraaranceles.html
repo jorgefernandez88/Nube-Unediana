@@ -5,32 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Aranceles UNED</title>
     <link rel="stylesheet" href="styles.css">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Fuente Orbitron para timer digital -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1> <i class="fas fa-calculator"></i> Calculadora de Aranceles UNED</h1>
+        <h1><i class="fas fa-calculator"></i> Calculadora de Aranceles UNED</h1>
         <nav>
             <ul class="menu">
-                <li><a href="index.html"> <i class="fas fa-arrow-left"></i> Volver al inicio <i class="fas fa-home"></i></a></li>
+                <li><a href="index.html"><i class="fas fa-arrow-left"></i> Volver al inicio <i class="fas fa-home"></i></a></li>
             </ul>
-             <div class="theme-switch-wrapper">
-        <label class="theme-switch" for="checkbox">
-            <input type="checkbox" id="checkbox" onchange="toggleTheme()" />
-            <div class="slider">
-                <span class="theme-icon sun">☀️</span>
-                <span class="theme-icon moon">🌙</span>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" onchange="toggleTheme()" />
+                    <div class="slider">
+                        <span class="theme-icon sun">☀️</span>
+                        <span class="theme-icon moon">🌙</span>
+                    </div>
+                </label>
             </div>
-        </label>
-    </div>
         </nav>
     </header>
     <main>
-        <!-- Contenedor principal de la calculadora de aranceles -->
         <div class="container-aranceles">
             <h2>Seleccione su tipo de beca</h2>
-            <!-- Selector de tipo de beca -->
             <div class="beca-selector">
                 <div class="beca-option">
                     <input type="radio" id="sin-beca" name="tipo-beca" value="sin-beca" checked>
@@ -58,41 +58,27 @@
                 </div>
             </div>
 
-            <!-- Selector de programa académico PERSONALIZADO -->
             <div class="programa-selector">
                 <h3>Seleccione su nivel académico</h3>
                 <div class="custom-select-wrapper">
-                    <!-- Select original (oculto, pero funcional para formularios) -->
                     <select id="programa-academico">
                         <option value="tecnico">Técnico/Diplomado</option>
                         <option value="profesorado">Profesorado/Bachillerato</option>
                         <option value="licenciatura">Licenciatura</option>
                     </select>
-                    
-                    <!-- Select personalizado visual -->
                     <div class="custom-select-trigger">
                         <span class="custom-select-value">Técnico/Diplomado</span>
                         <span class="custom-select-arrow">▼</span>
                     </div>
-                    
-                    <!-- Dropdown de opciones -->
                     <div class="custom-select-options">
-                        <div class="custom-select-option selected" data-value="tecnico">
-                            Técnico/Diplomado
-                        </div>
-                        <div class="custom-select-option" data-value="profesorado">
-                            Profesorado/Bachillerato
-                        </div>
-                        <div class="custom-select-option" data-value="licenciatura">
-                            Licenciatura
-                        </div>
+                        <div class="custom-select-option selected" data-value="tecnico">Técnico/Diplomado</div>
+                        <div class="custom-select-option" data-value="profesorado">Profesorado/Bachillerato</div>
+                        <div class="custom-select-option" data-value="licenciatura">Licenciatura</div>
                     </div>
                 </div>
             </div>
             
-            <!-- Mensaje especial según beca seleccionada -->
             <div id="beca-mensaje" class="beca-mensaje"></div>
-            <!-- Tabla de aranceles -->
             <div class="aranceles-tabla-container">
                 <h3>Aranceles por materias (en colones)</h3>
                 <table class="aranceles-tabla">
@@ -104,12 +90,9 @@
                             <th>Cantidad</th>
                         </tr>
                     </thead>
-                    <tbody id="tabla-aranceles-body">
-                        <!-- La tabla se llenará dinámicamente desde script.js -->
-                    </tbody>
+                    <tbody id="tabla-aranceles-body"></tbody>
                 </table>
             </div>
-            <!-- Resumen de selección -->
             <div class="resumen-aranceles">
                 <h3>Resumen de tu selección</h3>
                 <div id="lista-seleccion" class="lista-seleccion"></div>
@@ -125,14 +108,57 @@
             <a href="https://www.facebook.com/educadcr"><i class="fab fa-facebook"></i></a>
         </nav>
         <h5>&copy; 2025 Proyecto de Educación a Distancia CR <br> Elaborado por Jorge Fernández</h5>
-        <h5>
-            <a href="avisolegal.html" class="legal-link">Aviso Legal</a>
-        </h5>
+        <h5><a href="avisolegal.html" class="legal-link">Aviso Legal</a></h5>
     </footer>
 
-    <!-- JavaScript para el select personalizado -->
+    <!-- Audios -->
+    <audio id="themeSwitchSound" preload="auto">
+        <source src="sounds/prendido.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="becaSelectSound" preload="auto">
+        <source src="sounds/modpomodoro.mp3" type="audio/mpeg">
+    </audio>
+
     <script>
-        // ===== INICIALIZAR SELECT PERSONALIZADO =====
+        // ===== VARIABLES GLOBALES =====
+        let arancelesData = null;
+        let itemsSeleccionados = [];
+        let audioDesbloqueado = false;
+        
+        const arancelesMatricula = {
+            "sin-beca": 17293, "beca-a": 0, "beca-b": 2700,
+            "beca-c": 6348.25, "beca-d": 9996.50, "beca-e": 13644.75
+        };
+
+        // ===== FUNCIONES DE AUDIO =====
+        function desbloquearAudio() {
+            if (audioDesbloqueado) return;
+            const audios = [
+                document.getElementById('themeSwitchSound'),
+                document.getElementById('becaSelectSound')
+            ];
+            audios.forEach(audio => {
+                if (audio) {
+                    audio.volume = 0;
+                    audio.play().then(() => {
+                        audio.pause();
+                        audio.currentTime = 0;
+                        audio.volume = 1;
+                    }).catch(e => {});
+                }
+            });
+            audioDesbloqueado = true;
+        }
+
+        function reproducirSonidoSeguro(audioId, volumen = 1) {
+            const audio = document.getElementById(audioId);
+            if (!audio) return;
+            audio.currentTime = 0;
+            audio.volume = volumen;
+            audio.play().catch(e => console.log('Error audio:', e.message));
+        }
+
+        // ===== SELECT PERSONALIZADO =====
         document.addEventListener('DOMContentLoaded', function() {
             const wrapper = document.querySelector('.custom-select-wrapper');
             if (wrapper) {
@@ -142,41 +168,26 @@
                 const valueDisplay = wrapper.querySelector('.custom-select-value');
                 const hiddenSelect = wrapper.querySelector('select');
 
-                // Abrir/cerrar dropdown
                 trigger.addEventListener('click', function(e) {
                     e.stopPropagation();
                     trigger.classList.toggle('active');
                     options.classList.toggle('active');
                 });
 
-                // Seleccionar opción
                 optionElements.forEach(option => {
                     option.addEventListener('click', function() {
                         const value = this.getAttribute('data-value');
                         const text = this.textContent.trim();
-
-                        // Actualizar visual
                         valueDisplay.textContent = text;
-                        
-                        // Remover selected de todos
                         optionElements.forEach(opt => opt.classList.remove('selected'));
-                        // Agregar selected al clickeado
                         this.classList.add('selected');
-
-                        // Actualizar select original (importante para formularios)
                         hiddenSelect.value = value;
-
-                        // Disparar evento change en el select original
-                        const event = new Event('change', { bubbles: true });
-                        hiddenSelect.dispatchEvent(event);
-
-                        // Cerrar dropdown
+                        hiddenSelect.dispatchEvent(new Event('change', { bubbles: true }));
                         trigger.classList.remove('active');
                         options.classList.remove('active');
                     });
                 });
 
-                // Cerrar al hacer clic fuera
                 document.addEventListener('click', function(e) {
                     if (!wrapper.contains(e.target)) {
                         trigger.classList.remove('active');
@@ -184,7 +195,6 @@
                     }
                 });
 
-                // Cerrar con tecla Escape
                 document.addEventListener('keydown', function(e) {
                     if (e.key === 'Escape') {
                         trigger.classList.remove('active');
@@ -193,61 +203,25 @@
                 });
             }
 
-            // ===== INICIALIZAR CALCULADORA DE ARANCELES =====
+            document.body.addEventListener('click', desbloquearAudio, { once: true });
+            document.body.addEventListener('touchstart', desbloquearAudio, { once: true });
             inicializarCalculadoraAranceles();
+            loadTheme();
         });
 
-        // Variable para almacenar los datos cargados
-        let arancelesData = null;
-        // Array para mantener los items seleccionados
-        let itemsSeleccionados = [];
-        // Aranceles de matrícula según tipo de beca
-        const arancelesMatricula = {
-            "sin-beca": 17293,
-            "beca-a": 0,
-            "beca-b": 2700,
-            "beca-c": 6348.25,
-            "beca-d": 9996.50,
-            "beca-e": 13644.75
-        };
-
-        // Función para cargar los aranceles desde el archivo .json
+        // ===== CARGAR ARANCELES =====
         async function cargarAranceles() {
             try {
                 const response = await fetch('aranceles.json');
-                if (!response.ok) {
-                    throw new Error(`Error al cargar aranceles.json: ${response.status} ${response.statusText}`);
-                }
+                if (!response.ok) throw new Error(`Error: ${response.status}`);
                 arancelesData = await response.json();
-                console.log('✅ Aranceles cargados correctamente:', arancelesData);
             } catch (error) {
-                console.error('❌ Error cargando los aranceles:', error);
-                const mainContent = document.querySelector('main');
-                if (mainContent) {
-                    const errorMessage = document.createElement('div');
-                    errorMessage.style.cssText = `
-                        background-color: #f8d7da;
-                        color: #721c24;
-                        border: 1px solid #f5c6cb;
-                        padding: 15px;
-                        margin: 20px auto;
-                        max-width: 800px;
-                        border-radius: 8px;
-                        text-align: center;
-                        font-family: 'Open Sans', serif;
-                    `;
-                    errorMessage.innerHTML = `
-                        <h3 style="color: #721c24; margin-top: 0;">⚠️ Error Crítico</h3>
-                        <p>${error.message}</p>
-                        <p>Por favor, verifique que el archivo <strong>aranceles.json</strong> exista en la raíz del proyecto y tenga un formato JSON válido.</p>
-                    `;
-                    mainContent.insertBefore(errorMessage, mainContent.firstChild);
-                }
-                alert(`Error al cargar los aranceles: ${error.message}\n\nPor favor, verifique el archivo aranceles.json.`);
+                console.error('Error cargando aranceles:', error);
+                alert(`Error al cargar aranceles: ${error.message}`);
             }
         }
 
-        // Función para inicializar la calculadora de aranceles
+        // ===== INICIALIZAR CALCULADORA =====
         async function inicializarCalculadoraAranceles() {
             await cargarAranceles();
             if (!arancelesData) return;
@@ -256,22 +230,9 @@
             if (!tablaBody) return;
 
             const categorias = {
-                "Asignaturas nuevas": [
-                    "asignatura_regular", 
-                    "asignatura_laboratorio", 
-                    "asignatura_gira", 
-                    "asignatura_laboratorio_gira",
-                    "laboratorio_independiente"
-                ],
-                "Asignaturas repetidas": [
-                    "asignatura_repetida", 
-                    "repetida_laboratorio",
-                    "repetida_gira",
-                    "repetida_laboratorio_gira"
-                ],
-                "TFG/Prácticas": [
-                    "practica_tesis"
-                ]
+                "Asignaturas nuevas": ["asignatura_regular", "asignatura_laboratorio", "asignatura_gira", "asignatura_laboratorio_gira", "laboratorio_independiente"],
+                "Asignaturas repetidas": ["asignatura_repetida", "repetida_laboratorio", "repetida_gira", "repetida_laboratorio_gira"],
+                "TFG/Prácticas": ["practica_tesis"]
             };
 
             for (const [categoriaNombre, ids] of Object.entries(categorias)) {
@@ -302,15 +263,18 @@
             recalcularTotal();
         }
 
-        // Función para inicializar eventos de la calculadora de aranceles
+        // ===== EVENTOS DE ARANCELES =====
         function inicializarEventosAranceles() {
             const becaOptions = document.querySelectorAll('input[name="tipo-beca"]');
             const programaSelect = document.getElementById('programa-academico');
             const checkboxes = document.querySelectorAll('.seleccionar-item');
             const cantidades = document.querySelectorAll('.cantidad');
 
+            // ⭐ EVENTO CON SONIDO PARA BECAS
             becaOptions.forEach(option => {
                 option.addEventListener('change', function() {
+                    desbloquearAudio();
+                    reproducirSonidoSeguro('becaSelectSound');
                     actualizarPrecios();
                     mostrarMensajeBeca();
                     recalcularTotal();
@@ -329,28 +293,14 @@
                     
                     if (this.checked) {
                         cantidadInput.value = 1;
-                        const cantidad = 1;
                         const precioUnitario = getPrecioActual(id);
-                        const precioTotal = precioUnitario * cantidad;
-
                         const itemIndex = itemsSeleccionados.findIndex(item => item.id === id);
-                        if (itemIndex !== -1) {
-                            itemsSeleccionados[itemIndex] = {
-                                id: id,
-                                nombre: this.closest('tr').querySelector('td:nth-child(2)').textContent,
-                                precioUnitario: precioUnitario,
-                                cantidad: cantidad,
-                                total: precioTotal
-                            };
-                        } else {
-                            itemsSeleccionados.push({
-                                id: id,
-                                nombre: this.closest('tr').querySelector('td:nth-child(2)').textContent,
-                                precioUnitario: precioUnitario,
-                                cantidad: cantidad,
-                                total: precioTotal
-                            });
-                        }
+                        const nuevoItem = {
+                            id, nombre: this.closest('tr').querySelector('td:nth-child(2)').textContent,
+                            precioUnitario, cantidad: 1, total: precioUnitario
+                        };
+                        if (itemIndex !== -1) itemsSeleccionados[itemIndex] = nuevoItem;
+                        else itemsSeleccionados.push(nuevoItem);
                     } else {
                         cantidadInput.value = 0;
                         itemsSeleccionados = itemsSeleccionados.filter(item => item.id !== id);
@@ -368,33 +318,13 @@
 
                     if (nuevaCantidad > 0) {
                         const precioUnitario = getPrecioActual(id);
-                        const nuevoTotal = precioUnitario * nuevaCantidad;
-
                         const itemIndex = itemsSeleccionados.findIndex(item => item.id === id);
-                        if (itemIndex !== -1) {
-                            if (nuevaCantidad > 0) {
-                                itemsSeleccionados[itemIndex] = {
-                                    id: id,
-                                    nombre: checkbox.closest('tr').querySelector('td:nth-child(2)').textContent,
-                                    precioUnitario: precioUnitario,
-                                    cantidad: nuevaCantidad,
-                                    total: nuevoTotal
-                                };
-                            } else {
-                                itemsSeleccionados.splice(itemIndex, 1);
-                                checkbox.checked = false;
-                                this.value = 0;
-                            }
-                        } else if (nuevaCantidad > 0) {
-                            itemsSeleccionados.push({
-                                id: id,
-                                nombre: checkbox.closest('tr').querySelector('td:nth-child(2)').textContent,
-                                precioUnitario: precioUnitario,
-                                cantidad: nuevaCantidad,
-                                total: nuevoTotal
-                            });
-                            checkbox.checked = true;
-                        }
+                        const nuevoItem = {
+                            id, nombre: checkbox.closest('tr').querySelector('td:nth-child(2)').textContent,
+                            precioUnitario, cantidad: nuevaCantidad, total: precioUnitario * nuevaCantidad
+                        };
+                        if (itemIndex !== -1) itemsSeleccionados[itemIndex] = nuevoItem;
+                        else { itemsSeleccionados.push(nuevoItem); checkbox.checked = true; }
                     } else {
                         checkbox.checked = false;
                         itemsSeleccionados = itemsSeleccionados.filter(item => item.id !== id);
@@ -402,9 +332,7 @@
                     actualizarResumen();
                     recalcularTotal();
                 });
-            });
 
-            cantidades.forEach(cantidad => {
                 cantidad.addEventListener('input', function() {
                     const id = this.getAttribute('data-id');
                     const checkbox = document.querySelector(`.seleccionar-item[data-id="${id}"]`);
@@ -412,18 +340,11 @@
 
                     if (nuevaCantidad > 0 && !checkbox.checked) {
                         checkbox.checked = true;
-                        
                         const precioUnitario = getPrecioActual(id);
-                        const nuevoTotal = precioUnitario * nuevaCantidad;
-
                         itemsSeleccionados.push({
-                            id: id,
-                            nombre: checkbox.closest('tr').querySelector('td:nth-child(2)').textContent,
-                            precioUnitario: precioUnitario,
-                            cantidad: nuevaCantidad,
-                            total: nuevoTotal
+                            id, nombre: checkbox.closest('tr').querySelector('td:nth-child(2)').textContent,
+                            precioUnitario, cantidad: nuevaCantidad, total: precioUnitario * nuevaCantidad
                         });
-                        
                         actualizarResumen();
                         recalcularTotal();
                     }
@@ -436,37 +357,25 @@
             const tipoBeca = document.querySelector('input[name="tipo-beca"]:checked').value;
             const programaAcademico = document.getElementById('programa-academico').value;
             const item = arancelesData.aranceles.find(a => a.id === id);
-
             if (!item) return 0;
-
-            if (arancelesData.becas_exentas.includes(tipoBeca)) {
-                return 0;
-            }
-
+            if (arancelesData.becas_exentas.includes(tipoBeca)) return 0;
             const categoriaPrograma = item.categorias[programaAcademico];
             if (categoriaPrograma) {
                 const precio = categoriaPrograma[tipoBeca];
-                if (precio !== undefined) {
-                    return precio;
-                }
-                return categoriaPrograma["sin-beca"] || 0;
+                return precio !== undefined ? precio : (categoriaPrograma["sin-beca"] || 0);
             }
             return 0;
         }
 
         function actualizarPrecios() {
             if (!arancelesData) return;
-            const precios = document.querySelectorAll('.precio');
-            precios.forEach(precioElemento => {
-                const id = precioElemento.getAttribute('data-id');
-                const precioActual = getPrecioActual(id);
-                precioElemento.textContent = `₡${precioActual.toLocaleString('es-CR')}`;
+            document.querySelectorAll('.precio').forEach(el => {
+                const id = el.getAttribute('data-id');
+                el.textContent = `₡${getPrecioActual(id).toLocaleString('es-CR')}`;
             });
             itemsSeleccionados.forEach(item => {
-                const precioUnitario = getPrecioActual(item.id);
-                const nuevaCantidad = item.cantidad;
-                item.precioUnitario = precioUnitario;
-                item.total = precioUnitario * nuevaCantidad;
+                item.precioUnitario = getPrecioActual(item.id);
+                item.total = item.precioUnitario * item.cantidad;
             });
             actualizarResumen();
             recalcularTotal();
@@ -475,15 +384,16 @@
         function mostrarMensajeBeca() {
             const tipoBeca = document.querySelector('input[name="tipo-beca"]:checked').value;
             const becaMensaje = document.getElementById('beca-mensaje');
-            let mensaje = '';
-            let clase = '';
-
             if (arancelesData && arancelesData.becas_exentas.includes(tipoBeca)) {
-                mensaje = `Los estudiantes con beca ${tipoBeca.toUpperCase()} tienen exención del 100% en todos los aranceles de materias`;
-                clase = 'beca-mensaje-especial';
+                becaMensaje.innerHTML = `<div class="beca-mensaje-especial">Los estudiantes con beca ${tipoBeca.toUpperCase()} tienen exención del 100% en todos los aranceles de materias</div>`;
+            } else {
+                becaMensaje.innerHTML = '';
             }
+        }
 
-            becaMensaje.innerHTML = mensaje ? `<div class="${clase}">${mensaje}</div>` : '';
+        function getNombreBeca(tipoBeca) {
+            const nombres = { "sin-beca": "Sin beca", "beca-a": "Beca A", "beca-b": "Beca B", "beca-c": "Beca C", "beca-d": "Beca D", "beca-e": "Beca E" };
+            return nombres[tipoBeca] || tipoBeca;
         }
 
         function pluralizarConcepto(concepto, cantidad) {
@@ -496,45 +406,24 @@
                 'Asignatura repetida': 'Asignaturas repetidas',
                 'Repetida con laboratorio': 'Repetidas con laboratorio',
                 'Repetida con gira de campo': 'Repetidas con gira de campo',
-                'Repetida con laboratorio y gira': 'Repetidas con laboratorio y gira',
-                'Práctica / Proyecto / Tesis / Seminario / Investigacion Dirig/ Taller de Invest Dirigida/Curso Especializado/Ex De Grado y trab Inv': 'Prácticas / Proyectos / Tesis / Seminarios / Investigaciones Dirig/ Talleres de Invest Dirigida/Cursos Especializados/Ex De Grado y trab Inv',
-                'Laboratorios (independientes)': 'Laboratorios (independientes)'
+                'Repetida con laboratorio y gira': 'Repetidas con laboratorio y gira'
             };
             return plurales[concepto] || concepto;
-        }
-
-        function getNombreBeca(tipoBeca) {
-            const nombres = {
-                "sin-beca": "Sin beca",
-                "beca-a": "Beca A",
-                "beca-b": "Beca B", 
-                "beca-c": "Beca C",
-                "beca-d": "Beca D",
-                "beca-e": "Beca E"
-            };
-            return nombres[tipoBeca] || tipoBeca;
         }
 
         function actualizarResumen() {
             const listaSeleccion = document.getElementById('lista-seleccion');
             if (!listaSeleccion) return;
-
             listaSeleccion.innerHTML = '';
-            
             const ul = document.createElement('ul');
-            
             const tipoBeca = document.querySelector('input[name="tipo-beca"]:checked').value;
-            const matriculaActual = arancelesMatricula[tipoBeca];
+            const matricula = arancelesMatricula[tipoBeca];
             
-            if (matriculaActual > 0) {
-                const liMatricula = document.createElement('li');
-                liMatricula.textContent = `Arancel matrícula cuatrimestral (${getNombreBeca(tipoBeca)}): ₡${matriculaActual.toLocaleString('es-CR')}`;
-                ul.appendChild(liMatricula);
-            } else if (matriculaActual === 0) {
-                const liMatricula = document.createElement('li');
-                liMatricula.textContent = `Arancel matrícula cuatrimestral (${getNombreBeca(tipoBeca)}): ₡0 (exento)`;
-                ul.appendChild(liMatricula);
-            }
+            const liMatricula = document.createElement('li');
+            liMatricula.textContent = matricula > 0 
+                ? `Arancel matrícula cuatrimestral (${getNombreBeca(tipoBeca)}): ₡${matricula.toLocaleString('es-CR')}`
+                : `Arancel matrícula cuatrimestral (${getNombreBeca(tipoBeca)}): ₡0 (exento)`;
+            ul.appendChild(liMatricula);
             
             if (itemsSeleccionados.length === 0) {
                 const liVacio = document.createElement('li');
@@ -543,19 +432,13 @@
             } else {
                 itemsSeleccionados.forEach(item => {
                     const li = document.createElement('li');
-                    const conceptoPluralizado = pluralizarConcepto(item.nombre, item.cantidad);
-                    const precioFormateado = item.precioUnitario.toLocaleString('es-CR');
-                    const totalFormateado = item.total.toLocaleString('es-CR');
-
-                    if (item.cantidad > 1) {
-                        li.textContent = `${item.cantidad} ${conceptoPluralizado}: ₡${precioFormateado} × ${item.cantidad} = ₡${totalFormateado}`;
-                    } else {
-                        li.textContent = `${item.cantidad} ${conceptoPluralizado}: ₡${totalFormateado}`;
-                    }
+                    const concepto = pluralizarConcepto(item.nombre, item.cantidad);
+                    li.textContent = item.cantidad > 1
+                        ? `${item.cantidad} ${concepto}: ₡${item.precioUnitario.toLocaleString('es-CR')} × ${item.cantidad} = ₡${item.total.toLocaleString('es-CR')}`
+                        : `${item.cantidad} ${concepto}: ₡${item.total.toLocaleString('es-CR')}`;
                     ul.appendChild(li);
                 });
             }
-            
             listaSeleccion.appendChild(ul);
         }
 
@@ -563,50 +446,31 @@
             const tipoBeca = document.querySelector('input[name="tipo-beca"]:checked').value;
             const totalPagar = document.getElementById('total-pagar');
             if (!totalPagar) return;
-
-            let total = 0;
-
-            total += arancelesMatricula[tipoBeca];
-
+            let total = arancelesMatricula[tipoBeca];
             if (!arancelesData || !arancelesData.becas_exentas.includes(tipoBeca)) {
-                itemsSeleccionados.forEach(item => {
-                    total += item.total;
-                });
+                itemsSeleccionados.forEach(item => total += item.total);
             }
-
             totalPagar.textContent = `₡${total.toLocaleString('es-CR')}`;
         }
 
         // ===== MODO OSCURO =====
-function toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    
-    // Actualizar el estado del checkbox
-    const checkbox = document.getElementById('checkbox');
-    if (checkbox) {
-        checkbox.checked = newTheme === 'dark';
-    }
-}
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            desbloquearAudio();
+            reproducirSonidoSeguro('themeSwitchSound');
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            const checkbox = document.getElementById('checkbox');
+            if (checkbox) checkbox.checked = newTheme === 'dark';
+        }
 
-// Cargar tema guardado al iniciar
-function loadTheme() {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    
-    const checkbox = document.getElementById('checkbox');
-    if (checkbox) {
-        checkbox.checked = savedTheme === 'dark';
-    }
-}
-
-// Inicializar tema cuando se carga la página
-document.addEventListener('DOMContentLoaded', function() {
-    loadTheme();
-});
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            const checkbox = document.getElementById('checkbox');
+            if (checkbox) checkbox.checked = savedTheme === 'dark';
+        }
     </script>
 </body>
 </html>

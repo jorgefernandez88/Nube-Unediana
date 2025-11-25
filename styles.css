@@ -28,6 +28,15 @@ body, html {
   color: var(--text-dark);
 }
 
+html {
+  font-size: 16px; /* Base para rem */
+}
+
+body {
+  font-size: 1rem;      /* 16px */
+  line-height: 1.6;     /* Mejor legibilidad */
+}
+
 /* Ajustes del main para evitar solapamiento y centrar contenido */
 main {
   flex: 1 0 auto;
@@ -126,25 +135,35 @@ h1, h2, h3 {
   font-family: 'Arial', sans-serif;
   color: var(--text-dark);
   font-weight: 600;
+
 }
 
 h1 {
-  font-size: 12px;
+  font-size: 1.75rem;
+  line-height: 1.3;
 }
 
 h2 {
-  font-size: 11px;
+  font-size: 1.5rem;    /* 24px */
+  line-height: 1.35;
+}
+
+h3 {
+  font-size: 1.25rem;   /* 20px */
+  line-height: 1.4;
 }
 
 h5 {
   font-family: 'Arial', sans-serif;
-  font-size: 10px;
+  font-size: 0.875rem;  /* 14px */
+  line-height: 1.5;
   color: var(--text-medium);
 }
 
 p {
   font-family: 'Arial', sans-serif;
-  font-size: 10px;
+  font-size: 1rem;      /* 16px */
+  line-height: 1.6;
   color: var(--text-medium);
 }
 
@@ -167,7 +186,7 @@ nav ul.menu li a {
   background: var(--card-bg);
   color: var(--accent-blue);
   font-family: 'Arial', sans-serif;
-  font-size: 11px;
+  font-size: 0.875rem;
   text-decoration: none;
   padding: 10px 20px;
   border: none;
@@ -195,6 +214,133 @@ nav ul.menu li a:active {
   box-shadow: 
     inset 5px 5px 10px var(--shadow-dark),
     inset -5px -5px 10px var(--shadow-light);
+}
+
+/* Botones */
+.boton-expansion,
+.timer-btn,
+.modo-btn,
+.playlist-btn,
+.agregar-tarea-btn {
+  font-size: 0.875rem;  /* 14px */
+}
+
+
+/* Inputs */
+.input-group input,
+.input-group-ganar-materia input,
+.input-group-redondeo-nota input,
+.config-focus input,
+.config-flow input {
+  font-size: 1rem;      /* 16px - evita zoom en iOS */
+}
+
+
+/* Labels */
+.input-group label,
+.input-group-ganar-materia label,
+.input-group-redondeo-nota label,
+.config-focus label,
+.config-flow label {
+  font-size: 0.875rem;  /* 14px */
+}
+
+/* Tablas */
+.aranceles-tabla {
+  font-size: 0.875rem;  /* 14px */
+}
+
+.aranceles-tabla th {
+  font-size: 0.875rem;  /* 14px */
+}
+
+/* Tareas */
+.tarea-textarea {
+  font-size: 0.9375rem; /* 15px */
+}
+
+.tarea-estado {
+  font-size: 0.875rem;  /* 14px */
+}
+
+/* Footer */
+footer h5,
+footer .legal-link {
+  font-size: 0.75rem;   /* 12px */
+}
+
+/* Mensajes */
+.timer-message p {
+  font-size: 1rem;      /* 16px */
+}
+
+.timer-message p:first-child {
+  font-size: 1.5rem;    /* 24px */
+}
+
+.mensaje-completado p {
+  font-size: 1.125rem;  /* 18px */
+}
+
+/* Selector de beca */
+.beca-option label {
+  font-size: 0.8125rem; /* 13px */
+}
+
+/* Resumen */
+.lista-seleccion li {
+  font-size: 0.875rem;  /* 14px */
+}
+
+.total-container {
+  font-size: 1.125rem;  /* 18px */
+}
+
+/* Info de ronda */
+.ronda-info p {
+  font-size: 0.9375rem; /* 15px */
+}
+
+.tiempo-total {
+  font-size: 0.9375rem; /* 15px */
+}
+
+
+/* ===== RESPONSIVE TIPOGRAFÍA ===== */
+@media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+  
+  h1 {
+    font-size: 1.5rem;    /* 22.5px */
+  }
+  
+  h2 {
+    font-size: 1.25rem;   /* 18.75px */
+  }
+  
+  h3 {
+    font-size: 1.125rem;  /* 16.875px */
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 1.375rem;  /* 19.25px */
+  }
+  
+  h2 {
+    font-size: 1.125rem;  /* 15.75px */
+  }
+  
+  .beca-option label {
+    font-size: 0.75rem;   /* 10.5px */
+  }
 }
 
 /* ===== CONTENEDORES NEUMORFISMO ===== */
@@ -1707,10 +1853,21 @@ nav ul.menu li a:active {
   }
 
   .timer-display {
-    font-size: 48px;
-    padding: 20px;
-    letter-spacing: 4px;
-  }
+  font-family: 'Orbitron', 'Courier New', monospace;
+  font-size: 4.5rem;    /* 72px */
+  font-weight: 700;
+  color: var(--accent-blue);
+  background: var(--card-bg);
+  padding: 1.875rem;    /* 30px */
+  border-radius: 1.25rem; /* 20px */
+  box-shadow: 
+    inset 6px 6px 12px var(--shadow-dark),
+    inset -6px -6px 12px var(--shadow-light);
+  border: 2px solid var(--border-light);
+  margin-bottom: 1.5625rem; /* 25px */
+  letter-spacing: 0.5rem;  /* 8px */
+  text-shadow: 0 0 20px rgba(52, 152, 219, 0.3);
+}
 
   .timer-btn {
     font-size: 12px;
@@ -1727,19 +1884,20 @@ nav ul.menu li a:active {
   }
 }
 
+/* Responsive para el timer */
+@media (max-width: 768px) {
+  .timer-display {
+    font-size: 3rem;      /* 48px */
+    padding: 1.25rem;     /* 20px */
+    letter-spacing: 0.25rem; /* 4px */
+  }
+}
+
 @media (max-width: 480px) {
   .timer-display {
-    font-size: 36px;
-    padding: 15px;
-  }
-
-  .tareas-header {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .agregar-tarea-btn {
-    width: 100%;
+    font-size: 2.25rem;   /* 36px */
+    padding: 0.9375rem;   /* 15px */
+    letter-spacing: 0.125rem; /* 2px */
   }
 }
 
@@ -1920,16 +2078,16 @@ nav ul.menu li a:active {
 }
 
 [data-theme="dark"] {
-  --primary-bg: #1a1a1a;
-  --card-bg: #2d2d2d;
-  --text-dark: #ffffff;
-  --text-medium: #e0e0e0;
-  --text-light: #b0b0b0;
-  --accent-blue: #4dabf7;
-  --accent-blue-dark: #339af0;
-  --shadow-dark: rgba(0, 0, 0, 0.5);
-  --shadow-light: rgba(255, 255, 255, 0.1);
-  --border-light: #404040;
+  --primary-bg: #0d1117;           /* Negro con toque azul oscuro */
+  --card-bg: #161b22;              /* Gris azulado oscuro */
+  --text-dark: #f0f6fc;            /* Blanco suave */
+  --text-medium: #c9d1d9;          /* Gris claro */
+  --text-light: #8b949e;           /* Gris medio */
+  --accent-blue: #58a6ff;          /* Azul más brillante */
+  --accent-blue-dark: #388bfd;     /* Azul intenso */
+  --shadow-dark: rgba(0, 0, 0, 0.6);
+  --shadow-light: rgba(56, 139, 253, 0.05);  /* Sombra con toque azul */
+  --border-light: #21262d;         /* Borde azulado */
 }
 
 /* ===== SWITCH MODO OSCURO ===== */
@@ -2058,5 +2216,145 @@ body, header, footer, .container-pomodoro, .pomodoro-timer,
     
     input:checked + .slider:before {
         transform: translateX(20px);
+    }
+}
+
+/* ===== SELECTOR DE MODO ===== */
+.modo-selector {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 
+        5px 5px 10px var(--shadow-dark),
+        -5px -5px 10px var(--shadow-light);
+    border: 1px solid var(--border-light);
+    margin-bottom: 20px;
+}
+
+.modo-selector h3 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+
+.modo-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.modo-btn {
+    background: var(--card-bg);
+    color: var(--text-dark);
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 
+        4px 4px 8px var(--shadow-dark),
+        -4px -4px 8px var(--shadow-light);
+    border: 1px solid var(--border-light);
+}
+
+.modo-btn:hover {
+    color: var(--accent-blue);
+    transform: translateY(-2px);
+    box-shadow: 
+        6px 6px 12px var(--shadow-dark),
+        -6px -6px 12px var(--shadow-light);
+}
+
+.modo-btn.active {
+    background: var(--accent-blue);
+    color: white;
+    box-shadow: 
+        inset 4px 4px 8px rgba(0, 0, 0, 0.2),
+        inset -4px -4px 8px rgba(255, 255, 255, 0.1);
+}
+
+/* ===== CONFIGURACIÓN DE MODO ===== */
+.config-modo {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 
+        5px 5px 10px var(--shadow-dark),
+        -5px -5px 10px var(--shadow-light);
+    border: 1px solid var(--border-light);
+    margin-bottom: 20px;
+}
+
+.config-focus, .config-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.config-focus label, .config-flow label {
+    font-size: 14px;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.config-focus input, .config-flow input {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    background: var(--card-bg);
+    color: var(--text-dark);
+    box-shadow: 
+        inset 3px 3px 6px var(--shadow-dark),
+        inset -3px -3px 6px var(--shadow-light);
+    border: 1px solid var(--border-light);
+    font-size: 14px;
+    width: 80px;
+    text-align: center;
+}
+
+.tiempo-total {
+    font-size: 14px;
+    color: var(--accent-blue);
+    font-weight: 600;
+}
+
+/* ===== INFORMACIÓN DE RONDA ===== */
+.ronda-info {
+    background: rgba(52, 152, 219, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    box-shadow: 
+        inset 2px 2px 4px var(--shadow-dark),
+        inset -2px -2px 4px var(--shadow-light);
+    border: 1px solid var(--border-light);
+}
+
+.ronda-info p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .modo-buttons {
+        flex-direction: column;
+    }
+    
+    .modo-btn {
+        width: 100%;
+    }
+    
+    .config-focus, .config-flow {
+        flex-direction: column;
+        text-align: center;
     }
 }

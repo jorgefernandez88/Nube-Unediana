@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -73,21 +74,32 @@
                 <a href="avisolegal.html" class="legal-link">Aviso Legal</a>
             </h5> 
     </footer>
+
+    <audio id="themeSwitchSound" preload="auto">
+        <source src="sounds/prendido.mp3" type="audio/mpeg">
+    </audio>
+
     <script>
         // ===== MODO OSCURO =====
-function toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    
-    // Actualizar el estado del checkbox
-    const checkbox = document.getElementById('checkbox');
-    if (checkbox) {
-        checkbox.checked = newTheme === 'dark';
+    function toggleTheme() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        // Reproducir sonido del switch
+        const audio = document.getElementById('themeSwitchSound');
+        if (audio) {
+            audio.play().catch(e => console.log('Error al reproducir sonido del switch:', e));
+        }
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        // Actualizar el estado del checkbox
+        const checkbox = document.getElementById('checkbox');
+        if (checkbox) {
+            checkbox.checked = newTheme === 'dark';
+        }
     }
-}
 
 // Cargar tema guardado al iniciar
 function loadTheme() {

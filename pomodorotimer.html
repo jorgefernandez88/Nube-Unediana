@@ -6,6 +6,25 @@
     <title>Pomodoro Timer - UNED</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <base target="_blank">
+    <!-- Sistema completo de fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Mejoras de accesibilidad -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#3b82f6">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+    <!-- Precarga de fuentes críticas -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <style>
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -14,21 +33,40 @@
             <ul class="menu">
                 <li><a href="index.html"><i class="fas fa-arrow-left"></i> Volver al inicio <i class="fas fa-home"></i></a></li>
             </ul>
-             <div class="theme-switch-wrapper">
-        <label class="theme-switch" for="checkbox">
-            <input type="checkbox" id="checkbox" onchange="toggleTheme()" />
-            <div class="slider">
-                <span class="theme-icon sun">☀️</span>
-                <span class="theme-icon moon">🌙</span>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" onchange="toggleTheme()" />
+                    <div class="slider">
+                        <span class="theme-icon sun">☀️</span>
+                        <span class="theme-icon moon">🌙</span>
+                    </div>
+                </label>
             </div>
-        </label>
-    </div>
         </nav>
     </header>
     
     <main>
         <div class="container-pomodoro">
             
+            <!-- Selector de Modo -->
+            <div class="modo-selector">
+                <h3>Modo de Pomodoro</h3>
+                <div class="modo-buttons">
+                    <button class="modo-btn active" onclick="cambiarModo('normal', event)">
+                        <i class="fas fa-play"></i> Normal
+                    </button>
+                    <button class="modo-btn" onclick="cambiarModo('focus', event)">
+                        <i class="fas fa-target"></i> Focus
+                    </button>
+                    <button class="modo-btn" onclick="cambiarModo('flow', event)">
+                        <i class="fas fa-water"></i> Flow
+                    </button>
+                </div>
+            </div>
+
+            <!-- Configuración del Modo -->
+            <div id="configModo" class="config-modo"></div>
+
             <!-- Timer Digital -->
             <div class="pomodoro-timer">
                 <h2>Temporizador Pomodoro</h2>
@@ -46,10 +84,14 @@
                 </div>
                 <div id="timerMessage" class="timer-message oculto">
                     <p>¡Tiempo! 🎉</p>
-                    <p>Toma un descanso de 5 minutos</p>
+                    <p id="timerMessageText">Toma un descanso de 5 minutos</p>
                     <button class="timer-btn" onclick="reiniciarPomodoro()">
-                        <i class="fas fa-sync-alt"></i> Nuevo Pomodoro
+                        <i class="fas fa-sync-alt"></i> <span id="btnMessageText">Nuevo Pomodoro</span>
                     </button>
+                </div>
+                <div id="rondaInfo" class="ronda-info oculto">
+                    <p>Ronda <span id="rondaActual">1</span> de <span id="rondaTotal">1</span></p>
+                    <p>Tiempo total: <span id="tiempoTotal">0h 30m</span></p>
                 </div>
             </div>
 
@@ -126,11 +168,40 @@
         </h5>
     </footer>
 
+    <!-- Audio para notificaciones -->
+    <audio id="notificationSound" preload="auto">
+        <source src="sounds/alarm.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Audio para switch de tema -->
+    <audio id="themeSwitchSound" preload="auto">
+        <source src="sounds/prendido.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Audio para descanso -->
+    <audio id="descansoSound" preload="auto">
+        <source src="sounds/descanso.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Audio para cambio de modo -->
+    <audio id="modoPomodoroSound" preload="auto">
+        <source src="sounds/modpomodoro.mp3" type="audio/mpeg">
+    </audio>
+
     <script>
         // ===== VARIABLES GLOBALES DEL TIMER =====
         let tiempoRestante = 25 * 60;
         let timerInterval = null;
         let timerActivo = false;
+        let modoActual = 'normal';
+        let rondaActual = 1;
+        let rondasTotales = 1;
+        let enDescanso = false;
+        let tiempoPomodoro = 25 * 60;
+        let tiempoDescanso = 5 * 60;
+        let tiempoFlow = 25 * 60;
+        let timerPausado = false;
+        let audioDesbloqueado = false;
 
         // ===== AUDIOS DE IVOOX =====
         const audios = {
@@ -144,6 +215,70 @@
         // ===== CONTADOR DE TAREAS =====
         let contadorTareas = 0;
 
+        // ===== FUNCIÓN PARA DESBLOQUEAR AUDIO EN iOS/Safari =====
+        function desbloquearAudio() {
+            if (audioDesbloqueado) return;
+            
+            const audiosParaDesbloquear = [
+                document.getElementById('notificationSound'),
+                document.getElementById('themeSwitchSound'),
+                document.getElementById('descansoSound'),
+                document.getElementById('modoPomodoroSound')
+            ];
+            
+            audiosParaDesbloquear.forEach(audio => {
+                if (audio) {
+                    audio.volume = 0;
+                    audio.play().then(() => {
+                        audio.pause();
+                        audio.currentTime = 0;
+                        audio.volume = 1;
+                    }).catch(e => {});
+                }
+            });
+            
+            audioDesbloqueado = true;
+            console.log('🔊 Audio desbloqueado para iOS/Safari');
+        }
+
+        // ===== FUNCIÓN MEJORADA PARA REPRODUCIR SONIDO =====
+        function reproducirSonidoSeguro(audioId, volumen = 1) {
+            const audio = document.getElementById(audioId);
+            if (!audio) {
+                console.log('Audio no encontrado:', audioId);
+                return;
+            }
+            
+            audio.currentTime = 0;
+            audio.volume = volumen;
+            
+            const playPromise = audio.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    console.log('🔊 Reproduciendo:', audioId);
+                }).catch(error => {
+                    console.log('⚠️ Error al reproducir audio:', audioId, error.message);
+                    intentarConAudioContext(audio);
+                });
+            }
+        }
+
+        // ===== FALLBACK CON AUDIO CONTEXT =====
+        function intentarConAudioContext(audioElement) {
+            try {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (AudioContext) {
+                    const ctx = new AudioContext();
+                    const source = ctx.createMediaElementSource(audioElement);
+                    source.connect(ctx.destination);
+                    audioElement.play().catch(e => {});
+                }
+            } catch (e) {
+                console.log('AudioContext no disponible');
+            }
+        }
+
         // ===== FUNCIONES DEL TIMER =====
         function actualizarDisplay() {
             const minutos = Math.floor(tiempoRestante / 60);
@@ -155,41 +290,174 @@
         function iniciarTimer() {
             if (timerActivo) return;
             
+            desbloquearAudio();
+            
             timerActivo = true;
-            document.getElementById('startBtn').disabled = true;
+            const startBtn = document.getElementById('startBtn');
+            startBtn.disabled = true;
             document.getElementById('pauseBtn').disabled = false;
             document.getElementById('timerMessage').classList.add('oculto');
 
-            timerInterval = setInterval(() => {
-                tiempoRestante--;
-                actualizarDisplay();
+            if (window.Worker) {
+                const worker = new Worker(URL.createObjectURL(new Blob([`
+                    let interval;
+                    self.onmessage = function(e) {
+                        if (e.data === 'start') {
+                            interval = setInterval(() => {
+                                self.postMessage('tick');
+                            }, 1000);
+                        } else if (e.data === 'stop') {
+                            clearInterval(interval);
+                        }
+                    };
+                `], { type: 'application/javascript' })));
 
-                if (tiempoRestante <= 0) {
-                    clearInterval(timerInterval);
-                    timerActivo = false;
-                    mostrarMensajeCompletado();
-                    reproducirSonido();
-                }
-            }, 1000);
+                worker.onmessage = function(e) {
+                    if (e.data === 'tick' && timerActivo) {
+                        tiempoRestante--;
+                        actualizarDisplay();
+
+                        if (tiempoRestante <= 0) {
+                            worker.postMessage('stop');
+                            clearInterval(timerInterval);
+                            timerActivo = false;
+                            procesarFinTimer();
+                        }
+                    }
+                };
+
+                worker.postMessage('start');
+                timerInterval = worker;
+            } else {
+                timerInterval = setInterval(() => {
+                    tiempoRestante--;
+                    actualizarDisplay();
+
+                    if (tiempoRestante <= 0) {
+                        clearInterval(timerInterval);
+                        timerActivo = false;
+                        procesarFinTimer();
+                    }
+                }, 1000);
+            }
         }
 
         function pausarTimer() {
             if (!timerActivo) return;
             
-            clearInterval(timerInterval);
+            if (timerInterval && timerInterval.postMessage) {
+                timerInterval.postMessage('stop');
+            } else {
+                clearInterval(timerInterval);
+            }
+            
             timerActivo = false;
-            document.getElementById('startBtn').disabled = false;
+            timerPausado = true;
+            
+            const startBtn = document.getElementById('startBtn');
+            startBtn.disabled = false;
+            startBtn.innerHTML = '<i class="fas fa-play"></i> Continuar';
+            
             document.getElementById('pauseBtn').disabled = true;
         }
 
         function resetearTimer() {
-            clearInterval(timerInterval);
+            if (timerInterval && timerInterval.postMessage) {
+                timerInterval.postMessage('stop');
+            } else {
+                clearInterval(timerInterval);
+            }
+            
             timerActivo = false;
-            tiempoRestante = 25 * 60;
+            timerPausado = false;
+            
+            document.getElementById('timerDisplay').style.color = '';
+            
+            const mensajeDescanso = document.getElementById('mensajeDescanso');
+            if (mensajeDescanso) {
+                mensajeDescanso.remove();
+            }
+            
+            if (modoActual === 'flow') {
+                tiempoRestante = tiempoFlow;
+            } else {
+                tiempoRestante = tiempoPomodoro;
+                enDescanso = false;
+                rondaActual = 1;
+            }
+            
             actualizarDisplay();
-            document.getElementById('startBtn').disabled = false;
+            
+            const startBtn = document.getElementById('startBtn');
+            startBtn.disabled = false;
+            startBtn.innerHTML = '<i class="fas fa-play"></i> Iniciar';
+            
             document.getElementById('pauseBtn').disabled = true;
             document.getElementById('timerMessage').classList.add('oculto');
+            actualizarInfoRonda();
+        }
+
+        function procesarFinTimer() {
+            reproducirSonidoSeguro('notificationSound');
+            
+            if (navigator.vibrate) {
+                navigator.vibrate([200, 100, 200]);
+            }
+            
+            detenerMusica();
+            
+            if (modoActual === 'normal') {
+                mostrarMensajeCompletado();
+            } else if (modoActual === 'focus') {
+                if (!enDescanso) {
+                    rondaActual++;
+                    
+                    if (rondaActual > rondasTotales) {
+                        mostrarMensajeSesionCompleta();
+                        return;
+                    }
+                    
+                    enDescanso = true;
+                    tiempoRestante = tiempoDescanso;
+                    actualizarDisplay();
+                    
+                    document.getElementById('timerDisplay').style.color = '#e74c3c';
+                    
+                    reproducirSonidoSeguro('descansoSound', 0.7);
+                    
+                    actualizarInfoRondaConDescanso();
+                    
+                    setTimeout(() => {
+                        iniciarTimer();
+                    }, 2000);
+                } else {
+                    enDescanso = false;
+                    
+                    document.getElementById('timerDisplay').style.color = '';
+                    
+                    const mensajeDescanso = document.getElementById('mensajeDescanso');
+                    if (mensajeDescanso) {
+                        mensajeDescanso.remove();
+                    }
+                    
+                    tiempoRestante = tiempoPomodoro;
+                    actualizarDisplay();
+                    
+                    actualizarUIRondas();
+                    
+                    setTimeout(() => {
+                        iniciarTimer();
+                    }, 2000);
+                }
+            } else if (modoActual === 'flow') {
+                mostrarMensajeFlow();
+            }
+            
+            const startBtn = document.getElementById('startBtn');
+            startBtn.disabled = false;
+            startBtn.innerHTML = '<i class="fas fa-play"></i> Iniciar';
+            
+            document.getElementById('pauseBtn').disabled = true;
         }
 
         function reiniciarPomodoro() {
@@ -198,14 +466,170 @@
         }
 
         function mostrarMensajeCompletado() {
+            document.getElementById('timerMessageText').textContent = '¡Tiempo completado! Toma un descanso.';
+            document.getElementById('btnMessageText').textContent = 'Nuevo Pomodoro';
             document.getElementById('timerMessage').classList.remove('oculto');
-            document.getElementById('startBtn').disabled = false;
-            document.getElementById('pauseBtn').disabled = true;
         }
 
-        function reproducirSonido() {
-            if (navigator.vibrate) {
-                navigator.vibrate([200, 100, 200]);
+        function mostrarMensajeSesionCompleta() {
+            document.getElementById('timerMessageText').textContent = '¡Sesión completada! 🎉';
+            document.getElementById('btnMessageText').textContent = 'Nueva Sesión';
+            document.getElementById('timerMessage').classList.remove('oculto');
+        }
+
+        function mostrarMensajeFlow() {
+            document.getElementById('timerMessageText').textContent = '¡Tiempo de Flow completado!';
+            document.getElementById('btnMessageText').textContent = 'Agregar más tiempo';
+            document.getElementById('timerMessage').classList.remove('oculto');
+        }
+
+        function detenerMusica() {
+            const iframe = document.getElementById('spotifyIframe');
+            if (iframe && iframe.src) {
+                iframe.src = iframe.src;
+                console.log('Música reseteada');
+            }
+        }
+
+        // ===== FUNCIONES DE MODO =====
+        function cambiarModo(modo, event) {
+            modoActual = modo;
+            
+            desbloquearAudio();
+            reproducirSonidoSeguro('modoPomodoroSound');
+            
+            document.querySelectorAll('.modo-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            if (event && event.target) {
+                event.target.closest('.modo-btn').classList.add('active');
+            }
+            
+            actualizarConfigModo();
+            resetearTimer();
+        }
+
+        function actualizarConfigModo() {
+            const configDiv = document.getElementById('configModo');
+            
+            if (modoActual === 'normal') {
+                configDiv.innerHTML = '';
+                document.getElementById('rondaInfo').classList.add('oculto');
+            } else if (modoActual === 'focus') {
+                configDiv.innerHTML = `
+                    <div class="config-focus">
+                        <label for="rondasInput">Número de rondas:</label>
+                        <input type="number" id="rondasInput" min="1" max="10" value="1">
+                        <div class="tiempo-total" id="tiempoTotalFocus">Tiempo total: 0h 30m</div>
+                    </div>
+                `;
+                document.getElementById('rondaInfo').classList.remove('oculto');
+                
+                const inputRondas = document.getElementById('rondasInput');
+                inputRondas.addEventListener('input', function() {
+                    actualizarValoresRondas();
+                });
+                
+                setTimeout(() => {
+                    actualizarValoresRondas();
+                }, 50);
+                
+            } else if (modoActual === 'flow') {
+                configDiv.innerHTML = `
+                    <div class="config-flow">
+                        <label for="tiempoFlowInput">Minutos iniciales:</label>
+                        <input type="number" id="tiempoFlowInput" min="1" max="120" value="25" onchange="actualizarTiempoFlow()">
+                    </div>
+                `;
+                document.getElementById('rondaInfo').classList.add('oculto');
+                actualizarTiempoFlow();
+            }
+        }
+
+        function actualizarUIRondas() {
+            const tiempoTotal = (tiempoPomodoro + tiempoDescanso) * rondasTotales;
+            const horas = Math.floor(tiempoTotal / 3600);
+            const minutos = Math.floor((tiempoTotal % 3600) / 60);
+            
+            const tiempoTotalFocus = document.getElementById('tiempoTotalFocus');
+            if (tiempoTotalFocus) {
+                tiempoTotalFocus.textContent = `Tiempo total: ${horas}h ${minutos}m`;
+            }
+            
+            const rondaActualElement = document.getElementById('rondaActual');
+            const rondaTotalElement = document.getElementById('rondaTotal');
+            const tiempoTotalElement = document.getElementById('tiempoTotal');
+            
+            if (rondaActualElement) {
+                rondaActualElement.textContent = rondaActual;
+            }
+            if (rondaTotalElement) {
+                rondaTotalElement.textContent = rondasTotales;
+            }
+            if (tiempoTotalElement) {
+                tiempoTotalElement.textContent = `${horas}h ${minutos}m`;
+            }
+            
+            console.log('📊 UI actualizada - Ronda:', rondaActual, 'de', rondasTotales);
+        }
+
+        function actualizarValoresRondas() {
+            const inputRondas = document.getElementById('rondasInput');
+            if (!inputRondas) return;
+            
+            const nuevoValor = parseInt(inputRondas.value) || 1;
+            rondasTotales = nuevoValor;
+            
+            if (!timerActivo && !timerPausado && !enDescanso) {
+                rondaActual = 1;
+            }
+            
+            actualizarUIRondas();
+            
+            const mensajeDescanso = document.getElementById('mensajeDescanso');
+            if (mensajeDescanso && !enDescanso) {
+                mensajeDescanso.remove();
+            }
+            
+            console.log('📊 Rondas actualizadas:', rondaActual, 'de', rondasTotales);
+        }
+
+        function actualizarInfoRondaConDescanso() {
+            const tiempoTotal = (tiempoPomodoro + tiempoDescanso) * rondasTotales;
+            const horas = Math.floor(tiempoTotal / 3600);
+            const minutos = Math.floor((tiempoTotal % 3600) / 60);
+            
+            const rondaActualElement = document.getElementById('rondaActual');
+            const rondaTotalElement = document.getElementById('rondaTotal');
+            const tiempoTotalElement = document.getElementById('tiempoTotal');
+            const rondaInfo = document.getElementById('rondaInfo');
+            
+            if (rondaActualElement) rondaActualElement.textContent = rondaActual;
+            if (rondaTotalElement) rondaTotalElement.textContent = rondasTotales;
+            if (tiempoTotalElement) tiempoTotalElement.textContent = `${horas}h ${minutos}m`;
+            
+            if (rondaInfo && enDescanso) {
+                if (!document.getElementById('mensajeDescanso')) {
+                    const mensajeDescanso = document.createElement('p');
+                    mensajeDescanso.id = 'mensajeDescanso';
+                    mensajeDescanso.style.cssText = 'color: #e74c3c; font-weight: bold; font-size: 16px; margin: 10px 0; animation: pulse 1.5s ease-in-out infinite;';
+                    mensajeDescanso.innerHTML = '<i class="fas fa-mug-hot"></i> ⏸️ Tiempo de descanso (5 min)';
+                    rondaInfo.insertBefore(mensajeDescanso, rondaInfo.firstChild);
+                }
+            }
+        }
+
+        function actualizarTiempoFlow() {
+            const input = document.getElementById('tiempoFlowInput');
+            tiempoFlow = (parseInt(input.value) || 25) * 60;
+            tiempoRestante = tiempoFlow;
+            actualizarDisplay();
+        }
+
+        function actualizarInfoRonda() {
+            if (modoActual === 'focus') {
+                actualizarValoresRondas();
             }
         }
 
@@ -238,6 +662,7 @@
         }
 
         function agregarTarea() {
+            desbloquearAudio();
             const tareasLista = document.getElementById('tareasLista');
             const nuevaTarea = crearTarea();
             tareasLista.appendChild(nuevaTarea);
@@ -277,11 +702,8 @@
         // ===== FUNCIÓN PARA CAMBIAR AUDIO =====
         function cambiarPlaylist(tipo) {
             const iframe = document.getElementById('spotifyIframe');
-            
-            // Cambiar la fuente del iframe
             iframe.src = audios[tipo];
             
-            // Actualizar botones activos
             document.querySelectorAll('.playlist-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
@@ -311,6 +733,33 @@
             }
         }
 
+        // ===== MODO OSCURO CON SONIDO =====
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            desbloquearAudio();
+            reproducirSonidoSeguro('themeSwitchSound');
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            const checkbox = document.getElementById('checkbox');
+            if (checkbox) {
+                checkbox.checked = newTheme === 'dark';
+            }
+        }
+
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            
+            const checkbox = document.getElementById('checkbox');
+            if (checkbox) {
+                checkbox.checked = savedTheme === 'dark';
+            }
+        }
+
         // ===== INICIALIZACIÓN =====
         document.addEventListener('DOMContentLoaded', function() {
             const tareasLista = document.getElementById('tareasLista');
@@ -318,37 +767,16 @@
             tareasLista.appendChild(crearTarea());
             
             actualizarDisplay();
+            actualizarConfigModo();
+            loadTheme();
+            
+            // Desbloquear audio con cualquier interacción del usuario
+            document.body.addEventListener('click', desbloquearAudio, { once: true });
+            document.body.addEventListener('touchstart', desbloquearAudio, { once: true });
         });
-        // ===== MODO OSCURO =====
-function toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    
-    // Actualizar el estado del checkbox
-    const checkbox = document.getElementById('checkbox');
-    if (checkbox) {
-        checkbox.checked = newTheme === 'dark';
-    }
-}
 
-// Cargar tema guardado al iniciar
-function loadTheme() {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    
-    const checkbox = document.getElementById('checkbox');
-    if (checkbox) {
-        checkbox.checked = savedTheme === 'dark';
-    }
-}
 
-// Inicializar tema cuando se carga la página
-document.addEventListener('DOMContentLoaded', function() {
-    loadTheme();
-});
+        
     </script>
 </body>
 </html>
