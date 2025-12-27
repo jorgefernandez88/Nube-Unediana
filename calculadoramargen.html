@@ -1,109 +1,162 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Notas</title>
+    <title>Calculadora de Margen</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header>
-        <h1> <i class="fas fa-calculator"></i> Calculadora Margen</h1>
+        <h1 style="display: flex; flex-direction: column; align-items: center; gap: 5px;">
+            <div><i class="fas fa-calculator"></i> Calculadora Margen</div>
+            <nav class="page-nav"
+                style="background: transparent; box-shadow: none; border: none; padding: 0; width: auto; min-height: 0; margin: 0;">
+                <ul style="padding: 0; margin: 0;">
+                    <li>
+                        <a href="index.html" style="padding: 5px 20px; font-size: 0.9rem;">
+                            <i class="fas fa-arrow-left nav-icon" style="font-size: 1rem;"></i>
+                            <span class="nav-text" style="font-size: 0.9rem;">Volver al inicio</span>
+                            <i class="fas fa-home nav-icon" style="margin-left: 10px; font-size: 1rem;"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </h1>
         <nav>
-            <ul class="menu">
-                <li><a href="index.html"> <i class="fas fa-arrow-left"></i> Volver al inicio <i class="fas fa-home"></i></a></li>
-            </ul>
-             <div class="theme-switch-wrapper">
-        <label class="theme-switch" for="checkbox">
-            <input type="checkbox" id="checkbox" onchange="toggleTheme()" />
-            <div class="slider">
-                <span class="theme-icon sun">☀️</span>
-                <span class="theme-icon moon">🌙</span>
+
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" onchange="toggleTheme()" />
+                    <div class="slider">
+                        <span class="theme-icon sun">☀️</span>
+                        <span class="theme-icon moon">🌙</span>
+                    </div>
+                </label>
             </div>
-        </label>
-    </div>
         </nav>
     </header>
     <main>
 
+        <div class="welcome-section">
+            <h3>Esta herramienta le indica al estudiante si aun tiene o no posibilidad de aprobar una materia.</h3>
+        </div>
+
+        <table class="explicaciones-tabla">
+            <thead>
+                <tr>
+                    <th colspan="2">Instrucciones:</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="icono-celda">
+                        <i class="fas fa-calculator"></i>
+                    </td>
+                    <td class="contenido-celda">
+                        <ol class="pasos-lista">
+                            <li class="paso-item">Agregue el porctentaje obtenido en la materia.</li>
+                            <li class="paso-item">Ingrese el porcentaje restante de actividades que faltan por hacer.
+                            </li>
+                            <li class="paso-item">Haga clic en "Calcular".</li>
+                        </ol>
+                        <span class="nota-importante">
+                            <i class="fas fa-info-circle"></i>
+                            Le mostrará si tiene margen para aprobar la materia.
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="margin-top: 20px; font-size: var(--font-size-small); color: var(--text-light);">
+            <i class="fas fa-exclamation-triangle"></i>
+            Esta herramienta no sustituye a los medios de comunicación oficiales de la UNED, solo es con fines
+            informativos.
+        </p>
+
         <!-- Cálculadora de margen para aprobar materia -->
         <div class="container-ganar-materia">
-            
-                <div class="input-group-ganar-materia">
-                    <label for="porcentajeGanado"><h3><b>Ingrese los siguientes datos:</b></h3></label>
-                    <label for="porcentajeGanado"> <h2> Porcentaje obtenido: </h2> </label>
-                    <input type="number" id="porcentajeGanado" step="0.01" />
-                </div>
-                <div class="input-group-ganar-materia">
-                    <label for="porcentajeRestante"> <h2>Porcentaje total de las actividades restantes:</h2> </label>
-                    <input type="number" id="porcentajeRestante" step="0.01" />
-                </div>
-                <div class="button-group-ganar-materia">
-                    <button type="button" onclick="calcularGanarMateria()">Calcular</button>
-                </div>
 
-                <!-- Contenedor de resultados -->
+            <div class="input-group-ganar-materia">
+                <label for="porcentajeGanado">Porcentaje obtenido:</label>
+                <input type="number" id="porcentajeGanado" step="0.01" />
+            </div>
+            <div class="input-group-ganar-materia">
+                <label for="porcentajeRestante">Porcentaje total de las actividades restantes:</label>
+                <input type="number" id="porcentajeRestante" step="0.01" />
+            </div>
+            <div class="button-group-ganar-materia">
+                <button type="button" onclick="calcularGanarMateria()">Calcular</button>
+            </div>
+
+            <!-- Contenedor de resultados -->
             <div class="resultadoMargen">
                 <p id="resultMargen"></p>
             </div>
-            </div> 
         </div>
 
     </main>
-    
+
+    <!-- Page Navigation -->
+    <nav class="page-nav">
+        <ul>
+            <li>
+                <a href="calculadoranotas.html">
+                    <i class="fas fa-check nav-icon"></i>
+                    <span class="nav-text">Calcular Notas</span>
+                </a>
+            </li>
+            <li>
+                <a href="calculadoramargen.html">
+                    <i class="fas fa-chart-pie nav-icon"></i>
+                    <span class="nav-text">Calcular Margen</span>
+                </a>
+            </li>
+            <li>
+                <a href="calculadoraredondeo.html">
+                    <i class="fas fa-percentage nav-icon"></i>
+                    <span class="nav-text">Redondear</span>
+                </a>
+            </li>
+            <li>
+                <a href="calculadoraaranceles.html">
+                    <i class="fas fa-coins nav-icon"></i>
+                    <span class="nav-text">Calcular Aranceles</span>
+                </a>
+            </li>
+            <li>
+                <a href="pomodorotimer.html">
+                    <i class="fas fa-stopwatch nav-icon"></i>
+                    <span class="nav-text">Pomodoro</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
     <footer>
+
         <nav>
             <a href="https://www.facebook.com/educadcr"><i class="fab fa-facebook"></i></a>
         </nav>
         <h5>&copy; 2025 Proyecto de Educación a Distancia CR <br> Elaborado por Jorge Fernández</h5>
-            <h5>
-                <a href="avisolegal.html" class="legal-link">Aviso Legal</a>
-            </h5> 
+        <h5>
+            <a href="avisolegal.html" class="legal-link">Aviso Legal</a>
+        </h5>
     </footer>
 
     <audio id="themeSwitchSound" preload="auto">
         <source src="sounds/prendido.mp3" type="audio/mpeg">
     </audio>
 
-    <script src="script.js"></script>
-    <script>
-        // ===== MODO OSCURO =====
-    function toggleTheme() {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        
-        // Reproducir sonido del switch
-        const audio = document.getElementById('themeSwitchSound');
-        if (audio) {
-            audio.play().catch(e => console.log('Error al reproducir sonido del switch:', e));
-        }
-        
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        
-        // Actualizar el estado del checkbox
-        const checkbox = document.getElementById('checkbox');
-        if (checkbox) {
-            checkbox.checked = newTheme === 'dark';
-        }
-    }
-
-// Cargar tema guardado al iniciar
-function loadTheme() {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    
-    const checkbox = document.getElementById('checkbox');
-    if (checkbox) {
-        checkbox.checked = savedTheme === 'dark';
-    }
-}
-    
-    </script>
 </body>
+
 </html>

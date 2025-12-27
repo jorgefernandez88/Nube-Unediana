@@ -1,112 +1,105 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    
+
 </head>
+
 <body>
-    <header class="home-header">
-        <div class="carousel-text">Bienvenidos a la Nube</div>
+    <header>
+        <h1>Nube Unediana</h1>
         <div class="theme-switch-wrapper">
-        <label class="theme-switch" for="checkbox">
-            <input type="checkbox" id="checkbox" onchange="toggleTheme()" />
-            <div class="slider">
-                <span class="theme-icon sun">☀️</span>
-                <span class="theme-icon moon">🌙</span>
-            </div>
-        </label>
-    </div>
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" onchange="toggleTheme()" />
+                <div class="slider">
+                    <span class="theme-icon sun">☀️</span>
+                    <span class="theme-icon moon">🌙</span>
+                </div>
+            </label>
+        </div>
     </header>
-    <main>
-        
-        <div class="buttonhome">
-        
-        <a href="calculadoranotas.html" class="buttonhomeH"> <i class="fas fa-calculator"></i> Calculadora de notas</a>
+    <main style="margin-top: 100px;">
+        <!-- Welcome section -->
+        <div class="welcome-section">
+            <h2>¡Bienvenid@s!</h2>
+            <p>Este sitio ofrece herramientas útiles para los estudiantes UNED, calculadoras de notas, un pomodoro
+                dinámico y otras más que vayan integrando.
+            </p>
+
+
+
+
         </div>
 
-        <div class="buttonhome">
-        
-        <a href="calculadoramargen.html" class="buttonhomeH"> <i class="fas fa-calculator"></i> Calculadora de margen</a>
+        <!-- Grid container for calculators -->
+        <div class="buttons-grid">
+            <div class="buttonhome">
+                <a href="calculadoranotas.html" class="buttonhomeH"> <i class="fas fa-calculator"></i> Calcular
+                    notas</a>
+            </div>
+
+            <div class="buttonhome">
+                <a href="calculadoramargen.html" class="buttonhomeH"> <i class="fas fa-calculator"></i> Calcular
+                    margen</a>
+            </div>
+
+            <div class="buttonhome">
+                <a href="calculadoraredondeo.html" class="buttonhomeH"> <i class="fas fa-calculator"></i> Redondear</a>
+            </div>
+
+            <div class="buttonhome">
+                <a href="calculadoraaranceles.html" class="buttonhomeH"> <i class="fas fa-calculator"></i> Calcular
+                    aranceles</a>
+            </div>
         </div>
 
-        <div class="buttonhome">
-        
-        <a href="calculadoraredondeo.html" class="buttonhomeH"> <i class="fas fa-calculator"></i> Calculadora de redondeo</a>
-        </div>
-
-        <div class="buttonhome">
-            <a href="calculadoraaranceles.html" class="buttonhomeH"> <i class="fas fa-calculator"></i> Calculadora de Aranceles</a>
-        </div>
-
-        <div class="buttonhome">
-            <a href="pomodorotimer.html" class="buttonhomeH"> <i class="fas fa-clock"></i> Pomodoro Timer</a>
+        <!-- Centered Pomodoro button -->
+        <div class="pomodoro-container">
+            <div class="buttonhome">
+                <a href="pomodorotimer.html" class="buttonhomeH"> <i class="fas fa-clock"></i> Pomodoro Timer</a>
+            </div>
         </div>
 
         <div class="frasehome">
-            <p>"Nunca estás solo.<br>Estás eternamente conectado con todos."</p>
-            <p>-Amit Ray</p>
+            <p><i>"Todo parece imposible<br> hasta que se hace"</i></p>
+            <p>-Nelson Mandela</p>
         </div>
-        
+
+        <p>
+            ¿Quieres saber en qué consiste, qué objetivos busca y cuáles son las características de la Nube? Ingresa a
+            <a href="https://github.com/GeorgeCR/Nube-Unediana/wiki" target="_blank">la Wiki del proyecto</a>
+        </p>
+
     </main>
-    
+
     <footer>
         <h5>&copy; 2025 Proyecto de Educación a Distancia CR <br>
             Elaborado por Jorge Fernández</h5>
 
-            <h5>
-                <a href="avisolegal.html" class="legal-link">Aviso Legal</a>
-            </h5> 
+        <h5>
+            <a href="avisolegal.html" class="legal-link">Aviso Legal</a>
+        </h5>
     </footer>
 
-    
+
     <audio id="themeSwitchSound" preload="auto">
         <source src="sounds/prendido.mp3" type="audio/mpeg">
     </audio>
 
 
 
-    <script>
-        // ===== MODO OSCURO =====
-    function toggleTheme() {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        
-        // Reproducir sonido del switch
-        const audio = document.getElementById('themeSwitchSound');
-        if (audio) {
-            audio.play().catch(e => console.log('Error al reproducir sonido del switch:', e));
-        }
-        
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        
-        // Actualizar el estado del checkbox
-        const checkbox = document.getElementById('checkbox');
-        if (checkbox) {
-            checkbox.checked = newTheme === 'dark';
-        }
-    }
 
-// Cargar tema guardado al iniciar
-function loadTheme() {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    
-    const checkbox = document.getElementById('checkbox');
-    if (checkbox) {
-        checkbox.checked = savedTheme === 'dark';
-    }
-}
-    
-    </script>
 </body>
+
 </html>

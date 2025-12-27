@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pomodoro Timer - UNED</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <base target="_blank">
@@ -18,21 +20,42 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
     <!-- Precarga de fuentes críticas -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
     <style>
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.6; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.6;
+            }
         }
     </style>
 </head>
+
 <body>
     <header>
-        <h1><i class="fas fa-clock"></i> Pomodoro Timer</h1>
+        <h1 style="display: flex; flex-direction: column; align-items: center; gap: 5px;">
+            <div><i class="fas fa-clock"></i> Pomodoro Timer</div>
+            <nav class="page-nav"
+                style="background: transparent; box-shadow: none; border: none; padding: 0; width: auto; min-height: 0; margin: 0;">
+                <ul style="padding: 0; margin: 0;">
+                    <li>
+                        <a href="index.html" style="padding: 5px 20px; font-size: 0.9rem;">
+                            <i class="fas fa-arrow-left nav-icon" style="font-size: 1rem;"></i>
+                            <span class="nav-text" style="font-size: 0.9rem;">Volver al inicio</span>
+                            <i class="fas fa-home nav-icon" style="margin-left: 10px; font-size: 1rem;"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </h1>
         <nav>
-            <ul class="menu">
-                <li><a href="index.html"><i class="fas fa-arrow-left"></i> Volver al inicio <i class="fas fa-home"></i></a></li>
-            </ul>
+
             <div class="theme-switch-wrapper">
                 <label class="theme-switch" for="checkbox">
                     <input type="checkbox" id="checkbox" onchange="toggleTheme()" />
@@ -44,10 +67,16 @@
             </div>
         </nav>
     </header>
-    
+
     <main>
+
+        <div class="welcome-section">
+            <h2>¿Cómo funciona?</h2>
+            <p>**breve explicacion</p>
+        </div>
+
         <div class="container-pomodoro">
-            
+
             <!-- Selector de Modo -->
             <div class="modo-selector">
                 <h3>Modo de Pomodoro</h3>
@@ -103,7 +132,7 @@
                         <i class="fas fa-plus"></i> Agregar Tarea
                     </button>
                 </div>
-                
+
                 <div id="tareasLista" class="tareas-lista"></div>
 
                 <div id="mensajeCompletado" class="mensaje-completado oculto">
@@ -119,7 +148,7 @@
                     <span id="spotifyToggleText">Escucha Audio para Concentrarte</span>
                     <i class="fas fa-chevron-down spotify-toggle-icon"></i>
                 </button>
-                
+
                 <div id="spotifyContent" class="spotify-content">
                     <h2><i class="fas fa-volume-up"></i> Audio para Concentrarte</h2>
                     <div class="playlist-selector">
@@ -140,16 +169,9 @@
                         </button>
                     </div>
                     <div id="spotifyPlayer" class="spotify-player">
-                        <iframe 
-                                id="spotifyIframe"
-                                style="border-radius:12px" 
-                                src="https://www.ivoox.com/player_es_podcast_149871_zp_1.html?c1=93ce58" 
-                                width="100%" 
-                                height="400" 
-                                frameBorder="0" 
-                                allowfullscreen="" 
-                                scrolling="no"
-                                loading="lazy">
+                        <iframe id="spotifyIframe" style="border-radius:12px"
+                            src="https://www.ivoox.com/player_es_podcast_149871_zp_1.html?c1=93ce58" width="100%"
+                            height="400" frameBorder="0" allowfullscreen="" scrolling="no" loading="lazy">
                         </iframe>
                     </div>
                 </div>
@@ -157,6 +179,41 @@
 
         </div>
     </main>
+    <!-- Page Navigation -->
+    <nav class="page-nav">
+        <ul>
+            <li>
+                <a href="calculadoranotas.html">
+                    <i class="fas fa-check nav-icon"></i>
+                    <span class="nav-text">Calcular Notas</span>
+                </a>
+            </li>
+            <li>
+                <a href="calculadoramargen.html">
+                    <i class="fas fa-chart-pie nav-icon"></i>
+                    <span class="nav-text">Calcular Margen</span>
+                </a>
+            </li>
+            <li>
+                <a href="calculadoraredondeo.html">
+                    <i class="fas fa-percentage nav-icon"></i>
+                    <span class="nav-text">Redondear</span>
+                </a>
+            </li>
+            <li>
+                <a href="calculadoraaranceles.html">
+                    <i class="fas fa-coins nav-icon"></i>
+                    <span class="nav-text">Calcular Aranceles</span>
+                </a>
+            </li>
+            <li>
+                <a href="pomodorotimer.html">
+                    <i class="fas fa-stopwatch nav-icon"></i>
+                    <span class="nav-text">Pomodoro</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 
     <footer>
         <nav>
@@ -218,14 +275,14 @@
         // ===== FUNCIÓN PARA DESBLOQUEAR AUDIO EN iOS/Safari =====
         function desbloquearAudio() {
             if (audioDesbloqueado) return;
-            
+
             const audiosParaDesbloquear = [
                 document.getElementById('notificationSound'),
                 document.getElementById('themeSwitchSound'),
                 document.getElementById('descansoSound'),
                 document.getElementById('modoPomodoroSound')
             ];
-            
+
             audiosParaDesbloquear.forEach(audio => {
                 if (audio) {
                     audio.volume = 0;
@@ -233,10 +290,10 @@
                         audio.pause();
                         audio.currentTime = 0;
                         audio.volume = 1;
-                    }).catch(e => {});
+                    }).catch(e => { });
                 }
             });
-            
+
             audioDesbloqueado = true;
             console.log('🔊 Audio desbloqueado para iOS/Safari');
         }
@@ -248,12 +305,12 @@
                 console.log('Audio no encontrado:', audioId);
                 return;
             }
-            
+
             audio.currentTime = 0;
             audio.volume = volumen;
-            
+
             const playPromise = audio.play();
-            
+
             if (playPromise !== undefined) {
                 playPromise.then(() => {
                     console.log('🔊 Reproduciendo:', audioId);
@@ -272,7 +329,7 @@
                     const ctx = new AudioContext();
                     const source = ctx.createMediaElementSource(audioElement);
                     source.connect(ctx.destination);
-                    audioElement.play().catch(e => {});
+                    audioElement.play().catch(e => { });
                 }
             } catch (e) {
                 console.log('AudioContext no disponible');
@@ -289,9 +346,9 @@
 
         function iniciarTimer() {
             if (timerActivo) return;
-            
+
             desbloquearAudio();
-            
+
             timerActivo = true;
             const startBtn = document.getElementById('startBtn');
             startBtn.disabled = true;
@@ -312,7 +369,7 @@
                     };
                 `], { type: 'application/javascript' })));
 
-                worker.onmessage = function(e) {
+                worker.onmessage = function (e) {
                     if (e.data === 'tick' && timerActivo) {
                         tiempoRestante--;
                         actualizarDisplay();
@@ -344,20 +401,20 @@
 
         function pausarTimer() {
             if (!timerActivo) return;
-            
+
             if (timerInterval && timerInterval.postMessage) {
                 timerInterval.postMessage('stop');
             } else {
                 clearInterval(timerInterval);
             }
-            
+
             timerActivo = false;
             timerPausado = true;
-            
+
             const startBtn = document.getElementById('startBtn');
             startBtn.disabled = false;
             startBtn.innerHTML = '<i class="fas fa-play"></i> Continuar';
-            
+
             document.getElementById('pauseBtn').disabled = true;
         }
 
@@ -367,17 +424,17 @@
             } else {
                 clearInterval(timerInterval);
             }
-            
+
             timerActivo = false;
             timerPausado = false;
-            
+
             document.getElementById('timerDisplay').style.color = '';
-            
+
             const mensajeDescanso = document.getElementById('mensajeDescanso');
             if (mensajeDescanso) {
                 mensajeDescanso.remove();
             }
-            
+
             if (modoActual === 'flow') {
                 tiempoRestante = tiempoFlow;
             } else {
@@ -385,13 +442,13 @@
                 enDescanso = false;
                 rondaActual = 1;
             }
-            
+
             actualizarDisplay();
-            
+
             const startBtn = document.getElementById('startBtn');
             startBtn.disabled = false;
             startBtn.innerHTML = '<i class="fas fa-play"></i> Iniciar';
-            
+
             document.getElementById('pauseBtn').disabled = true;
             document.getElementById('timerMessage').classList.add('oculto');
             actualizarInfoRonda();
@@ -399,52 +456,52 @@
 
         function procesarFinTimer() {
             reproducirSonidoSeguro('notificationSound');
-            
+
             if (navigator.vibrate) {
                 navigator.vibrate([200, 100, 200]);
             }
-            
+
             detenerMusica();
-            
+
             if (modoActual === 'normal') {
                 mostrarMensajeCompletado();
             } else if (modoActual === 'focus') {
                 if (!enDescanso) {
                     rondaActual++;
-                    
+
                     if (rondaActual > rondasTotales) {
                         mostrarMensajeSesionCompleta();
                         return;
                     }
-                    
+
                     enDescanso = true;
                     tiempoRestante = tiempoDescanso;
                     actualizarDisplay();
-                    
+
                     document.getElementById('timerDisplay').style.color = '#e74c3c';
-                    
+
                     reproducirSonidoSeguro('descansoSound', 0.7);
-                    
+
                     actualizarInfoRondaConDescanso();
-                    
+
                     setTimeout(() => {
                         iniciarTimer();
                     }, 2000);
                 } else {
                     enDescanso = false;
-                    
+
                     document.getElementById('timerDisplay').style.color = '';
-                    
+
                     const mensajeDescanso = document.getElementById('mensajeDescanso');
                     if (mensajeDescanso) {
                         mensajeDescanso.remove();
                     }
-                    
+
                     tiempoRestante = tiempoPomodoro;
                     actualizarDisplay();
-                    
+
                     actualizarUIRondas();
-                    
+
                     setTimeout(() => {
                         iniciarTimer();
                     }, 2000);
@@ -452,11 +509,11 @@
             } else if (modoActual === 'flow') {
                 mostrarMensajeFlow();
             }
-            
+
             const startBtn = document.getElementById('startBtn');
             startBtn.disabled = false;
             startBtn.innerHTML = '<i class="fas fa-play"></i> Iniciar';
-            
+
             document.getElementById('pauseBtn').disabled = true;
         }
 
@@ -494,25 +551,25 @@
         // ===== FUNCIONES DE MODO =====
         function cambiarModo(modo, event) {
             modoActual = modo;
-            
+
             desbloquearAudio();
             reproducirSonidoSeguro('modoPomodoroSound');
-            
+
             document.querySelectorAll('.modo-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
-            
+
             if (event && event.target) {
                 event.target.closest('.modo-btn').classList.add('active');
             }
-            
+
             actualizarConfigModo();
             resetearTimer();
         }
 
         function actualizarConfigModo() {
             const configDiv = document.getElementById('configModo');
-            
+
             if (modoActual === 'normal') {
                 configDiv.innerHTML = '';
                 document.getElementById('rondaInfo').classList.add('oculto');
@@ -525,16 +582,16 @@
                     </div>
                 `;
                 document.getElementById('rondaInfo').classList.remove('oculto');
-                
+
                 const inputRondas = document.getElementById('rondasInput');
-                inputRondas.addEventListener('input', function() {
+                inputRondas.addEventListener('input', function () {
                     actualizarValoresRondas();
                 });
-                
+
                 setTimeout(() => {
                     actualizarValoresRondas();
                 }, 50);
-                
+
             } else if (modoActual === 'flow') {
                 configDiv.innerHTML = `
                     <div class="config-flow">
@@ -551,16 +608,16 @@
             const tiempoTotal = (tiempoPomodoro + tiempoDescanso) * rondasTotales;
             const horas = Math.floor(tiempoTotal / 3600);
             const minutos = Math.floor((tiempoTotal % 3600) / 60);
-            
+
             const tiempoTotalFocus = document.getElementById('tiempoTotalFocus');
             if (tiempoTotalFocus) {
                 tiempoTotalFocus.textContent = `Tiempo total: ${horas}h ${minutos}m`;
             }
-            
+
             const rondaActualElement = document.getElementById('rondaActual');
             const rondaTotalElement = document.getElementById('rondaTotal');
             const tiempoTotalElement = document.getElementById('tiempoTotal');
-            
+
             if (rondaActualElement) {
                 rondaActualElement.textContent = rondaActual;
             }
@@ -570,28 +627,28 @@
             if (tiempoTotalElement) {
                 tiempoTotalElement.textContent = `${horas}h ${minutos}m`;
             }
-            
+
             console.log('📊 UI actualizada - Ronda:', rondaActual, 'de', rondasTotales);
         }
 
         function actualizarValoresRondas() {
             const inputRondas = document.getElementById('rondasInput');
             if (!inputRondas) return;
-            
+
             const nuevoValor = parseInt(inputRondas.value) || 1;
             rondasTotales = nuevoValor;
-            
+
             if (!timerActivo && !timerPausado && !enDescanso) {
                 rondaActual = 1;
             }
-            
+
             actualizarUIRondas();
-            
+
             const mensajeDescanso = document.getElementById('mensajeDescanso');
             if (mensajeDescanso && !enDescanso) {
                 mensajeDescanso.remove();
             }
-            
+
             console.log('📊 Rondas actualizadas:', rondaActual, 'de', rondasTotales);
         }
 
@@ -599,16 +656,16 @@
             const tiempoTotal = (tiempoPomodoro + tiempoDescanso) * rondasTotales;
             const horas = Math.floor(tiempoTotal / 3600);
             const minutos = Math.floor((tiempoTotal % 3600) / 60);
-            
+
             const rondaActualElement = document.getElementById('rondaActual');
             const rondaTotalElement = document.getElementById('rondaTotal');
             const tiempoTotalElement = document.getElementById('tiempoTotal');
             const rondaInfo = document.getElementById('rondaInfo');
-            
+
             if (rondaActualElement) rondaActualElement.textContent = rondaActual;
             if (rondaTotalElement) rondaTotalElement.textContent = rondasTotales;
             if (tiempoTotalElement) tiempoTotalElement.textContent = `${horas}h ${minutos}m`;
-            
+
             if (rondaInfo && enDescanso) {
                 if (!document.getElementById('mensajeDescanso')) {
                     const mensajeDescanso = document.createElement('p');
@@ -637,7 +694,7 @@
         function crearTarea(texto = '') {
             contadorTareas++;
             const tareaId = `tarea-${contadorTareas}`;
-            
+
             const tareaDiv = document.createElement('div');
             tareaDiv.className = 'tarea-nota';
             tareaDiv.id = tareaId;
@@ -657,7 +714,7 @@
                     </select>
                 </div>
             `;
-            
+
             return tareaDiv;
         }
 
@@ -683,7 +740,7 @@
 
             tarea.classList.remove('estado-pendiente', 'estado-proceso', 'estado-terminado');
             tarea.classList.add(`estado-${estado}`);
-            
+
             verificarTareasCompletadas();
         }
 
@@ -703,11 +760,11 @@
         function cambiarPlaylist(tipo) {
             const iframe = document.getElementById('spotifyIframe');
             iframe.src = audios[tipo];
-            
+
             document.querySelectorAll('.playlist-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
-            
+
             const buttons = document.querySelectorAll('.playlist-btn');
             buttons.forEach(btn => {
                 const onclickAttr = btn.getAttribute('onclick');
@@ -722,10 +779,10 @@
             const content = document.getElementById('spotifyContent');
             const btn = document.querySelector('.spotify-toggle-btn');
             const text = document.getElementById('spotifyToggleText');
-            
+
             content.classList.toggle('active');
             btn.classList.toggle('active');
-            
+
             if (content.classList.contains('active')) {
                 text.textContent = 'Ocultar Reproductor';
             } else {
@@ -733,50 +790,27 @@
             }
         }
 
-        // ===== MODO OSCURO CON SONIDO =====
-        function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            desbloquearAudio();
-            reproducirSonidoSeguro('themeSwitchSound');
-            
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            
-            const checkbox = document.getElementById('checkbox');
-            if (checkbox) {
-                checkbox.checked = newTheme === 'dark';
-            }
-        }
 
-        function loadTheme() {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            
-            const checkbox = document.getElementById('checkbox');
-            if (checkbox) {
-                checkbox.checked = savedTheme === 'dark';
-            }
-        }
 
         // ===== INICIALIZACIÓN =====
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const tareasLista = document.getElementById('tareasLista');
             tareasLista.appendChild(crearTarea());
             tareasLista.appendChild(crearTarea());
-            
+
             actualizarDisplay();
             actualizarConfigModo();
             loadTheme();
-            
+
             // Desbloquear audio con cualquier interacción del usuario
             document.body.addEventListener('click', desbloquearAudio, { once: true });
             document.body.addEventListener('touchstart', desbloquearAudio, { once: true });
         });
 
 
-        
+
+
     </script>
 </body>
+
 </html>

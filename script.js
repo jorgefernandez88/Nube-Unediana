@@ -1,73 +1,45 @@
 // Función para contraer todos los grupos al cargar la página
 function contraerTodosLosGrupos() {
-  const grupos = document.querySelectorAll('.grupo');
-  grupos.forEach(grupo => {
-    const contenidoGrupo = grupo.querySelector('.contenido-grupo');
-    const botonExpansion = grupo.querySelector('.boton-expansion');
-    grupo.classList.remove('expandido');
-    if (contenidoGrupo) {
-      contenidoGrupo.style.display = 'none';
-    }
-    if (botonExpansion) {
-      botonExpansion.textContent = 'Ver grupos';
-    }
-  });
+    const grupos = document.querySelectorAll('.grupo');
+    grupos.forEach(grupo => {
+        const contenidoGrupo = grupo.querySelector('.contenido-grupo');
+        const botonExpansion = grupo.querySelector('.boton-expansion');
+        grupo.classList.remove('expandido');
+        if (contenidoGrupo) {
+            contenidoGrupo.style.display = 'none';
+        }
+        if (botonExpansion) {
+            botonExpansion.textContent = 'Ver grupos';
+        }
+    });
 }
 
 // Función para expandir o contraer un grupo
 function toggle(button) {
-  var grupo = button.closest('.grupo');
-  var contenidoGrupo = grupo.querySelector('.contenido-grupo');
+    var grupo = button.closest('.grupo');
+    var contenidoGrupo = grupo.querySelector('.contenido-grupo');
 
-  if (grupo.classList.contains('expandido')) {
-    grupo.classList.remove('expandido');
-    button.textContent = 'Ver grupos';
-    if (contenidoGrupo) {
-      contenidoGrupo.style.display = 'none';
+    if (grupo.classList.contains('expandido')) {
+        grupo.classList.remove('expandido');
+        button.textContent = 'Ver grupos';
+        if (contenidoGrupo) {
+            contenidoGrupo.style.display = 'none';
+        }
+    } else {
+        grupo.classList.add('expandido');
+        button.textContent = 'Ver menos';
+        if (contenidoGrupo) {
+            contenidoGrupo.style.display = 'block';
+        }
     }
-  } else {
-    grupo.classList.add('expandido');
-    button.textContent = 'Ver menos';
-    if (contenidoGrupo) {
-      contenidoGrupo.style.display = 'block';
-    }
-  }
 }
 
-// Esperar a que el DOM esté cargado
-document.addEventListener('DOMContentLoaded', function () {
-    inicializarBuscador();
-    contraerTodosLosGrupos();
-});
+// Event listeners consolidados - ver final del archivo
 
-  
+
 
 //Caluladora principal  
-// Ocultar el resultText inicialmente
-  const resultText = document.getElementById('resultText');
-  if (resultText) {
-      resultText.style.display = 'none';
-  }
- 
-  
-  // Configurar el botón de agregar actividad
-  const addButton = document.getElementById('addButton');
-  if (addButton) {
-      addButton.addEventListener('click', addRow);
-  }  
-   
-  
-  // Configurar el botón de calcular
-  const calcularButton = document.getElementById('calcularButton');
-  if (calcularButton) {
-      calcularButton.addEventListener('click', () => {
-          calcularNota();
-          mostrarResultText();
-      });
-  }
-  updateAddRowButton();
-
-// Una linea 
+// Una linea  
 let rowCount = 1;
 
 // Función principal de cálculo
@@ -81,7 +53,7 @@ function calcularNota() {
     for (let i = 1; i <= rowCount; i++) {
         const valorInput = document.getElementById(`valor${i}`);
         const notaInput = document.getElementById(`nota${i}`);
-        
+
         if (!valorInput || !notaInput) continue;
 
         const valor = parseFloat(valorInput.value || 0);
@@ -98,7 +70,7 @@ function calcularNota() {
 
         // Normalizar nota si es necesario
         const notaNormalizada = nota > 10 ? nota / 10 : nota;
-        
+
         totalValor += valor;
         totalNota += (valor * notaNormalizada) / 10;
     }
@@ -135,12 +107,12 @@ function mostrarResultadosVacios() {
 
 // Función para agregar fila
 function addRow() {
-  rowCount++;
-  const newRow = document.createElement('div');
-  newRow.id = `row${rowCount}`;
-  newRow.classList.add('input-group', 'row');
+    rowCount++;
+    const newRow = document.createElement('div');
+    newRow.id = `row${rowCount}`;
+    newRow.classList.add('input-group', 'row');
 
-  newRow.innerHTML = `
+    newRow.innerHTML = `
       <div class="input-group">
           <label for="actividad${rowCount}">Actividad:</label>
           <input type="text" id="actividad${rowCount}" name="actividad${rowCount}" class="full-width" placeholder="Actividad">
@@ -157,20 +129,20 @@ function addRow() {
           <button type="button" class="delete-button" onclick="removeRow(this)">Eliminar</button>
       </div>`;
 
-  const gradeForm = document.getElementById('gradeForm');
-  gradeForm.insertBefore(newRow, gradeForm.querySelector('.button-group'));
-  updateAddRowButton();
+    const gradeForm = document.getElementById('gradeForm');
+    gradeForm.insertBefore(newRow, gradeForm.querySelector('.button-group'));
+    updateAddRowButton();
 }
 
 
 function removeRow(button) {
-  const row = button.closest('.input-group.row');
-  if (row && row.id !== 'row1') { 
-      row.remove();
-      rowCount--;
-      updateAddRowButton();
-      calcularNota(); 
-  }
+    const row = button.closest('.input-group.row');
+    if (row && row.id !== 'row1') {
+        row.remove();
+        rowCount--;
+        updateAddRowButton();
+        calcularNota();
+    }
 }
 
 // Función para actualizar el botón de agregar
@@ -191,133 +163,173 @@ function updateAddRowButton() {
     }
 }
 
+
 // Inicialización cuando se carga la página
-document.addEventListener('DOMContentLoaded', function() {
+// Inicialización de la calculadora principal
+function inicializarCalculadoraNotas() {
     const addButton = document.getElementById('addButton');
     if (addButton) {
         addButton.addEventListener('click', addRow);
     }
-    
-    document.getElementById('gradeForm').addEventListener('input', calcularNota);
+
+    const gradeForm = document.getElementById('gradeForm');
+    if (gradeForm) {
+        gradeForm.addEventListener('input', calcularNota);
+    }
+
+    const calcularButton = document.getElementById('calcularButton');
+    if (calcularButton) {
+        calcularButton.addEventListener('click', () => {
+            calcularNota();
+        });
+    }
+
+    // Mostrar resultados vacíos iniciales
     mostrarResultadosVacios();
+    updateAddRowButton();
+}
+
+// ===== INICIALIZACIÓN CONSOLIDADA =====
+// Todos los event listeners DOMContentLoaded consolidados en uno solo
+document.addEventListener('DOMContentLoaded', function () {
+    // Inicializar tema oscuro (todas las páginas)
+    loadTheme();
+
+    // Inicializar calculadora de notas si existe
+    if (document.getElementById('gradeForm')) {
+        inicializarCalculadoraNotas();
+    }
+
+    // Inicializar buscador si la función existe
+    if (typeof inicializarBuscador === 'function') {
+        inicializarBuscador();
+    }
+
+    // Contraer grupos si la función existe
+    if (typeof contraerTodosLosGrupos === 'function') {
+        contraerTodosLosGrupos();
+    }
 });
+
+
+
 
 //Calculadoras secundarias
 // Calculadora margen
 function calcularGanarMateria() {
-  const porcentajeGanado = parseFloat(document.getElementById('porcentajeGanado').value);
-  const porcentajeRestante = parseFloat(document.getElementById('porcentajeRestante').value);
-  const resultado = document.getElementById('resultMargen');
+    const porcentajeGanado = parseFloat(document.getElementById('porcentajeGanado').value);
+    const porcentajeRestante = parseFloat(document.getElementById('porcentajeRestante').value);
+    const resultado = document.getElementById('resultMargen');
 
-  // Limpiamos el resultado de errores anteriores
-  resultado.textContent = '';
+    // Limpiamos el resultado de errores anteriores
+    resultado.textContent = '';
 
-  // Validación para inputs vacíos
-  if (isNaN(porcentajeGanado) || isNaN(porcentajeRestante)) {
-    resultado.textContent = 'Por favor ingrese ambos valores para calcular el margen.';
-    return;
-  }
+    // Validación para inputs vacíos
+    if (isNaN(porcentajeGanado) || isNaN(porcentajeRestante)) {
+        resultado.textContent = 'Por favor ingrese ambos valores para calcular el margen.';
+        return;
+    }
 
-  // Validación para el rango 0.0 a 10.0
-  if (porcentajeGanado < 0 || porcentajeGanado > 10 || porcentajeRestante < 0 || porcentajeRestante > 10) {
-    resultado.textContent = 'Por favor ingrese valores válidos entre 0.0 y 10.0 para ambos campos.';
-    return;
-  }
+    // Validación para el rango 0.0 a 10.0
+    if (porcentajeGanado < 0 || porcentajeGanado > 10 || porcentajeRestante < 0 || porcentajeRestante > 10) {
+        resultado.textContent = 'Por favor ingrese valores válidos entre 0.0 y 10.0 para ambos campos.';
+        return;
+    }
 
-  // Calculamos el porcentaje máximo posible si se completan todas las actividades restantes
-  const porcentajeMaximoPosible = porcentajeGanado + porcentajeRestante;
+    // Calculamos el porcentaje máximo posible si se completan todas las actividades restantes
+    const porcentajeMaximoPosible = porcentajeGanado + porcentajeRestante;
 
-  // Asumiendo que 7.0 es el mínimo para aprobar
-  const porcentajeNecesario = 7.0;
+    // Asumiendo que 7.0 es el mínimo para aprobar
+    const porcentajeNecesario = 7.0;
 
-  // Limpiar contenido y clases de resultados previos
-  resultado.textContent = '';
-  resultado.className = ''; // Elimina todas las clases anteriores
+    // Limpiar contenido y clases de resultados previos
+    resultado.textContent = '';
+    resultado.className = ''; // Elimina todas las clases anteriores
 
-  if (porcentajeMaximoPosible >= porcentajeNecesario) {
-    resultado.textContent = `¡Excelente! Aún puedes aprobar la asignatura. El porcentaje que te queda de las actividades restantes (${porcentajeRestante.toFixed(2)}) más lo que ya tienes aprobado (${porcentajeGanado.toFixed(2)}) te da un total de ${porcentajeMaximoPosible.toFixed(2)}. ¡Ten presente que esto es asumiendo que obtendrás el total del porcentaje que te queda!`;
-    resultado.classList.add('aprobado'); // Fondo verde
-  } else {
-    resultado.textContent = `Lo sentimos, no tienes margen para aprobar la materia. El porcentaje obtenido (${porcentajeGanado.toFixed(2)}) más el porcentaje que te queda pendiente (${porcentajeRestante.toFixed(2)}) suma un total de ${porcentajeMaximoPosible.toFixed(2)}, que no llega al mínimo de ${porcentajeNecesario.toFixed(2)}. ¡Consulta a tu profesor para más orientación!`;
-    resultado.classList.add('no-aprobado'); // Fondo rojo
-  }
+    if (porcentajeMaximoPosible >= porcentajeNecesario) {
+        resultado.textContent = `¡Excelente! Aún puedes aprobar la asignatura. El porcentaje que te queda de las actividades restantes (${porcentajeRestante.toFixed(2)}) más lo que ya tienes aprobado (${porcentajeGanado.toFixed(2)}) te da un total de ${porcentajeMaximoPosible.toFixed(2)}. ¡Ten presente que esto es asumiendo que obtendrás el total del porcentaje que te queda!`;
+        resultado.classList.add('aprobado'); // Fondo verde
+    } else {
+        resultado.textContent = `Lo sentimos, no tienes margen para aprobar la materia. El porcentaje obtenido (${porcentajeGanado.toFixed(2)}) más el porcentaje que te queda pendiente (${porcentajeRestante.toFixed(2)}) suma un total de ${porcentajeMaximoPosible.toFixed(2)}, que no llega al mínimo de ${porcentajeNecesario.toFixed(2)}. ¡Consulta a tu profesor para más orientación!`;
+        resultado.classList.add('no-aprobado'); // Fondo rojo
+    }
 }
 
 function toggleGanarMateria(button) {
-  const content = button.nextElementSibling; // Obtiene el siguiente elemento hermano (el div contenido)
-  
-  if (content.classList.contains('oculto')) {
-      content.classList.remove('oculto');
-      button.textContent = "Ocultar";
-  } else {
-      content.classList.add('oculto');
-      button.innerHTML = '<i class="fas fa-calculator"></i> Calculadora margen';
-  }
+    const content = button.nextElementSibling; // Obtiene el siguiente elemento hermano (el div contenido)
+
+    if (content.classList.contains('oculto')) {
+        content.classList.remove('oculto');
+        button.textContent = "Ocultar";
+    } else {
+        content.classList.add('oculto');
+        button.innerHTML = '<i class="fas fa-calculator"></i> Calculadora margen';
+    }
 }
 
 // Caculadora de redondeo
 function calcularRedondeoNota() {
-  const notaInput = document.getElementById('notaParaRedondear').value;
-  const resultadoRedondeo = document.getElementById('resultRedondeo');
+    const notaInput = document.getElementById('notaParaRedondear').value;
+    const resultadoRedondeo = document.getElementById('resultRedondeo');
 
-  // Limpiar mensaje de resultados previos
-  resultadoRedondeo.textContent = '';
+    // Limpiar mensaje de resultados previos
+    resultadoRedondeo.textContent = '';
 
-  // Validación de input vacío
-  if (notaInput === '') {
-      resultadoRedondeo.textContent = 'Por favor ingrese una nota para calcular el redondeo.';
-      return;
-  }
+    // Validación de input vacío
+    if (notaInput === '') {
+        resultadoRedondeo.textContent = 'Por favor ingrese una nota para calcular el redondeo.';
+        return;
+    }
 
-  const nota = parseFloat(notaInput);
+    const nota = parseFloat(notaInput);
 
-  // Validación de valores no numéricos o fuera del rango
-  if (isNaN(nota) || nota < 0 || nota > 10) {
-      resultadoRedondeo.textContent = 'Por favor, ingresa una nota válida entre 0 y 10.';
-      return;
-  }
+    // Validación de valores no numéricos o fuera del rango
+    if (isNaN(nota) || nota < 0 || nota > 10) {
+        resultadoRedondeo.textContent = 'Por favor, ingresa una nota válida entre 0 y 10.';
+        return;
+    }
 
-  let notaRedondeada;
+    let notaRedondeada;
 
-  if (nota >= 9.75) {
-      notaRedondeada = 10.0;
-  } else if (nota >= 9.25) {
-      notaRedondeada = 9.5;
-  } else if (nota >= 8.75) {
-      notaRedondeada = 9.0;
-  } else if (nota >= 8.25) {
-      notaRedondeada = 8.5;
-  } else if (nota >= 7.75) {
-      notaRedondeada = 8.0;
-  } else if (nota >= 7.25) {
-      notaRedondeada = 7.5;
-  } else if (nota >= 6.75) {
-      notaRedondeada = 7.0;
-  } else if (nota >= 6.25) {
-      notaRedondeada = 6.5;
-  } else if (nota >= 5.75) {
-      notaRedondeada = 6.0;
-  } else if (nota >= 5.25) {
-      notaRedondeada = 5.5;
-  } else if (nota >= 4.75) {
-      notaRedondeada = 5.0;
-  } else {
-      notaRedondeada = Math.round(nota); // Redondeo para notas menores a 4.75
-  }
+    if (nota >= 9.75) {
+        notaRedondeada = 10.0;
+    } else if (nota >= 9.25) {
+        notaRedondeada = 9.5;
+    } else if (nota >= 8.75) {
+        notaRedondeada = 9.0;
+    } else if (nota >= 8.25) {
+        notaRedondeada = 8.5;
+    } else if (nota >= 7.75) {
+        notaRedondeada = 8.0;
+    } else if (nota >= 7.25) {
+        notaRedondeada = 7.5;
+    } else if (nota >= 6.75) {
+        notaRedondeada = 7.0;
+    } else if (nota >= 6.25) {
+        notaRedondeada = 6.5;
+    } else if (nota >= 5.75) {
+        notaRedondeada = 6.0;
+    } else if (nota >= 5.25) {
+        notaRedondeada = 5.5;
+    } else if (nota >= 4.75) {
+        notaRedondeada = 5.0;
+    } else {
+        notaRedondeada = Math.round(nota); // Redondeo para notas menores a 4.75
+    }
 
-  resultadoRedondeo.textContent = `La nota redondeada es: ${notaRedondeada.toFixed(1)}`;
+    resultadoRedondeo.textContent = `La nota redondeada es: ${notaRedondeada.toFixed(1)}`;
 }
 
 function toggleRedondeoNota(button) {
-  const content = button.nextElementSibling; // Obtiene el siguiente elemento hermano (el div contenido)
-  
-  if (content.classList.contains('oculto')) {
-      content.classList.remove('oculto');
-      button.textContent = "Ocultar";
-  } else {
-      content.classList.add('oculto');
-      button.innerHTML = '<i class="fas fa-calculator"></i> Calculadora redondeo';
-  }
+    const content = button.nextElementSibling; // Obtiene el siguiente elemento hermano (el div contenido)
+
+    if (content.classList.contains('oculto')) {
+        content.classList.remove('oculto');
+        button.textContent = "Ocultar";
+    } else {
+        content.classList.add('oculto');
+        button.innerHTML = '<i class="fas fa-calculator"></i> Calculadora redondeo';
+    }
 }
 
 
@@ -366,7 +378,7 @@ async function cargarAranceles() {
 
 // Función para inicializar la calculadora de aranceles
 async function inicializarCalculadoraAranceles() {
-    //await cargarAranceles(); // Espera a que los datos se carguen
+    await cargarAranceles(); // Espera a que los datos se carguen
     if (!arancelesData) return; // Si no se pudieron cargar, no hacer nada
 
     const tablaBody = document.getElementById('tabla-aranceles-body');
@@ -374,9 +386,9 @@ async function inicializarCalculadoraAranceles() {
 
     // Crear las categorías y filas de la tabla dinámicamente
     const categorias = {
-        "Asignaturas nuevas": ["asignatura_regular", "asignatura_laboratorio", "asignatura_gira", "asignatura_laboratorio_gira"],
-        "Asignaturas repetidas": ["asignatura_repetida", "repetida_laboratorio"],
-        "Prácticas y proyectos": ["practica_tesis", "laboratorio_independiente"]
+        "Asignaturas nuevas": ["asignatura_regular", "asignatura_laboratorio", "asignatura_gira", "asignatura_laboratorio_gira", "laboratorio_independiente"],
+        "Asignaturas repetidas": ["asignatura_repetida", "repetida_laboratorio", "repetida_gira", "repetida_laboratorio_gira"],
+        "TFG/Prácticas": ["practica_tesis"]
     };
 
     for (const [categoriaNombre, ids] of Object.entries(categorias)) {
@@ -418,7 +430,7 @@ function inicializarEventosAranceles() {
 
     // Manejar cambio de tipo de beca
     becaOptions.forEach(option => {
-        option.addEventListener('change', function() {
+        option.addEventListener('change', function () {
             actualizarPrecios();
             mostrarMensajeBeca();
             recalcularTotal();
@@ -426,17 +438,24 @@ function inicializarEventosAranceles() {
     });
 
     // Manejar cambio de programa académico
-    programaSelect.addEventListener('change', function() {
+    programaSelect.addEventListener('change', function () {
         actualizarPrecios();
         recalcularTotal();
     });
 
     // Manejar selección de items
     checkboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', function() {
+        checkbox.addEventListener('change', function () {
             const id = this.getAttribute('data-id');
             const cantidadInput = document.querySelector(`.cantidad[data-id="${id}"]`);
-            const cantidad = parseInt(cantidadInput.value) || 0;
+            let cantidad = parseInt(cantidadInput.value) || 0;
+
+            // Si se marca el checkbox y la cantidad es 0 o vacía, asignar automáticamente 1
+            if (this.checked && cantidad === 0) {
+                cantidadInput.value = '1';
+                cantidad = 1;
+            }
+
             const precioUnitario = getPrecioActual(id);
             const precioTotal = precioUnitario * cantidad;
 
@@ -474,7 +493,7 @@ function inicializarEventosAranceles() {
 
     // Manejar cambio de cantidad
     cantidades.forEach(cantidad => {
-        cantidad.addEventListener('change', function() {
+        cantidad.addEventListener('change', function () {
             const id = this.getAttribute('data-id');
             const checkbox = document.querySelector(`.seleccionar-item[data-id="${id}"]`);
             const nuevaCantidad = parseInt(this.value) || 0;
@@ -588,10 +607,25 @@ function pluralizarConcepto(concepto, cantidad) {
         'Asignatura con lab. y gira': 'Asignaturas con lab. y gira',
         'Asignatura repetida': 'Asignaturas repetidas',
         'Repetida con laboratorio': 'Repetidas con laboratorio',
-        'Práctica/Proyecto/Tesis': 'Prácticas/Proyectos/Tesis',
+        'Repetida con gira de campo': 'Repetidas con gira de campo',
+        'Repetida con laboratorio y gira': 'Repetidas con laboratorio y gira',
+        'Práctica / Proyecto / Tesis / Seminario / Investigacion Dirig/ Taller de Invest Dirigida/Curso Especializado/Ex De Grado y trab Inv': 'Prácticas / Proyectos / Tesis / Seminarios / Investigaciones Dirigidas',
         'Laboratorios (independientes)': 'Laboratorios (independientes)'
     };
     return plurales[concepto] || concepto;
+}
+
+// Función para obtener nombre de beca
+function getNombreBeca(tipoBeca) {
+    const nombres = {
+        "sin-beca": "Sin beca",
+        "beca-a": "Beca A",
+        "beca-b": "Beca B",
+        "beca-c": "Beca C",
+        "beca-d": "Beca D",
+        "beca-e": "Beca E"
+    };
+    return nombres[tipoBeca] || tipoBeca;
 }
 
 // Función para actualizar resumen de selección
@@ -600,25 +634,39 @@ function actualizarResumen() {
     if (!listaSeleccion) return;
 
     listaSeleccion.innerHTML = '';
-    if (itemsSeleccionados.length === 0) {
-        listaSeleccion.innerHTML = '<p>No hay items seleccionados</p>';
-        return;
+    const ul = document.createElement('ul');
+
+    // Agregar matrícula si existe la variable arancelesMatricula
+    if (typeof arancelesMatricula !== 'undefined') {
+        const tipoBeca = document.querySelector('input[name="tipo-beca"]:checked').value;
+        const matricula = arancelesMatricula[tipoBeca];
+
+        const liMatricula = document.createElement('li');
+        liMatricula.textContent = matricula > 0
+            ? `Arancel matrícula cuatrimestral (${getNombreBeca(tipoBeca)}): ₡${matricula.toLocaleString('es-CR')}`
+            : `Arancel matrícula cuatrimestral (${getNombreBeca(tipoBeca)}): ₡0 (exento)`;
+        ul.appendChild(liMatricula);
     }
 
-    const ul = document.createElement('ul');
-    itemsSeleccionados.forEach(item => {
-        const li = document.createElement('li');
-        const conceptoPluralizado = pluralizarConcepto(item.nombre, item.cantidad);
-        const precioFormateado = item.precioUnitario.toLocaleString('es-CR');
-        const totalFormateado = item.total.toLocaleString('es-CR');
+    if (itemsSeleccionados.length === 0) {
+        const liVacio = document.createElement('li');
+        liVacio.textContent = 'No hay materias seleccionadas';
+        ul.appendChild(liVacio);
+    } else {
+        itemsSeleccionados.forEach(item => {
+            const li = document.createElement('li');
+            const conceptoPluralizado = pluralizarConcepto(item.nombre, item.cantidad);
+            const precioFormateado = item.precioUnitario.toLocaleString('es-CR');
+            const totalFormateado = item.total.toLocaleString('es-CR');
 
-        if (item.cantidad > 1) {
-            li.textContent = `${item.cantidad} ${conceptoPluralizado}: ₡${precioFormateado} × ${item.cantidad} = ₡${totalFormateado}`;
-        } else {
-            li.textContent = `${item.cantidad} ${conceptoPluralizado}: ₡${totalFormateado}`;
-        }
-        ul.appendChild(li);
-    });
+            if (item.cantidad > 1) {
+                li.textContent = `${item.cantidad} ${conceptoPluralizado}: ₡${precioFormateado} × ${item.cantidad} = ₡${totalFormateado}`;
+            } else {
+                li.textContent = `${item.cantidad} ${conceptoPluralizado}: ₡${totalFormateado}`;
+            }
+            ul.appendChild(li);
+        });
+    }
     listaSeleccion.appendChild(ul);
 }
 
@@ -629,6 +677,11 @@ function recalcularTotal() {
     if (!totalPagar) return;
 
     let total = 0;
+
+    // Agregar matrícula si existe la variable arancelesMatricula
+    if (typeof arancelesMatricula !== 'undefined') {
+        total = arancelesMatricula[tipoBeca];
+    }
 
     if (arancelesData && arancelesData.becas_exentas.includes(tipoBeca)) {
         total = 0;
@@ -648,40 +701,57 @@ function inicializarBuscador() {
     // ... (lógica del buscador si aplica)
 }
 
-// Esperar a que el DOM esté cargado
-document.addEventListener('DOMContentLoaded', function () {
-    // Inicializar funcionalidades existentes si es necesario aquí
-    // contraerTodosLosGrupos(); // Si se necesita en todas las páginas
-    // inicializarBuscador(); // Si se necesita en todas las páginas
-});
+// Event listeners consolidados - ver final del archivo
 
 // ===== MODO OSCURO =====
+// ===== SISTEMA CENTRALIZADO DE MODO OSCURO =====
 function toggleTheme() {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
+
+    // Reproducir sonido si existe
+    const audio = document.getElementById('themeSwitchSound');
+    if (audio) {
+        audio.play().catch(e => console.log('Error al reproducir sonido:', e));
+    }
+
+    // Aplicar tema
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
-    
-    // Actualizar el estado del checkbox
+
+    // Actualizar checkbox si existe
     const checkbox = document.getElementById('checkbox');
     if (checkbox) {
         checkbox.checked = newTheme === 'dark';
     }
+
+    console.log('Tema cambiado a:', newTheme);
 }
 
-// Cargar tema guardado al iniciar
 function loadTheme() {
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
-    
+
     const checkbox = document.getElementById('checkbox');
     if (checkbox) {
         checkbox.checked = savedTheme === 'dark';
     }
 }
 
+// Escuchar cambios en el localStorage de otras pestañas
+window.addEventListener('storage', function (event) {
+    if (event.key === 'theme') {
+        const newTheme = event.newValue || 'light';
+        document.documentElement.setAttribute('data-theme', newTheme);
+
+        const checkbox = document.getElementById('checkbox');
+        if (checkbox) {
+            checkbox.checked = newTheme === 'dark';
+        }
+    }
+});
+
 // Inicializar tema cuando se carga la página
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     loadTheme();
 });
