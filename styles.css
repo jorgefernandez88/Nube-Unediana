@@ -241,6 +241,22 @@ footer .legal-link:hover {
   margin-left: 10px;
 }
 
+/* Active page state - keeps button expanded */
+.page-nav a.active {
+  background: #ff8800;
+  color: #0f0f0f;
+}
+
+[data-theme="dark"] .page-nav a.active {
+  color: #ffffff;
+}
+
+.page-nav a.active .nav-text {
+  max-width: 200px;
+  opacity: 1;
+  margin-left: 10px;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .page-nav ul {
@@ -891,14 +907,17 @@ footer .legal-link {
 /* ===== HOME NEUMORFISMO ===== */
 
 /* Grid container for calculator buttons */
+
+/* Grid container for calculator buttons */
 .buttons-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
+  gap: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
-  width: 100%;
-  max-width: 550px;
+  width: 90%;
+  max-width: 1000px;
+  /* Increased max-width for desktop */
   justify-items: center;
 }
 
@@ -906,21 +925,25 @@ footer .legal-link {
 .pomodoro-container {
   display: flex;
   justify-content: center;
-  width: 100%;
-  margin-bottom: 20px;
+  width: 90%;
+  max-width: 1000px;
+  /* Match grid max-width */
+  margin: 0 auto 20px auto;
 }
 
 .buttonhome {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 180px;
+  width: 100%;
+  /* Fluid width */
 }
 
 .buttonhomeH,
 .buttonhomeG {
   width: 100%;
-  padding: 50px 25px;
+  padding: 50px 10px;
+  /* Generous vertical, reduced horizontal base */
   background: var(--card-bg);
   color: var(--text-dark);
   cursor: pointer;
@@ -936,6 +959,29 @@ footer .legal-link {
   transition: all 0.3s ease;
   font-weight: 600;
   border: 1px solid var(--border-light);
+}
+
+/* Responsive adjustments for Index Buttons */
+@media (max-width: 480px) {
+
+  .buttonhomeH,
+  .buttonhomeG {
+    padding: 30px 5px;
+    /* Reduced horizontal padding on mobile */
+    font-size: 13px;
+    /* Slightly smaller text */
+    min-height: 80px;
+    /* Ensure clickability */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .buttons-grid {
+    gap: 10px;
+    /* Smaller gap on mobile */
+  }
 }
 
 .buttonhomeH:hover,
@@ -1003,17 +1049,46 @@ footer .legal-link {
 
 /* ===== WELCOME SECTION ===== */
 .welcome-section {
-  text-align: center;
-  margin-bottom: 20px;
-  padding: 10px;
+  width: 90%;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 15px 25px;
+  background: rgba(255, 136, 0, 0.1);
+  border-radius: 20px;
+  border-left: 5px solid #ff8800;
+  box-shadow:
+    10px 10px 20px var(--shadow-dark),
+    -10px -10px 20px var(--shadow-light);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-align: left;
+}
+
+.welcome-section::before {
+  content: "\f0eb";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: #ff8800;
+  flex-shrink: 0;
 }
 
 .welcome-section h2 {
   font-family: 'Arial', sans-serif;
-  font-size: var(--font-size-h2);
-  color: var(--text-dark);
-  margin-bottom: 10px;
+  font-size: var(--font-size-h3);
+  color: #ff8800;
+  margin: 0;
   font-weight: 600;
+}
+
+.welcome-section h3 {
+  font-family: 'Arial', sans-serif;
+  font-size: var(--font-size-body);
+  color: var(--text-dark);
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.5;
 }
 
 .welcome-section p {
@@ -1021,6 +1096,12 @@ footer .legal-link {
   font-size: var(--font-size-body);
   color: var(--text-medium);
   margin: 0;
+  line-height: 1.5;
+}
+
+/* Dark mode for welcome section */
+[data-theme="dark"] .welcome-section {
+  background: rgba(255, 136, 0, 0.15);
 }
 
 
@@ -2653,6 +2734,66 @@ footer,
   }
 }
 
+/* ===== BOTÓN EXPANDIBLE PARA INSTRUCCIONES ===== */
+.instrucciones-toggle-btn {
+  width: 90%;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 15px 20px;
+  background: var(--card-bg);
+  color: var(--text-dark);
+  border: none;
+  border-radius: 12px;
+  font-family: 'Arial', sans-serif;
+  font-size: var(--font-size-body);
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow:
+    10px 10px 20px var(--shadow-dark),
+    -10px -10px 20px var(--shadow-light);
+  border: 1px solid var(--border-light);
+  transition: all 0.3s ease;
+}
+
+.instrucciones-toggle-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    7px 7px 14px var(--shadow-dark),
+    -7px -7px 14px var(--shadow-light);
+  color: var(--accent-blue);
+}
+
+.instrucciones-toggle-btn i {
+  transition: transform 0.3s ease;
+}
+
+.instrucciones-toggle-btn.active i {
+  transform: rotate(180deg);
+}
+
+/* Contenedor de instrucciones colapsable */
+.instrucciones-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.3s ease, margin 0.3s ease;
+  opacity: 0;
+}
+
+.instrucciones-content.active {
+  max-height: 1000px;
+  opacity: 1;
+  margin-bottom: 20px;
+}
+
 /* ===== TABLA DE EXPLICACIONES NEUMÓRFICA (MEJORADA RESPONSIVE) ===== */
 .explicaciones-tabla {
   width: 90%;
@@ -2706,13 +2847,9 @@ footer,
   line-height: 1.6;
 }
 
-/* Estilo para las celdas de icono */
+/* Estilo para las celdas de icono - OCULTO */
 .explicaciones-tabla .icono-celda {
-  width: 60px;
-  text-align: center;
-  font-size: 1.8rem;
-  color: var(--accent-blue);
-  vertical-align: middle;
+  display: none;
 }
 
 /* Estilo para las celdas de contenido */
@@ -2732,14 +2869,30 @@ footer,
 /* Estilo para los pasos numerados */
 .explicaciones-tabla .pasos-lista {
   margin: 0;
-  padding-left: 20px;
+  padding-left: 0;
+  counter-reset: paso-counter;
 }
 
 .explicaciones-tabla .paso-item {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   color: var(--text-medium);
   font-size: var(--font-size-body);
   line-height: 1.5;
+  list-style-type: none;
+  position: relative;
+  padding-left: 30px;
+}
+
+.explicaciones-tabla .paso-item::before {
+  counter-increment: paso-counter;
+  content: counter(paso-counter) ".";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 700;
+  color: var(--accent-blue);
+  font-size: var(--font-size-body);
+  min-width: 25px;
 }
 
 .explicaciones-tabla .paso-item:last-child {

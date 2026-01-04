@@ -209,7 +209,23 @@ document.addEventListener('DOMContentLoaded', function () {
     if (typeof contraerTodosLosGrupos === 'function') {
         contraerTodosLosGrupos();
     }
+
+    // Marcar página activa en el navegador
+    setActivePageNav();
 });
+
+// ===== FUNCIÓN PARA MARCAR PÁGINA ACTIVA EN NAVEGACIÓN =====
+function setActivePageNav() {
+    const currentPage = window.location.pathname.split('/').pop();
+    const navLinks = document.querySelectorAll('.page-nav a');
+
+    navLinks.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (linkPage === currentPage) {
+            link.classList.add('active');
+        }
+    });
+}
 
 
 
@@ -755,3 +771,21 @@ window.addEventListener('storage', function (event) {
 document.addEventListener('DOMContentLoaded', function () {
     loadTheme();
 });
+
+// ===== FUNCIÓN PARA EXPANDIR/CONTRAER INSTRUCCIONES =====
+function toggleInstrucciones() {
+    const btn = document.querySelector('.instrucciones-toggle-btn');
+    const content = document.querySelector('.instrucciones-content');
+    const icon = btn.querySelector('i');
+    const text = btn.querySelector('span');
+
+    if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        btn.classList.remove('active');
+        text.textContent = 'Ver instrucciones';
+    } else {
+        content.classList.add('active');
+        btn.classList.add('active');
+        text.textContent = 'Ver menos';
+    }
+}

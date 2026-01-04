@@ -51,33 +51,42 @@
                 según el nivel académico y el tipo de beca.</h3>
         </div>
 
-        <table class="explicaciones-tabla">
-            <thead>
-                <tr>
-                    <th colspan="2">Instrucciones:</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="icono-celda">
-                        <i class="fas fa-calculator"></i>
-                    </td>
-                    <td class="contenido-celda">
-                        <ol class="pasos-lista">
-                            <li class="paso-item">Seleccione el tipo de beca o sin beca.</li>
-                            <li class="paso-item">Seleccione el nivel académico.</li>
-                            <li class="paso-item">Ponga el check izquierdo en el ítem que va a matricular (ej:
-                                Asignatura regular).</li>
-                            <li class="paso-item">En la casilla derecha anote la cantidad.</li>
-                        </ol>
-                        <span class="nota-importante">
-                            <i class="fas fa-info-circle"></i>
-                            Automáticamente verá en el resumen el total a pagar incluyendo el arancel de matrícula.
-                        </span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <!-- Botón expandible para instrucciones -->
+        <button class="instrucciones-toggle-btn" onclick="toggleInstrucciones()">
+            <span>Ver instrucciones</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+
+        <!-- Contenido colapsable de instrucciones -->
+        <div class="instrucciones-content">
+            <table class="explicaciones-tabla">
+                <thead>
+                    <tr>
+                        <th colspan="2">Instrucciones:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="icono-celda">
+                            <i class="fas fa-calculator"></i>
+                        </td>
+                        <td class="contenido-celda">
+                            <ol class="pasos-lista">
+                                <li class="paso-item">Seleccione el tipo de beca o sin beca.</li>
+                                <li class="paso-item">Seleccione el nivel académico.</li>
+                                <li class="paso-item">Ponga el check izquierdo en el ítem que va a matricular (ej:
+                                    Asignatura regular).</li>
+                                <li class="paso-item">En la casilla derecha anote la cantidad.</li>
+                            </ol>
+                            <span class="nota-importante">
+                                <i class="fas fa-info-circle"></i>
+                                Automáticamente verá en el resumen el total a pagar incluyendo el arancel de matrícula.
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         <p style="margin-top: 20px; font-size: var(--font-size-small); color: var(--text-light);">
             <i class="fas fa-exclamation-triangle"></i>
             Esta herramienta no sustituye a los medios de comunicación oficiales de la UNED, solo es con fines

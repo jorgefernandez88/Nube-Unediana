@@ -152,7 +152,10 @@
                 <div id="spotifyContent" class="spotify-content">
                     <h2><i class="fas fa-volume-up"></i> Audio para Concentrarte</h2>
                     <div class="playlist-selector">
-                        <button class="playlist-btn active" onclick="cambiarPlaylist('naturaleza')">
+                        <button class="playlist-btn active" onclick="cambiarPlaylist('podcast')">
+                            <i class="fas fa-podcast"></i> Podcast
+                        </button>
+                        <button class="playlist-btn" onclick="cambiarPlaylist('naturaleza')">
                             <i class="fas fa-leaf"></i> Naturaleza
                         </button>
                         <button class="playlist-btn" onclick="cambiarPlaylist('lofi')">
@@ -164,13 +167,11 @@
                         <button class="playlist-btn" onclick="cambiarPlaylist('relajante')">
                             <i class="fas fa-spa"></i> Relajante
                         </button>
-                        <button class="playlist-btn" onclick="cambiarPlaylist('podcast')">
-                            <i class="fas fa-podcast"></i> Podcast
-                        </button>
+
                     </div>
                     <div id="spotifyPlayer" class="spotify-player">
                         <iframe id="spotifyIframe" style="border-radius:12px"
-                            src="https://www.ivoox.com/player_es_podcast_149871_zp_1.html?c1=93ce58" width="100%"
+                            src="https://www.ivoox.com/player_es_podcast_1561033_zp_1.html?c1=092151" width="100%"
                             height="400" frameBorder="0" allowfullscreen="" scrolling="no" loading="lazy">
                         </iframe>
                     </div>
@@ -496,6 +497,9 @@
                     if (mensajeDescanso) {
                         mensajeDescanso.remove();
                     }
+
+                    // Reproducir sonido al terminar el descanso
+                    reproducirSonidoSeguro('notificationSound');
 
                     tiempoRestante = tiempoPomodoro;
                     actualizarDisplay();

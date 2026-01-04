@@ -53,30 +53,39 @@
                 las normas establecidas por la UNED.</h3>
         </div>
 
-        <table class="explicaciones-tabla">
-            <thead>
-                <tr>
-                    <th colspan="2">Instrucciones:</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="icono-celda">
-                        <i class="fas fa-calculator"></i>
-                    </td>
-                    <td class="contenido-celda">
-                        <ol class="pasos-lista">
-                            <li class="paso-item">Agregue el porcentaje obtenido en la materia.</li>
-                            <li class="paso-item">Presione el botón "Redondear".</li>
-                        </ol>
-                        <span class="nota-importante">
-                            <i class="fas fa-info-circle"></i>
-                            Le mostrará el porcentaje redondeado.
-                        </span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <!-- Botón expandible para instrucciones -->
+        <button class="instrucciones-toggle-btn" onclick="toggleInstrucciones()">
+            <span>Ver instrucciones</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+
+        <!-- Contenido colapsable de instrucciones -->
+        <div class="instrucciones-content">
+            <table class="explicaciones-tabla">
+                <thead>
+                    <tr>
+                        <th colspan="2">Instrucciones:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="icono-celda">
+                            <i class="fas fa-calculator"></i>
+                        </td>
+                        <td class="contenido-celda">
+                            <ol class="pasos-lista">
+                                <li class="paso-item">Agregue el porcentaje obtenido en la materia.</li>
+                                <li class="paso-item">Presione el botón "Redondear".</li>
+                            </ol>
+                            <span class="nota-importante">
+                                <i class="fas fa-info-circle"></i>
+                                Le mostrará el porcentaje redondeado.
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         <p style="margin-top: 20px; font-size: var(--font-size-small); color: var(--text-light);">
             <i class="fas fa-exclamation-triangle"></i>
             Esta herramienta no sustituye a los medios de comunicación oficiales de la UNED, solo es con fines
