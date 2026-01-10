@@ -71,9 +71,64 @@
     <main>
 
         <div class="welcome-section">
-            <h2>¿Cómo funciona?</h2>
-            <p>**breve explicacion</p>
+            <h3>Este pomodoro tiene 3 modos a escoger y un reproductor de música de diferentes estilos para ayudar a la
+                concentración</h3>
         </div>
+
+
+        <!-- Botón expandible para instrucciones -->
+        <button class="instrucciones-toggle-btn" onclick="toggleInstrucciones()">
+            <span>Ver instrucciones</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+
+        <!-- Contenido colapsable de instrucciones -->
+        <div class="instrucciones-content">
+            <table class="explicaciones-tabla">
+                <thead>
+                    <tr>
+                        <th colspan="2">Instrucciones:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="icono-celda">
+                            <i class="fas fa-calculator"></i>
+                        </td>
+                        <td class="contenido-celda">
+                            <ol class="pasos-lista">
+                                <li class="paso-item">El modo "Normal" establece solo 25 minutos.</li>
+                                <li class="paso-item">En el modo "Focus" se seleccionan la cantidad de rondas de 25
+                                    minutos, el pomodoro avanzará por cada un de forma automática incluyendo 5 minutos
+                                    de descanso por cada ronda.</li>
+                                <li class="paso-item">El modo "Flow" permite definir la cantidad de tiempo que se desea,
+                                    por defecto establece 25 minutos, pero se puede modificar al gusto.</li>
+                                <li class="paso-item">No te olvides del reproductor de música y selecciona la playlist
+                                    que prefieras.</li>
+                                <li class="paso-item">Presione el botón "Iniciar" para comenzar el pomodoro.</li>
+                                <li class="paso-item">Presione el botón "Pausar" para pausar el pomodoro.</li>
+                                <li class="paso-item">Presione el botón "Reiniciar" para reiniciar el pomodoro.</li>
+                                <li class="paso-item">Presione el botón "Continuar" para continuar dónde quedó
+                                    anteriormente.</li>
+                                <li class="paso-item">Puede agregar la cantidad de tareas que desee, solo presione
+                                    "Agregar tarea"; las tareas se clasifican segun su estado: "Pendiente", "En proceso"
+                                    y "Terminado".</li>
+                                <li class="paso-item">Al seleccionar una canción el reproductor le mostrará un mensaje
+                                    de escucharla en la aplicación de Ivoox, solamente presiona la X y podrá escucharla
+                                    sin problemas.</li>
+                            </ol>
+                            <span class="nota-importante">
+                                <i class="fas fa-info-circle"></i>
+                                El pomodoro avisará cuando se acabe el tiempo entre rondas, incluyendo el tiempo de
+                                descanso con sonidos.
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
 
         <div class="container-pomodoro">
 
@@ -145,12 +200,12 @@
             <div class="spotify-container">
                 <button class="spotify-toggle-btn" onclick="toggleSpotify()">
                     <i class="fas fa-music"></i>
-                    <span id="spotifyToggleText">Escucha Audio para Concentrarte</span>
+                    <span id="spotifyToggleText">Música para concentrarte</span>
                     <i class="fas fa-chevron-down spotify-toggle-icon"></i>
                 </button>
 
                 <div id="spotifyContent" class="spotify-content">
-                    <h2><i class="fas fa-volume-up"></i> Audio para Concentrarte</h2>
+                    <h2><i class="fas fa-volume-up"></i>Elije que quieras!</h2>
                     <div class="playlist-selector">
                         <button class="playlist-btn active" onclick="cambiarPlaylist('podcast')">
                             <i class="fas fa-podcast"></i> Podcast
@@ -218,12 +273,10 @@
 
     <footer>
         <nav>
-            <a href="https://www.facebook.com/educadcr"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.facebook.com/educacionadistanciacr"><i class="fab fa-facebook"></i></a>
         </nav>
         <h5>&copy; 2025 Proyecto de Educación a Distancia CR <br> Elaborado por Jorge Fernández</h5>
-        <h5>
-            <a href="avisolegal.html" class="legal-link">Aviso Legal</a>
-        </h5>
+
     </footer>
 
     <!-- Audio para notificaciones -->
@@ -246,6 +299,10 @@
         <source src="sounds/modpomodoro.mp3" type="audio/mpeg">
     </audio>
 
+    <audio id="popSound" preload="auto">
+        <source src="sounds/pop.mp3" type="audio/mpeg">
+    </audio>
+
     <script>
         // ===== VARIABLES GLOBALES DEL TIMER =====
         let tiempoRestante = 25 * 60;
@@ -259,7 +316,6 @@
         let tiempoDescanso = 5 * 60;
         let tiempoFlow = 25 * 60;
         let timerPausado = false;
-        let audioDesbloqueado = false;
 
         // ===== AUDIOS DE IVOOX =====
         const audios = {
@@ -273,70 +329,6 @@
         // ===== CONTADOR DE TAREAS =====
         let contadorTareas = 0;
 
-        // ===== FUNCIÓN PARA DESBLOQUEAR AUDIO EN iOS/Safari =====
-        function desbloquearAudio() {
-            if (audioDesbloqueado) return;
-
-            const audiosParaDesbloquear = [
-                document.getElementById('notificationSound'),
-                document.getElementById('themeSwitchSound'),
-                document.getElementById('descansoSound'),
-                document.getElementById('modoPomodoroSound')
-            ];
-
-            audiosParaDesbloquear.forEach(audio => {
-                if (audio) {
-                    audio.volume = 0;
-                    audio.play().then(() => {
-                        audio.pause();
-                        audio.currentTime = 0;
-                        audio.volume = 1;
-                    }).catch(e => { });
-                }
-            });
-
-            audioDesbloqueado = true;
-            console.log('🔊 Audio desbloqueado para iOS/Safari');
-        }
-
-        // ===== FUNCIÓN MEJORADA PARA REPRODUCIR SONIDO =====
-        function reproducirSonidoSeguro(audioId, volumen = 1) {
-            const audio = document.getElementById(audioId);
-            if (!audio) {
-                console.log('Audio no encontrado:', audioId);
-                return;
-            }
-
-            audio.currentTime = 0;
-            audio.volume = volumen;
-
-            const playPromise = audio.play();
-
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    console.log('🔊 Reproduciendo:', audioId);
-                }).catch(error => {
-                    console.log('⚠️ Error al reproducir audio:', audioId, error.message);
-                    intentarConAudioContext(audio);
-                });
-            }
-        }
-
-        // ===== FALLBACK CON AUDIO CONTEXT =====
-        function intentarConAudioContext(audioElement) {
-            try {
-                const AudioContext = window.AudioContext || window.webkitAudioContext;
-                if (AudioContext) {
-                    const ctx = new AudioContext();
-                    const source = ctx.createMediaElementSource(audioElement);
-                    source.connect(ctx.destination);
-                    audioElement.play().catch(e => { });
-                }
-            } catch (e) {
-                console.log('AudioContext no disponible');
-            }
-        }
-
         // ===== FUNCIONES DEL TIMER =====
         function actualizarDisplay() {
             const minutos = Math.floor(tiempoRestante / 60);
@@ -347,8 +339,6 @@
 
         function iniciarTimer() {
             if (timerActivo) return;
-
-            desbloquearAudio();
 
             timerActivo = true;
             const startBtn = document.getElementById('startBtn');
@@ -456,7 +446,7 @@
         }
 
         function procesarFinTimer() {
-            reproducirSonidoSeguro('notificationSound');
+            reproducirSonido('notificationSound');
 
             if (navigator.vibrate) {
                 navigator.vibrate([200, 100, 200]);
@@ -481,7 +471,7 @@
 
                     document.getElementById('timerDisplay').style.color = '#e74c3c';
 
-                    reproducirSonidoSeguro('descansoSound', 0.7);
+                    reproducirSonido('descansoSound', 0.7);
 
                     actualizarInfoRondaConDescanso();
 
@@ -499,7 +489,7 @@
                     }
 
                     // Reproducir sonido al terminar el descanso
-                    reproducirSonidoSeguro('notificationSound');
+                    reproducirSonido('notificationSound');
 
                     tiempoRestante = tiempoPomodoro;
                     actualizarDisplay();
@@ -556,8 +546,7 @@
         function cambiarModo(modo, event) {
             modoActual = modo;
 
-            desbloquearAudio();
-            reproducirSonidoSeguro('modoPomodoroSound');
+            reproducirSonido('modoPomodoroSound');
 
             document.querySelectorAll('.modo-btn').forEach(btn => {
                 btn.classList.remove('active');
@@ -723,7 +712,6 @@
         }
 
         function agregarTarea() {
-            desbloquearAudio();
             const tareasLista = document.getElementById('tareasLista');
             const nuevaTarea = crearTarea();
             tareasLista.appendChild(nuevaTarea);

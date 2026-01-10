@@ -1,3 +1,79 @@
+// ===== SISTEMA UNIFICADO DE AUDIO =====
+// Este código debe estar ANTES de la inicialización DOMContentLoaded
+
+(function () {
+    let audioDesbloqueado = false;
+
+    // Función para desbloquear TODOS los audios de una vez
+    function desbloquearTodosLosAudios() {
+        if (audioDesbloqueado) return;
+
+        // Obtener todos los elementos de audio
+        const audios = [
+            document.getElementById('themeSwitchSound'),
+            document.getElementById('popSound'),
+            document.getElementById('becaSelectSound'),
+            document.getElementById('notificationSound'),
+            document.getElementById('descansoSound'),
+            document.getElementById('modoPomodoroSound')
+        ].filter(audio => audio !== null); // Filtrar los que existen
+
+        // Desbloquear cada audio
+        audios.forEach(audio => {
+            audio.volume = 0.01; // Volumen casi inaudible
+            const playPromise = audio.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    audio.pause();
+                    audio.currentTime = 0;
+                    audio.volume = 1; // Restaurar volumen
+                }).catch(() => { });
+            }
+        });
+
+        audioDesbloqueado = true;
+        console.log('✅ Audios desbloqueados');
+    }
+
+    // Desbloquear con la PRIMERA interacción del usuario en CUALQUIER parte de la página
+    const eventos = ['touchstart', 'touchend', 'click', 'keydown', 'mousedown'];
+
+    eventos.forEach(evento => {
+        document.addEventListener(evento, function desbloquear() {
+            desbloquearTodosLosAudios();
+            // Remover TODOS los listeners después de desbloquear
+            eventos.forEach(ev => {
+                document.removeEventListener(ev, desbloquear);
+            });
+        }, { once: true, passive: true });
+    });
+
+    // Hacer disponible globalmente el estado
+    window.audioDesbloqueado = () => audioDesbloqueado;
+})();
+
+// ===== FUNCIÓN MEJORADA PARA REPRODUCIR SONIDOS =====
+function reproducirSonido(audioId, volumen = 1) {
+    const audio = document.getElementById(audioId);
+    if (!audio) {
+        console.warn(`Audio ${audioId} no encontrado`);
+        return Promise.resolve();
+    }
+
+    audio.currentTime = 0;
+    audio.volume = volumen;
+
+    const playPromise = audio.play();
+
+    if (playPromise !== undefined) {
+        return playPromise.catch(err => {
+            console.log(`Error reproduciendo ${audioId}:`, err.message);
+        });
+    }
+
+    return Promise.resolve();
+}
+
 // Función para contraer todos los grupos al cargar la página
 function contraerTodosLosGrupos() {
     const grupos = document.querySelectorAll('.grupo');
@@ -107,6 +183,9 @@ function mostrarResultadosVacios() {
 
 // Función para agregar fila
 function addRow() {
+    // Reproducir sonido usando la función unificada
+    reproducirSonido('popSound');
+
     rowCount++;
     const newRow = document.createElement('div');
     newRow.id = `row${rowCount}`;
@@ -212,7 +291,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Marcar página activa en el navegador
     setActivePageNav();
+
+    // Inicializar sonidos de navegación
+    inicializarSonidosNavegacion();
 });
+
+// ===== FUNCIÓN PARA INICIALIZAR SONIDOS DE NAVEGACIÓN =====
+function inicializarSonidosNavegacion() {
+    // Función helper para reproducir pop sound y navegar
+    function playPopSoundAndNavigate(e, link) {
+        e.preventDefault();
+
+        // Reproducir sonido y navegar
+        reproducirSonido('popSound').then(() => {
+            // Dar tiempo para que el sonido se reproduzca
+            setTimeout(() => {
+                window.location.href = link.href;
+            }, 120);
+        }).catch(() => {
+            // Si falla, navegar inmediatamente
+            window.location.href = link.href;
+        });
+    }
+
+
+}
+
 
 // ===== FUNCIÓN PARA MARCAR PÁGINA ACTIVA EN NAVEGACIÓN =====
 function setActivePageNav() {
@@ -233,6 +337,9 @@ function setActivePageNav() {
 //Calculadoras secundarias
 // Calculadora margen
 function calcularGanarMateria() {
+    // Reproducir sonido usando la función unificada
+    reproducirSonido('popSound');
+
     const porcentajeGanado = parseFloat(document.getElementById('porcentajeGanado').value);
     const porcentajeRestante = parseFloat(document.getElementById('porcentajeRestante').value);
     const resultado = document.getElementById('resultMargen');
@@ -285,6 +392,9 @@ function toggleGanarMateria(button) {
 
 // Caculadora de redondeo
 function calcularRedondeoNota() {
+    // Reproducir sonido usando la función unificada
+    reproducirSonido('popSound');
+
     const notaInput = document.getElementById('notaParaRedondear').value;
     const resultadoRedondeo = document.getElementById('resultRedondeo');
 
@@ -462,6 +572,15 @@ function inicializarEventosAranceles() {
     // Manejar selección de items
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('change', function () {
+            // Play pop sound when checkbox is checked
+            if (this.checked) {
+                const popSound = document.getElementById('popSound');
+                if (popSound) {
+                    popSound.currentTime = 0;
+                    popSound.play().catch(e => console.log('Error playing pop sound:', e));
+                }
+            }
+
             const id = this.getAttribute('data-id');
             const cantidadInput = document.querySelector(`.cantidad[data-id="${id}"]`);
             let cantidad = parseInt(cantidadInput.value) || 0;
@@ -498,8 +617,9 @@ function inicializarEventosAranceles() {
             } else {
                 // Eliminar item de la selección
                 itemsSeleccionados = itemsSeleccionados.filter(item => item.id !== id);
-                if (!this.checked && cantidad === 0) {
-                    cantidadInput.value = '';
+                // Resetear cantidad a 0 cuando se desmarca
+                if (!this.checked) {
+                    cantidadInput.value = '0';
                 }
             }
             actualizarResumen();
@@ -725,11 +845,8 @@ function toggleTheme() {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
-    // Reproducir sonido si existe
-    const audio = document.getElementById('themeSwitchSound');
-    if (audio) {
-        audio.play().catch(e => console.log('Error al reproducir sonido:', e));
-    }
+    // Reproducir sonido usando la función unificada
+    reproducirSonido('themeSwitchSound');
 
     // Aplicar tema
     document.documentElement.setAttribute('data-theme', newTheme);

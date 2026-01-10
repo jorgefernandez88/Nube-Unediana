@@ -75,7 +75,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 15px;
   margin-bottom: 40px;
   padding: 0 20px;
   width: 100%;
@@ -529,7 +529,7 @@ footer .legal-link {
 /* Para tablets */
 @media (max-width: 1024px) {
   main {
-    margin-top: 80px;
+    margin-top: 25px;
     margin-bottom: 35px;
   }
 }
@@ -537,7 +537,7 @@ footer .legal-link {
 /* Para telefonos medianos */
 @media (max-width: 768px) {
   main {
-    margin-top: 75px;
+    margin-top: 20px;
     margin-bottom: 30px;
   }
 }
@@ -545,7 +545,7 @@ footer .legal-link {
 /* Para telefonos pequeños */
 @media (max-width: 480px) {
   main {
-    margin-top: 70px;
+    margin-top: 20px;
     margin-bottom: 25px;
   }
 }
@@ -912,7 +912,8 @@ footer .legal-link {
 .buttons-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 30px;
+  /* Increased gap for better separation */
   margin-top: 20px;
   margin-bottom: 20px;
   width: 90%;
@@ -979,8 +980,15 @@ footer .legal-link {
   }
 
   .buttons-grid {
-    gap: 10px;
-    /* Smaller gap on mobile */
+    gap: 15px;
+    /* Increased gap for better separation on mobile */
+    width: 85%;
+    /* Slightly reduced width to prevent buttons from being too wide */
+  }
+
+  .buttonhome {
+    width: 95%;
+    /* Reduce button container width slightly */
   }
 }
 
@@ -1063,6 +1071,8 @@ footer .legal-link {
   align-items: center;
   gap: 20px;
   text-align: left;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .welcome-section::before {
@@ -1102,6 +1112,80 @@ footer .legal-link {
 /* Dark mode for welcome section */
 [data-theme="dark"] .welcome-section {
   background: rgba(255, 136, 0, 0.15);
+}
+
+/* ===== WIKI INFO SECTION ===== */
+.wiki-info-section {
+  width: 90%;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 15px 25px;
+  background: rgba(34, 139, 34, 0.1);
+  /* Green with transparency */
+  border-radius: 20px;
+  border-left: 5px solid #228B22;
+  /* Forest green */
+  box-shadow:
+    10px 10px 20px var(--shadow-dark),
+    -10px -10px 20px var(--shadow-light);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wiki-info-section::before {
+  content: "\f02d";
+  /* Font Awesome book icon */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: #228B22;
+  /* Forest green */
+  flex-shrink: 0;
+}
+
+.wiki-info-section p {
+  font-family: 'Arial', sans-serif;
+  font-size: var(--font-size-body);
+  color: var(--text-medium);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.wiki-info-section a {
+  color: #228B22;
+  /* Forest green for links */
+  font-weight: 600;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.wiki-info-section a:hover {
+  color: #1a6b1a;
+  /* Darker green on hover */
+}
+
+/* Dark mode for wiki info section */
+[data-theme="dark"] .wiki-info-section {
+  background: rgba(34, 139, 34, 0.15);
+}
+
+[data-theme="dark"] .wiki-info-section a {
+  color: #32CD32;
+  /* Lime green for better visibility in dark mode */
+}
+
+[data-theme="dark"] .wiki-info-section a:hover {
+  color: #228B22;
+  /* Forest green on hover in dark mode */
+}
+
+[data-theme="dark"] .wiki-info-section::before {
+  color: #32CD32;
+  /* Lime green icon in dark mode */
 }
 
 

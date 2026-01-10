@@ -87,12 +87,6 @@
                 </tbody>
             </table>
         </div>
-        <p style="margin-top: 20px; font-size: var(--font-size-small); color: var(--text-light);">
-            <i class="fas fa-exclamation-triangle"></i>
-            Esta herramienta no sustituye a los medios de comunicación oficiales de la UNED, solo es con fines
-            informativos.
-        </p>
-
 
         <div class="container-aranceles">
             <h2>Seleccione su tipo de beca</h2>
@@ -167,6 +161,11 @@
                 </div>
             </div>
         </div>
+        <p style="margin-top: 20px; font-size: var(--font-size-small); color: var(--text-light);">
+            <i class="fas fa-exclamation-triangle"></i>
+            Esta herramienta no sustituye a los medios de comunicación oficiales de la UNED, solo es con fines
+            informativos.
+        </p>
     </main>
     <!-- Page Navigation -->
     <nav class="page-nav">
@@ -205,10 +204,9 @@
     </nav>
     <footer>
         <nav>
-            <a href="https://www.facebook.com/educadcr"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.facebook.com/educacionadistanciacr"><i class="fab fa-facebook"></i></a>
         </nav>
         <h5>&copy; 2025 Proyecto de Educación a Distancia CR <br> Elaborado por Jorge Fernández</h5>
-        <h5><a href="avisolegal.html" class="legal-link">Aviso Legal</a></h5>
     </footer>
 
     <!-- Audios -->
@@ -218,43 +216,16 @@
     <audio id="becaSelectSound" preload="auto">
         <source src="sounds/modpomodoro.mp3" type="audio/mpeg">
     </audio>
+    <audio id="popSound" preload="auto">
+        <source src="sounds/pop.mp3" type="audio/mpeg">
+    </audio>
 
     <script>
         // ===== VARIABLES GLOBALES ESPECÍFICAS DE ARANCELES =====
-        let audioDesbloqueado = false;
-
         const arancelesMatricula = {
             "sin-beca": 17293, "beca-a": 0, "beca-b": 2700,
             "beca-c": 6348.25, "beca-d": 9996.50, "beca-e": 13644.75
         };
-
-        // ===== FUNCIONES DE AUDIO =====
-        function desbloquearAudio() {
-            if (audioDesbloqueado) return;
-            const audios = [
-                document.getElementById('themeSwitchSound'),
-                document.getElementById('becaSelectSound')
-            ];
-            audios.forEach(audio => {
-                if (audio) {
-                    audio.volume = 0;
-                    audio.play().then(() => {
-                        audio.pause();
-                        audio.currentTime = 0;
-                        audio.volume = 1;
-                    }).catch(e => { });
-                }
-            });
-            audioDesbloqueado = true;
-        }
-
-        function reproducirSonidoSeguro(audioId, volumen = 1) {
-            const audio = document.getElementById(audioId);
-            if (!audio) return;
-            audio.currentTime = 0;
-            audio.volume = volumen;
-            audio.play().catch(e => console.log('Error audio:', e.message));
-        }
 
         // ===== INICIALIZACIÓN =====
         document.addEventListener('DOMContentLoaded', function () {
@@ -302,18 +273,14 @@
                 });
             }
 
-            // Desbloquear audio con interacción del usuario
-            document.body.addEventListener('click', desbloquearAudio, { once: true });
-            document.body.addEventListener('touchstart', desbloquearAudio, { once: true });
-
             // Agregar sonido a los botones de beca
             const becaOptions = document.querySelectorAll('input[name="tipo-beca"]');
             becaOptions.forEach(option => {
                 option.addEventListener('change', function () {
-                    desbloquearAudio();
-                    reproducirSonidoSeguro('becaSelectSound');
+                    reproducirSonido('becaSelectSound');
                 });
             });
+
             // Inicializar calculadora de aranceles
             if (typeof inicializarCalculadoraAranceles === 'function') {
                 inicializarCalculadoraAranceles();
