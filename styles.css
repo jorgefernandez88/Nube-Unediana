@@ -85,6 +85,11 @@ main {
   margin-right: auto;
 }
 
+/* Ajuste específico para index.html en todos los tamaños de pantalla */
+main[style*="margin-top: 100px"] {
+  margin-top: 30px !important;
+}
+
 /* ===== CABECERA NEUMORFISMO ===== */
 header {
   background-color: var(--card-bg);
@@ -540,6 +545,21 @@ footer .legal-link {
     margin-top: 20px;
     margin-bottom: 30px;
   }
+
+  .welcome-section,
+  .wiki-info-section {
+    width: 92%;
+    padding: 14px 20px;
+  }
+
+  .programa-selector {
+    width: 92%;
+    padding: 18px 15px;
+  }
+
+  .custom-select-wrapper {
+    max-width: 300px;
+  }
 }
 
 /* Para telefonos pequeños */
@@ -547,6 +567,28 @@ footer .legal-link {
   main {
     margin-top: 20px;
     margin-bottom: 25px;
+  }
+
+  /* Ajuste específico para index.html */
+  main[style*="margin-top: 100px"] {
+    margin-top: 20px !important;
+  }
+
+  .welcome-section,
+  .wiki-info-section {
+    width: 95%;
+    padding: 12px 15px;
+    gap: 15px;
+  }
+
+  .programa-selector {
+    width: 95%;
+    padding: 15px 10px;
+  }
+
+  .custom-select-wrapper {
+    max-width: 100%;
+    width: 100%;
   }
 }
 
@@ -899,8 +941,9 @@ footer .legal-link {
 
   .container-ganar-materia,
   .container-redondeo-nota {
-    width: 60%;
-    /* Igual que container-calculadora en desktop */
+    width: 90%;
+    max-width: 800px;
+    /* Igual que el botón de instrucciones para mantener consistencia */
   }
 }
 
@@ -1073,6 +1116,7 @@ footer .legal-link {
   text-align: left;
   margin-left: auto;
   margin-right: auto;
+  box-sizing: border-box;
 }
 
 .welcome-section::before {
@@ -1134,6 +1178,7 @@ footer .legal-link {
   text-align: left;
   margin-left: auto;
   margin-right: auto;
+  box-sizing: border-box;
 }
 
 .wiki-info-section::before {
@@ -1345,6 +1390,7 @@ footer .legal-link {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
 }
 
 .programa-selector:hover {
@@ -1371,6 +1417,7 @@ footer .legal-link {
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .custom-select-trigger {
