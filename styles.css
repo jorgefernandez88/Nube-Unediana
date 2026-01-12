@@ -822,7 +822,7 @@ footer .legal-link {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 18px;
+  padding: 18px 20px;
   background: var(--card-bg);
   border-radius: 20px;
   margin-top: 20px;
@@ -833,13 +833,12 @@ footer .legal-link {
     -10px -10px 20px var(--shadow-light);
   border: 1px solid var(--border-light);
 
-  /* Ancho responsivo para que coincidan con la calculadora de notas */
+  /* Ancho responsivo para que coincidan con el botón de instrucciones */
   width: 90%;
-  /* Mismo que container-calculadora en móviles */
   max-width: 800px;
-  /* Mismo máximo */
   margin-left: auto;
   margin-right: auto;
+  box-sizing: border-box;
 }
 
 
@@ -943,7 +942,14 @@ footer .legal-link {
   .container-redondeo-nota {
     width: 90%;
     max-width: 800px;
+    box-sizing: border-box;
     /* Igual que el botón de instrucciones para mantener consistencia */
+  }
+  
+  .instrucciones-toggle-btn {
+    width: 90%;
+    max-width: 800px;
+    box-sizing: border-box;
   }
 }
 
@@ -2883,16 +2889,12 @@ footer,
   align-items: center;
   justify-content: center;
   gap: 10px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
   box-shadow:
     10px 10px 20px var(--shadow-dark),
     -10px -10px 20px var(--shadow-light);
   border: 1px solid var(--border-light);
   transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
 .instrucciones-toggle-btn:hover {
