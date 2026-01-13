@@ -459,7 +459,7 @@ function toggleRedondeoNota(button) {
 }
 
 
-// --- NUEVO: Lógica para la Calculadora de Aranceles ---
+// ---  Lógica para la Calculadora de Aranceles ---
 
 let arancelesData = null; // Variable para almacenar los datos cargados
 let itemsSeleccionados = []; // Array para mantener los items seleccionados
@@ -819,9 +819,12 @@ function recalcularTotal() {
         total = arancelesMatricula[tipoBeca];
     }
 
+    // Si la beca está exenta, solo las materias están exentas, pero la matrícula se mantiene
     if (arancelesData && arancelesData.becas_exentas.includes(tipoBeca)) {
-        total = 0;
+        // No sumar aranceles de materias (ya están exentas)
+        // El total ya incluye la matrícula cuatrimestral si existe
     } else {
+        // Si no está exenta, sumar los aranceles de materias seleccionadas
         itemsSeleccionados.forEach(item => {
             total += item.total;
         });
