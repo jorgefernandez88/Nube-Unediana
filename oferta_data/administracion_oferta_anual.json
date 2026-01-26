@@ -1,0 +1,160 @@
+{
+    "carrera": "Diplomado en Administración de Empresas",
+    "bloques": [
+        {
+            "nombre": "Bloque A",
+            "asignaturas": [
+                {
+                    "codigo": "00203",
+                    "nombre": "Administración General",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00226",
+                    "nombre": "Contabilidad I",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00491",
+                    "nombre": "Matemática para Administradores I",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque B",
+            "asignaturas": [
+                {
+                    "codigo": "00104",
+                    "nombre": "Estadística I",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00227",
+                    "nombre": "Contabilidad II",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00492",
+                    "nombre": "Matemática para Administradores II",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00208",
+                    "nombre": "Administración de Recursos Humanos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque C",
+            "asignaturas": [
+                {
+                    "codigo": "00250",
+                    "nombre": "Estadística II",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04120",
+                    "nombre": "Mercadeo I",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "01026",
+                    "nombre": "Economía General",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00413",
+                    "nombre": "Matemática Financiera",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque D",
+            "asignaturas": [
+                {
+                    "codigo": "04121",
+                    "nombre": "Empresarialidad",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05309",
+                    "nombre": "Derecho Empresarial I",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04099",
+                    "nombre": "Finanzas de Corto Plazo",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05481",
+                    "nombre": "Inglés Empresarial I",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -945,7 +945,7 @@ footer .legal-link {
     box-sizing: border-box;
     /* Igual que el botón de instrucciones para mantener consistencia */
   }
-  
+
   .instrucciones-toggle-btn {
     width: 90%;
     max-width: 800px;
@@ -3296,4 +3296,110 @@ footer,
   word-wrap: break-word;
   overflow-wrap: break-word;
   hyphens: auto;
+}
+
+
+/* Estilos para el sistema de oferta */
+.container-oferta {
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.acordeon-btn {
+  width: 100%;
+  padding: 18px;
+  background: var(--primary-bg);
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+  box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.acordeon-btn:active {
+  box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+}
+
+.acordeon-btn .arrow {
+  transition: transform 0.3s ease;
+}
+
+.acordeon-btn.active .arrow {
+  transform: rotate(180deg);
+}
+
+.panel-oferta {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+  margin-bottom: 20px;
+}
+
+.tabla-uned {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  margin-top: 10px;
+}
+
+.bloque-header {
+  background: var(--accent-blue);
+  color: white;
+  border-radius: 10px;
+  padding: 10px !important;
+  text-align: center;
+}
+
+.tabla-uned th {
+  padding: 12px;
+  color: var(--text-medium);
+  font-size: 0.85rem;
+}
+
+.tabla-uned td {
+  background: var(--card-bg);
+  padding: 12px;
+  text-align: center;
+  box-shadow: 4px 4px 8px var(--shadow-dark);
+}
+
+.tabla-uned td:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+.tabla-uned td:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+.cod-cell {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+}
+
+.name-cell {
+  text-align: left !important;
+  font-weight: 500;
+}
+
+.check-cell {
+  font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .name-cell {
+    font-size: 0.85rem;
+  }
+
+  .cod-cell {
+    font-size: 0.75rem;
+  }
 }

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oferta de Asignaturas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Oferta de Asignaturas 2026</h1>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" onchange="toggleTheme()" />
+                <div class="slider">
+                    <span class="theme-icon sun">☀️</span>
+                    <span class="theme-icon moon">🌙</span>
+                </div>
+            </label>
+        </div>
+    </header>
+
+    <main>
+        <div class="container-oferta">
+            <div class="carrera-item">
+                <button class="acordeon-btn"
+                    onclick="toggleCarrera('administracion', 'oferta_data/administracion_oferta_anual.json')">
+                    <i class="fas fa-briefcase"></i> Diplomado Administración de Empresas
+                    <i class="fas fa-chevron-down arrow"></i>
+                </button>
+                <div id="administracion" class="panel-oferta">
+                    <div class="loading">Cargando oferta...</div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Page Navigation -->
+    <nav class="page-nav">
+        <ul>
+            <li>
+                <a href="calculadoranotas.html">
+                    <i class="fas fa-check nav-icon"></i>
+                    <span class="nav-text">Calcular Notas</span>
+                </a>
+            </li>
+            <li>
+                <a href="calculadoramargen.html">
+                    <i class="fas fa-chart-pie nav-icon"></i>
+                    <span class="nav-text">Calcular Margen</span>
+                </a>
+            </li>
+            <li>
+                <a href="calculadoraredondeo.html">
+                    <i class="fas fa-percentage nav-icon"></i>
+                    <span class="nav-text">Redondear</span>
+                </a>
+            </li>
+            <li>
+                <a href="calculadoraaranceles.html">
+                    <i class="fas fa-coins nav-icon"></i>
+                    <span class="nav-text">Calcular Aranceles</span>
+                </a>
+            </li>
+            <li>
+                <a href="pomodorotimer.html">
+                    <i class="fas fa-stopwatch nav-icon"></i>
+                    <span class="nav-text">Pomodoro</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <script src="script.js"></script>
+    <script>
+        // Función específica para esta página
+        async function toggleCarrera(id, url) {
+            const panel = document.getElementById(id);
+            const btn = panel.previousElementSibling;
+
+            // Toggle de clase activa para la animación de la flecha
+            btn.classList.toggle('active');
+
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                // Si está vacío, cargamos los datos
+                if (panel.innerHTML.includes('Cargando')) {
+                    await cargarDatosOferta(id, url);
+                }
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        }
+
+        async function cargarDatosOferta(id, url) {
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                let html = `<div class="tabla-responsive">`;
+
+                data.bloques.forEach(bloque => {
+                    html += `
+                        <table class="tabla-uned">
+                            <thead>
+                                <tr><th colspan="5" class="bloque-header">${bloque.nombre}</th></tr>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Asignatura</th>
+                                    <th>I C</th>
+                                    <th>II C</th>
+                                    <th>III C</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                    `;
+
+                    bloque.asignaturas.forEach(asig => {
+                        html += `
+                            <tr>
+                                <td class="cod-cell">${asig.codigo}</td>
+                                <td class="name-cell">${asig.nombre}</td>
+                                <td class="check-cell">${asig.oferta.c1 ? '✅' : '❌'}</td>
+                                <td class="check-cell">${asig.oferta.c2 ? '✅' : '❌'}</td>
+                                <td class="check-cell">${asig.oferta.c3 ? '✅' : '❌'}</td>
+                            </tr>
+                        `;
+                    });
+                    html += `</tbody></table>`;
+                });
+
+                html += `</div>`;
+                document.getElementById(id).innerHTML = html;
+            } catch (error) {
+                document.getElementById(id).innerHTML = "Error al cargar los datos.";
+            }
+        }
+    </script>
+</body>
+
+</html>
