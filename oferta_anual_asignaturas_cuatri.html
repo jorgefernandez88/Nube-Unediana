@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oferta de Asignaturas</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -25,8 +26,24 @@
     </header>
 
     <main>
-        <div class="container-oferta">
-            <div class="carrera-item">
+        <div class="search-container-uned">
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="buscadorAsignaturas"
+                    placeholder="Buscar asignatura por código o nombre (ej: 203 o Administración)..."
+                    onkeyup="buscarAsignaturas()">
+            </div>
+            <p id="noResults" class="no-results-text" style="display: none;">No se encontraron asignaturas</p>
+        </div>
+
+        <!-- Tabla flotante de resultados -->
+        <div id="resultadosBusqueda" class="resultados-busqueda" style="display: none;">
+            <h3>Resultados de búsqueda:</h3>
+            <div id="tablaResultados"></div>
+        </div>
+
+        <div class="container-oferta" id="listaCarreras">
+            <div class="carrera-item" data-nombre="Diplomado Administración de Empresas">
                 <button class="acordeon-btn"
                     onclick="toggleCarrera('administracion', 'oferta_data/administracion_oferta_anual.json')">
                     <i class="fas fa-briefcase"></i> Diplomado Administración de Empresas
@@ -78,7 +95,146 @@
 
     <script src="script.js"></script>
     <script>
-        // Función específica para esta página
+        // ===== CONFIGURACIÓN DE CARRERAS =====
+        const carrerasDisponibles = [
+            {
+                id: 'administracion',
+                nombre: 'Diplomado Administración de Empresas',
+                url: 'oferta_data/administracion_oferta_anual.json'
+            }
+            // Agregar más carreras aquí cuando estén disponibles
+            // { id: 'contaduria', nombre: 'Bachillerato en Contaduría', url: 'oferta_data/contaduria_oferta_anual.json' },
+        ];
+
+        // Variable global para almacenar todos los datos de asignaturas
+        let todasLasAsignaturas = [];
+        let datosCarreras = {};
+
+        // ===== CARGAR TODOS LOS DATOS AL INICIAR =====
+        async function cargarTodosLosDatos() {
+            try {
+                const promesas = carrerasDisponibles.map(async (carrera) => {
+                    const response = await fetch(carrera.url);
+                    const data = await response.json();
+                    datosCarreras[carrera.id] = data;
+
+                    // Extraer todas las asignaturas con información de la carrera
+                    data.bloques.forEach(bloque => {
+                        bloque.asignaturas.forEach(asig => {
+                            todasLasAsignaturas.push({
+                                codigo: asig.codigo,
+                                nombre: asig.nombre,
+                                oferta: asig.oferta,
+                                carrera: carrera.nombre,
+                                bloque: bloque.nombre
+                            });
+                        });
+                    });
+                });
+
+                await Promise.all(promesas);
+                console.log(`✅ Cargadas ${todasLasAsignaturas.length} asignaturas de ${carrerasDisponibles.length} carreras`);
+            } catch (error) {
+                console.error('❌ Error cargando datos:', error);
+            }
+        }
+
+        // ===== FUNCIÓN DE NORMALIZACIÓN DE TEXTO =====
+        function normalizarTexto(texto) {
+            return texto
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, ""); // Elimina las tildes
+        }
+
+        // ===== FUNCIÓN DE BÚSQUEDA DE ASIGNATURAS =====
+        function buscarAsignaturas() {
+            const input = document.getElementById('buscadorAsignaturas');
+            const busqueda = input.value.trim();
+            const resultadosDiv = document.getElementById('resultadosBusqueda');
+            const tablaResultados = document.getElementById('tablaResultados');
+            const noResults = document.getElementById('noResults');
+            const listaCarreras = document.getElementById('listaCarreras');
+
+            // Si el campo está vacío, ocultar resultados y mostrar carreras
+            if (busqueda === '') {
+                resultadosDiv.style.display = 'none';
+                noResults.style.display = 'none';
+                listaCarreras.style.display = 'block';
+                return;
+            }
+
+            // Filtrar asignaturas
+            const coincidencias = todasLasAsignaturas.filter(asig => {
+                // Buscar por código (permite coincidencias parciales)
+                if (asig.codigo.includes(busqueda)) {
+                    return true;
+                }
+
+                // Buscar por nombre (normalizado, ignora tildes y mayúsculas)
+                const nombreNormalizado = normalizarTexto(asig.nombre);
+                const busquedaNormalizada = normalizarTexto(busqueda);
+
+                if (nombreNormalizado.includes(busquedaNormalizada)) {
+                    return true;
+                }
+
+                return false;
+            });
+
+            // Mostrar resultados
+            if (coincidencias.length > 0) {
+                // Ocultar lista de carreras y mostrar resultados
+                listaCarreras.style.display = 'none';
+                resultadosDiv.style.display = 'block';
+                noResults.style.display = 'none';
+
+                // Generar tabla con resultados
+                let html = `
+                    <div class="tabla-responsive">
+                        <table class="tabla-uned">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Asignatura</th>
+                                    <th>I C</th>
+                                    <th>II C</th>
+                                    <th>III C</th>
+                                    <th>Carrera</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                `;
+
+                coincidencias.forEach(asig => {
+                    html += `
+                        <tr>
+                            <td class="cod-cell">${asig.codigo}</td>
+                            <td class="name-cell">${asig.nombre}</td>
+                            <td class="check-cell">${asig.oferta.c1 ? '✅' : '❌'}</td>
+                            <td class="check-cell">${asig.oferta.c2 ? '✅' : '❌'}</td>
+                            <td class="check-cell">${asig.oferta.c3 ? '✅' : '❌'}</td>
+                            <td class="carrera-cell">${asig.carrera}</td>
+                        </tr>
+                    `;
+                });
+
+                html += `
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+
+                tablaResultados.innerHTML = html;
+            } else {
+                // No hay resultados
+                resultadosDiv.style.display = 'none';
+                noResults.style.display = 'block';
+                listaCarreras.style.display = 'none';
+            }
+        }
+
+        // ===== FUNCIONES PARA CARRERAS =====
         async function toggleCarrera(id, url) {
             const panel = document.getElementById(id);
             const btn = panel.previousElementSibling;
@@ -139,6 +295,11 @@
                 document.getElementById(id).innerHTML = "Error al cargar los datos.";
             }
         }
+
+        // ===== INICIALIZACIÓN =====
+        document.addEventListener('DOMContentLoaded', function () {
+            cargarTodosLosDatos();
+        });
     </script>
 </body>
 

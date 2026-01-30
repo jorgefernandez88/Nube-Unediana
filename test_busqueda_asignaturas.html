@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Búsqueda de Asignaturas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+
+        .search-box {
+            margin: 20px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .resultados-busqueda {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .resultados-busqueda h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: #3498db;
+            color: white;
+        }
+
+        tr:hover {
+            background: #f5f5f5;
+        }
+
+        .no-results-text {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .test-cases {
+            margin: 20px 0;
+            padding: 15px;
+            background: #e8f4f8;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+
+        .test-cases h3 {
+            margin-top: 0;
+        }
+
+        .test-cases code {
+            background: #fff;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🔍 Test de Búsqueda de Asignaturas</h1>
+
+    <div class="test-cases">
+        <h3>✅ Casos de prueba sugeridos:</h3>
+        <ul>
+            <li><code>226</code> - Buscar por código parcial (debería encontrar 00226 - Contabilidad I)</li>
+            <li><code>00203</code> - Buscar por código completo (Administración General)</li>
+            <li><code>administracion</code> - Sin tilde, minúsculas (2 resultados esperados)</li>
+            <li><code>ADMINISTRACIÓN</code> - Con tilde, mayúsculas (2 resultados esperados)</li>
+            <li><code>adminisTRACion</code> - Mezclado sin tilde (2 resultados esperados)</li>
+            <li><code>matematica</code> - Sin tilde (2 resultados esperados)</li>
+            <li><code>MATEMÁTICA</code> - Con tilde mayúsculas (2 resultados esperados)</li>
+            <li><code>contab</code> - Búsqueda parcial por nombre (2 resultados esperados)</li>
+            <li><code>xyz123</code> - No existe (debería mostrar "No se encontraron asignaturas")</li>
+        </ul>
+    </div>
+
+    <div class="search-box">
+        <label for="buscadorAsignaturas"><strong>Buscar asignatura:</strong></label>
+        <input type="text" id="buscadorAsignaturas"
+            placeholder="Escribe código (ej: 203) o nombre (ej: Administración)..." onkeyup="buscarAsignaturas()">
+    </div>
+
+    <p id="noResults" class="no-results-text" style="display: none;">❌ No se encontraron asignaturas</p>
+
+    <!-- Tabla flotante de resultados -->
+    <div id="resultadosBusqueda" class="resultados-busqueda" style="display: none;">
+        <h3>📋 Resultados de búsqueda:</h3>
+        <div id="tablaResultados"></div>
+    </div>
+
+    <script>
+        // Datos de ejemplo (simulando el JSON de administración)
+        const asignaturas = [
+            { codigo: "00203", nombre: "Administración General", c1: true, c2: true, c3: true, carrera: "Diplomado Administración", bloque: "A" },
+            { codigo: "00226", nombre: "Contabilidad I", c1: true, c2: true, c3: true, carrera: "Diplomado Administración", bloque: "A" },
+            { codigo: "00491", nombre: "Matemática para Administradores I", c1: true, c2: true, c3: true, carrera: "Diplomado Administración", bloque: "A" },
+            { codigo: "00104", nombre: "Estadística I", c1: true, c2: true, c3: true, carrera: "Diplomado Administración", bloque: "B" },
+            { codigo: "00227", nombre: "Contabilidad II", c1: true, c2: true, c3: true, carrera: "Diplomado Administración", bloque: "B" },
+            { codigo: "00492", nombre: "Matemática para Administradores II", c1: true, c2: true, c3: true, carrera: "Diplomado Administración", bloque: "B" },
+            { codigo: "00208", nombre: "Administración de Recursos Humanos", c1: true, c2: true, c3: true, carrera: "Diplomado Administración", bloque: "B" },
+            { codigo: "00250", nombre: "Estadística II", c1: true, c2: true, c3: true, carrera: "Diplomado Administración", bloque: "C" },
+            { codigo: "04120", nombre: "Mercadeo I", c1: true, c2: true, c3: true, carrera: "Diplomado Administración", bloque: "C" },
+            { codigo: "01026", nombre: "Economía General", c1: true, c2: true, c3: true, carrera: "Diplomado Administración", bloque: "C" },
+        ];
+
+        // Función de normalización
+        function normalizarTexto(texto) {
+            return texto
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, ""); // Elimina tildes
+        }
+
+        // Función de búsqueda
+        function buscarAsignaturas() {
+            const input = document.getElementById('buscadorAsignaturas');
+            const busqueda = input.value.trim();
+            const resultadosDiv = document.getElementById('resultadosBusqueda');
+            const tablaResultados = document.getElementById('tablaResultados');
+            const noResults = document.getElementById('noResults');
+
+            // Si está vacío, ocultar todo
+            if (busqueda === '') {
+                resultadosDiv.style.display = 'none';
+                noResults.style.display = 'none';
+                return;
+            }
+
+            // Filtrar asignaturas
+            const coincidencias = asignaturas.filter(asig => {
+                // Buscar por código (permite coincidencias parciales)
+                if (asig.codigo.includes(busqueda)) {
+                    return true;
+                }
+
+                // Buscar por nombre (normalizado)
+                const nombreNormalizado = normalizarTexto(asig.nombre);
+                const busquedaNormalizada = normalizarTexto(busqueda);
+
+                if (nombreNormalizado.includes(busquedaNormalizada)) {
+                    return true;
+                }
+
+                return false;
+            });
+
+            // Mostrar resultados
+            if (coincidencias.length > 0) {
+                resultadosDiv.style.display = 'block';
+                noResults.style.display = 'none';
+
+                // Generar tabla
+                let html = `
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Asignatura</th>
+                                <th>I C</th>
+                                <th>II C</th>
+                                <th>III C</th>
+                                <th>Carrera</th>
+                                <th>Bloque</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+
+                coincidencias.forEach(asig => {
+                    html += `
+                        <tr>
+                            <td><strong>${asig.codigo}</strong></td>
+                            <td>${asig.nombre}</td>
+                            <td style="text-align: center;">${asig.c1 ? '✅' : '❌'}</td>
+                            <td style="text-align: center;">${asig.c2 ? '✅' : '❌'}</td>
+                            <td style="text-align: center;">${asig.c3 ? '✅' : '❌'}</td>
+                            <td><em>${asig.carrera}</em></td>
+                            <td style="text-align: center;">${asig.bloque}</td>
+                        </tr>
+                    `;
+                });
+
+                html += `
+                        </tbody>
+                    </table>
+                    <p style="margin-top: 15px; color: #666; font-size: 0.9em;">
+                        <strong>${coincidencias.length}</strong> asignatura${coincidencias.length > 1 ? 's' : ''} encontrada${coincidencias.length > 1 ? 's' : ''}
+                    </p>
+                `;
+
+                tablaResultados.innerHTML = html;
+            } else {
+                // No hay resultados
+                resultadosDiv.style.display = 'none';
+                noResults.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+
+</html>

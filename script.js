@@ -909,3 +909,37 @@ function toggleInstrucciones() {
         text.textContent = 'Ver menos';
     }
 }
+
+
+function filtrarCarreras() {
+    const input = document.getElementById('buscadorCarreras');
+    const filter = normalizarTexto(input.value);
+    const lista = document.getElementById('listaCarreras');
+    const items = lista.getElementsByClassName('carrera-item');
+    const noResults = document.getElementById('noResults');
+    let tieneResultados = false;
+
+    // Recorrer todos los items de carrera
+    for (let i = 0; i < items.length; i++) {
+        // Obtenemos el nombre guardado en el atributo data-nombre
+        const nombreCarrera = normalizarTexto(items[i].getAttribute('data-nombre'));
+
+        if (nombreCarrera.includes(filter)) {
+            items[i].style.display = ""; // Mostrar
+            tieneResultados = true;
+        } else {
+            items[i].style.display = "none"; // Ocultar
+        }
+    }
+
+    // Mostrar u ocultar mensaje de "No se encontró"
+    noResults.style.display = tieneResultados ? "none" : "block";
+}
+
+// Función mágica para ignorar tildes y mayúsculas
+function normalizarTexto(texto) {
+    return texto
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, ""); // Elimina las tildes
+}
