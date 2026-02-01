@@ -1,0 +1,206 @@
+{
+    "carrera": "Bloque A:",
+    "bloques": [
+        {
+            "nombre": "Bloque A",
+            "asignaturas": [
+                {
+                    "codigo": "02232",
+                    "nombre": "Introducción a la Educación Primaria",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00388",
+                    "nombre": "Fundamentos del Currículum",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02223",
+                    "nombre": "Inglés Instrumental para Educadores I",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00767",
+                    "nombre": "Introducción a la Pedagogía",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02235",
+                    "nombre": "Nivelatoria de Matemática para I y II Ciclos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque B",
+            "asignaturas": [
+                {
+                    "codigo": "03174",
+                    "nombre": "Educación para la Diversidad",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00144",
+                    "nombre": "Didáctica General I",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05216",
+                    "nombre": "Psicología del Desarrollo en la Niñez Intermedia I",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00101",
+                    "nombre": "Educación Costarricense",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque C",
+            "asignaturas": [
+                {
+                    "codigo": "02234",
+                    "nombre": "Mediación Pedagógica desde la Primera Infancia hasta la Adolescencia",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02134",
+                    "nombre": "Español I para I y II Ciclos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02097",
+                    "nombre": "Estudios Sociales I para I y II Ciclos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque D",
+            "asignaturas": [
+                {
+                    "codigo": "02088",
+                    "nombre": "Ciencias Naturales I para I y II Ciclos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02099",
+                    "nombre": "Lectoescritura I para I y II Ciclos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00148",
+                    "nombre": "Principios y Técnicas de Evaluación",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque E",
+            "asignaturas": [
+                {
+                    "codigo": "02084",
+                    "nombre": "Aplicaciones informáticas en contextos educativos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02095",
+                    "nombre": "Fundamentos y Metodología de la Investigación en Educación I",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05173",
+                    "nombre": "Artes integradas I",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque F",
+            "asignaturas": [
+                {
+                    "codigo": "00142",
+                    "nombre": "Práctica Docente I",
+                    "oferta": {
+                        "c1": false,
+                        "c2": false,
+                        "c3": false
+                    }
+                }
+            ]
+        }
+    ]
+}

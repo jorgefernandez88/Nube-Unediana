@@ -1,0 +1,201 @@
+{
+    "carrera": "Bloque A:",
+    "bloques": [
+        {
+            "nombre": "Bloque A",
+            "asignaturas": [
+                {
+                    "codigo": "02047",
+                    "nombre": "Introducción a la Educación Preescolar",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02095",
+                    "nombre": "Fundamentos y metodología de la investigación en educación I",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05313",
+                    "nombre": "Desarrollo humano en la diversidad de 0 a 3 años",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02223",
+                    "nombre": "Inglés Instrumental para Educadores I",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque B",
+            "asignaturas": [
+                {
+                    "codigo": "02129",
+                    "nombre": "Actividad lúdica en preescolar",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "00709",
+                    "nombre": "Comunicación oral y escrita",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00388",
+                    "nombre": "Fundamentos del currículum",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02137",
+                    "nombre": "Desarrollo del pensamiento científico I",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque C",
+            "asignaturas": [
+                {
+                    "codigo": "02181",
+                    "nombre": "Recreación para preescolar",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "02043",
+                    "nombre": "Material didáctico para la educación preescolar",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02141",
+                    "nombre": "Desarrollo del pensamiento lógico matemático I",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00101",
+                    "nombre": "Educación costarricense",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque D",
+            "asignaturas": [
+                {
+                    "codigo": "02139",
+                    "nombre": "Desarrollo del pensamiento lingüístico I",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02136",
+                    "nombre": "Planeamiento didáctico para preescolar",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00731",
+                    "nombre": "Literatura para el niño preescolar",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02225",
+                    "nombre": "Los recursos educativos digitales en el desarrollo integral de la niñez",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque E",
+            "asignaturas": [
+                {
+                    "codigo": "02143",
+                    "nombre": "Salud integral",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02150",
+                    "nombre": "Desarrollo socio cultural de la niñez I",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00730",
+                    "nombre": "Música para el niño preescolar",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        }
+    ]
+}

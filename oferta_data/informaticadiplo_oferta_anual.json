@@ -1,0 +1,201 @@
+{
+    "carrera": "Bloque A:",
+    "bloques": [
+        {
+            "nombre": "Bloque A",
+            "asignaturas": [
+                {
+                    "codigo": "03304",
+                    "nombre": "Lógica Algorítmica",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "03068",
+                    "nombre": "Matemáticas para Computación I",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00997",
+                    "nombre": "Inglés para Informática",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque B",
+            "asignaturas": [
+                {
+                    "codigo": "04038",
+                    "nombre": "Principios de Administración",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "03071",
+                    "nombre": "Lógica para Computación",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "03069",
+                    "nombre": "Matemáticas para Computación II",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "03072",
+                    "nombre": "Inglés para Informática II",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque C",
+            "asignaturas": [
+                {
+                    "codigo": "00831",
+                    "nombre": "Introducción a la Programación",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00823",
+                    "nombre": "Organización de Computadoras",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00226",
+                    "nombre": "Contabilidad I",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04168",
+                    "nombre": "Estadística para Informática",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque D",
+            "asignaturas": [
+                {
+                    "codigo": "00824",
+                    "nombre": "Programación Intermedia",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00826",
+                    "nombre": "Base de Datos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "03306",
+                    "nombre": "Arquitectura de Computadores",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00883",
+                    "nombre": "Telemática y Redes",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque E",
+            "asignaturas": [
+                {
+                    "codigo": "00830",
+                    "nombre": "Programación Avanzada",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "03300",
+                    "nombre": "Ingeniería del Software",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00825",
+                    "nombre": "Estructuras de datos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00881",
+                    "nombre": "Sistemas Operativos",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -13,7 +13,22 @@
 
 <body>
     <header>
-        <h1>Oferta de Asignaturas 2026</h1>
+        <h1 style="display: flex; flex-direction: column; align-items: center; gap: 5px;">
+            <div><i class="fas fa-calculator"></i> Oferta de Asignaturas 2026</div>
+            <nav class="page-nav"
+                style="background: transparent; box-shadow: none; border: none; padding: 0; width: auto; min-height: 0; margin: 0;">
+                <ul style="padding: 0; margin: 0;">
+                    <li>
+                        <a href="index.html" style="padding: 5px 20px; font-size: 0.9rem;">
+                            <i class="fas fa-arrow-left nav-icon" style="font-size: 1rem;"></i>
+                            <span class="nav-text" style="font-size: 0.9rem;">Volver al inicio</span>
+                            <i class="fas fa-home nav-icon" style="margin-left: 10px; font-size: 1rem;"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </h1>
         <div class="theme-switch-wrapper">
             <label class="theme-switch" for="checkbox">
                 <input type="checkbox" id="checkbox" onchange="toggleTheme()" />
@@ -54,8 +69,47 @@
                 </div>
             </div>
 
+            <div class="carrera-item" data-nombre="Diplomado Educación General Básica I y II Ciclos">
+                <button class="acordeon-btn"
+                    onclick="toggleCarrera('egbdiplomado', 'oferta_data/egbdiplomado_oferta_anual.json')">
+                    <i class="fas fa-chalkboard-teacher"></i> Diplomado Educación General Básica I y II Ciclos
+                    <i class="fas fa-chevron-down arrow"></i>
+                </button>
+                <div id="egbdiplomado" class="panel-oferta">
+                    <div class="loading">Cargando oferta...</div>
+                </div>
+            </div>
+
+            <div class="carrera-item" data-nombre="Diplomado Educación Preescolar">
+                <button class="acordeon-btn"
+                    onclick="toggleCarrera('preescolardiplo', 'oferta_data/preescolardiplo_oferta_anual.json')">
+                    <i class="fas fa-child"></i> Diplomado Educación Preescolar
+                    <i class="fas fa-chevron-down arrow"></i>
+                </button>
+                <div id="preescolardiplo" class="panel-oferta">
+                    <div class="loading">Cargando oferta...</div>
+                </div>
+            </div>
+
+            <div class="carrera-item" data-nombre="Diplomado Informática">
+                <button class="acordeon-btn"
+                    onclick="toggleCarrera('informaticadiplo', 'oferta_data/informaticadiplo_oferta_anual.json')">
+                    <i class="fas fa-laptop-code"></i> Diplomado Informática
+                    <i class="fas fa-chevron-down arrow"></i>
+                </button>
+                <div id="informaticadiplo" class="panel-oferta">
+                    <div class="loading">Cargando oferta...</div>
+                </div>
+            </div>
+
         </div>
     </main>
+    <p style="margin-top: 20px; font-size: var(--font-size-small); color: var(--text-light);">
+        <i class="fas fa-exclamation-triangle"></i>
+        Esta herramienta no sustituye a los medios de comunicación oficiales de la UNED, solo es con fines
+        informativos.
+    </p>
+
 
     <!-- Page Navigation -->
     <nav class="page-nav">
@@ -90,8 +144,25 @@
                     <span class="nav-text">Pomodoro</span>
                 </a>
             </li>
+            <li>
+                <a href="oferta_anual_asignaturas_cuatri.html">
+                    <i class="fas fa-list nav-icon"></i>
+                    <span class="nav-text">Oferta Anual Asignaturas Cuatri</span>
+                </a>
+            </li>
         </ul>
     </nav>
+    <footer>
+        <nav>
+            <a href="https://www.facebook.com/educacionadistanciacr"><i class="fab fa-facebook"></i></a>
+        </nav>
+        <h5>&copy; 2025 - 2026 Proyecto de Educación a Distancia CR <br> Elaborado por Jorge Fernández - v2.0</h5>
+    </footer>
+
+    <!-- Audios -->
+    <audio id="themeSwitchSound" preload="auto">
+        <source src="sounds/prendido.mp3" type="audio/mpeg">
+    </audio>
 
     <script src="script.js"></script>
     <script>
@@ -101,6 +172,21 @@
                 id: 'administracion',
                 nombre: 'Diplomado Administración de Empresas',
                 url: 'oferta_data/administracion_oferta_anual.json'
+            },
+            {
+                id: 'egbdiplomado',
+                nombre: 'Diplomado Educación General Básica I y II Ciclos',
+                url: 'oferta_data/egbdiplomado_oferta_anual.json'
+            },
+            {
+                id: 'preescolardiplo',
+                nombre: 'Diplomado Educación Preescolar',
+                url: 'oferta_data/preescolardiplo_oferta_anual.json'
+            },
+            {
+                id: 'informaticadiplo',
+                nombre: 'Diplomado Informática',
+                url: 'oferta_data/informaticadiplo_oferta_anual.json'
             }
             // Agregar más carreras aquí cuando estén disponibles
             // { id: 'contaduria', nombre: 'Bachillerato en Contaduría', url: 'oferta_data/contaduria_oferta_anual.json' },
