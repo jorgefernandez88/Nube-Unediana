@@ -3341,6 +3341,18 @@ footer,
   box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
 }
 
+/* Mantener hover naranja cuando el acordeón está desplegado */
+.acordeon-btn.active {
+  color: #0f0f0f;
+  background: #ff8800;
+  box-shadow: 12px 12px 24px var(--shadow-dark), -12px -12px 24px var(--shadow-light);
+}
+
+[data-theme="dark"] .acordeon-btn.active {
+  color: #ffffff;
+  background: #ff8800;
+}
+
 .acordeon-btn .arrow {
   transition: transform 0.3s ease;
 }

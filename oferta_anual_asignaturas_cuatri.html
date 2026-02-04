@@ -14,7 +14,7 @@
 <body>
     <header>
         <h1 style="display: flex; flex-direction: column; align-items: center; gap: 5px;">
-            <div><i class="fas fa-calculator"></i> Oferta de Asignaturas 2026</div>
+            <div><i class="fas fa-book"></i> Oferta de Asignaturas 2026</div>
             <nav class="page-nav"
                 style="background: transparent; box-shadow: none; border: none; padding: 0; width: auto; min-height: 0; margin: 0;">
                 <ul style="padding: 0; margin: 0;">
@@ -41,14 +41,21 @@
     </header>
 
     <main>
+        <div class="welcome-section">
+            <h3>Esta herramienta toma los datos oficiales de la oferta anual de asiganturas de la UNED
+                y los muestra de forma organizada para facilitar su búsqueda. <br>
+                Se recomienda verificar la oferta en el Instructivo de Matrícula y Oferta de asignaturas de cada
+                cuatrimestre.
+            </h3>
+        </div>
+
         <div class="search-container-uned">
             <div class="search-box">
                 <i class="fas fa-search search-icon"></i>
-                <input type="text" id="buscadorAsignaturas"
-                    placeholder="Buscar asignatura por código o nombre (ej: 203 o Administración)..."
+                <input type="text" id="buscadorAsignaturas" placeholder="Busque por código o nombre"
                     onkeyup="buscarAsignaturas()">
             </div>
-            <p id="noResults" class="no-results-text" style="display: none;">No se encontraron asignaturas</p>
+            <p id="noResults" class="no-results-text" style="display: none;">Ups! No se encuentra lo que buscas.</p>
         </div>
 
         <!-- Tabla flotante de resultados -->
@@ -94,7 +101,7 @@
             <div class="carrera-item" data-nombre="Diplomado Informática">
                 <button class="acordeon-btn"
                     onclick="toggleCarrera('informaticadiplo', 'oferta_data/informaticadiplo_oferta_anual.json')">
-                    <i class="fas fa-laptop-code"></i> Diplomado Informática
+                    <i class="fas fa-laptop-code"></i> Diplomado Informática (NUEVO PLAN)
                     <i class="fas fa-chevron-down arrow"></i>
                 </button>
                 <div id="informaticadiplo" class="panel-oferta">
@@ -147,7 +154,7 @@
             <li>
                 <a href="oferta_anual_asignaturas_cuatri.html">
                     <i class="fas fa-list nav-icon"></i>
-                    <span class="nav-text">Oferta Anual Asignaturas Cuatri</span>
+                    <span class="nav-text">Oferta Cuatri</span>
                 </a>
             </li>
         </ul>
@@ -268,8 +275,39 @@
                 return false;
             });
 
+            // Consolidar cursos duplicados (mismo código y nombre)
+            const cursosConsolidados = {};
+
+            coincidencias.forEach(asig => {
+                // Normalizar nombre para agrupar ignorando mayúsculas y tildes
+                const nombreNormalizado = normalizarTexto(asig.nombre);
+                const key = `${asig.codigo}-${nombreNormalizado}`;
+
+                if (!cursosConsolidados[key]) {
+                    // Primera vez que vemos este curso
+                    cursosConsolidados[key] = {
+                        codigo: asig.codigo,
+                        nombre: asig.nombre,
+                        oferta: { ...asig.oferta },
+                        carreras: [asig.carrera]
+                    };
+                } else {
+                    // Ya existe, agregar la carrera si no está duplicada
+                    if (!cursosConsolidados[key].carreras.includes(asig.carrera)) {
+                        cursosConsolidados[key].carreras.push(asig.carrera);
+                    }
+                    // Combinar ofertas (Si está en cualquier carrera, marcar como disponible)
+                    cursosConsolidados[key].oferta.c1 = cursosConsolidados[key].oferta.c1 || asig.oferta.c1;
+                    cursosConsolidados[key].oferta.c2 = cursosConsolidados[key].oferta.c2 || asig.oferta.c2;
+                    cursosConsolidados[key].oferta.c3 = cursosConsolidados[key].oferta.c3 || asig.oferta.c3;
+                }
+            });
+
+            // Convertir objeto a array
+            const cursosUnicos = Object.values(cursosConsolidados);
+
             // Mostrar resultados
-            if (coincidencias.length > 0) {
+            if (cursosUnicos.length > 0) {
                 // Ocultar lista de carreras y mostrar resultados
                 listaCarreras.style.display = 'none';
                 resultadosDiv.style.display = 'block';
@@ -292,7 +330,10 @@
                             <tbody>
                 `;
 
-                coincidencias.forEach(asig => {
+                cursosUnicos.forEach(asig => {
+                    // Unir carreras con " - "
+                    const carrerasTexto = asig.carreras.join(' - ');
+
                     html += `
                         <tr>
                             <td class="cod-cell">${asig.codigo}</td>
@@ -300,7 +341,7 @@
                             <td class="check-cell">${asig.oferta.c1 ? '✅' : '❌'}</td>
                             <td class="check-cell">${asig.oferta.c2 ? '✅' : '❌'}</td>
                             <td class="check-cell">${asig.oferta.c3 ? '✅' : '❌'}</td>
-                            <td class="carrera-cell">${asig.carrera}</td>
+                            <td class="carrera-cell">${carrerasTexto}</td>
                         </tr>
                     `;
                 });
