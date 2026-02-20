@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oferta de Asignaturas</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -42,11 +41,46 @@
 
     <main>
         <div class="welcome-section">
-            <h3>Esta herramienta toma los datos oficiales de la oferta anual de asiganturas de la UNED
-                y los muestra de forma organizada para facilitar su búsqueda. <br>
-                Se recomienda verificar la oferta en el Instructivo de Matrícula y Oferta de asignaturas de cada
-                cuatrimestre.
+            <h3>Esta herramienta organiza y facilita la búsqueda de la oferta anual de asignaturas de la UNED.
             </h3>
+        </div>
+
+        <!-- Botón expandible para instrucciones -->
+        <button class="instrucciones-toggle-btn" onclick="toggleInstrucciones()">
+            <span>Instrucciones de uso</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+
+        <!-- Contenido colapsable de instrucciones -->
+        <div class="instrucciones-content">
+            <table class="explicaciones-tabla">
+                <thead>
+                    <tr>
+                        <th colspan="2">Instrucciones:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="icono-celda">
+                            <i class="fas fa-calculator"></i>
+                        </td>
+                        <td class="contenido-celda">
+                            <ol class="pasos-lista">
+                                <li class="paso-item">Para conocer la oferta de materias de una carrera, presione el
+                                    botón correspondiente.</li>
+                                <li class="paso-item">Tambien puede buscar la asignatura en el buscador por nombre o
+                                    código.</li>
+                            </ol>
+                            <span class="nota-importante">
+                                <i class="fas fa-info-circle"></i>
+                                Esta herramienta toma la información oficial disponible en la oferta anual UNED de
+                                asignaturas. Se recomienda siempre revisar el instructivo de matrícula correspondiente a
+                                cada cuatrimestre.
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <div class="search-container-uned">
@@ -169,6 +203,9 @@
     <!-- Audios -->
     <audio id="themeSwitchSound" preload="auto">
         <source src="sounds/prendido.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="popSound" preload="auto">
+        <source src="sounds/pop.mp3" type="audio/mpeg">
     </audio>
 
     <script src="script.js"></script>
@@ -370,13 +407,20 @@
             btn.classList.toggle('active');
 
             if (panel.style.maxHeight) {
+                // Cerrar el panel
                 panel.style.maxHeight = null;
+                panel.style.overflow = 'hidden';
             } else {
+                // Reproducir sonido pop al abrir
+                reproducirSonido('popSound');
+
                 // Si está vacío, cargamos los datos
                 if (panel.innerHTML.includes('Cargando')) {
                     await cargarDatosOferta(id, url);
                 }
-                panel.style.maxHeight = panel.scrollHeight + "px";
+                // Usar un valor grande para garantizar visibilidad completa en móvil
+                panel.style.maxHeight = '9999px';
+                panel.style.overflow = 'visible';
             }
         }
 

@@ -2919,12 +2919,18 @@ footer,
   overflow: hidden;
   transition: max-height 0.5s ease, opacity 0.3s ease, margin 0.3s ease;
   opacity: 0;
+  /* Evitar que se vea un borde o sombra de fondo cuando está cerrado */
+  background: transparent;
 }
 
 .instrucciones-content.active {
   max-height: 1000px;
   opacity: 1;
   margin-bottom: 20px;
+  background: transparent;
+  /* Padding para que la sombra neumórfica de la tabla interior no quede cortada */
+  padding: 0 10px 15px 10px;
+  box-sizing: border-box;
 }
 
 /* ===== TABLA DE EXPLICACIONES NEUMÓRFICA (MEJORADA RESPONSIVE) ===== */
@@ -2932,12 +2938,13 @@ footer,
   width: 90%;
   max-width: 800px;
   margin: 20px auto;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   background: var(--card-bg);
   border-radius: 20px;
   box-shadow:
-    10px 10px 20px var(--shadow-dark),
-    -10px -10px 20px var(--shadow-light);
+    8px 8px 16px var(--shadow-dark),
+    -8px -8px 16px var(--shadow-light);
   overflow: hidden;
   border: 1px solid var(--border-light);
   font-family: 'Arial', sans-serif;
@@ -3326,31 +3333,31 @@ footer,
 }
 
 .acordeon-btn:hover {
-  color: #0f0f0f;
-  background: #ff8800;
+  color: white;
+  background: var(--accent-blue);
   transform: translateY(-2px);
   box-shadow: 12px 12px 24px var(--shadow-dark), -12px -12px 24px var(--shadow-light);
 }
 
 [data-theme="dark"] .acordeon-btn:hover {
-  color: #ffffff;
-  background: #ff8800;
+  color: white;
+  background: var(--accent-blue);
 }
 
 .acordeon-btn:active {
   box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
 }
 
-/* Mantener hover naranja cuando el acordeón está desplegado */
+/* Mantener hover azul cuando el acordeón está desplegado */
 .acordeon-btn.active {
-  color: #0f0f0f;
-  background: #ff8800;
+  color: white;
+  background: var(--accent-blue);
   box-shadow: 12px 12px 24px var(--shadow-dark), -12px -12px 24px var(--shadow-light);
 }
 
 [data-theme="dark"] .acordeon-btn.active {
-  color: #ffffff;
-  background: #ff8800;
+  color: white;
+  background: var(--accent-blue);
 }
 
 .acordeon-btn .arrow {
@@ -3364,8 +3371,22 @@ footer,
 .panel-oferta {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease-out;
+  transition: max-height 0.5s ease-out;
   margin-bottom: 20px;
+}
+
+/* En móvil, asegurar que el panel abierto no se corte */
+@media (max-width: 768px) {
+  .panel-oferta[style*="max-height"] {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tabla-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
+  }
 }
 
 .tabla-uned {
