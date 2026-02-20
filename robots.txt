@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+Sitemap: https://jorgefernandez88.github.io/Nube-Unediana/sitemap.xml
