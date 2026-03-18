@@ -1,0 +1,192 @@
+{
+    "carrera": "Bloque E:",
+    "bloques": [
+        {
+            "nombre": "Bloque E",
+            "asignaturas": [
+                {
+                    "codigo": "04067",
+                    "nombre": "Planificación de Recursos Humanos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00925",
+                    "nombre": "Comportamiento Organizacional",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05484",
+                    "nombre": "Derecho del Trabajo",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque F",
+            "asignaturas": [
+                {
+                    "codigo": "04125",
+                    "nombre": "Análisis y Diseño de Puestos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05112",
+                    "nombre": "Derecho Empresarial II",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04034",
+                    "nombre": "Seguridad y Salud Ocupacional",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque G",
+            "asignaturas": [
+                {
+                    "codigo": "04057",
+                    "nombre": "Métodos de Investigación Científica",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04003",
+                    "nombre": "Reclutamiento y Selección",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04070",
+                    "nombre": "Capacitación y Desarrollo de Recursos Humanos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque H",
+            "asignaturas": [
+                {
+                    "codigo": "04058",
+                    "nombre": "Métodos de Investigación Cuantitativa",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04078",
+                    "nombre": "Administración de Salarios",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04126",
+                    "nombre": "Evaluación del Desempeño",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00535",
+                    "nombre": "Preparación y Evaluación de Proyectos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque I",
+            "asignaturas": [
+                {
+                    "codigo": "04056",
+                    "nombre": "Métodos de Investigación Cualitativa",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04072",
+                    "nombre": "Evaluación de la Gestión de los Recursos Humanos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00453",
+                    "nombre": "Estrategia Empresarial I",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05479",
+                    "nombre": "Liderazgo para la Transformación Organizacional",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05480",
+                    "nombre": "Bienestar Psicológico en Ambientes de Trabajo",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        }
+    ]
+}

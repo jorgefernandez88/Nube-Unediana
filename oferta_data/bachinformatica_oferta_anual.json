@@ -1,0 +1,264 @@
+{
+    "carrera": "Bloque F:",
+    "bloques": [
+        {
+            "nombre": "Bloque F",
+            "asignaturas": [
+                {
+                    "codigo": "03301",
+                    "nombre": "Análisis y Diseño de Sistemas",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "03075",
+                    "nombre": "Fundamentos de Programación Web",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05640",
+                    "nombre": "Técnicas de Comprensión de Lectura en Inglés para Ingeniería Informática",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque G",
+            "asignaturas": [
+                {
+                    "codigo": "03302",
+                    "nombre": "Ingeniería de Requerimientos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "03084",
+                    "nombre": "Base de Datos II",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05639",
+                    "nombre": "Taller Conversacional en Inglés para Informática",
+                    "oferta": {
+                        "c1": false,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "03624",
+                    "nombre": "Introducción a Motores Gráficos para Videojuegos",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "03070",
+                    "nombre": "Seguridad y Auditoría en las TIC",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque H",
+            "asignaturas": [
+                {
+                    "codigo": "03076",
+                    "nombre": "Telemática y Redes II",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "03622",
+                    "nombre": "Introducción a la Ciberseguridad",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "03623",
+                    "nombre": "Introducción al Análisis de Datos",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "03029",
+                    "nombre": "Investigación de Operaciones para Ingeniería",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "03073",
+                    "nombre": "Autogestión y Desarrollo Empresarial",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque I",
+            "asignaturas": [
+                {
+                    "codigo": "03612",
+                    "nombre": "Introducción a la Calidad de Software",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "03611",
+                    "nombre": "Introducción a la Administración de Proyectos",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque J",
+            "asignaturas": [
+                {
+                    "codigo": "09913",
+                    "nombre": "Práctica Supervisada para Bachillerato en Ingeniería Informática (Semestral)",
+                    "oferta": {
+                        "c1": false,
+                        "c2": false,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "09914",
+                    "nombre": "Proyecto Profesional para Bachillerato en Ingeniería Informática (Semestral)",
+                    "oferta": {
+                        "c1": false,
+                        "c2": false,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "03613",
+                    "nombre": "Teoría y Principios de Diseño de Videojuegos",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "03614",
+                    "nombre": "Fundamentos en Música y Arte para Videojuegos",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "03615",
+                    "nombre": "Introducción a la Producción de Videojuegos y Multimedia",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "03617",
+                    "nombre": "Blockchain",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "03618",
+                    "nombre": "Gestión de Incidentes de Seguridad Informática",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "03619",
+                    "nombre": "Gestión e Implementación  de Politicas de Seguridad Informática",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "03616",
+                    "nombre": "Analítica de Datos para la Toma de Decisiones",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "03620",
+                    "nombre": "Herramientas para Análisis de Datos",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "03621",
+                    "nombre": "Inteligencia de Negocios Aplicada",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        }
+    ]
+}

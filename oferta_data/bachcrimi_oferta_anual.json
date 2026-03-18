@@ -1,0 +1,402 @@
+{
+    "carrera": "Bloque A:",
+    "bloques": [
+        {
+            "nombre": "Bloque A",
+            "asignaturas": [
+                {
+                    "codigo": "05270",
+                    "nombre": "Criminalística I",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05333",
+                    "nombre": "Fundamentos de Criminología",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque B",
+            "asignaturas": [
+                {
+                    "codigo": "05263",
+                    "nombre": "Criminalística II",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05335",
+                    "nombre": "Violencia Social",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque C",
+            "asignaturas": [
+                {
+                    "codigo": "05280",
+                    "nombre": "Sistema Policial Costarricense",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05336",
+                    "nombre": "Elaboración de Informes Técnicos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque D",
+            "asignaturas": [
+                {
+                    "codigo": "05259",
+                    "nombre": "Política Criminal",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "05338",
+                    "nombre": "Ética Profesional en la Función Pública",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "05343",
+                    "nombre": "Principios de Derecho Penal",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "05344",
+                    "nombre": "Biología Forense",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque E",
+            "asignaturas": [
+                {
+                    "codigo": "05339",
+                    "nombre": "Principios del Derecho Administrativo",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "05340",
+                    "nombre": "Administración para Ciencias Criminológicas",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "05347",
+                    "nombre": "Principios de Derecho Penal Especial",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "00499",
+                    "nombre": "Principios de Investigación (ó la 05359)",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque F",
+            "asignaturas": [
+                {
+                    "codigo": "05345",
+                    "nombre": "Género, Niñez, Juventud y Criminalidad",
+                    "oferta": {
+                        "c1": false,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05346",
+                    "nombre": "Compulsiones, Parafilias y Criminalidad",
+                    "oferta": {
+                        "c1": false,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05350",
+                    "nombre": "Principios del Derecho Procesal Penal",
+                    "oferta": {
+                        "c1": false,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05477",
+                    "nombre": "Investigación en Ciencias Sociales (o la 05342)",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque G",
+            "asignaturas": [
+                {
+                    "codigo": "05337",
+                    "nombre": "Principios de Derecho Constitucional",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "05341",
+                    "nombre": "Psicología Criminal para Criminología",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "05349",
+                    "nombre": "Comunicación Colectiva y el Fenómeno Criminal",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "05475",
+                    "nombre": "Metodología de Investigación Cuantitativa (o la 05334)",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque H",
+            "asignaturas": [
+                {
+                    "codigo": "05351",
+                    "nombre": "Psicopatología",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "05352",
+                    "nombre": "Prevención de la Delincuencia",
+                    "oferta": {
+                        "c1": false,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05386",
+                    "nombre": "Tendencias Mundiales de la Criminalidad para Criminología",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "05476",
+                    "nombre": "Metodología de Investigación Cualitativa (o la 00104) (3 créditos)",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque I",
+            "asignaturas": [
+                {
+                    "codigo": "05353",
+                    "nombre": "Principios de Derechos Humanos e Internacional Humanitario",
+                    "oferta": {
+                        "c1": false,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05478",
+                    "nombre": "Criminología",
+                    "oferta": {
+                        "c1": false,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05356",
+                    "nombre": "Sociología del Control Social",
+                    "oferta": {
+                        "c1": false,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05091",
+                    "nombre": "Diseño y Gestión de Proyectos (o la 05348)",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque J",
+            "asignaturas": [
+                {
+                    "codigo": "05355",
+                    "nombre": "Penología del Sistema Costarricense",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "05357",
+                    "nombre": "Mediación y Resolución Adecuada de Conflictos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05358",
+                    "nombre": "Gestión Estratégica",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "05515",
+                    "nombre": "Taller de Prácticas Criminológicas",
+                    "oferta": {
+                        "c1": false,
+                        "c2": false,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque K",
+            "asignaturas": [
+                {
+                    "codigo": "05517",
+                    "nombre": "Perfilado Criminal",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "05518",
+                    "nombre": "Justicia Restaurativa",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "05516",
+                    "nombre": "Técnicas Forenses de Fijación de Indicios",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "05360",
+                    "nombre": "Proyecto de Graduación de Bachillerato (Semestral)",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        }
+    ]
+}

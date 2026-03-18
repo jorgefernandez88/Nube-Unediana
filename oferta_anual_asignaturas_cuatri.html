@@ -159,6 +159,39 @@
                 </div>
             </div>
 
+            <div class="carrera-item" data-nombre="Bachillerato en Ciencias Criminológicas">
+                <button class="acordeon-btn"
+                    onclick="toggleCarrera('bachcrimi', 'oferta_data/bachcrimi_oferta_anual.json')">
+                    <i class="fas fa-user-shield"></i> Bachillerato en Ciencias Criminológicas
+                    <i class="fas fa-chevron-down arrow"></i>
+                </button>
+                <div id="bachcrimi" class="panel-oferta">
+                    <div class="loading">Cargando oferta...</div>
+                </div>
+            </div>
+
+            <div class="carrera-item" data-nombre="Bachillerato en Informática">
+                <button class="acordeon-btn"
+                    onclick="toggleCarrera('bachinformatica', 'oferta_data/bachinformatica_oferta_anual.json')">
+                    <i class="fas fa-desktop"></i> Bachillerato en Informática (NUEVO PLAN)
+                    <i class="fas fa-chevron-down arrow"></i>
+                </button>
+                <div id="bachinformatica" class="panel-oferta">
+                    <div class="loading">Cargando oferta...</div>
+                </div>
+            </div>
+
+            <div class="carrera-item" data-nombre="Bachillerato en Recursos Humanos">
+                <button class="acordeon-btn"
+                    onclick="toggleCarrera('bachrrhh', 'oferta_data/bachrrhh_oferta_anual.json')">
+                    <i class="fas fa-users"></i> Bachillerato en Recursos Humanos
+                    <i class="fas fa-chevron-down arrow"></i>
+                </button>
+                <div id="bachrrhh" class="panel-oferta">
+                    <div class="loading">Cargando oferta...</div>
+                </div>
+            </div>
+
         </div>
     </main>
     <p style="margin-top: 20px; font-size: var(--font-size-small); color: var(--text-light);">
@@ -247,6 +280,21 @@
                 id: 'informaticadiplo',
                 nombre: 'Diplomado Informática',
                 url: 'oferta_data/informaticadiplo_oferta_anual.json'
+            },
+            {
+                id: 'bachcrimi',
+                nombre: 'Bachillerato en Ciencias Criminológicas',
+                url: 'oferta_data/bachcrimi_oferta_anual.json'
+            },
+            {
+                id: 'bachinformatica',
+                nombre: 'Bachillerato en Informática',
+                url: 'oferta_data/bachinformatica_oferta_anual.json'
+            },
+            {
+                id: 'bachrrhh',
+                nombre: 'Bachillerato en Recursos Humanos',
+                url: 'oferta_data/bachrrhh_oferta_anual.json'
             }
             // Agregar más carreras aquí cuando estén disponibles
             // { id: 'contaduria', nombre: 'Bachillerato en Contaduría', url: 'oferta_data/contaduria_oferta_anual.json' },
