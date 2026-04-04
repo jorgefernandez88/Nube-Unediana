@@ -3319,8 +3319,10 @@ footer,
 @media (min-width: 992px) {
   .container-oferta {
     grid-template-columns: repeat(2, 1fr);
-    max-width: 1200px; /* Make it a bit wider to accommodate 2 columns */
-    align-items: start; /* Prevent grid rows from stretching sibling items when one expands */
+    max-width: 1200px;
+    /* Make it a bit wider to accommodate 2 columns */
+    align-items: start;
+    /* Prevent grid rows from stretching sibling items when one expands */
   }
 }
 
@@ -3568,4 +3570,589 @@ footer,
   .carrera-cell {
     font-size: 0.75rem;
   }
+}
+
+/* ===================================================
+   GENERADOR APA - ESTILOS NEUMORFISTAS COMPLETOS
+   =================================================== */
+
+/* Contenedor principal del formulario APA */
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 30px;
+  background: var(--card-bg);
+  border-radius: 20px;
+  box-shadow:
+    10px 10px 20px var(--shadow-dark),
+    -10px -10px 20px var(--shadow-light);
+  border: 1px solid var(--border-light);
+  box-sizing: border-box;
+}
+
+/* Grid de campos del formulario */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+/* Clases de ancho para input-group dentro del form-grid */
+.input-group.full-width {
+  grid-column: 1 / -1;
+}
+
+/* Labels del formulario APA */
+.container .input-group label,
+#autoresContainer > label,
+#urlGroup label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: var(--font-size-small);
+  text-align: left;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Inputs del formulario APA */
+.container .input-group input,
+.container .input-group select,
+#urlGroup input,
+#anio,
+#titulo,
+#editorial,
+#revista,
+#volumen,
+#numero,
+#paginas,
+#sitioWeb,
+#fechaExacta,
+#username,
+#nivel,
+#institucion,
+#repositorio,
+#numeroInforme,
+#licencia,
+#minutosSegundos,
+#url,
+#tituloLibro,
+#editor {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: var(--font-size-body);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  box-sizing: border-box;
+  background: var(--primary-bg);
+  color: var(--text-dark);
+  box-shadow:
+    inset 3px 3px 6px var(--shadow-dark),
+    inset -3px -3px 6px var(--shadow-light);
+  font-family: 'Arial', sans-serif;
+  transition: box-shadow 0.2s ease;
+  outline: none;
+}
+
+.container .input-group input:focus,
+.container .input-group select:focus,
+#urlGroup input:focus,
+#anio:focus,
+#titulo:focus,
+#url:focus {
+  box-shadow:
+    inset 3px 3px 6px var(--shadow-dark),
+    inset -3px -3px 6px var(--shadow-light),
+    0 0 0 2px var(--accent-blue);
+}
+
+/* Select del tipo de fuente */
+#tipoFuente {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: var(--font-size-body);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  box-sizing: border-box;
+  background: var(--primary-bg);
+  color: var(--text-dark);
+  box-shadow:
+    inset 3px 3px 6px var(--shadow-dark),
+    inset -3px -3px 6px var(--shadow-light);
+  font-family: 'Arial', sans-serif;
+  cursor: pointer;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+#tipoFuente:focus {
+  box-shadow:
+    inset 3px 3px 6px var(--shadow-dark),
+    inset -3px -3px 6px var(--shadow-light),
+    0 0 0 2px var(--accent-blue);
+}
+
+/* ===== SECCIÓN DE AUTORES ===== */
+#autoresContainer {
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+#autoresContainer > label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: var(--text-dark);
+  font-size: var(--font-size-body);
+  font-family: 'Arial', sans-serif;
+}
+
+.autor-field {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.autor-field input {
+  flex: 1;
+  min-width: 100px;
+  padding: 9px 12px;
+  font-size: var(--font-size-small);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  background: var(--primary-bg);
+  color: var(--text-dark);
+  box-shadow:
+    inset 2px 2px 5px var(--shadow-dark),
+    inset -2px -2px 5px var(--shadow-light);
+  font-family: 'Arial', sans-serif;
+  outline: none;
+  transition: box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.autor-field input:focus {
+  box-shadow:
+    inset 2px 2px 5px var(--shadow-dark),
+    inset -2px -2px 5px var(--shadow-light),
+    0 0 0 2px var(--accent-blue);
+}
+
+.remove-autor {
+  flex-shrink: 0;
+  background: var(--card-bg);
+  color: #e74c3c;
+  border: 1px solid var(--border-light);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    3px 3px 6px var(--shadow-dark),
+    -3px -3px 6px var(--shadow-light);
+  transition: all 0.2s ease;
+}
+
+.remove-autor:hover {
+  background: #e74c3c;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* ===== BOTÓN AGREGAR AUTOR (btn-secondary) ===== */
+.btn-secondary,
+#addAutor {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: var(--card-bg);
+  color: var(--accent-blue);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: var(--font-size-small);
+  font-weight: 600;
+  font-family: 'Arial', sans-serif;
+  box-shadow:
+    5px 5px 10px var(--shadow-dark),
+    -5px -5px 10px var(--shadow-light);
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover,
+#addAutor:hover {
+  color: white;
+  background: var(--accent-blue);
+  transform: translateY(-2px);
+  box-shadow:
+    8px 8px 16px var(--shadow-dark),
+    -8px -8px 16px var(--shadow-light);
+}
+
+.btn-secondary:active,
+#addAutor:active {
+  transform: translateY(0);
+  box-shadow:
+    inset 3px 3px 6px var(--shadow-dark),
+    inset -3px -3px 6px var(--shadow-light);
+}
+
+/* ===== BOTÓN PRINCIPAL GENERAR (btn-primary) ===== */
+.btn-primary,
+#generarBtn {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 14px 24px;
+  background: var(--accent-blue);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: var(--font-size-body);
+  font-weight: 700;
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 0.5px;
+  box-shadow:
+    6px 6px 12px var(--shadow-dark),
+    -6px -6px 12px var(--shadow-light);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover,
+#generarBtn:hover {
+  background: var(--accent-blue-dark);
+  transform: translateY(-3px);
+  box-shadow:
+    10px 10px 20px var(--shadow-dark),
+    -10px -10px 20px var(--shadow-light);
+}
+
+.btn-primary:active,
+#generarBtn:active {
+  transform: translateY(0);
+  box-shadow:
+    inset 4px 4px 8px rgba(0,0,0,0.3),
+    inset -4px -4px 8px rgba(255,255,255,0.1);
+}
+
+/* ===== CONTENEDOR URL ===== */
+#urlGroup {
+  width: 100%;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+#urlGroup label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: var(--font-size-small);
+  font-family: 'Arial', sans-serif;
+}
+
+/* ===== RESULTADOS ===== */
+.results-container {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.result-box {
+  background: var(--primary-bg);
+  padding: 18px;
+  border-radius: 14px;
+  box-shadow:
+    inset 4px 4px 8px var(--shadow-dark),
+    inset -4px -4px 8px var(--shadow-light);
+  border: 1px solid var(--border-light);
+  min-height: 60px;
+  text-align: left;
+  white-space: pre-wrap;
+  margin: 12px 0;
+  color: var(--text-dark);
+  font-size: var(--font-size-body);
+  line-height: 1.6;
+}
+
+.result-box h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 12px 0;
+  font-size: var(--font-size-body);
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  background: var(--card-bg);
+  color: var(--accent-blue);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: var(--font-size-small);
+  box-shadow:
+    3px 3px 6px var(--shadow-dark),
+    -3px -3px 6px var(--shadow-light);
+  transition: all 0.2s ease;
+  margin-left: auto;
+}
+
+.copy-btn:hover {
+  background: var(--accent-blue);
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* ===== CAMPO CONDICIONALES ===== */
+.conditional {
+  display: none;
+}
+
+/* ===== RESPONSIVE PARA PANTALLAS GRANDES (> 768px) ===== */
+@media (min-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .input-group.full-width {
+    grid-column: 1 / -1;
+  }
+
+  .autor-field {
+    flex-wrap: nowrap;
+  }
+
+  .autor-field input.segundo-apellido {
+    /* El segundo apellido es opcional, ligeramente más angosto */
+    flex: 0.8;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 36px 40px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
+
+  /* Algunos campos deben ocupar 2 columnas en la grilla de 3 */
+  .input-group.full-width {
+    grid-column: 1 / -1;
+  }
+
+  #autoresContainer {
+    margin-bottom: 24px;
+  }
+
+  .results-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* ===== RESPONSIVE PARA MÓVILES (< 480px) ===== */
+@media (max-width: 480px) {
+  .container {
+    width: 95%;
+    padding: 18px 14px;
+    border-radius: 16px;
+  }
+
+  .autor-field {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .autor-field input {
+    min-width: calc(50% - 22px);
+    font-size: var(--font-size-small);
+    padding: 8px 10px;
+  }
+
+  .autor-field input.autor-iniciales {
+    min-width: calc(100% - 46px);
+    flex: 1;
+  }
+
+  .btn-primary,
+  #generarBtn {
+    max-width: 100%;
+    padding: 13px 16px;
+  }
+
+  .btn-secondary,
+  #addAutor {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .result-box {
+    padding: 14px;
+    font-size: var(--font-size-small);
+  }
+
+  .result-box h3 {
+    font-size: var(--font-size-small);
+    flex-wrap: wrap;
+  }
+}
+
+/* ===== MODO OSCURO - AJUSTES ESPECÍFICOS APA ===== */
+[data-theme="dark"] .container {
+  box-shadow:
+    10px 10px 20px var(--shadow-dark),
+    -10px -10px 20px var(--shadow-light);
+}
+
+[data-theme="dark"] #tipoFuente,
+[data-theme="dark"] .autor-field input,
+[data-theme="dark"] .container .input-group input {
+  color: var(--text-dark);
+  background: var(--primary-bg);
+}
+
+[data-theme="dark"] .result-box {
+  background: var(--primary-bg);
+}
+
+[data-theme="dark"] .copy-btn {
+  background: var(--card-bg);
+  color: var(--accent-blue);
+}
+
+[data-theme="dark"] .remove-autor {
+  background: var(--card-bg);
+}
+
+/* ===== OVERRIDES APA: INPUT-GROUP dentro de .container ===== */
+/* Sobrescribir el align-items: center del .input-group global */
+.container .input-group {
+  align-items: flex-start;
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.container .input-group input,
+.container .input-group select {
+  max-width: 100%;
+}
+
+/* También el input de anio y titulo que están directo en la grilla */
+#camposDinamicos .input-group {
+  align-items: flex-start;
+  text-align: left;
+  margin-bottom: 0;
+}
+
+/* ===== SELECT CON FLECHA DINÁMICA (Tipo de Fuente APA) ===== */
+.select-arrow-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.select-arrow-wrapper select {
+  width: 100%;
+  padding-right: 44px; /* Espacio para la flecha */
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.select-chevron {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--accent-blue);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.select-chevron i {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animación al abrir el select: rotar flecha */
+.select-arrow-wrapper select:focus + .select-chevron i {
+  transform: rotate(180deg);
+}
+
+/* ===== SECCIÓN CANAL YOUTUBE ===== */
+#youtubeContainer {
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+#youtubeContainer .input-group {
+  align-items: flex-start;
+  text-align: left;
+  margin-bottom: 0;
+}
+
+#canalYoutube {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: var(--font-size-body);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  box-sizing: border-box;
+  background: var(--primary-bg);
+  color: var(--text-dark);
+  box-shadow:
+    inset 3px 3px 6px var(--shadow-dark),
+    inset -3px -3px 6px var(--shadow-light);
+  font-family: 'Arial', sans-serif;
+  transition: box-shadow 0.2s ease;
+  outline: none;
+}
+
+#canalYoutube:focus {
+  box-shadow:
+    inset 3px 3px 6px var(--shadow-dark),
+    inset -3px -3px 6px var(--shadow-light),
+    0 0 0 2px #e74c3c;
+}
+
+#youtubeContainer label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: var(--font-size-small);
+  font-family: 'Arial', sans-serif;
+}
+
+[data-theme="dark"] #canalYoutube {
+  color: var(--text-dark);
+  background: var(--primary-bg);
 }

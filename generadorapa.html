@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador APA</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jorgefernandez88.github.io/Nube-Unediana/">
+    <meta property="og:title" content="Nube Unediana">
+    <meta property="og:description"
+        content="Calcula notas, aranceles, consulta la oferta académica y optimiza tu estudio.">
+    <meta property="og:image" content="https://jorgefernandez88.github.io/Nube-Unediana/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+</head>
+
+<body>
+    <header>
+        <h1 style="display: flex; flex-direction: column; align-items: center; gap: 5px;">
+            <div><i class="fas fa-bookmark"></i> Generador APA (EN FASE DE PRUEBA)</div>
+            <nav class="page-nav"
+                style="background: transparent; box-shadow: none; border: none; padding: 0; width: auto; min-height: 0; margin: 0;">
+                <ul style="padding: 0; margin: 0;">
+                    <li>
+                        <a href="index.html" style="padding: 5px 20px; font-size: 0.9rem;">
+                            <i class="fas fa-arrow-left nav-icon" style="font-size: 1rem;"></i>
+                            <span class="nav-text" style="font-size: 0.9rem;">Volver al inicio</span>
+                            <i class="fas fa-home nav-icon" style="margin-left: 10px; font-size: 1rem;"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </h1>
+
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider">
+                    <span class="theme-icon sun">☀️</span>
+                    <span class="theme-icon moon">🌙</span>
+                </div>
+            </label>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Citas y referencias APA 7</h1>
+
+            <div class="form-grid">
+                <div class="input-group full-width">
+                    <label for="tipoFuente">Tipo de Fuente:</label>
+                    <div class="select-arrow-wrapper">
+                        <select id="tipoFuente">
+                            <option value="libro">Libro</option>
+                            <option value="capitulo-libro">Capítulo de Libro</option>
+                            <option value="articulo-revista">Artículo de Revista</option>
+                            <option value="pagina-web">Página Web</option>
+                            <option value="imagen-atribucion">Imagen que requiere atribución</option>
+                            <option value="imagen-no-atribucion">Imagen que no requiere atribución</option>
+                            <option value="video-youtube">Video de YouTube</option>
+                            <option value="podcast">Podcast</option>
+                            <option value="twitter">Publicación en X/Twitter</option>
+                            <option value="wikipedia">Wikipedia</option>
+                            <option value="tesis">Tesis (TFG)</option>
+                            <option value="informe">Informe o Reporte Institucional</option>
+                        </select>
+                        <span class="select-chevron"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección autores estándar (oculta para YouTube) -->
+            <div id="autoresContainer">
+                <label>Autor/es:</label>
+                <div id="autoresFields">
+                    <div class="autor-field">
+                        <input type="text" class="primer-apellido" placeholder="Primer Apellido" required>
+                        <input type="text" class="segundo-apellido" placeholder="Segundo Apellido">
+                        <input type="text" class="autor-iniciales" placeholder="Iniciales del nombre (Ej: J. A.)"
+                            required>
+                        <button type="button" class="remove-autor" onclick="removerAutor(this)">×</button>
+                    </div>
+                </div>
+                <button type="button" id="addAutor" class="btn-secondary"><i class="fas fa-plus"></i> Agregar
+                    Autor</button>
+            </div>
+
+            <!-- Sección canal YouTube (visible solo para video-youtube) -->
+            <div id="youtubeContainer" style="display:none;">
+                <div class="input-group" style="text-align:left; align-items:flex-start;">
+                    <label for="canalYoutube"><i class="fab fa-youtube" style="color:#e74c3c;"></i> Nombre del Canal de
+                        YouTube:</label>
+                    <input type="text" id="canalYoutube"
+                        placeholder="Ej: Asian Boss, Harvard University, National Geographic">
+                    <small style="color:var(--text-light); margin-top:4px; font-size:0.8rem;">Según APA 7: se usa el
+                        nombre del canal que subió el video como autor.</small>
+                </div>
+            </div>
+
+            <div class="form-grid">
+                <div class="input-group">
+                    <label for="anio">Año:</label>
+                    <input type="text" id="anio" placeholder="Ej: 2026">
+                </div>
+                <div class="input-group full-width">
+                    <label for="titulo" id="tituloLabel">Título:</label>
+                    <input type="text" id="titulo" placeholder="Título">
+                </div>
+            </div>
+
+            <div id="camposDinamicos" class="form-grid">
+                <div id="editorialGroup" class="conditional input-group">
+                    <label id="editorialLabel">Editorial:</label>
+                    <input type="text" id="editorial" placeholder="Ej: EUNED">
+                </div>
+                <div id="revistaGroup" class="conditional input-group">
+                    <label>Revista:</label>
+                    <input type="text" id="revista">
+                </div>
+                <div id="volumenGroup" class="conditional input-group">
+                    <label>Volumen:</label>
+                    <input type="text" id="volumen">
+                </div>
+                <div id="numeroGroup" class="conditional input-group">
+                    <label>Número:</label>
+                    <input type="text" id="numero">
+                </div>
+                <div id="paginasGroup" class="conditional input-group">
+                    <label>Páginas (Ej: 10-25):</label>
+                    <input type="text" id="paginas">
+                </div>
+                <div id="sitioWebGroup" class="conditional input-group">
+                    <label id="sitioWebLabel">Sitio Web:</label>
+                    <input type="text" id="sitioWeb">
+                </div>
+                <div id="fechaExactaGroup" class="conditional input-group">
+                    <label>Fecha exacta</label>
+                    <input type="text" id="fechaExacta" placeholder="(Ej: 15 de marzo de 2025)">
+                </div>
+                <div id="usernameGroup" class="conditional input-group">
+                    <label>Usuario de X (sin @):</label>
+                    <input type="text" id="username">
+                </div>
+                <div id="nivelGroup" class="conditional input-group">
+                    <label>Nivel académico:</label>
+                    <input type="text" id="nivel" placeholder="Bachillerato/Licenciatura/Maestría">
+                </div>
+                <div id="institucionGroup" class="conditional input-group">
+                    <label>Universidad:</label>
+                    <input type="text" id="institucion" placeholder="Universidad . . .">
+                </div>
+                <div id="repositorioGroup" class="conditional input-group">
+                    <label>Repositorio:</label>
+                    <input type="text" id="repositorio" placeholder="Sitio donde está el TFG . . .">
+                </div>
+                <div id="numeroInformeGroup" class="conditional input-group">
+                    <label>Número de Informe:</label>
+                    <input type="text" id="numeroInforme">
+                </div>
+                <div id="licenciaGroup" class="conditional input-group">
+                    <label>Licencia (Ej: CC BY 2.0):</label>
+                    <input type="text" id="licencia" placeholder="Solo si aplica">
+                </div>
+                <div id="minutosSegundosGroup" class="conditional input-group">
+                    <label>Minuto exacto:</label>
+                    <input type="text" id="minutosSegundos" placeholder="(Ej:2:35)">
+                </div>
+            </div>
+
+            <div id="urlGroup" class="input-group full-width">
+                <label id="urlLabel" for="url">URL:</label>
+                <input type="text" id="url" placeholder="https://...">
+            </div>
+
+            <button type="button" id="generarBtn" class="btn-primary">Generar Referencia y Citas</button>
+
+            <div class="results-container">
+                <div class="result-box">
+                    <h3>Referencia (Bibliografía) <button class="copy-btn" data-copy="referencia"><i
+                                class="fas fa-copy"></i></button></h3>
+                    <div id="referencia" class="output"></div>
+                </div>
+
+                <div id="citasNormales">
+                    <div class="result-box">
+                        <h3>Cita Narrativa <button class="copy-btn" data-copy="citaNarrativa"><i
+                                    class="fas fa-copy"></i></button></h3>
+                        <div id="citaNarrativa" class="output"></div>
+                    </div>
+                    <div class="result-box">
+                        <h3>Cita Parentética <button class="copy-btn" data-copy="citaParentetica"><i
+                                    class="fas fa-copy"></i></button></h3>
+                        <div id="citaParentetica" class="output"></div>
+                    </div>
+                </div>
+
+                <div id="notaImagenContainer" style="display: none;">
+                    <div class="result-box">
+                        <h3>Nota de Figura (Debajo de la imagen) <button class="copy-btn" data-copy="notaFigura"><i
+                                    class="fas fa-copy"></i></button></h3>
+                        <div id="notaFigura" class="output"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <nav class="page-nav">
+        <ul>
+            <li><a href="calculadoranotas.html"><i class="fas fa-check nav-icon"></i><span
+                        class="nav-text">Notas</span></a></li>
+            <li><a href="calculadoramargen.html"><i class="fas fa-chart-pie nav-icon"></i><span
+                        class="nav-text">Margen</span></a></li>
+            <li><a href="calculadoraredondeo.html"><i class="fas fa-percentage nav-icon"></i><span
+                        class="nav-text">Redondear</span></a></li>
+            <li><a href="calculadoraaranceles.html"><i class="fas fa-coins nav-icon"></i><span
+                        class="nav-text">Aranceles</span></a></li>
+            <li><a href="pomodorotimer.html"><i class="fas fa-stopwatch nav-icon"></i><span
+                        class="nav-text">Pomodoro</span></a></li>
+            <li><a href="oferta_anual_asignaturas_cuatri.html"><i class="fas fa-list nav-icon"></i><span
+                        class="nav-text">Oferta</span></a></li>
+        </ul>
+    </nav>
+
+    <footer>
+        <nav><a href="https://www.facebook.com/educacionadistanciacr"><i class="fab fa-facebook"></i></a></nav>
+        <h5>© 2025 - 2026 Proyecto de Educación a Distancia CR <br>Elaborado por Jorge Fernández - v2.0</h5>
+    </footer>
+
+    <audio id="themeSwitchSound" preload="auto">
+        <source src="sounds/prendido.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="popSound" preload="auto">
+        <source src="sounds/pop.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="notificationSound" preload="auto">
+        <source src="sounds/notificacion.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="becaSelectSound" preload="auto">
+        <source src="sounds/modpomodoro.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="removeAutorSound" preload="auto">
+        <source src="sounds/alarm.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        (function () {
+            let audioDesbloqueado = false;
+            function desbloquear() {
+                if (audioDesbloqueado) return;
+                const audios = [document.getElementById('popSound'), document.getElementById('notificationSound'), document.getElementById('themeSwitchSound'), document.getElementById('becaSelectSound'), document.getElementById('removeAutorSound')].filter(a => a);
+                audios.forEach(a => {
+                    a.volume = 0.01;
+                    a.play().then(() => {
+                        a.pause();
+                        a.currentTime = 0;
+                        a.volume = 1;
+                    }).catch(() => { });
+                });
+                audioDesbloqueado = true;
+            }
+            ['click', 'touchstart', 'keydown'].forEach(e => document.addEventListener(e, desbloquear, { once: true }));
+        })();
+
+        function reproducirSonido(id) {
+            const audio = document.getElementById(id);
+            if (audio) {
+                audio.currentTime = 0;
+                audio.play().catch(() => { });
+            }
+        }
+
+        // ===== TEMPLATES APA 7 =====
+        const apaTemplates = {
+            "libro": "{autores} ({año}). <i>{titulo}</i>. {editorial}.",
+            "capitulo-libro": "{autores} ({año}). {tituloCapitulo}. {editorText}<i>{tituloLibro}</i>{paginasText}. {editorial}.",
+            "articulo-revista": "{autores} ({año}). {titulo}. <i>{revista}</i>, {volumenNumero}{paginas}{url}.",
+            "pagina-web": "{autores} ({año}). <i>{titulo}</i>. {sitioWeb}. Recuperado de {url}",
+            "imagen-atribucion": "{autores} ({año}). <i>{titulo}</i> [Imagen]. {sitioWeb}. {url}",
+            "imagen-no-atribucion": "{autores} ({año}). <i>{titulo}</i> [Imagen]. {sitioWeb}. {url}",
+            "video-youtube": "{autores} ({fechaExacta}). <i>{titulo}</i> [Video]. YouTube. {url}",
+            "podcast": "{autores} ({fechaExacta}). <i>{titulo}</i> [Episodio de podcast]. En <i>{sitioWeb}</i>. {url}",
+            "twitter": "{autores} [@{username}]. ({fechaExacta}). <i>{titulo}</i> [Post]. X. {url}",
+            "wikipedia": "<i>{titulo}</i>. ({fechaExacta}). En Wikipedia. {url}",
+            "tesis": "{autores} ({año}). <i>{titulo}</i> [Tesis de {nivel}, {institucion}]. {repositorio}. {url}",
+            "informe": "{autores} ({año}). <i>{titulo}</i> {numeroInformeText}. {editorial}. {url}"
+        };
+
+        function actualizarCamposAPA() {
+            const tipo = document.getElementById('tipoFuente').value;
+            document.querySelectorAll('.conditional').forEach(el => el.style.display = 'none');
+
+            // === MODO YOUTUBE: intercambiar sección autores por campo canal ===
+            const esYoutube = tipo === 'video-youtube';
+            const autoresContainer = document.getElementById('autoresContainer');
+            const youtubeContainer = document.getElementById('youtubeContainer');
+            if (autoresContainer) autoresContainer.style.display = esYoutube ? 'none' : 'block';
+            if (youtubeContainer) youtubeContainer.style.display = esYoutube ? 'block' : 'none';
+
+            // Animar la flecha del select
+            const chevron = document.querySelector('.select-chevron i');
+            if (chevron) {
+                chevron.style.transform = 'rotate(180deg)';
+                setTimeout(() => { chevron.style.transform = 'rotate(0deg)'; }, 400);
+            }
+
+            const urlGroup = document.getElementById('urlGroup');
+            const urlLabel = document.getElementById('urlLabel');
+
+            if (tipo === 'libro' || tipo === 'capitulo-libro') {
+                urlGroup.style.display = 'none';
+            } else {
+                urlGroup.style.display = 'block';
+                if (tipo === 'articulo-revista') {
+                    urlLabel.textContent = "DOI o URL:";
+                } else {
+                    urlLabel.textContent = "URL:";
+                }
+            }
+
+            const esImagen = tipo === 'imagen-atribucion' || tipo === 'imagen-no-atribucion';
+            const citasNormales = document.getElementById('citasNormales');
+            const notaImagen = document.getElementById('notaImagenContainer');
+            if (citasNormales) citasNormales.style.display = esImagen ? 'none' : 'block';
+            if (notaImagen) notaImagen.style.display = esImagen ? 'block' : 'none';
+
+            const tituloLabel = document.getElementById('tituloLabel');
+            const sitioWebLabel = document.getElementById('sitioWebLabel');
+            const editorialLabel = document.getElementById('editorialLabel');
+
+            if (tipo === 'podcast') {
+                if (tituloLabel) tituloLabel.textContent = "Título del Episodio:";
+                if (sitioWebLabel) sitioWebLabel.textContent = "Nombre del Podcast:";
+                if (editorialLabel) editorialLabel.textContent = "Editorial / Productora:";
+            } else if (tipo === 'capitulo-libro') {
+                if (tituloLabel) tituloLabel.textContent = "Título del Capítulo:";
+            } else if (tipo === 'video-youtube') {
+                if (tituloLabel) tituloLabel.textContent = "Título del Video:";
+            } else {
+                if (tituloLabel) tituloLabel.textContent = "Título:";
+                if (sitioWebLabel) sitioWebLabel.textContent = "Sitio Web:";
+                if (editorialLabel) editorialLabel.textContent = "Editorial:";
+            }
+
+            const config = {
+                'libro': ['editorialGroup'],
+                'capitulo-libro': ['editorialGroup', 'paginasGroup'],
+                'articulo-revista': ['revistaGroup', 'volumenGroup', 'numeroGroup', 'paginasGroup'],
+                'pagina-web': ['sitioWebGroup'],
+                'imagen-atribucion': ['sitioWebGroup', 'licenciaGroup'],
+                'imagen-no-atribucion': ['sitioWebGroup'],
+                'video-youtube': ['fechaExactaGroup', 'minutosSegundosGroup'],
+                'podcast': ['fechaExactaGroup', 'sitioWebGroup'],
+                'twitter': ['fechaExactaGroup', 'usernameGroup'],
+                'wikipedia': ['fechaExactaGroup'],
+                'tesis': ['nivelGroup', 'institucionGroup', 'repositorioGroup'],
+                'informe': ['editorialGroup', 'numeroInformeGroup']
+            };
+
+            if (config[tipo]) {
+                config[tipo].forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.style.display = 'block';
+                });
+            }
+
+            const tituloLibroGroup = document.getElementById('tituloLibroGroup');
+            if (tipo === 'capitulo-libro') {
+                if (!tituloLibroGroup) {
+                    const newGroup = document.createElement('div');
+                    newGroup.id = 'tituloLibroGroup';
+                    newGroup.className = 'conditional input-group';
+                    newGroup.innerHTML = '<label>Título del Libro:</label><input type="text" id="tituloLibro">';
+                    document.getElementById('camposDinamicos').appendChild(newGroup);
+                } else {
+                    tituloLibroGroup.style.display = 'block';
+                }
+            } else if (tituloLibroGroup) {
+                tituloLibroGroup.style.display = 'none';
+            }
+
+            const editorGroup = document.getElementById('editorGroup');
+            if (tipo === 'capitulo-libro') {
+                if (!editorGroup) {
+                    const newGroup = document.createElement('div');
+                    newGroup.id = 'editorGroup';
+                    newGroup.className = 'conditional input-group';
+                    newGroup.innerHTML = '<label>Editor(es):</label><input type="text" id="editor" placeholder="Apellido, Iniciales (Ed.)">';
+                    document.getElementById('camposDinamicos').appendChild(newGroup);
+                } else {
+                    editorGroup.style.display = 'block';
+                }
+            } else if (editorGroup) {
+                editorGroup.style.display = 'none';
+            }
+        }
+
+        function removerAutor(btn) {
+            reproducirSonido('removeAutorSound');
+            btn.parentElement.remove();
+        }
+
+        function agregarAutor() {
+            reproducirSonido('becaSelectSound');
+            const div = document.createElement('div');
+            div.className = 'autor-field';
+            div.innerHTML = `
+                <input type="text" class="primer-apellido" placeholder="Primer Apellido" required>
+                <input type="text" class="segundo-apellido" placeholder="Segundo Apellido">
+                <input type="text" class="autor-iniciales" placeholder="Iniciales del nombre (Ej: J. A.)" required>
+                <button type="button" class="remove-autor" onclick="removerAutor(this)">×</button>
+            `;
+            document.getElementById('autoresFields').appendChild(div);
+        }
+
+        function formatearAutoresReferencia(autores) {
+            if (autores.length === 0) return '';
+
+            const formatAutor = (autor) => {
+                let apellidoCompleto = autor.primerApellido;
+                if (autor.segundoApellido) {
+                    apellidoCompleto += ` ${autor.segundoApellido}`;
+                }
+                return `${apellidoCompleto}, ${autor.iniciales}.`;
+            };
+
+            if (autores.length === 1) {
+                return formatAutor(autores[0]);
+            } else if (autores.length === 2) {
+                return `${formatAutor(autores[0])} & ${formatAutor(autores[1])}`;
+            } else {
+                const primeros = autores.slice(0, -1).map(formatAutor).join(', ');
+                return `${primeros}, & ${formatAutor(autores[autores.length - 1])}`;
+            }
+        }
+
+        // SOLO el primer apellido para las citas (sin el segundo apellido)
+        function getPrimerApellido(autor) {
+            return autor.primerApellido;
+        }
+
+        function generarAPA() {
+            reproducirSonido('popSound');
+
+            const tipo = document.getElementById('tipoFuente').value;
+            let template = apaTemplates[tipo];
+            if (!template) {
+                alert('Tipo de fuente no soportado');
+                return;
+            }
+
+            let anio = document.getElementById('anio').value.trim();
+            if (!anio) anio = 's.f.';
+
+            let titulo = document.getElementById('titulo').value.trim();
+            if (!titulo && tipo !== 'wikipedia') {
+                alert('Ingresa el título');
+                return;
+            }
+
+            let url = document.getElementById('url').value.trim();
+            if (url && tipo === 'articulo-revista') {
+                if (!url.startsWith('https://doi.org/') && !url.startsWith('http') && url.includes('10.')) {
+                    url = `https://doi.org/${url}`;
+                }
+            }
+
+            // === YouTube: leer canal en vez de autores estándar ===
+            if (tipo === 'video-youtube') {
+                const canal = document.getElementById('canalYoutube')?.value.trim();
+                if (!canal) { alert('Ingresa el nombre del canal de YouTube.'); return; }
+                const fechaExacta = document.getElementById('fechaExacta')?.value.trim() || 's.f.';
+                const timestamp = document.getElementById('minutosSegundos')?.value.trim();
+                const urlYT = document.getElementById('url')?.value.trim() || '';
+
+                // Referencia APA 7 para YouTube
+                let refYT = `${canal}. (${fechaExacta}). <i>${titulo}</i> [Video]. YouTube.`;
+                if (urlYT) refYT += ` ${urlYT}`;
+                document.getElementById('referencia').innerHTML = refYT;
+
+                // Citas
+                const anioYT = fechaExacta.match(/\b(\d{4})\b/);
+                const anioStr = anioYT ? anioYT[1] : fechaExacta;
+                let citaNarrativaYT = `${canal} (${anioStr}`;
+                let citaParenteticaYT = `(${canal}, ${anioStr}`;
+                if (timestamp) {
+                    citaNarrativaYT += `, ${timestamp})`;
+                    citaParenteticaYT += `, ${timestamp})`;
+                } else {
+                    citaNarrativaYT += ')';
+                    citaParenteticaYT += ')';
+                }
+                document.getElementById('citaNarrativa').textContent = citaNarrativaYT;
+                document.getElementById('citaParentetica').textContent = citaParenteticaYT;
+                return; // Salir temprano, YouTube maneja todo aquí
+            }
+
+            // Obtener autores (tipos normales)
+            const autores = [];
+            document.querySelectorAll('.autor-field').forEach(f => {
+                const primerApellido = f.querySelector('.primer-apellido')?.value.trim();
+                const segundoApellido = f.querySelector('.segundo-apellido')?.value.trim();
+                const iniciales = f.querySelector('.autor-iniciales')?.value.trim();
+                if (primerApellido && iniciales) {
+                    autores.push({ primerApellido, segundoApellido: segundoApellido || '', iniciales });
+                }
+            });
+
+            if (autores.length === 0 && tipo !== 'wikipedia') {
+                alert("Ingrese al menos un autor.");
+                return;
+            }
+
+            const autoresTexto = formatearAutoresReferencia(autores);
+
+            // Preparar campos condicionales que solo se añaden si tienen valor
+            let editorText = '';
+            const editor = document.getElementById('editor')?.value.trim();
+            if (editor && tipo === 'capitulo-libro') {
+                editorText = `En ${editor} (Ed.), `;
+            }
+
+            let paginasText = '';
+            let paginasParaArticulo = '';
+            const paginas = document.getElementById('paginas')?.value.trim();
+            if (paginas && tipo === 'capitulo-libro') {
+                paginasText = ` (pp. ${paginas})`;
+            }
+            if (paginas && tipo === 'articulo-revista') {
+                paginasParaArticulo = `${paginas}. `;
+            }
+
+            let volumenNumero = '';
+            const volumen = document.getElementById('volumen')?.value.trim();
+            const numero = document.getElementById('numero')?.value.trim();
+            if (tipo === 'articulo-revista') {
+                if (volumen && numero) {
+                    volumenNumero = `<i>${volumen}</i>(${numero}), `;
+                } else if (volumen) {
+                    volumenNumero = `<i>${volumen}</i>, `;
+                } else if (numero) {
+                    volumenNumero = `(${numero}), `;
+                }
+            }
+
+            let numeroInformeText = '';
+            const numeroInforme = document.getElementById('numeroInforme')?.value.trim();
+            if (numeroInforme && tipo === 'informe') {
+                numeroInformeText = `(Informe No. ${numeroInforme})`;
+            }
+
+            // Añadir punto antes de URL si URL existe
+            let urlConPunto = url ? ` ${url}` : '';
+            if (url && tipo !== 'articulo-revista') {
+                urlConPunto = ` ${url}`;
+            }
+
+            // Construir referencia
+            let referencia = template
+                .replace('{autores}', autoresTexto)
+                .replace('{año}', anio)
+                .replace('{editorText}', editorText)
+                .replace('{paginasText}', paginasText)
+                .replace('{paginas}', paginasParaArticulo)
+                .replace('{volumenNumero}', volumenNumero)
+                .replace('{numeroInformeText}', numeroInformeText)
+                .replace('{url}', urlConPunto);
+
+            // Reemplazar campos simples
+            const camposSimples = {
+                '{titulo}': titulo,
+                '{tituloCapitulo}': titulo,
+                '{tituloLibro}': document.getElementById('tituloLibro')?.value.trim() || '',
+                '{editorial}': document.getElementById('editorial')?.value.trim() || '',
+                '{revista}': document.getElementById('revista')?.value.trim() || '',
+                '{sitioWeb}': document.getElementById('sitioWeb')?.value.trim() || '',
+                '{fechaExacta}': document.getElementById('fechaExacta')?.value.trim() || '',
+                '{username}': document.getElementById('username')?.value.trim() || '',
+                '{nivel}': document.getElementById('nivel')?.value.trim() || '',
+                '{institucion}': document.getElementById('institucion')?.value.trim() || '',
+                '{repositorio}': document.getElementById('repositorio')?.value.trim() || ''
+            };
+
+            for (const [key, value] of Object.entries(camposSimples)) {
+                if (value) {
+                    referencia = referencia.replace(key, value);
+                } else {
+                    referencia = referencia.replace(key, '');
+                }
+            }
+
+            // Limpieza de espacios y puntuación
+            referencia = referencia.replace(/\s+/g, ' ').replace(/\.\s*\./g, '.').replace(/,\s*,/g, ',').replace(/\s*\.\s*$/g, '.').replace(/\(\s*\)/g, '').replace(/\s*\,\s*\./g, '.').replace(/\.\s+\./g, '. ').trim();
+            document.getElementById('referencia').innerHTML = referencia;
+
+            // Generar citas o nota de figura
+            if (tipo === 'imagen-atribucion' || tipo === 'imagen-no-atribucion') {
+                const sitioWeb = document.getElementById('sitioWeb')?.value.trim() || '';
+                const licencia = document.getElementById('licencia')?.value.trim() || '';
+
+                const autoresNota = autores.map(a => {
+                    let apellidoCompleto = a.primerApellido;
+                    if (a.segundoApellido) apellidoCompleto += ` ${a.segundoApellido}`;
+                    return `${a.iniciales} ${apellidoCompleto}`;
+                }).join(', ');
+
+                let notaFigura = `<i>Nota.</i> De <i>${titulo}</i> [Imagen], por ${autoresNota}, ${anio}, ${sitioWeb} (${url}).`;
+
+                if (tipo === 'imagen-atribucion' && licencia) {
+                    notaFigura += ` Licencia ${licencia}.`;
+                }
+
+                document.getElementById('notaFigura').innerHTML = notaFigura;
+            } else {
+                // Generar citas - SOLO el primer apellido (sin el segundo apellido)
+                let autorPrincipal = '';
+                let etAl = '';
+
+                if (tipo === 'wikipedia') {
+                    autorPrincipal = titulo;
+                    etAl = '';
+                } else if (autores.length === 1) {
+                    autorPrincipal = getPrimerApellido(autores[0]); // Solo primer apellido
+                    etAl = '';
+                } else if (autores.length === 2) {
+                    autorPrincipal = `${getPrimerApellido(autores[0])} y ${getPrimerApellido(autores[1])}`;
+                    etAl = '';
+                } else {
+                    autorPrincipal = getPrimerApellido(autores[0]); // Solo primer apellido
+                    etAl = ' et al.';
+                }
+
+                let citaNarrativa = `${autorPrincipal}${etAl} (${anio}, p. )`;
+                let citaParentetica = `(${autorPrincipal}${etAl}, ${anio}, p. )`;
+
+                // Para videos de YouTube, añadir timestamp si está presente
+                if (tipo === 'video-youtube') {
+                    const timestamp = document.getElementById('minutosSegundos')?.value.trim();
+                    if (timestamp) {
+                        citaNarrativa = citaNarrativa.replace('p. )', `${timestamp})`);
+                        citaParentetica = citaParentetica.replace('p. )', `${timestamp})`);
+                    } else {
+                        citaNarrativa = citaNarrativa.replace('p. )', ')');
+                        citaParentetica = citaParentetica.replace('p. )', ')');
+                    }
+                }
+
+                document.getElementById('citaNarrativa').textContent = citaNarrativa;
+                document.getElementById('citaParentetica').textContent = citaParentetica;
+            }
+        }
+
+        function copiarAlPortapapeles(elementId) {
+            const elemento = document.getElementById(elementId);
+            const texto = elemento?.textContent || elemento?.innerText;
+            if (!texto) {
+                alert('No hay nada para copiar');
+                return;
+            }
+            navigator.clipboard.writeText(texto).then(() => {
+                reproducirSonido('notificationSound');
+                alert('¡Copiado al portapapeles!');
+            }).catch(() => alert('No se pudo copiar'));
+        }
+
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            reproducirSonido('themeSwitchSound');
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            const checkbox = document.getElementById('checkbox');
+            if (checkbox) checkbox.checked = newTheme === 'dark';
+        }
+
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            const checkbox = document.getElementById('checkbox');
+            if (checkbox) checkbox.checked = savedTheme === 'dark';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadTheme();
+
+            // El checkbox ya tiene onchange="toggleTheme()" inline como respaldo.
+            // El addEventListener aquí también funciona para mayor compatibilidad.
+            const checkbox = document.getElementById('checkbox');
+            if (checkbox) {
+                checkbox.addEventListener('change', toggleTheme);
+            }
+
+            actualizarCamposAPA();
+
+            const tipoFuente = document.getElementById('tipoFuente');
+            if (tipoFuente) tipoFuente.addEventListener('change', actualizarCamposAPA);
+
+            const addAutorBtn = document.getElementById('addAutor');
+            if (addAutorBtn) addAutorBtn.addEventListener('click', agregarAutor);
+
+            const generarBtn = document.getElementById('generarBtn');
+            if (generarBtn) generarBtn.addEventListener('click', generarAPA);
+
+            document.querySelectorAll('[data-copy]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const targetId = btn.getAttribute('data-copy');
+                    copiarAlPortapapeles(targetId);
+                });
+            });
+
+            const currentPage = window.location.pathname.split('/').pop();
+            document.querySelectorAll('.page-nav a').forEach(link => {
+                const linkPage = link.getAttribute('href');
+                if (linkPage === currentPage) link.classList.add('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -943,3 +943,6 @@ function normalizarTexto(texto) {
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, ""); // Elimina las tildes
 }
+
+// ===== SCRIPT CORREGIDO: DATOS INTEGRADOS (Evita Error CORS) =====
+// ===== SISTEMA DE AUDIO =====
