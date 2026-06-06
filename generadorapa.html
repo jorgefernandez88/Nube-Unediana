@@ -79,36 +79,64 @@
                 </div>
             </div>
 
-            <!-- Sección autores estándar (oculta para YouTube) -->
+            <!-- Sección autores estándar (oculta para YouTube, Twitter, imágenes, podcast) -->
             <div id="autoresContainer">
                 <label>Autor/es:</label>
                 <div id="autoresFields">
                     <div class="autor-field">
                         <input type="text" class="primer-apellido" placeholder="Primer Apellido" required>
                         <input type="text" class="segundo-apellido" placeholder="Segundo Apellido">
-                        <input type="text" class="autor-iniciales" placeholder="Iniciales del nombre (Ej: J. A.)"
-                            required>
+                        <input type="text" class="autor-iniciales" placeholder="Iniciales del nombre (Ej: J. A.)" required>
                         <button type="button" class="remove-autor" onclick="removerAutor(this)">×</button>
                     </div>
                 </div>
-                <button type="button" id="addAutor" class="btn-secondary"><i class="fas fa-plus"></i> Agregar
-                    Autor</button>
+                <button type="button" id="addAutor" class="btn-secondary"><i class="fas fa-plus"></i> Agregar Autor</button>
             </div>
 
             <!-- Sección canal YouTube (visible solo para video-youtube) -->
             <div id="youtubeContainer" style="display:none;">
                 <div class="input-group" style="text-align:left; align-items:flex-start;">
-                    <label for="canalYoutube"><i class="fab fa-youtube" style="color:#e74c3c;"></i> Nombre del Canal de
-                        YouTube:</label>
-                    <input type="text" id="canalYoutube"
-                        placeholder="Ej: Asian Boss, Harvard University, National Geographic">
-                    <small style="color:var(--text-light); margin-top:4px; font-size:0.8rem;">Según APA 7: se usa el
-                        nombre del canal que subió el video como autor.</small>
+                    <label for="canalYoutube"><i class="fab fa-youtube" style="color:#e74c3c;"></i> Nombre del Canal de YouTube:</label>
+                    <input type="text" id="canalYoutube" placeholder="Ej: Asian Boss, Harvard University, National Geographic">
+                    <small style="color:var(--text-light); margin-top:4px; font-size:0.8rem;">Según APA 7: se usa el nombre del canal que subió el video como autor.</small>
+                </div>
+            </div>
+
+            <!-- Sección autor imagen (visible solo para imagen-atribucion / imagen-no-atribucion) -->
+            <div id="imagenAutorContainer" style="display:none;">
+                <div class="input-group" style="text-align:left; align-items:flex-start;">
+                    <label for="imagenAutor">Autor de la imagen:</label>
+                    <input type="text" id="imagenAutor" placeholder="Nombre de autor o nombre de usuario">
+                </div>
+            </div>
+
+            <!-- Sección autores podcast (visible solo para podcast) -->
+            <div id="podcastAutoresContainer" style="display:none;">
+                <label>Autor/es del Podcast (opcional):</label>
+                <div id="podcastAutoresFields">
+                    <div class="autor-field podcast-autor-field">
+                        <input type="text" class="primer-apellido" placeholder="Primer Apellido">
+                        <input type="text" class="segundo-apellido" placeholder="Segundo Apellido">
+                        <input type="text" class="autor-iniciales" placeholder="Iniciales del nombre (Ej: J. A.)">
+                        <input type="text" class="autor-rol" placeholder="Anfitrión o Invitado">
+                        <button type="button" class="remove-autor" onclick="removerAutorPodcast(this)">×</button>
+                    </div>
+                </div>
+                <button type="button" id="addAutorPodcast" class="btn-secondary"><i class="fas fa-plus"></i> Agregar Autor</button>
+                <small style="color:var(--text-light); margin-top:6px; display:block; font-size:0.8rem;">Aplica si se sabe quiénes son las personas que participan en el podcast. Si no se completan estos campos, se usará el nombre del podcast como autor.</small>
+            </div>
+
+            <!-- Sección autor X/Twitter (visible solo para twitter) -->
+            <div id="twitterAutorContainer" style="display:none;">
+                <div class="input-group" style="text-align:left; align-items:flex-start;">
+                    <label for="twitterUsername">Usuario de X (sin @):</label>
+                    <input type="text" id="twitterUsername" placeholder="Ej: elonmusk">
+                    <small style="color:var(--text-light); margin-top:4px; font-size:0.8rem;">Se usará el nombre de usuario como autor en la cita y referencia.</small>
                 </div>
             </div>
 
             <div class="form-grid">
-                <div class="input-group">
+                <div class="input-group" id="anioGroup">
                     <label for="anio">Año:</label>
                     <input type="text" id="anio" placeholder="Ej: 2026">
                 </div>
@@ -147,7 +175,7 @@
                     <label>Fecha exacta</label>
                     <input type="text" id="fechaExacta" placeholder="(Ej: 15 de marzo de 2025)">
                 </div>
-                <div id="usernameGroup" class="conditional input-group">
+                <div id="usernameGroup" class="conditional input-group" style="display:none;">
                     <label>Usuario de X (sin @):</label>
                     <input type="text" id="username">
                 </div>
@@ -285,13 +313,13 @@
             "libro": "{autores} ({año}). <i>{titulo}</i>. {editorial}.",
             "capitulo-libro": "{autores} ({año}). {tituloCapitulo}. {editorText}<i>{tituloLibro}</i>{paginasText}. {editorial}.",
             "articulo-revista": "{autores} ({año}). {titulo}. <i>{revista}</i>, {volumenNumero}{paginas}{url}.",
-            "pagina-web": "{autores} ({año}). <i>{titulo}</i>. {sitioWeb}. Recuperado de {url}",
-            "imagen-atribucion": "{autores} ({año}). <i>{titulo}</i> [Imagen]. {sitioWeb}. {url}",
-            "imagen-no-atribucion": "{autores} ({año}). <i>{titulo}</i> [Imagen]. {sitioWeb}. {url}",
+            "pagina-web": "{autores} ({año}). <i>{titulo}</i>. {sitioWeb}. {url}",
+            "imagen-atribucion": "{autorImagen} ({año}). <i>{titulo}</i> [Imagen]. {sitioWeb}. {url}",
+            "imagen-no-atribucion": "{autorImagen} ({año}). <i>{titulo}</i> [Imagen]. {sitioWeb}. {url}",
             "video-youtube": "{autores} ({fechaExacta}). <i>{titulo}</i> [Video]. YouTube. {url}",
-            "podcast": "{autores} ({fechaExacta}). <i>{titulo}</i> [Episodio de podcast]. En <i>{sitioWeb}</i>. {url}",
-            "twitter": "{autores} [@{username}]. ({fechaExacta}). <i>{titulo}</i> [Post]. X. {url}",
-            "wikipedia": "<i>{titulo}</i>. ({fechaExacta}). En Wikipedia. {url}",
+            "podcast": "{autorPodcast} ({fechaExacta}). <i>{titulo}</i> [Episodio de podcast]. En <i>{sitioWeb}</i>. {url}",
+            "twitter": "[{username}]. ({fechaExacta}). <i>{titulo}</i> [Post]. X. {url}",
+            "wikipedia": "{titulo}. ({fechaExacta}). En Wikipedia. {url}",
             "tesis": "{autores} ({año}). <i>{titulo}</i> [Tesis de {nivel}, {institucion}]. {repositorio}. {url}",
             "informe": "{autores} ({año}). <i>{titulo}</i> {numeroInformeText}. {editorial}. {url}"
         };
@@ -300,12 +328,28 @@
             const tipo = document.getElementById('tipoFuente').value;
             document.querySelectorAll('.conditional').forEach(el => el.style.display = 'none');
 
-            // === MODO YOUTUBE: intercambiar sección autores por campo canal ===
             const esYoutube = tipo === 'video-youtube';
+            const esImagen = tipo === 'imagen-atribucion' || tipo === 'imagen-no-atribucion';
+            const esPodcast = tipo === 'podcast';
+            const esTwitter = tipo === 'twitter';
+            const esWikipedia = tipo === 'wikipedia';
+
+            // Gestionar visibilidad de secciones de autores
             const autoresContainer = document.getElementById('autoresContainer');
             const youtubeContainer = document.getElementById('youtubeContainer');
-            if (autoresContainer) autoresContainer.style.display = esYoutube ? 'none' : 'block';
+            const imagenAutorContainer = document.getElementById('imagenAutorContainer');
+            const podcastAutoresContainer = document.getElementById('podcastAutoresContainer');
+            const twitterAutorContainer = document.getElementById('twitterAutorContainer');
+
+            if (autoresContainer) autoresContainer.style.display = (esYoutube || esImagen || esPodcast || esTwitter || esWikipedia) ? 'none' : 'block';
             if (youtubeContainer) youtubeContainer.style.display = esYoutube ? 'block' : 'none';
+            if (imagenAutorContainer) imagenAutorContainer.style.display = esImagen ? 'block' : 'none';
+            if (podcastAutoresContainer) podcastAutoresContainer.style.display = esPodcast ? 'block' : 'none';
+            if (twitterAutorContainer) twitterAutorContainer.style.display = esTwitter ? 'block' : 'none';
+
+            // Mostrar/ocultar campo Año (oculto para youtube, podcast y twitter)
+            const anioGroup = document.getElementById('anioGroup');
+            if (anioGroup) anioGroup.style.display = (esYoutube || esPodcast || esTwitter) ? 'none' : 'block';
 
             // Animar la flecha del select
             const chevron = document.querySelector('.select-chevron i');
@@ -328,7 +372,6 @@
                 }
             }
 
-            const esImagen = tipo === 'imagen-atribucion' || tipo === 'imagen-no-atribucion';
             const citasNormales = document.getElementById('citasNormales');
             const notaImagen = document.getElementById('notaImagenContainer');
             if (citasNormales) citasNormales.style.display = esImagen ? 'none' : 'block';
@@ -338,13 +381,13 @@
             const sitioWebLabel = document.getElementById('sitioWebLabel');
             const editorialLabel = document.getElementById('editorialLabel');
 
-            if (tipo === 'podcast') {
+            if (esPodcast) {
                 if (tituloLabel) tituloLabel.textContent = "Título del Episodio:";
                 if (sitioWebLabel) sitioWebLabel.textContent = "Nombre del Podcast:";
                 if (editorialLabel) editorialLabel.textContent = "Editorial / Productora:";
             } else if (tipo === 'capitulo-libro') {
                 if (tituloLabel) tituloLabel.textContent = "Título del Capítulo:";
-            } else if (tipo === 'video-youtube') {
+            } else if (esYoutube) {
                 if (tituloLabel) tituloLabel.textContent = "Título del Video:";
             } else {
                 if (tituloLabel) tituloLabel.textContent = "Título:";
@@ -361,7 +404,7 @@
                 'imagen-no-atribucion': ['sitioWebGroup'],
                 'video-youtube': ['fechaExactaGroup', 'minutosSegundosGroup'],
                 'podcast': ['fechaExactaGroup', 'sitioWebGroup'],
-                'twitter': ['fechaExactaGroup', 'usernameGroup'],
+                'twitter': ['fechaExactaGroup'],
                 'wikipedia': ['fechaExactaGroup'],
                 'tesis': ['nivelGroup', 'institucionGroup', 'repositorioGroup'],
                 'informe': ['editorialGroup', 'numeroInformeGroup']
@@ -410,6 +453,11 @@
             btn.parentElement.remove();
         }
 
+        function removerAutorPodcast(btn) {
+            reproducirSonido('removeAutorSound');
+            btn.parentElement.remove();
+        }
+
         function agregarAutor() {
             reproducirSonido('becaSelectSound');
             const div = document.createElement('div');
@@ -423,6 +471,29 @@
             document.getElementById('autoresFields').appendChild(div);
         }
 
+        function agregarAutorPodcast() {
+            reproducirSonido('becaSelectSound');
+            const div = document.createElement('div');
+            div.className = 'autor-field podcast-autor-field';
+            div.innerHTML = `
+                <input type="text" class="primer-apellido" placeholder="Primer Apellido">
+                <input type="text" class="segundo-apellido" placeholder="Segundo Apellido">
+                <input type="text" class="autor-iniciales" placeholder="Iniciales del nombre (Ej: J. A.)">
+                <input type="text" class="autor-rol" placeholder="Anfitrión o Invitado">
+                <button type="button" class="remove-autor" onclick="removerAutorPodcast(this)">×</button>
+            `;
+            document.getElementById('podcastAutoresFields').appendChild(div);
+        }
+
+        // Extrae solo la primera inicial de un string (maneja nombre completo o iniciales)
+        function extraerInicial(valorNombre) {
+            if (!valorNombre) return '';
+            const trimmed = valorNombre.trim();
+            // Si ya tiene formato de iniciales (Ej: "J. A.") tomar solo la primera letra antes del primer punto
+            // Si es nombre completo (Ej: "Jorge Alberto") tomar primera letra
+            return trimmed.charAt(0).toUpperCase() + '.';
+        }
+
         function formatearAutoresReferencia(autores) {
             if (autores.length === 0) return '';
 
@@ -431,7 +502,9 @@
                 if (autor.segundoApellido) {
                     apellidoCompleto += ` ${autor.segundoApellido}`;
                 }
-                return `${apellidoCompleto}, ${autor.iniciales}.`;
+                // Tomar solo la primera inicial del campo de nombre/iniciales
+                const inicial = extraerInicial(autor.iniciales);
+                return `${apellidoCompleto}, ${inicial}`;
             };
 
             if (autores.length === 1) {
@@ -442,6 +515,22 @@
                 const primeros = autores.slice(0, -1).map(formatAutor).join(', ');
                 return `${primeros}, & ${formatAutor(autores[autores.length - 1])}`;
             }
+        }
+
+        function formatearAutoresPodcastReferencia(autores) {
+            if (autores.length === 0) return '';
+            const formatAutor = (autor) => {
+                let apellidoCompleto = autor.primerApellido;
+                if (autor.segundoApellido) apellidoCompleto += ` ${autor.segundoApellido}`;
+                const inicial = extraerInicial(autor.iniciales);
+                let str = `${apellidoCompleto}, ${inicial}`;
+                if (autor.rol) str += ` (${autor.rol})`;
+                return str;
+            };
+            if (autores.length === 1) return formatAutor(autores[0]);
+            if (autores.length === 2) return `${formatAutor(autores[0])} & ${formatAutor(autores[1])}`;
+            const primeros = autores.slice(0, -1).map(formatAutor).join(', ');
+            return `${primeros}, & ${formatAutor(autores[autores.length - 1])}`;
         }
 
         // SOLO el primer apellido para las citas (sin el segundo apellido)
@@ -483,12 +572,10 @@
                 const timestamp = document.getElementById('minutosSegundos')?.value.trim();
                 const urlYT = document.getElementById('url')?.value.trim() || '';
 
-                // Referencia APA 7 para YouTube
                 let refYT = `${canal}. (${fechaExacta}). <i>${titulo}</i> [Video]. YouTube.`;
                 if (urlYT) refYT += ` ${urlYT}`;
                 document.getElementById('referencia').innerHTML = refYT;
 
-                // Citas
                 const anioYT = fechaExacta.match(/\b(\d{4})\b/);
                 const anioStr = anioYT ? anioYT[1] : fechaExacta;
                 let citaNarrativaYT = `${canal} (${anioStr}`;
@@ -502,12 +589,110 @@
                 }
                 document.getElementById('citaNarrativa').textContent = citaNarrativaYT;
                 document.getElementById('citaParentetica').textContent = citaParenteticaYT;
-                return; // Salir temprano, YouTube maneja todo aquí
+                return;
+            }
+
+            // === Twitter/X: usar solo username ===
+            if (tipo === 'twitter') {
+                const username = document.getElementById('twitterUsername')?.value.trim();
+                if (!username) { alert('Ingresa el usuario de X (sin @).'); return; }
+                const fechaExacta = document.getElementById('fechaExacta')?.value.trim() || 's.f.';
+                const urlTW = document.getElementById('url')?.value.trim() || '';
+
+                let refTW = `${username} [@${username}]. (${fechaExacta}). <i>${titulo}</i> [Post]. X.`;
+                if (urlTW) refTW += ` ${urlTW}`;
+                document.getElementById('referencia').innerHTML = refTW;
+
+                const anioTW = fechaExacta.match(/\b(\d{4})\b/);
+                const anioStr = anioTW ? anioTW[1] : fechaExacta;
+                document.getElementById('citaNarrativa').textContent = `${username} (${anioStr})`;
+                document.getElementById('citaParentetica').textContent = `(${username}, ${anioStr})`;
+                return;
+            }
+
+            // === Wikipedia ===
+            if (tipo === 'wikipedia') {
+                const fechaExacta = document.getElementById('fechaExacta')?.value.trim() || 's.f.';
+                const urlWiki = document.getElementById('url')?.value.trim() || '';
+                if (!titulo) { alert('Ingresa el título del artículo de Wikipedia.'); return; }
+
+                let refWiki = `${titulo}. (${fechaExacta}). En <i>Wikipedia</i>.`;
+                if (urlWiki) refWiki += ` ${urlWiki}`;
+                document.getElementById('referencia').innerHTML = refWiki;
+
+                const anioWiki = fechaExacta.match(/\b(\d{4})\b/);
+                const anioStr = anioWiki ? anioWiki[1] : fechaExacta;
+                document.getElementById('citaNarrativa').textContent = `"${titulo}" (${anioStr})`;
+                document.getElementById('citaParentetica').textContent = `("${titulo}," ${anioStr})`;
+                return;
+            }
+
+            // === Podcast ===
+            if (tipo === 'podcast') {
+                const fechaExacta = document.getElementById('fechaExacta')?.value.trim() || 's.f.';
+                const nombrePodcast = document.getElementById('sitioWeb')?.value.trim() || '';
+                const urlPod = document.getElementById('url')?.value.trim() || '';
+
+                // Recopilar autores opcionales del podcast
+                const autoresPod = [];
+                document.querySelectorAll('.podcast-autor-field').forEach(f => {
+                    const primerApellido = f.querySelector('.primer-apellido')?.value.trim();
+                    const segundoApellido = f.querySelector('.segundo-apellido')?.value.trim();
+                    const iniciales = f.querySelector('.autor-iniciales')?.value.trim();
+                    const rol = f.querySelector('.autor-rol')?.value.trim();
+                    if (primerApellido) {
+                        autoresPod.push({ primerApellido, segundoApellido: segundoApellido || '', iniciales: iniciales || '', rol: rol || '' });
+                    }
+                });
+
+                let autorPodTexto = '';
+                let autorCita = '';
+                if (autoresPod.length > 0) {
+                    autorPodTexto = formatearAutoresPodcastReferencia(autoresPod);
+                    autorCita = autoresPod[0].primerApellido;
+                    if (autoresPod.length > 2) autorCita += ' et al.';
+                    else if (autoresPod.length === 2) autorCita += ` y ${autoresPod[1].primerApellido}`;
+                } else {
+                    // Sin autores → usar nombre del podcast
+                    autorPodTexto = nombrePodcast;
+                    autorCita = nombrePodcast;
+                }
+
+                if (!autorPodTexto) { alert('Ingresa al menos el nombre del podcast.'); return; }
+
+                const anioWiki = fechaExacta.match(/\b(\d{4})\b/);
+                const anioStr = anioWiki ? anioWiki[1] : fechaExacta;
+
+                let refPod = `${autorPodTexto}. (${fechaExacta}). <i>${titulo}</i> [Episodio de podcast]. En <i>${nombrePodcast}</i>.`;
+                if (urlPod) refPod += ` ${urlPod}`;
+                document.getElementById('referencia').innerHTML = refPod;
+
+                document.getElementById('citaNarrativa').textContent = `${autorCita} (${anioStr})`;
+                document.getElementById('citaParentetica').textContent = `(${autorCita}, ${anioStr})`;
+                return;
+            }
+
+            // === Imágenes ===
+            if (tipo === 'imagen-atribucion' || tipo === 'imagen-no-atribucion') {
+                const imagenAutor = document.getElementById('imagenAutor')?.value.trim();
+                if (!imagenAutor) { alert('Ingresa el nombre del autor o usuario de la imagen.'); return; }
+                const sitioWeb = document.getElementById('sitioWeb')?.value.trim() || '';
+                const licencia = document.getElementById('licencia')?.value.trim() || '';
+                const urlImg = document.getElementById('url')?.value.trim() || '';
+
+                let refImg = `${imagenAutor} (${anio}). <i>${titulo}</i> [Imagen]. ${sitioWeb}.`;
+                if (urlImg) refImg += ` ${urlImg}`;
+                document.getElementById('referencia').innerHTML = refImg;
+
+                let notaFigura = `<i>Nota.</i> De <i>${titulo}</i> [Imagen], por ${imagenAutor}, ${anio}, ${sitioWeb} (${urlImg}).`;
+                if (tipo === 'imagen-atribucion' && licencia) notaFigura += ` Licencia ${licencia}.`;
+                document.getElementById('notaFigura').innerHTML = notaFigura;
+                return;
             }
 
             // Obtener autores (tipos normales)
             const autores = [];
-            document.querySelectorAll('.autor-field').forEach(f => {
+            document.querySelectorAll('#autoresFields .autor-field').forEach(f => {
                 const primerApellido = f.querySelector('.primer-apellido')?.value.trim();
                 const segundoApellido = f.querySelector('.segundo-apellido')?.value.trim();
                 const iniciales = f.querySelector('.autor-iniciales')?.value.trim();
@@ -516,7 +701,7 @@
                 }
             });
 
-            if (autores.length === 0 && tipo !== 'wikipedia') {
+            if (autores.length === 0) {
                 alert("Ingrese al menos un autor.");
                 return;
             }
@@ -603,61 +788,24 @@
             referencia = referencia.replace(/\s+/g, ' ').replace(/\.\s*\./g, '.').replace(/,\s*,/g, ',').replace(/\s*\.\s*$/g, '.').replace(/\(\s*\)/g, '').replace(/\s*\,\s*\./g, '.').replace(/\.\s+\./g, '. ').trim();
             document.getElementById('referencia').innerHTML = referencia;
 
-            // Generar citas o nota de figura
-            if (tipo === 'imagen-atribucion' || tipo === 'imagen-no-atribucion') {
-                const sitioWeb = document.getElementById('sitioWeb')?.value.trim() || '';
-                const licencia = document.getElementById('licencia')?.value.trim() || '';
+            // Generar citas normales (fuentes con autores estándar)
+            let autorPrincipal = '';
+            let etAl = '';
 
-                const autoresNota = autores.map(a => {
-                    let apellidoCompleto = a.primerApellido;
-                    if (a.segundoApellido) apellidoCompleto += ` ${a.segundoApellido}`;
-                    return `${a.iniciales} ${apellidoCompleto}`;
-                }).join(', ');
-
-                let notaFigura = `<i>Nota.</i> De <i>${titulo}</i> [Imagen], por ${autoresNota}, ${anio}, ${sitioWeb} (${url}).`;
-
-                if (tipo === 'imagen-atribucion' && licencia) {
-                    notaFigura += ` Licencia ${licencia}.`;
-                }
-
-                document.getElementById('notaFigura').innerHTML = notaFigura;
+            if (autores.length === 1) {
+                autorPrincipal = getPrimerApellido(autores[0]);
+            } else if (autores.length === 2) {
+                autorPrincipal = `${getPrimerApellido(autores[0])} y ${getPrimerApellido(autores[1])}`;
             } else {
-                // Generar citas - SOLO el primer apellido (sin el segundo apellido)
-                let autorPrincipal = '';
-                let etAl = '';
-
-                if (tipo === 'wikipedia') {
-                    autorPrincipal = titulo;
-                    etAl = '';
-                } else if (autores.length === 1) {
-                    autorPrincipal = getPrimerApellido(autores[0]); // Solo primer apellido
-                    etAl = '';
-                } else if (autores.length === 2) {
-                    autorPrincipal = `${getPrimerApellido(autores[0])} y ${getPrimerApellido(autores[1])}`;
-                    etAl = '';
-                } else {
-                    autorPrincipal = getPrimerApellido(autores[0]); // Solo primer apellido
-                    etAl = ' et al.';
-                }
-
-                let citaNarrativa = `${autorPrincipal}${etAl} (${anio}, p. )`;
-                let citaParentetica = `(${autorPrincipal}${etAl}, ${anio}, p. )`;
-
-                // Para videos de YouTube, añadir timestamp si está presente
-                if (tipo === 'video-youtube') {
-                    const timestamp = document.getElementById('minutosSegundos')?.value.trim();
-                    if (timestamp) {
-                        citaNarrativa = citaNarrativa.replace('p. )', `${timestamp})`);
-                        citaParentetica = citaParentetica.replace('p. )', `${timestamp})`);
-                    } else {
-                        citaNarrativa = citaNarrativa.replace('p. )', ')');
-                        citaParentetica = citaParentetica.replace('p. )', ')');
-                    }
-                }
-
-                document.getElementById('citaNarrativa').textContent = citaNarrativa;
-                document.getElementById('citaParentetica').textContent = citaParentetica;
+                autorPrincipal = getPrimerApellido(autores[0]);
+                etAl = ' et al.';
             }
+
+            let citaNarrativa = `${autorPrincipal}${etAl} (${anio}, p. )`;
+            let citaParentetica = `(${autorPrincipal}${etAl}, ${anio}, p. )`;
+
+            document.getElementById('citaNarrativa').textContent = citaNarrativa;
+            document.getElementById('citaParentetica').textContent = citaParentetica;
         }
 
         function copiarAlPortapapeles(elementId) {
@@ -707,6 +855,9 @@
 
             const addAutorBtn = document.getElementById('addAutor');
             if (addAutorBtn) addAutorBtn.addEventListener('click', agregarAutor);
+
+            const addAutorPodcastBtn = document.getElementById('addAutorPodcast');
+            if (addAutorPodcastBtn) addAutorPodcastBtn.addEventListener('click', agregarAutorPodcast);
 
             const generarBtn = document.getElementById('generarBtn');
             if (generarBtn) generarBtn.addEventListener('click', generarAPA);
