@@ -86,19 +86,24 @@
                     <div class="autor-field">
                         <input type="text" class="primer-apellido" placeholder="Primer Apellido" required>
                         <input type="text" class="segundo-apellido" placeholder="Segundo Apellido">
-                        <input type="text" class="autor-iniciales" placeholder="Iniciales del nombre (Ej: J. A.)" required>
+                        <input type="text" class="autor-iniciales" placeholder="Iniciales del nombre (Ej: J. A.)"
+                            required>
                         <button type="button" class="remove-autor" onclick="removerAutor(this)">×</button>
                     </div>
                 </div>
-                <button type="button" id="addAutor" class="btn-secondary"><i class="fas fa-plus"></i> Agregar Autor</button>
+                <button type="button" id="addAutor" class="btn-secondary"><i class="fas fa-plus"></i> Agregar
+                    Autor</button>
             </div>
 
             <!-- Sección canal YouTube (visible solo para video-youtube) -->
             <div id="youtubeContainer" style="display:none;">
                 <div class="input-group" style="text-align:left; align-items:flex-start;">
-                    <label for="canalYoutube"><i class="fab fa-youtube" style="color:#e74c3c;"></i> Nombre del Canal de YouTube:</label>
-                    <input type="text" id="canalYoutube" placeholder="Ej: Asian Boss, Harvard University, National Geographic">
-                    <small style="color:var(--text-light); margin-top:4px; font-size:0.8rem;">Según APA 7: se usa el nombre del canal que subió el video como autor.</small>
+                    <label for="canalYoutube"><i class="fab fa-youtube" style="color:#e74c3c;"></i> Nombre del Canal de
+                        YouTube:</label>
+                    <input type="text" id="canalYoutube"
+                        placeholder="Ej: Asian Boss, Harvard University, National Geographic">
+                    <small style="color:var(--text-light); margin-top:4px; font-size:0.8rem;">Según APA 7: se usa el
+                        nombre del canal que subió el video como autor.</small>
                 </div>
             </div>
 
@@ -122,8 +127,11 @@
                         <button type="button" class="remove-autor" onclick="removerAutorPodcast(this)">×</button>
                     </div>
                 </div>
-                <button type="button" id="addAutorPodcast" class="btn-secondary"><i class="fas fa-plus"></i> Agregar Autor</button>
-                <small style="color:var(--text-light); margin-top:6px; display:block; font-size:0.8rem;">Aplica si se sabe quiénes son las personas que participan en el podcast. Si no se completan estos campos, se usará el nombre del podcast como autor.</small>
+                <button type="button" id="addAutorPodcast" class="btn-secondary"><i class="fas fa-plus"></i> Agregar
+                    Autor</button>
+                <small style="color:var(--text-light); margin-top:6px; display:block; font-size:0.8rem;">Aplica si se
+                    sabe quiénes son las personas que participan en el podcast. Si no se completan estos campos, se
+                    usará el nombre del podcast como autor.</small>
             </div>
 
             <!-- Sección autor X/Twitter (visible solo para twitter) -->
@@ -131,7 +139,8 @@
                 <div class="input-group" style="text-align:left; align-items:flex-start;">
                     <label for="twitterUsername">Usuario de X (sin @):</label>
                     <input type="text" id="twitterUsername" placeholder="Ej: elonmusk">
-                    <small style="color:var(--text-light); margin-top:4px; font-size:0.8rem;">Se usará el nombre de usuario como autor en la cita y referencia.</small>
+                    <small style="color:var(--text-light); margin-top:4px; font-size:0.8rem;">Se usará el nombre de
+                        usuario como autor en la cita y referencia.</small>
                 </div>
             </div>
 
@@ -262,7 +271,7 @@
 
     <footer>
         <nav><a href="https://www.facebook.com/educacionadistanciacr"><i class="fab fa-facebook"></i></a></nav>
-        <h5>© 2025 - 2026 Proyecto de Educación a Distancia CR <br>Elaborado por Jorge Fernández - v2.0</h5>
+        <h5>© 2025 - 2026 Proyecto de Educación a Distancia CR <br>Elaborado por Jorge Fernández - v2.1.0</h5>
     </footer>
 
     <audio id="themeSwitchSound" preload="auto">
@@ -278,7 +287,7 @@
         <source src="sounds/modpomodoro.mp3" type="audio/mpeg">
     </audio>
     <audio id="removeAutorSound" preload="auto">
-        <source src="sounds/alarm.mp3" type="audio/mpeg">
+        <source src="sounds/modpomodoro.mp3" type="audio/mpeg">
     </audio>
 
     <script>
