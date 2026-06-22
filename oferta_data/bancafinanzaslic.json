@@ -1,0 +1,110 @@
+{
+    "carrera": "Bloque J:",
+    "bloques": [
+        {
+            "nombre": "Bloque J",
+            "asignaturas": [
+                {
+                    "codigo": "00474",
+                    "nombre": "Análisis Económico y Político",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00283",
+                    "nombre": "Mercados Financieros Internacionales",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00455",
+                    "nombre": "Estrategia Empresarial II",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04054",
+                    "nombre": "Gerencia de Riesgo",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque K",
+            "asignaturas": [
+                {
+                    "codigo": "04131",
+                    "nombre": "Fusiones y Adquisiciones",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04053",
+                    "nombre": "Administración de Proyectos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04035",
+                    "nombre": "Supervisión Bancaria",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque L",
+            "asignaturas": [
+                {
+                    "codigo": "04132",
+                    "nombre": "Gestión de Entidades Financieras",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "00205",
+                    "nombre": "Teoría Monetaria",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00478",
+                    "nombre": "Finanzas Internacionales",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                }
+            ]
+        }
+    ]
+}

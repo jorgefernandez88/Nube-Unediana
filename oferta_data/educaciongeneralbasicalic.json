@@ -1,0 +1,128 @@
+{
+    "carrera": "Bloque L:",
+    "bloques": [
+        {
+            "nombre": "Bloque L",
+            "asignaturas": [
+                {
+                    "codigo": "02085",
+                    "nombre": "Indagación, Tecnología y Pensamiento Crítico",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02093",
+                    "nombre": "Autoestima y Desarrollo Humano",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02103",
+                    "nombre": "Legislación Educativa para I y II Ciclos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque M",
+            "asignaturas": [
+                {
+                    "codigo": "02091",
+                    "nombre": "Currículo Integrado en la Escuela Costarricense",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "02078",
+                    "nombre": "Investigación Acción en Contextos Educativos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00372",
+                    "nombre": "Estadística Aplicada a la Educación",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque N",
+            "asignaturas": [
+                {
+                    "codigo": "02204",
+                    "nombre": "Escenarios Educativos de Investigación para la Innovación",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02090",
+                    "nombre": "Pedagogía Intercultural",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "02231",
+                    "nombre": "Seminario de Realidad de la Educación Primaria en Costa Rica",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02229",
+                    "nombre": "Escuela Unidocente en Costa Rica",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00355",
+                    "nombre": "Planificación de la Educación",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02177",
+                    "nombre": "Investigación Dirigida para TFG de I y II Ciclos.",
+                    "oferta": {
+                        "c1": false,
+                        "c2": false,
+                        "c3": false
+                    }
+                }
+            ]
+        }
+    ]
+}

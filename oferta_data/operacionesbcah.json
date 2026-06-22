@@ -1,0 +1,210 @@
+{
+    "carrera": "Bloque E:",
+    "bloques": [
+        {
+            "nombre": "Bloque E",
+            "asignaturas": [
+                {
+                    "codigo": "04141",
+                    "nombre": "Gestión por Procesos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04034",
+                    "nombre": "Seguridad y Salud Ocupacional",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04055",
+                    "nombre": "Costos de Servicios",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "00245",
+                    "nombre": "Microeconomía",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque F",
+            "asignaturas": [
+                {
+                    "codigo": "04142",
+                    "nombre": "Administración de Operaciones",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04143",
+                    "nombre": "Gestión de Sostenibilidad",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "04150",
+                    "nombre": "Costeo de Operaciones",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00544",
+                    "nombre": "Macroeconomía",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque G",
+            "asignaturas": [
+                {
+                    "codigo": "04057",
+                    "nombre": "Métodos de Investigación Científica",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00286",
+                    "nombre": "Técnicas Básicas Control de Calidad",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "04052",
+                    "nombre": "Gestión de la Cadena de Suministros",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "04127",
+                    "nombre": "Innovación Empresarial",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque H",
+            "asignaturas": [
+                {
+                    "codigo": "04058",
+                    "nombre": "Métodos de Investigación Cuantitativa",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04144",
+                    "nombre": "Gestión Emprendedora",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "00438",
+                    "nombre": "Compras y Almacenamiento",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04100",
+                    "nombre": "Finanzas de Mediano y Largo plazo",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque I",
+            "asignaturas": [
+                {
+                    "codigo": "04056",
+                    "nombre": "Métodos de Investigación Cualitativa",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00535",
+                    "nombre": "Preparación y Evaluación de Proyectos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00925",
+                    "nombre": "Comportamiento Organizacional",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00453",
+                    "nombre": "Estrategia Empresarial I",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        }
+    ]
+}

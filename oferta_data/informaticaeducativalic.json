@@ -1,0 +1,146 @@
+{
+    "carrera": "Bloque L:",
+    "bloques": [
+        {
+            "nombre": "Bloque L",
+            "asignaturas": [
+                {
+                    "codigo": "02195",
+                    "nombre": "Plataformas de Aprendizaje en Línea II",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02016",
+                    "nombre": "El Liderazgo y la Sociedad del Conocimiento",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02188",
+                    "nombre": "Ingles para Informática III",
+                    "oferta": {
+                        "c1": false,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02030",
+                    "nombre": "Diseño y Elaboración de Multimedios",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "00372",
+                    "nombre": "Estadística Aplicada a la Educación",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque M",
+            "asignaturas": [
+                {
+                    "codigo": "02240",
+                    "nombre": "Las TIC en entornos inclusivos II",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02094",
+                    "nombre": "Métodos Mixtos en Investigación",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02193",
+                    "nombre": "Diseño de Aplicaciones para Ambientes Educativos II",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02027",
+                    "nombre": "Gestión del Desarrollo Tecnológico",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque N",
+            "asignaturas": [
+                {
+                    "codigo": "04104",
+                    "nombre": "Emprendedurismo y las TIC",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "02036",
+                    "nombre": "Epistemología de la Tecnología",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02189",
+                    "nombre": "Tecnologías Emergentes",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "02162",
+                    "nombre": "Diseño Web con Enfoque Pedagógico",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00340",
+                    "nombre": "Proyecto final de graduación o Tesis",
+                    "oferta": {
+                        "c1": false,
+                        "c2": false,
+                        "c3": false
+                    }
+                }
+            ]
+        }
+    ]
+}

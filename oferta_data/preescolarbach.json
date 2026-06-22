@@ -1,0 +1,242 @@
+{
+    "carrera": "Bloque F:",
+    "bloques": [
+        {
+            "nombre": "Bloque F",
+            "asignaturas": [
+                {
+                    "codigo": "02130",
+                    "nombre": "Mediación pedagógica",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02224",
+                    "nombre": "Inglés Instrumental para Educadores II",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05320",
+                    "nombre": "Familia, niñez y adolescencia",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque G",
+            "asignaturas": [
+                {
+                    "codigo": "02086",
+                    "nombre": "Tecnologías de Información, comunicación y educación preescolar",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05319",
+                    "nombre": "Desarrollo humano en la diversidad de 3 a 6 años",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05322",
+                    "nombre": "Impostación de la voz",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque H",
+            "asignaturas": [
+                {
+                    "codigo": "02140",
+                    "nombre": "Desarrollo del pensamiento  lingüístico II",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00726",
+                    "nombre": "Extensión del centro infantil a la comunidad",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02151",
+                    "nombre": "Educación psicomotriz de 0-6 años",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "02270",
+                    "nombre": "Educación Psicomotriz de 0-6 años (en inglés)",
+                    "oferta": {
+                        "c1": false,
+                        "c2": false,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "05001",
+                    "nombre": "Familia, género y sociedad",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque I",
+            "asignaturas": [
+                {
+                    "codigo": "02206",
+                    "nombre": "Apoyos para el aprendizaje y la participación estudiantil desde un enfoque inclusivo I",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02209",
+                    "nombre": "Estrategias para la convivencia escolar en contextos educativos inclusivos",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00999",
+                    "nombre": "Teoría del aprendizaje",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02083",
+                    "nombre": "Diagnóstico familiar y comunal para Educación Preescolar ***",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque J",
+            "asignaturas": [
+                {
+                    "codigo": "02227",
+                    "nombre": "Valoración pedagógica del desarrollo evolutivo de la niñez de 0 a 6 años *****",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02096",
+                    "nombre": "Fundamentos y metodología de la investigación en educación II",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05308",
+                    "nombre": "Dinámica familiar en el proceso de desarrollo de la niñez de 0 a 6 años",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00768",
+                    "nombre": "Ética profesional docente",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "03179",
+                    "nombre": "Investigación en el aula",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05002",
+                    "nombre": "Elementos generales acerca de la violencia doméstica",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02238",
+                    "nombre": "Educar en derechos humanos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque K",
+            "asignaturas": [
+                {
+                    "codigo": "02025",
+                    "nombre": "Práctica profesional",
+                    "oferta": {
+                        "c1": false,
+                        "c2": false,
+                        "c3": false
+                    }
+                }
+            ]
+        }
+    ]
+}

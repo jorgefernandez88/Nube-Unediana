@@ -1,0 +1,128 @@
+{
+    "carrera": "Bloque L:",
+    "bloques": [
+        {
+            "nombre": "Bloque L",
+            "asignaturas": [
+                {
+                    "codigo": "02133",
+                    "nombre": "Neurodesarrollo infantil 0 a 6 años",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02228",
+                    "nombre": "Interacciones pedagógicas",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02078",
+                    "nombre": "Investigación acción en contextos educativos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02226",
+                    "nombre": "",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque M",
+            "asignaturas": [
+                {
+                    "codigo": "02132",
+                    "nombre": "Introducción a la Neuropsicología infantil",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "05314",
+                    "nombre": "Desarrollo y aprendizaje del infante 0 a 3 años",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05316",
+                    "nombre": "Estrategias pedagógicas para el desarrollo de la niñez de 0 a 3",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque N",
+            "asignaturas": [
+                {
+                    "codigo": "05317",
+                    "nombre": "Desarrollo y aprendizaje del infante 3 a 6 años",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05318",
+                    "nombre": "Estrategias pedagógicas para el desarrollo de la niñez de 3 a 6",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00372",
+                    "nombre": "Estadística aplicada a la Educación",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02204",
+                    "nombre": "Escenarios Educativos de investigación para la innovación",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02042",
+                    "nombre": "Trabajo Final de Graduación Educación Preescolar",
+                    "oferta": {
+                        "c1": false,
+                        "c2": false,
+                        "c3": false
+                    }
+                }
+            ]
+        }
+    ]
+}

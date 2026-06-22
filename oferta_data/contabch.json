@@ -1,0 +1,228 @@
+{
+    "carrera": "Bloque E:",
+    "bloques": [
+        {
+            "nombre": "Bloque E",
+            "asignaturas": [
+                {
+                    "codigo": "04134",
+                    "nombre": "Introducción a las NIC-NIIF",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "04100",
+                    "nombre": "Finanzas de Mediano y Largo Plazo",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00245",
+                    "nombre": "Microeconomía",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05112",
+                    "nombre": "Derecho Empresarial II",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque F",
+            "asignaturas": [
+                {
+                    "codigo": "00544",
+                    "nombre": "Macroeconomía",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "00230",
+                    "nombre": "Contabilidad III",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "04101",
+                    "nombre": "Valuación de Activos Financieros",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "04138",
+                    "nombre": "Contabilidad Aplicada en Tributario",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque G",
+            "asignaturas": [
+                {
+                    "codigo": "00488",
+                    "nombre": "Contabilidad IV",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04057",
+                    "nombre": "Métodos  de Investigación Científica",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00453",
+                    "nombre": "Estrategia Empresarial I",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04135",
+                    "nombre": "Contabilidad de Costos",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque H",
+            "asignaturas": [
+                {
+                    "codigo": "00481",
+                    "nombre": "Contabilidad V",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "00535",
+                    "nombre": "Preparación y Evaluación de Proyectos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04058",
+                    "nombre": "Métodos  de Investigación Cuantitativa",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04139",
+                    "nombre": "Tópicos Avanzados de Costos de Servicios",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque I",
+            "asignaturas": [
+                {
+                    "codigo": "04098",
+                    "nombre": "Contabilidad Gubernamental",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00445",
+                    "nombre": "Auditoría I",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04056",
+                    "nombre": "Métodos  de Investigación Cualitativa",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04042",
+                    "nombre": "Contabilidades Especiales",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04136",
+                    "nombre": "Contabilidad para Pymes",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04137",
+                    "nombre": "Tópicos Avanzados de Contabilidad",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                }
+            ]
+        }
+    ]
+}

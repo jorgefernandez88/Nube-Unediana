@@ -1,0 +1,110 @@
+{
+    "carrera": "Bloque J:",
+    "bloques": [
+        {
+            "nombre": "Bloque J",
+            "asignaturas": [
+                {
+                    "codigo": "04061",
+                    "nombre": "Liderazgo y Negociación Gerencial",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00455",
+                    "nombre": "Estrategia Empresarial II",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04128",
+                    "nombre": "Gestión de pequeñas y medianas empresas",
+                    "oferta": {
+                        "c1": false,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04062",
+                    "nombre": "Técnicas Gerenciales de Programación",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque K",
+            "asignaturas": [
+                {
+                    "codigo": "00478",
+                    "nombre": "Finanzas Internacionales",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "04063",
+                    "nombre": "Gerencia II",
+                    "oferta": {
+                        "c1": false,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00459",
+                    "nombre": "Cambio Organizacional",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": false
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque L",
+            "asignaturas": [
+                {
+                    "codigo": "00468",
+                    "nombre": "Sistemas de Información Gerencial",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04087",
+                    "nombre": "Toma de Decisiones Gerenciales",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "04059",
+                    "nombre": "Control de Gestión",
+                    "oferta": {
+                        "c1": false,
+                        "c2": false,
+                        "c3": true
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,128 @@
+{
+    "carrera": "Bloque E:",
+    "bloques": [
+        {
+            "nombre": "Bloque E",
+            "asignaturas": [
+                {
+                    "codigo": "02131",
+                    "nombre": "Gestión del currículum",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05307",
+                    "nombre": "Manejo del conflicto en contextos educativos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "00355",
+                    "nombre": "Planificación de la educación",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04097",
+                    "nombre": "Liderazgo y desarrollo del talento humano",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque F",
+            "asignaturas": [
+                {
+                    "codigo": "02158",
+                    "nombre": "Estadística para la toma de decisiones",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02123",
+                    "nombre": "Formulación y evaluación de proyectos en instituciones u organizaciones educativas",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02159",
+                    "nombre": "Ética para la administración de la educación",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05328",
+                    "nombre": "Legislación educativa I",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque G",
+            "asignaturas": [
+                {
+                    "codigo": "05329",
+                    "nombre": "Legislación educativa II",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02203",
+                    "nombre": "Supervisión pedagógica",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "02078",
+                    "nombre": "Investigación acción en contextos educativos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00326",
+                    "nombre": "Economía de la educación",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                }
+            ]
+        }
+    ]
+}

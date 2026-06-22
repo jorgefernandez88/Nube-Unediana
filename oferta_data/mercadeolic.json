@@ -1,0 +1,101 @@
+{
+    "carrera": "Bloque J:",
+    "bloques": [
+        {
+            "nombre": "Bloque J",
+            "asignaturas": [
+                {
+                    "codigo": "00455",
+                    "nombre": "Estrategia Empresarial II",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04016",
+                    "nombre": "Conducta del Consumidor",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04017",
+                    "nombre": "Decisiones Publicitarias",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque K",
+            "asignaturas": [
+                {
+                    "codigo": "04018",
+                    "nombre": "Gestión Comercialización",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00483",
+                    "nombre": "Administración del Comercio Internacional",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "04019",
+                    "nombre": "Relaciones Públicas",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque L",
+            "asignaturas": [
+                {
+                    "codigo": "04011",
+                    "nombre": "Tendencias Actuales del Marketing",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "04020",
+                    "nombre": "Plan de Mercadeo",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04037",
+                    "nombre": "Gestión Empresarial",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,128 @@
+{
+    "carrera": "Bloque K:",
+    "bloques": [
+        {
+            "nombre": "Bloque K",
+            "asignaturas": [
+                {
+                    "codigo": "02244",
+                    "nombre": "Teoría social e investigación interdisciplinaria 1",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "02245",
+                    "nombre": "Mediación pedagógica de los Estudios Sociales y Educación Cívica en entornos virtuales de aprendizaje",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "02246",
+                    "nombre": "Tendencias de investigación en didáctica de las Ciencias Sociales",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "02249",
+                    "nombre": "Diseño de propuestas curriculares para los Estudios Sociales y Educación Cívica",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": false
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque L",
+            "asignaturas": [
+                {
+                    "codigo": "02248",
+                    "nombre": "Teoría social e investigación interdisciplinaria 2",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "02247",
+                    "nombre": "Material didáctico digital para la enseñanza de los Estudios Sociales y Educación Cívica",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "02078",
+                    "nombre": "Investigación Acción en contextos educativos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02113",
+                    "nombre": "Fenómeno migratorio y sus implicaciones en el panorama mundial",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque M",
+            "asignaturas": [
+                {
+                    "codigo": "05520",
+                    "nombre": "Representaciones de la otredad latinoamericana desde el texto literario, artístico y digital",
+                    "oferta": {
+                        "c1": false,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02204",
+                    "nombre": "Escenarios educativos de investigación para la innovación",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02250",
+                    "nombre": "Interdisciplinariedad y construcción del conocimiento social",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "009752",
+                    "nombre": "Trabajo Final de Graduación*",
+                    "oferta": {
+                        "c1": false,
+                        "c2": false,
+                        "c3": false
+                    }
+                }
+            ]
+        }
+    ]
+}

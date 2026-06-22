@@ -1,0 +1,187 @@
+{
+    "carrera": "Bloque A:",
+    "bloques": [
+        {
+            "nombre": "Bloque A",
+            "asignaturas": [
+                {
+                    "codigo": "02205",
+                    "nombre": "De la Educación Especial a la Educación Inclusiva",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02206",
+                    "nombre": "Apoyos para el aprendizaje y la participación estudiantil desde un enfoque inclusivo I",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05510",
+                    "nombre": "Desarrollo de la persona de 0 a 21 años desde la neurodiversidad",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "03179",
+                    "nombre": "Investigación en el aula",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque B",
+            "asignaturas": [
+                {
+                    "codigo": "02207",
+                    "nombre": "Currículo y programación para la educación inclusiva",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02208",
+                    "nombre": "Redes de apoyo familiares, profesionales y comunales para la educación inclusiva",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02209",
+                    "nombre": "Estrategias para la convivencia escolar en contextos educativos inclusivos",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02210",
+                    "nombre": "Material didáctico y recursos de apoyo para la educación inclusiva",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque C",
+            "asignaturas": [
+                {
+                    "codigo": "02211",
+                    "nombre": "Valoración integral en el contexto educativo",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "02212",
+                    "nombre": "Apoyos para el aprendizaje y la participación estudiantil desde un enfoque inclusivo II",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "02213",
+                    "nombre": "Abordaje pedagógico del lenguaje y la comunicación en contextos inclusivos",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02214",
+                    "nombre": "Abordaje pedagógico de los Estudios Sociales en contextos inclusivos",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque D",
+            "asignaturas": [
+                {
+                    "codigo": "02215",
+                    "nombre": "Abordaje pedagógico de las Ciencias Naturales en contextos inclusivos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02216",
+                    "nombre": "Abordaje pedagógico de las Matemáticas en contextos inclusivos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02217",
+                    "nombre": "Introducción a contextos inclusivos para la inserción sociolaboral",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "02218",
+                    "nombre": "Tecnologías para la educación inclusiva",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02219",
+                    "nombre": "Prácticas de atención temprana centradas en la familia de la población infantil en situación de riesgo biológico o social",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02220",
+                    "nombre": "Fundamentos para la autodeterminación de personas jóvenes y adultas en situación de discapacidad",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                }
+            ]
+        }
+    ]
+}

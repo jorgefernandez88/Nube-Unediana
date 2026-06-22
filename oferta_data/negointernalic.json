@@ -1,0 +1,110 @@
+{
+    "carrera": "Bloque J:",
+    "bloques": [
+        {
+            "nombre": "Bloque J",
+            "asignaturas": [
+                {
+                    "codigo": "00478",
+                    "nombre": "Finanzas internacionales",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "00455",
+                    "nombre": "",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04092",
+                    "nombre": "Integración regional y acuerdos de libre comercio",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "05483",
+                    "nombre": "Inglés empresarial III",
+                    "oferta": {
+                        "c1": false,
+                        "c2": false,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque K",
+            "asignaturas": [
+                {
+                    "codigo": "04096",
+                    "nombre": "Inteligencia de mercados",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "04093",
+                    "nombre": "Introducción al derecho de la propiedad intelectual",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "04094",
+                    "nombre": "Taller de exportaciones, importaciones y comercialización internacional",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque L",
+            "asignaturas": [
+                {
+                    "codigo": "04091",
+                    "nombre": "Taller de negociación internacional",
+                    "oferta": {
+                        "c1": false,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04095",
+                    "nombre": "Dirección de empresas internacionales",
+                    "oferta": {
+                        "c1": false,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04124",
+                    "nombre": "Análisis de datos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        }
+    ]
+}

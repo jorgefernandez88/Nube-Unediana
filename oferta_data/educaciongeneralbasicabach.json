@@ -1,0 +1,237 @@
+{
+    "carrera": "Bloque G:",
+    "bloques": [
+        {
+            "nombre": "Bloque G",
+            "asignaturas": [
+                {
+                    "codigo": "00154",
+                    "nombre": "Didáctica General II",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02230",
+                    "nombre": "Liderazgo en Escenarios Educativos",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02224",
+                    "nombre": "Inglés Instrumental para Educadores  II",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02237",
+                    "nombre": "Neuroeducación",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02236",
+                    "nombre": "Mediación Pedagógica y Evaluación para el aprendizaje",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque H",
+            "asignaturas": [
+                {
+                    "codigo": "02101",
+                    "nombre": "Español II para I y II Ciclos",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00810",
+                    "nombre": "Matemáticas II para I y II Ciclos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02092",
+                    "nombre": "Formación de la Inteligencia Emocional para Niños de I y II Ciclos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02098",
+                    "nombre": "Estudios Sociales II para I y II Ciclos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02089",
+                    "nombre": "Ciencias Naturales II para I y II Ciclos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque I",
+            "asignaturas": [
+                {
+                    "codigo": "02100",
+                    "nombre": "Lectoescritura II para I y II Ciclos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "05217",
+                    "nombre": "Psicología de la Niñez Intermedia y adolescencia",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02096",
+                    "nombre": "Fundamentos y Metodología de la Investigación en Educación II",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00984",
+                    "nombre": "Educación para la paz",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05001",
+                    "nombre": "Familia, Género y Sociedad",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05002",
+                    "nombre": "Elementos Generales acerca de la  Violencia Doméstica",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque J",
+            "asignaturas": [
+                {
+                    "codigo": "02104",
+                    "nombre": "Problemática Ambiental",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02087",
+                    "nombre": "Recursos Tecnológicos para el Aprendizaje",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00768",
+                    "nombre": "Ética Profesional Docente",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00152",
+                    "nombre": "Dinámica de Grupos en Educación",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05174",
+                    "nombre": "Artes Integradas II",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "02233",
+                    "nombre": "Desarrollo Motor y Lúdica",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque K",
+            "asignaturas": [
+                {
+                    "codigo": "00118",
+                    "nombre": "Práctica Docente II",
+                    "oferta": {
+                        "c1": false,
+                        "c2": false,
+                        "c3": false
+                    }
+                }
+            ]
+        }
+    ]
+}

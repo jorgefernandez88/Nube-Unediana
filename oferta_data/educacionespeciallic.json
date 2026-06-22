@@ -1,0 +1,47 @@
+{
+    "carrera": "Bloque G:",
+    "bloques": [
+        {
+            "nombre": "Bloque G",
+            "asignaturas": [
+                {
+                    "codigo": "02241",
+                    "nombre": "Inclusión educativa, social y laboral de personas jóvenes y adultas en situación de discapacidad",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque H",
+            "asignaturas": [
+                {
+                    "codigo": "02242",
+                    "nombre": "Recursos y redes de apoyo para la autodeterminación de personas jóvenes y adultas en situación de discapacidad.",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque I",
+            "asignaturas": [
+                {
+                    "codigo": "02243",
+                    "nombre": "Planificación de procesos de inclusión",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        }
+    ]
+}

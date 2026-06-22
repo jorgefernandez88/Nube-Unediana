@@ -1,0 +1,192 @@
+{
+    "carrera": "Bloque E:",
+    "bloques": [
+        {
+            "nombre": "Bloque E",
+            "asignaturas": [
+                {
+                    "codigo": "00245",
+                    "nombre": "Microeconomía",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04036",
+                    "nombre": "Introducción a los Negocios Internacionales",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "04032",
+                    "nombre": "Mercadeo para el Comercio Internacional",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05482",
+                    "nombre": "Inglés Empresarial II",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque F",
+            "asignaturas": [
+                {
+                    "codigo": "00544",
+                    "nombre": "Macroeconomía",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "04031",
+                    "nombre": "Procedimientos y Normativa Legal de Comercio Internacional",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "00444",
+                    "nombre": "Comercio Internacional",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00453",
+                    "nombre": "Estrategia empresarial I",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque G",
+            "asignaturas": [
+                {
+                    "codigo": "04057",
+                    "nombre": "Métodos de Investigación Científica",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04100",
+                    "nombre": "Finanzas de mediano y largo plazo",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04028",
+                    "nombre": "Medios de Transporte Internacional de Carga y Seguro",
+                    "oferta": {
+                        "c1": false,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04029",
+                    "nombre": "Medios de Pago utilizados en el Comercio Internacional",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque H",
+            "asignaturas": [
+                {
+                    "codigo": "04058",
+                    "nombre": "Métodos de investigación Cuantitativa",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04027",
+                    "nombre": "Teoría y Procedimientos Aduanales",
+                    "oferta": {
+                        "c1": false,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00535",
+                    "nombre": "Preparación y evaluación de Proyectos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque I",
+            "asignaturas": [
+                {
+                    "codigo": "04050",
+                    "nombre": "Emprendedurismo y Plan de Negocios",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "04026",
+                    "nombre": "Comercio Electrónico",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04056",
+                    "nombre": "Métodos de Investigación Cualitativa",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        }
+    ]
+}

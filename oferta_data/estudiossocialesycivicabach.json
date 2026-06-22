@@ -1,0 +1,406 @@
+{
+    "carrera": "Bloque A:",
+    "bloques": [
+        {
+            "nombre": "Bloque A",
+            "asignaturas": [
+                {
+                    "codigo": "02255",
+                    "nombre": "Pedagogía para la enseñanza de los Estudios Sociales y la Educación Cívica",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05555",
+                    "nombre": "Sociedad y cultura del mundo antiguo",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02261",
+                    "nombre": "Introducción a las Ciencias Sociales desde una perspectiva interdisciplinaria",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque B",
+            "asignaturas": [
+                {
+                    "codigo": "02253",
+                    "nombre": "Teoría y principios del diseño curricular",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02265",
+                    "nombre": "Aprendizaje de la Ciencias sociales con tecnologías digitales",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "05556",
+                    "nombre": "Sociedades Antiguas de América",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque C",
+            "asignaturas": [
+                {
+                    "codigo": "02259",
+                    "nombre": "Fundamentos para la evaluación de los aprendizajes",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05553",
+                    "nombre": "Política, sociedad y cultura del mundo medieval",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "02095",
+                    "nombre": "Fundamentos y metodología de la investigación en Educación I (REVISAR No.1)",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05558",
+                    "nombre": "Sociedades indígenas de Costa Rica",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque D",
+            "asignaturas": [
+                {
+                    "codigo": "02254",
+                    "nombre": "Currículum integrado para los Estudios Sociales y la Educación Cívica",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05550",
+                    "nombre": "Modernidad y evolución de la sociedad civil",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05545",
+                    "nombre": "Evolución socioambiental del espacio geográfico",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05552",
+                    "nombre": "Otredad y sociedad colonial de América",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque E",
+            "asignaturas": [
+                {
+                    "codigo": "02258",
+                    "nombre": "Evaluación para los aprendizajes de las Ciencias Sociales",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02257",
+                    "nombre": "Herramientas digitales para la representación y análisis del espacio geográfico",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02256",
+                    "nombre": "Debates de los Estudios Sociales y Ciudadanía",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "05551",
+                    "nombre": "Otredad y sociedad colonial de América",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque F",
+            "asignaturas": [
+                {
+                    "codigo": "05529",
+                    "nombre": "Cognición, emociones y aprendizaje",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02263",
+                    "nombre": "Teoría y praxis de los Estudios Sociales y Educación Cívica",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02096",
+                    "nombre": "Fundamentos y metodología de la investigación en educación II",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05557",
+                    "nombre": "Sociedades indígenas contemporáneas de América Latina",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque G",
+            "asignaturas": [
+                {
+                    "codigo": "02252",
+                    "nombre": "Agentes locales en procesos de integración curricular",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02264",
+                    "nombre": "Tecnología digital para la construcción colectiva del conocimiento",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05554",
+                    "nombre": "Pueblos indígenas costarricenses en la actualidad",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05541",
+                    "nombre": "Procesos identitarios en la conformación de los estados nacionales latinoamericanos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque H",
+            "asignaturas": [
+                {
+                    "codigo": "05542",
+                    "nombre": "Educación inclusiva y ética para la ciudadanía",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02266",
+                    "nombre": "Insumos y materiales digitales en procesos de empoderamiento social",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "03179",
+                    "nombre": "Investigación en el Aula",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05543",
+                    "nombre": "Procesos identitarios en la conformación del Estado costarricense",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque I",
+            "asignaturas": [
+                {
+                    "codigo": "05546",
+                    "nombre": "Modernidad, población y ambiente",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05564",
+                    "nombre": "Institucionalidad costarricense e imaginario social",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "02262",
+                    "nombre": "Procesos migratorios en Centroamérica y América Latina",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05549",
+                    "nombre": "Modernidad y estado costarricense",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque J",
+            "asignaturas": [
+                {
+                    "codigo": "05547",
+                    "nombre": "Subjetividades y vulnerabilidades en Centroamérica a partir del siglo XXI",
+                    "oferta": {
+                        "c1": false,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05544",
+                    "nombre": "Estado moderno y construcción de políticas ciudadanas",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "05548",
+                    "nombre": "Modernidad tardía y Estado costarricense",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "09015",
+                    "nombre": "Práctica docente para la enseñanza de los Estudios Sociales y la Educación Cívica",
+                    "oferta": {
+                        "c1": false,
+                        "c2": false,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "05526",
+                    "nombre": "Semiótica en Ciencias Sociales*",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                }
+            ]
+        }
+    ]
+}

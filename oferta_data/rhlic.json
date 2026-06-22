@@ -1,0 +1,101 @@
+{
+    "carrera": "Bloque J:",
+    "bloques": [
+        {
+            "nombre": "Bloque J",
+            "asignaturas": [
+                {
+                    "codigo": "04124",
+                    "nombre": "Análisis de Bases de Datos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "00455",
+                    "nombre": "Estrategia Empresarial II",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04071",
+                    "nombre": "Diseño de Sistemas de Compensación",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque K",
+            "asignaturas": [
+                {
+                    "codigo": "04076",
+                    "nombre": "Desarrollo Organizacional",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04060",
+                    "nombre": "Técnicas para la Toma de Decisiones",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": false
+                    }
+                },
+                {
+                    "codigo": "04004",
+                    "nombre": "Técnicas de Negociación y Solución de Conflictos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        },
+        {
+            "nombre": "Bloque L",
+            "asignaturas": [
+                {
+                    "codigo": "04037",
+                    "nombre": "Gestión Empresarial",
+                    "oferta": {
+                        "c1": true,
+                        "c2": false,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04074",
+                    "nombre": "Gestión de Recursos Humanos por Competencias",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                },
+                {
+                    "codigo": "04077",
+                    "nombre": "Consultoría de Recursos Humanos",
+                    "oferta": {
+                        "c1": true,
+                        "c2": true,
+                        "c3": true
+                    }
+                }
+            ]
+        }
+    ]
+}
